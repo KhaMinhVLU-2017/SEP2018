@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewBag.Title = "CreateSection";
+}
+
+
+<div class="container-fluid">
+    <!-- Viết nội dung vào đây -->
+    <div class="row">
+        <div class="col-md-12 section_first">
+            <h1>Tạo phiên điểm danh</h1>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 section_second">
+                    <div class="col-md-12">
+                        <form action="#" method="POST">
+                            <div class="form-group col-md-12">
+                                <label class="control-label col-sm-3">Lớp:</label>
+                                <div class="col-sm-7">
+                                    <select class="form-control">
+                                        <option>K21T1</option>
+                                        <option>K21T2</option>
+                                        <option>K21T3</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label class="control-label col-sm-3" for="pwd">Môn học:</label>
+                                <div class="col-sm-7">
+                                    <select class="form-control">
+                                        <option>Application Development Pracitices</option>
+                                        <option>Calculus 1</option>
+                                        <option>Calculus 2</option>
+                                        <option>Computer Science for P.E</option>
+                                        <option>FoC01(K21T)</option>
+                                        <option>Fundamentals of Computing 2 - K21T</option>
+                                        <option>Group Dynamics &amp; Communication - K21T</option>
+                                        <option>Hội thi SV Văn Lang với truyền thống Đạo đức - Ý chí - Sáng tạo</option>
+                                        <option>Intro to Database - K21T</option>
+                                        <option>Introduction to Network &amp; Telecommunication - K21T</option>
+                                        <option>Introduction to Software Engineering - K21T</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label class="control-label col-sm-3">Từ ngày:</label>
+                                <div class="col-sm-5">
+                                    <input class="form-control" type="date" name="txt_datefrom">
+                                </div>
+                                <div class="col-sm-4">
+                                    <input class="form-control" type="time" name="txt_timefrom">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label class="control-label col-sm-3">Đến ngày:</label>
+                                <div class="col-sm-5">
+                                    <input class="form-control" type="date" name="txt_dateto">
+                                </div>
+                                <div class="col-sm-4">
+                                    <input class="form-control" type="time" name="txt_timeto">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <div class="col-sm-offset-3 col-sm-8">
+                                    <button type="submit" class="btn btn-default">Tạo</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

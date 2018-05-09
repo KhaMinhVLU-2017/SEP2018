@@ -1,0 +1,72 @@
+.first_one_row{
+	background: #ffa90b;
+}
+.first_one{
+	padding: 20px;
+}
+.first_two_con{
+	padding: 10px 0 !important;
+}
+.first_two_row{
+	background: #cac3c3;
+}
+.first_two_ul li {
+	display: inline;
+	padding: 0 10px;
+}
+.first_two_div_main div:nth-child(2){
+	position: relative;
+	top: 10px;
+}
+.first_two_div_main div:nth-child(3){
+	position: relative;
+	top: 10px;
+}
+.first_two_ul{
+	padding: 0;
+}
+.footer_right p{
+	color: #3e3eef;
+	font-weight: bold;
+	font-size: 35px;
+}
+.footer_row{
+	background: #ffa90b;
+}
+.footer_right_ul{
+	font-size: 20px;
+}
+
+/*Check Online*/
+.four_row{
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-image: url('../images/banner.jpg');
+	background-attachment: fixed;
+	min-height: 300px;
+}
+
+/* Section Điểm danh của Giáo viên*/
+.section_first{
+	margin: 50px 0 ;
+}
+.section_first > h1{
+	font-family: initial;
+	font-weight: bold;
+	text-align: center;
+}
+.section_second{
+	margin: 50px 0;
+}
+
+/* Notification */
+.noti_first > div:hover {
+	background:orange;
+	transition: 1s; 
+	border: 2px solid ;
+	border-radius: 25px;
+}
+.noti_first > div:not(:hover) {
+	transition: 0.5s; 
+}

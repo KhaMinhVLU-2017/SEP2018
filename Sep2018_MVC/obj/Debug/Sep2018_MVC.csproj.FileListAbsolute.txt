@@ -84,8 +84,8 @@ D:\Learning School\THe Thrid\HKII\SEP\WEb\Sep2018_MVC\Sep2018_MVC\bin\Microsoft.
 D:\Learning School\THe Thrid\HKII\SEP\WEb\Sep2018_MVC\Sep2018_MVC\bin\Microsoft.AI.ServerTelemetryChannel.xml
 D:\Learning School\THe Thrid\HKII\SEP\WEb\Sep2018_MVC\Sep2018_MVC\bin\Microsoft.AI.WindowsServer.xml
 D:\Learning School\THe Thrid\HKII\SEP\WEb\Sep2018_MVC\Sep2018_MVC\bin\Microsoft.AI.Web.xml
-D:\Learning School\THe Thrid\HKII\SEP\WEb\Sep2018_MVC\Sep2018_MVC\obj\Debug\Sep2018_MVC.csprojResolveAssemblyReference.cache
 D:\Learning School\THe Thrid\HKII\SEP\WEb\Sep2018_MVC\Sep2018_MVC\obj\Debug\Sep2018_MVC.csproj.CoreCompileInputs.cache
 D:\Learning School\THe Thrid\HKII\SEP\WEb\Sep2018_MVC\Sep2018_MVC\obj\Debug\Sep2018_MVC.csproj.CopyComplete
 D:\Learning School\THe Thrid\HKII\SEP\WEb\Sep2018_MVC\Sep2018_MVC\obj\Debug\Sep2018_MVC.dll
 D:\Learning School\THe Thrid\HKII\SEP\WEb\Sep2018_MVC\Sep2018_MVC\obj\Debug\Sep2018_MVC.pdb
+D:\Learning School\THe Thrid\HKII\SEP\WEb\Sep2018_MVC\Sep2018_MVC\obj\Debug\Sep2018_MVC.csprojAssemblyReference.cache
