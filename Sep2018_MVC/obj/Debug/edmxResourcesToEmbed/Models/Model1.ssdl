@@ -1,0 +1,334 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SEP_2018_T6Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Attendance">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="date" />
+    <Property Name="BeginTime" Type="time" Precision="7" />
+    <Property Name="EndTime" Type="time" Precision="7" />
+    <Property Name="Lesson" Type="float" />
+    <Property Name="FK_Teaching" Type="int" />
+  </EntityType>
+  <EntityType Name="AttendanceDetail">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Attendance" Type="float" />
+    <Property Name="Note" Type="nvarchar" MaxLength="300" />
+    <Property Name="FK_Attendance" Type="int" />
+    <Property Name="FK_User" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Class">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClassName" Type="nvarchar" MaxLength="200" />
+    <Property Name="FK_Course" Type="int" />
+  </EntityType>
+  <EntityType Name="Course">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CourseName" Type="nvarchar" MaxLength="100" />
+    <Property Name="ShoolYearBegin" Type="date" />
+    <Property Name="ShoolYearEnd" Type="date" />
+  </EntityType>
+  <EntityType Name="Learning">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LearningName" Type="nvarchar" MaxLength="200" />
+    <Property Name="FK_Class" Type="int" />
+    <Property Name="FK_Subject" Type="int" />
+  </EntityType>
+  <EntityType Name="People">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MS" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" />
+    <Property Name="HomeTown" Type="nvarchar(max)" />
+    <Property Name="Birthday" Type="date" />
+    <Property Name="PhoneNumber" Type="int" />
+    <Property Name="CurrentResidence" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Position">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PositionName" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Report">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Dear" Type="nvarchar(max)" />
+    <Property Name="createAt" Type="date" />
+    <Property Name="Title" Type="nvarchar" MaxLength="200" />
+    <Property Name="Content" Type="nvarchar(max)" />
+    <Property Name="FK_People" Type="int" />
+    <Property Name="BeginTime" Type="date" />
+    <Property Name="EndTime" Type="date" />
+    <Property Name="TypeReport" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Subject">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SubjectName" Type="nchar" MaxLength="10" />
+    <Property Name="Lesson" Type="float" />
+    <Property Name="Unit_Lesson" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Teaching">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TeachingName" Type="nvarchar" MaxLength="200" />
+    <Property Name="FK_Subject" Type="int" />
+    <Property Name="FK_Course" Type="int" />
+    <Property Name="FK_User" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="username" />
+    </Key>
+    <Property Name="username" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="password" Type="nchar" MaxLength="10" />
+    <Property Name="avatar" Type="varchar(max)" />
+    <Property Name="PK_Position_Roles" Type="int" />
+    <Property Name="FK_Class" Type="int" />
+    <Property Name="FK_Subject" Type="float" />
+  </EntityType>
+  <Association Name="FK_Attendance_Teaching">
+    <End Role="Teaching" Type="Self.Teaching" Multiplicity="0..1" />
+    <End Role="Attendance" Type="Self.Attendance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teaching">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Attendance">
+        <PropertyRef Name="FK_Teaching" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AttendanceDetail_Attendance1">
+    <End Role="Attendance" Type="Self.Attendance" Multiplicity="0..1" />
+    <End Role="AttendanceDetail" Type="Self.AttendanceDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Attendance">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AttendanceDetail">
+        <PropertyRef Name="FK_Attendance" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AttendanceDetail_User">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="AttendanceDetail" Type="Self.AttendanceDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="username" />
+      </Principal>
+      <Dependent Role="AttendanceDetail">
+        <PropertyRef Name="FK_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Class_Course">
+    <End Role="Course" Type="Self.Course" Multiplicity="0..1" />
+    <End Role="Class" Type="Self.Class" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Class">
+        <PropertyRef Name="FK_Course" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Learning_Class">
+    <End Role="Class" Type="Self.Class" Multiplicity="0..1" />
+    <End Role="Learning" Type="Self.Learning" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Class">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Learning">
+        <PropertyRef Name="FK_Class" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Learning_Subject">
+    <End Role="Subject" Type="Self.Subject" Multiplicity="0..1" />
+    <End Role="Learning" Type="Self.Learning" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subject">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Learning">
+        <PropertyRef Name="FK_Subject" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_People_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="People" Type="Self.People" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="username" />
+      </Principal>
+      <Dependent Role="People">
+        <PropertyRef Name="MS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Report_People1">
+    <End Role="People" Type="Self.People" Multiplicity="0..1" />
+    <End Role="Report" Type="Self.Report" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Report">
+        <PropertyRef Name="FK_People" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Teaching_Course">
+    <End Role="Course" Type="Self.Course" Multiplicity="0..1" />
+    <End Role="Teaching" Type="Self.Teaching" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Teaching">
+        <PropertyRef Name="FK_Course" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Teaching_Subject">
+    <End Role="Subject" Type="Self.Subject" Multiplicity="0..1" />
+    <End Role="Teaching" Type="Self.Teaching" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subject">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Teaching">
+        <PropertyRef Name="FK_Subject" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Teaching_User">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Teaching" Type="Self.Teaching" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="username" />
+      </Principal>
+      <Dependent Role="Teaching">
+        <PropertyRef Name="FK_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Class">
+    <End Role="Class" Type="Self.Class" Multiplicity="0..1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Class">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="FK_Class" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Position1">
+    <End Role="Position" Type="Self.Position" Multiplicity="0..1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Position">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="PK_Position_Roles" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SEP_2018_T6ModelStoreContainer">
+    <EntitySet Name="Attendance" EntityType="Self.Attendance" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AttendanceDetail" EntityType="Self.AttendanceDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Class" EntityType="Self.Class" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Learning" EntityType="Self.Learning" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="People" EntityType="Self.People" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Report" EntityType="Self.Report" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Subject" EntityType="Self.Subject" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Teaching" EntityType="Self.Teaching" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Attendance_Teaching" Association="Self.FK_Attendance_Teaching">
+      <End Role="Teaching" EntitySet="Teaching" />
+      <End Role="Attendance" EntitySet="Attendance" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AttendanceDetail_Attendance1" Association="Self.FK_AttendanceDetail_Attendance1">
+      <End Role="Attendance" EntitySet="Attendance" />
+      <End Role="AttendanceDetail" EntitySet="AttendanceDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AttendanceDetail_User" Association="Self.FK_AttendanceDetail_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="AttendanceDetail" EntitySet="AttendanceDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Class_Course" Association="Self.FK_Class_Course">
+      <End Role="Course" EntitySet="Course" />
+      <End Role="Class" EntitySet="Class" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Learning_Class" Association="Self.FK_Learning_Class">
+      <End Role="Class" EntitySet="Class" />
+      <End Role="Learning" EntitySet="Learning" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Learning_Subject" Association="Self.FK_Learning_Subject">
+      <End Role="Subject" EntitySet="Subject" />
+      <End Role="Learning" EntitySet="Learning" />
+    </AssociationSet>
+    <AssociationSet Name="FK_People_User" Association="Self.FK_People_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="People" EntitySet="People" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Report_People1" Association="Self.FK_Report_People1">
+      <End Role="People" EntitySet="People" />
+      <End Role="Report" EntitySet="Report" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Teaching_Course" Association="Self.FK_Teaching_Course">
+      <End Role="Course" EntitySet="Course" />
+      <End Role="Teaching" EntitySet="Teaching" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Teaching_Subject" Association="Self.FK_Teaching_Subject">
+      <End Role="Subject" EntitySet="Subject" />
+      <End Role="Teaching" EntitySet="Teaching" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Teaching_User" Association="Self.FK_Teaching_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Teaching" EntitySet="Teaching" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Class" Association="Self.FK_User_Class">
+      <End Role="Class" EntitySet="Class" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Position1" Association="Self.FK_User_Position1">
+      <End Role="Position" EntitySet="Position" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

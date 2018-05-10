@@ -89,3 +89,7 @@ D:\Learning School\THe Thrid\HKII\SEP\WEb\Sep2018_MVC\Sep2018_MVC\obj\Debug\Sep2
 D:\Learning School\THe Thrid\HKII\SEP\WEb\Sep2018_MVC\Sep2018_MVC\obj\Debug\Sep2018_MVC.dll
 D:\Learning School\THe Thrid\HKII\SEP\WEb\Sep2018_MVC\Sep2018_MVC\obj\Debug\Sep2018_MVC.pdb
 D:\Learning School\THe Thrid\HKII\SEP\WEb\Sep2018_MVC\Sep2018_MVC\obj\Debug\Sep2018_MVC.csprojAssemblyReference.cache
+D:\Learning School\THe Thrid\HKII\SEP\WEb\Sep2018_MVC\Sep2018_MVC\bin\EntityFramework.dll
+D:\Learning School\THe Thrid\HKII\SEP\WEb\Sep2018_MVC\Sep2018_MVC\bin\EntityFramework.SqlServer.dll
+D:\Learning School\THe Thrid\HKII\SEP\WEb\Sep2018_MVC\Sep2018_MVC\bin\EntityFramework.xml
+D:\Learning School\THe Thrid\HKII\SEP\WEb\Sep2018_MVC\Sep2018_MVC\bin\EntityFramework.SqlServer.xml
