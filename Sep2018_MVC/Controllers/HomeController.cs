@@ -26,17 +26,6 @@ namespace Sep2018_MVC.Controllers
 
             return View();
         }
-        public ActionResult CreateSection()
-        {
-            return View();
-        }
-        public ActionResult CheckOnline()
-        {
-            return View();
-        }
-        public ActionResult Notifi()
-        {
-            return View();
-        }
+     
     }
 }

@@ -142,6 +142,8 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\StaffController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -149,6 +151,33 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Assert\Images\notification.png" />
+    <Content Include="Areas\Admin\Assert\Script\admin.js" />
+    <Content Include="Areas\Admin\Assert\Script\bootstrap.js" />
+    <Content Include="Areas\Admin\Assert\Script\bootstrap.min.js" />
+    <Content Include="Areas\Admin\Assert\Script\jquery.min.js" />
+    <Content Include="Areas\Admin\Assert\Styles\admin.css" />
+    <Content Include="Areas\Admin\Assert\Styles\bootstrap-theme.css" />
+    <Content Include="Areas\Admin\Assert\Styles\bootstrap-theme.min.css" />
+    <Content Include="Areas\Admin\Assert\Styles\bootstrap.css" />
+    <Content Include="Areas\Admin\Assert\Styles\bootstrap.min.css" />
+    <Content Include="Areas\Admin\Assert\Styles\fa-brands.css" />
+    <Content Include="Areas\Admin\Assert\Styles\fa-brands.min.css" />
+    <Content Include="Areas\Admin\Assert\Styles\fa-regular.css" />
+    <Content Include="Areas\Admin\Assert\Styles\fa-regular.min.css" />
+    <Content Include="Areas\Admin\Assert\Styles\fa-solid.css" />
+    <Content Include="Areas\Admin\Assert\Styles\fa-solid.min.css" />
+    <Content Include="Areas\Admin\Assert\Styles\font-awesome.css" />
+    <Content Include="Areas\Admin\Assert\Styles\font-awesome.min.css" />
+    <Content Include="Areas\Admin\Assert\Styles\fontawesome-all.css" />
+    <Content Include="Areas\Admin\Assert\Styles\fontawesome-all.min.css" />
+    <Content Include="Areas\Admin\Assert\Styles\fontawesome.css" />
+    <Content Include="Areas\Admin\Assert\Styles\fontawesome.min.css" />
+    <Content Include="Areas\Admin\Assert\Styles\mainAdmin.css" />
+    <Content Include="Areas\Admin\Assert\webfonts\fa-brands-400.svg" />
+    <Content Include="Areas\Admin\Assert\webfonts\fa-regular-400.svg" />
+    <Content Include="Areas\Admin\Assert\webfonts\fa-solid-900.svg" />
+    <None Include="Areas\Admin\Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Content\admin.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -158,6 +187,7 @@
     <Content Include="Content\fa-brands.min.css" />
     <Content Include="Content\fa-regular.css" />
     <Content Include="Content\fa-regular.min.css" />
+    <Content Include="Content\fa-solid - Copy.css" />
     <Content Include="Content\fa-solid.css" />
     <Content Include="Content\fa-solid.min.css" />
     <Content Include="Content\font-awesome.css" />
@@ -189,6 +219,24 @@
     <Content Include="webfonts\fa-brands-400.svg" />
     <Content Include="webfonts\fa-regular-400.svg" />
     <Content Include="webfonts\fa-solid-900.svg" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Assert\Styles\bootstrap-theme.css.map" />
+    <Content Include="Areas\Admin\Assert\Styles\bootstrap-theme.min.css.map" />
+    <Content Include="Areas\Admin\Assert\Styles\bootstrap.css.map" />
+    <Content Include="Areas\Admin\Assert\Styles\bootstrap.min.css.map" />
+    <Content Include="Areas\Admin\Assert\Styles\importer.less" />
+    <Content Include="Areas\Admin\Assert\webfonts\fa-brands-400.eot" />
+    <Content Include="Areas\Admin\Assert\webfonts\fa-brands-400.ttf" />
+    <Content Include="Areas\Admin\Assert\webfonts\fa-brands-400.woff" />
+    <Content Include="Areas\Admin\Assert\webfonts\fa-brands-400.woff2" />
+    <Content Include="Areas\Admin\Assert\webfonts\fa-regular-400.eot" />
+    <Content Include="Areas\Admin\Assert\webfonts\fa-regular-400.ttf" />
+    <Content Include="Areas\Admin\Assert\webfonts\fa-regular-400.woff" />
+    <Content Include="Areas\Admin\Assert\webfonts\fa-regular-400.woff2" />
+    <Content Include="Areas\Admin\Assert\webfonts\fa-solid-900.eot" />
+    <Content Include="Areas\Admin\Assert\webfonts\fa-solid-900.ttf" />
+    <Content Include="Areas\Admin\Assert\webfonts\fa-solid-900.woff" />
+    <Content Include="Areas\Admin\Assert\webfonts\fa-solid-900.woff2" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -215,7 +263,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\CreateSection.cshtml" />
+    <Content Include="Areas\Admin\Views\Staff\CreateSection.cshtml" />
     <Content Include="webfonts\fa-brands-400.eot" />
     <Content Include="webfonts\fa-brands-400.ttf" />
     <Content Include="webfonts\fa-brands-400.woff" />
@@ -228,12 +276,14 @@
     <Content Include="webfonts\fa-solid-900.ttf" />
     <Content Include="webfonts\fa-solid-900.woff" />
     <Content Include="webfonts\fa-solid-900.woff2" />
-    <Content Include="Views\Home\CheckOnline.cshtml" />
-    <Content Include="Views\Home\Notifi.cshtml" />
+    <Content Include="Areas\Admin\Views\Staff\CheckOnline.cshtml" />
+    <Content Include="Areas\Admin\Views\Staff\Notifi.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Staff\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
