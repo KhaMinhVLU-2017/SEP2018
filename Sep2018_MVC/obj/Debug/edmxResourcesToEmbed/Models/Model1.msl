@@ -61,6 +61,7 @@
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="HomeTown" ColumnName="HomeTown" />
           <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
           <ScalarProperty Name="CurrentResidence" ColumnName="CurrentResidence" />
         </MappingFragment>
@@ -118,7 +119,6 @@
           <ScalarProperty Name="avatar" ColumnName="avatar" />
           <ScalarProperty Name="PK_Position_Roles" ColumnName="PK_Position_Roles" />
           <ScalarProperty Name="FK_Class" ColumnName="FK_Class" />
-          <ScalarProperty Name="FK_Subject" ColumnName="FK_Subject" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

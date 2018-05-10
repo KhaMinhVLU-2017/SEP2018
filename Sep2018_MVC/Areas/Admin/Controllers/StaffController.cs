@@ -35,5 +35,9 @@ namespace Sep2018_MVC.Areas.Admin.Controllers
             ViewData["meoSubject"] = meoSubject;
             return View();
         }
+        public ActionResult CreateAccount()
+        {
+            return View();
+        }
     }
 }

@@ -152,6 +152,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\StaffController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="Models\Attendance.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -161,12 +165,8 @@
     <Compile Include="Models\Class.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Models\Course.cs">
       <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Learning.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -192,7 +192,6 @@
     <Compile Include="Models\Position.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Report.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -205,13 +204,63 @@
     <Compile Include="Models\User.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Assert\Images\Identity_VI.png" />
+    <Content Include="Areas\Admin\Assert\Images\img\blog-bg.jpg" />
+    <Content Include="Areas\Admin\Assert\Images\img\checkbox-gray.png" />
+    <Content Include="Areas\Admin\Assert\Images\img\friends\fr-01.jpg" />
+    <Content Include="Areas\Admin\Assert\Images\img\friends\fr-02.jpg" />
+    <Content Include="Areas\Admin\Assert\Images\img\friends\fr-03.jpg" />
+    <Content Include="Areas\Admin\Assert\Images\img\friends\fr-04.jpg" />
+    <Content Include="Areas\Admin\Assert\Images\img\friends\fr-05.jpg" />
+    <Content Include="Areas\Admin\Assert\Images\img\friends\fr-06.jpg" />
+    <Content Include="Areas\Admin\Assert\Images\img\friends\fr-07.jpg" />
+    <Content Include="Areas\Admin\Assert\Images\img\friends\fr-08.jpg" />
+    <Content Include="Areas\Admin\Assert\Images\img\friends\fr-09.jpg" />
+    <Content Include="Areas\Admin\Assert\Images\img\friends\fr-10.jpg" />
+    <Content Include="Areas\Admin\Assert\Images\img\friends\fr-11.jpg" />
+    <Content Include="Areas\Admin\Assert\Images\img\instagram.jpg" />
+    <Content Include="Areas\Admin\Assert\Images\img\login-bg.jpg" />
+    <Content Include="Areas\Admin\Assert\Images\img\lorde.jpg" />
+    <Content Include="Areas\Admin\Assert\Images\img\mask.png" />
+    <Content Include="Areas\Admin\Assert\Images\img\ny.jpg" />
+    <Content Include="Areas\Admin\Assert\Images\img\portfolio\port01.jpg" />
+    <Content Include="Areas\Admin\Assert\Images\img\portfolio\port02.jpg" />
+    <Content Include="Areas\Admin\Assert\Images\img\portfolio\port03.jpg" />
+    <Content Include="Areas\Admin\Assert\Images\img\portfolio\port04.jpg" />
+    <Content Include="Areas\Admin\Assert\Images\img\portfolio\port05.jpg" />
+    <Content Include="Areas\Admin\Assert\Images\img\portfolio\port06.jpg" />
+    <Content Include="Areas\Admin\Assert\Images\img\product.jpg" />
+    <Content Include="Areas\Admin\Assert\Images\img\product.png" />
+    <Content Include="Areas\Admin\Assert\Images\img\profile-01.jpg" />
+    <Content Include="Areas\Admin\Assert\Images\img\profile-02.jpg" />
+    <Content Include="Areas\Admin\Assert\Images\img\radio-gray.png" />
+    <Content Include="Areas\Admin\Assert\Images\img\ui-danro.jpg" />
+    <Content Include="Areas\Admin\Assert\Images\img\ui-divya.jpg" />
+    <Content Include="Areas\Admin\Assert\Images\img\ui-sam.jpg" />
+    <Content Include="Areas\Admin\Assert\Images\img\ui-sherman.jpg" />
+    <Content Include="Areas\Admin\Assert\Images\img\ui-zac.jpg" />
+    <Content Include="Areas\Admin\Assert\Images\img\weather.jpg" />
+    <Content Include="Areas\Admin\Assert\Images\img\zoom.png" />
     <Content Include="Areas\Admin\Assert\Images\notification.png" />
     <Content Include="Areas\Admin\Assert\Script\admin.js" />
     <Content Include="Areas\Admin\Assert\Script\bootstrap.js" />
     <Content Include="Areas\Admin\Assert\Script\bootstrap.min.js" />
+    <Content Include="Areas\Admin\Assert\Script\Chart.js" />
+    <Content Include="Areas\Admin\Assert\Script\common-scripts.js" />
+    <Content Include="Areas\Admin\Assert\Script\gritter-conf.js" />
+    <Content Include="Areas\Admin\Assert\Script\jquery-1.8.3.min.js" />
+    <Content Include="Areas\Admin\Assert\Script\jquery.dcjqaccordion.2.7.js" />
+    <Content Include="Areas\Admin\Assert\Script\jquery.gritter.js" />
+    <Content Include="Areas\Admin\Assert\Script\jquery.js" />
     <Content Include="Areas\Admin\Assert\Script\jquery.min.js" />
+    <Content Include="Areas\Admin\Assert\Script\jquery.nicescroll.js" />
+    <Content Include="Areas\Admin\Assert\Script\jquery.scrollTo.min.js" />
+    <Content Include="Areas\Admin\Assert\Script\jquery.sparkline.js" />
+    <Content Include="Areas\Admin\Assert\Script\sparkline-chart.js" />
+    <Content Include="Areas\Admin\Assert\Script\zabuto_calendar.js" />
     <Content Include="Areas\Admin\Assert\Styles\admin.css" />
     <Content Include="Areas\Admin\Assert\Styles\bootstrap-theme.css" />
     <Content Include="Areas\Admin\Assert\Styles\bootstrap-theme.min.css" />
@@ -229,10 +278,17 @@
     <Content Include="Areas\Admin\Assert\Styles\fontawesome-all.min.css" />
     <Content Include="Areas\Admin\Assert\Styles\fontawesome.css" />
     <Content Include="Areas\Admin\Assert\Styles\fontawesome.min.css" />
-    <Content Include="Areas\Admin\Assert\Styles\mainAdmin.css" />
+    <Content Include="Areas\Admin\Assert\Styles\jquery.gritter.css" />
+    <Content Include="Areas\Admin\Assert\Styles\style-responsive.css" />
+    <Content Include="Areas\Admin\Assert\Styles\style1.css" />
+    <Content Include="Areas\Admin\Assert\Styles\styleAdmin.css" />
+    <Content Include="Areas\Admin\Assert\Styles\zabuto_calendar.css" />
     <Content Include="Areas\Admin\Assert\webfonts\fa-brands-400.svg" />
     <Content Include="Areas\Admin\Assert\webfonts\fa-regular-400.svg" />
     <Content Include="Areas\Admin\Assert\webfonts\fa-solid-900.svg" />
+    <Content Include="Areas\Admin\Assert\Images\img\.DS_Store" />
+    <Content Include="Areas\Admin\Assert\Images\img\friends\.DS_Store" />
+    <Content Include="Areas\Admin\Assert\Images\img\portfolio\.DS_Store" />
     <None Include="Areas\Admin\Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Content\admin.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -310,6 +366,7 @@
     <Content Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\Admin\Views\Staff\CreateAccount.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

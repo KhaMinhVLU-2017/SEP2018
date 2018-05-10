@@ -61,6 +61,7 @@
           <Property Name="Name" Type="nvarchar" MaxLength="200" />
           <Property Name="HomeTown" Type="nvarchar(max)" />
           <Property Name="Birthday" Type="date" />
+          <Property Name="Email" Type="nvarchar(max)" />
           <Property Name="PhoneNumber" Type="int" />
           <Property Name="CurrentResidence" Type="nvarchar(max)" />
         </EntityType>
@@ -90,7 +91,7 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="SubjectName" Type="nchar" MaxLength="10" />
+          <Property Name="SubjectName" Type="nvarchar(max)" />
           <Property Name="Lesson" Type="float" />
           <Property Name="Unit_Lesson" Type="nvarchar" MaxLength="10" />
         </EntityType>
@@ -109,11 +110,10 @@
             <PropertyRef Name="username" />
           </Key>
           <Property Name="username" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="password" Type="nchar" MaxLength="10" />
+          <Property Name="password" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="avatar" Type="varchar(max)" />
           <Property Name="PK_Position_Roles" Type="int" />
           <Property Name="FK_Class" Type="int" />
-          <Property Name="FK_Subject" Type="float" />
         </EntityType>
         <Association Name="FK_Attendance_Teaching">
           <End Role="Teaching" Type="Self.Teaching" Multiplicity="0..1" />
@@ -408,6 +408,7 @@
           <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="HomeTown" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Birthday" Type="DateTime" Precision="0" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="PhoneNumber" Type="Int32" />
           <Property Name="CurrentResidence" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="User" Relationship="Self.FK_People_User" FromRole="People" ToRole="User" />
@@ -441,7 +442,7 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SubjectName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="SubjectName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Lesson" Type="Double" />
           <Property Name="Unit_Lesson" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Learnings" Relationship="Self.FK_Learning_Subject" FromRole="Subject" ToRole="Learning" />
@@ -466,11 +467,10 @@
             <PropertyRef Name="username" />
           </Key>
           <Property Name="username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="avatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="PK_Position_Roles" Type="Int32" />
           <Property Name="FK_Class" Type="Int32" />
-          <Property Name="FK_Subject" Type="Double" />
           <NavigationProperty Name="AttendanceDetails" Relationship="Self.FK_AttendanceDetail_User" FromRole="User" ToRole="AttendanceDetail" />
           <NavigationProperty Name="Class" Relationship="Self.FK_User_Class" FromRole="User" ToRole="Class" />
           <NavigationProperty Name="People" Relationship="Self.FK_People_User" FromRole="User" ToRole="People" />
@@ -764,6 +764,7 @@
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="HomeTown" ColumnName="HomeTown" />
                 <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
                 <ScalarProperty Name="CurrentResidence" ColumnName="CurrentResidence" />
               </MappingFragment>
@@ -821,7 +822,6 @@
                 <ScalarProperty Name="avatar" ColumnName="avatar" />
                 <ScalarProperty Name="PK_Position_Roles" ColumnName="PK_Position_Roles" />
                 <ScalarProperty Name="FK_Class" ColumnName="FK_Class" />
-                <ScalarProperty Name="FK_Subject" ColumnName="FK_Subject" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

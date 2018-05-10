@@ -56,6 +56,7 @@
     <Property Name="Name" Type="nvarchar" MaxLength="200" />
     <Property Name="HomeTown" Type="nvarchar(max)" />
     <Property Name="Birthday" Type="date" />
+    <Property Name="Email" Type="nvarchar(max)" />
     <Property Name="PhoneNumber" Type="int" />
     <Property Name="CurrentResidence" Type="nvarchar(max)" />
   </EntityType>
@@ -85,7 +86,7 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="SubjectName" Type="nchar" MaxLength="10" />
+    <Property Name="SubjectName" Type="nvarchar(max)" />
     <Property Name="Lesson" Type="float" />
     <Property Name="Unit_Lesson" Type="nvarchar" MaxLength="10" />
   </EntityType>
@@ -104,11 +105,10 @@
       <PropertyRef Name="username" />
     </Key>
     <Property Name="username" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="password" Type="nchar" MaxLength="10" />
+    <Property Name="password" Type="nchar" MaxLength="10" Nullable="false" />
     <Property Name="avatar" Type="varchar(max)" />
     <Property Name="PK_Position_Roles" Type="int" />
     <Property Name="FK_Class" Type="int" />
-    <Property Name="FK_Subject" Type="float" />
   </EntityType>
   <Association Name="FK_Attendance_Teaching">
     <End Role="Teaching" Type="Self.Teaching" Multiplicity="0..1" />

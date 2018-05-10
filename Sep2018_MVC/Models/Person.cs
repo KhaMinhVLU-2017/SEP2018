@@ -25,6 +25,7 @@ namespace Sep2018_MVC.Models
         public string Name { get; set; }
         public string HomeTown { get; set; }
         public Nullable<System.DateTime> Birthday { get; set; }
+        public string Email { get; set; }
         public Nullable<int> PhoneNumber { get; set; }
         public string CurrentResidence { get; set; }
     
