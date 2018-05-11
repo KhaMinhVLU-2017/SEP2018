@@ -22,11 +22,11 @@
                 <div class="row">
                     <div class="col-md-6 section_second">
                         <div class="col-md-12">
-                            <form action="#" method="POST">
+                            <form action="/Staff/CheckOnline" method="POST">
                                 <div class="form-group col-md-12">
                                     <label class="control-label col-sm-3">Khoá:</label>
                                     <div class="col-sm-9">
-                                        <select class="form-control">
+                                        <select name="txt_course" class="form-control">
 
                                             @foreach (var item in meoCourse)
                                             {
@@ -38,7 +38,7 @@
                                 <div class="form-group col-md-12">
                                     <label class="control-label col-sm-3">Lớp:</label>
                                     <div class="col-sm-9">
-                                        <select class="form-control">
+                                        <select name="txt_class"  class="form-control">
                                             @foreach (var item in meoClass)
                                             {
                                                 <option id="@item.id">@item.ClassName</option>
@@ -49,7 +49,7 @@
                                 <div class="form-group col-md-12">
                                     <label class="control-label col-sm-3" for="pwd">Môn học:</label>
                                     <div class="col-sm-9">
-                                        <select class="form-control">
+                                        <select name="txt_subject"  class="form-control">
                                             @foreach (var item in meoSubject)
                                             {
                                                 <option id="@item.id">@item.SubjectName</option>
@@ -60,7 +60,7 @@
                                 <div class="form-group col-md-12">
                                     <label class="control-label col-sm-3">Ngày:</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" type="date" name="txt_date">
+                                        <input class="form-control" type="date" name="txt_day">
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12">
@@ -76,7 +76,7 @@
                                 <div class="form-group col-md-12">
                                     <label class="control-label col-sm-3">Số tiết:</label>
                                     <div class="col-sm-4">
-                                        <input class="form-control" type="number" placeholder="2" name="txt_tiet" />
+                                        <input class="form-control" type="number" placeholder="2" name="txt_lesson" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12">
