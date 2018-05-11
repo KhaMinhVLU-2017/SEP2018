@@ -15,11 +15,12 @@ namespace Sep2018_MVC.Models
     public partial class Learning
     {
         public int id { get; set; }
-        public string LearningName { get; set; }
         public Nullable<int> FK_Class { get; set; }
         public Nullable<int> FK_Subject { get; set; }
+        public Nullable<int> FK_Semester { get; set; }
     
         public virtual Class Class { get; set; }
+        public virtual Semester Semester { get; set; }
         public virtual Subject Subject { get; set; }
     }
 }

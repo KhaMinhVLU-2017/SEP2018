@@ -12,23 +12,24 @@ namespace Sep2018_MVC.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Course
+    public partial class Schedule
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Course()
+        public Schedule()
         {
-            this.Classes = new HashSet<Class>();
-            this.Schedules = new HashSet<Schedule>();
+            this.ScheduleDetails = new HashSet<ScheduleDetail>();
         }
     
         public int id { get; set; }
-        public string CourseName { get; set; }
-        public Nullable<System.DateTime> ShoolYearBegin { get; set; }
-        public Nullable<System.DateTime> ShoolYearEnd { get; set; }
+        public string ScheduleName { get; set; }
+        public Nullable<System.DateTime> DateBegin { get; set; }
+        public Nullable<System.DateTime> DateEnd { get; set; }
+        public Nullable<int> FK_Course { get; set; }
+        public Nullable<int> FK_Semester { get; set; }
     
+        public virtual Course Course { get; set; }
+        public virtual Semester Semester { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Class> Classes { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Schedule> Schedules { get; set; }
+        public virtual ICollection<ScheduleDetail> ScheduleDetails { get; set; }
     }
 }

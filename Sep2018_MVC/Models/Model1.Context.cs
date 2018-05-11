@@ -33,8 +33,10 @@ namespace Sep2018_MVC.Models
         public virtual DbSet<Person> People { get; set; }
         public virtual DbSet<Position> Positions { get; set; }
         public virtual DbSet<Report> Reports { get; set; }
+        public virtual DbSet<Schedule> Schedules { get; set; }
+        public virtual DbSet<ScheduleDetail> ScheduleDetails { get; set; }
+        public virtual DbSet<Semester> Semesters { get; set; }
         public virtual DbSet<Subject> Subjects { get; set; }
-        public virtual DbSet<Teaching> Teachings { get; set; }
         public virtual DbSet<User> Users { get; set; }
     }
 }

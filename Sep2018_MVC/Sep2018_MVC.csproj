@@ -195,10 +195,16 @@
     <Compile Include="Models\Report.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Subject.cs">
+    <Compile Include="Models\Schedule.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Teaching.cs">
+    <Compile Include="Models\ScheduleDetail.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Semester.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Subject.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\User.cs">
@@ -359,6 +365,7 @@
     <Content Include="Areas\Admin\Assert\webfonts\fa-solid-900.ttf" />
     <Content Include="Areas\Admin\Assert\webfonts\fa-solid-900.woff" />
     <Content Include="Areas\Admin\Assert\webfonts\fa-solid-900.woff2" />
+    <Content Include="Areas\Admin\Views\Staff\CreateAccount.cshtml" />
     <EntityDeploy Include="Models\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
@@ -366,7 +373,6 @@
     <Content Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
-    <Content Include="Areas\Admin\Views\Staff\CreateAccount.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
