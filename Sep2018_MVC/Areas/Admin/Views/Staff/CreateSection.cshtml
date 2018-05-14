@@ -1,93 +1,102 @@
 ﻿@using Sep2018_MVC.Models
 @model List<Course>
-    @{
-        ViewBag.Title = "CreateSection";
-        Layout = "~/Areas/Admin/Views/Shared/_layoutAdmin.cshtml";
-        List<Course> meoCourse = new List<Course>();
-        meoCourse = (List<Course>)ViewData["meoCourse"];
-        List<Class> meoClass = new List<Class>();
-        meoClass = (List<Class>)ViewData["meoClass"];
-        List<Subject> meoSubject = new List<Subject>();
-        meoSubject = (List<Subject>)ViewData["meoSubject"];
-    }
+@{
+    ViewBag.Title = "CreateSection";
+    Layout = "~/Areas/Admin/Views/Shared/_layoutAdmin.cshtml";
+
+}
 
 
-    <div class="container-fluid">
-        <!-- Viết nội dung vào đây -->
-        <div class="row">
-            <div class="col-md-12 section_first">
-                <h1>Tạo phiên điểm danh</h1>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 section_second">
-                        <div class="col-md-12">
-                            <form action="/Staff/CheckOnline" method="POST">
-                                <div class="form-group col-md-12">
-                                    <label class="control-label col-sm-3">Khoá:</label>
-                                    <div class="col-sm-9">
-                                        <select name="txt_course" class="form-control">
-
-                                            @foreach (var item in meoCourse)
-                                            {
-                                                <option id="@item.id">@item.CourseName</option>
-                                            }
-                                        </select>
-                                    </div>
+<div class="container-fluid">
+    <!-- Viết nội dung vào đây -->
+    <div class="row">
+        <div class="col-md-12 section_first">
+            <h1>Tạo phiên điểm danh</h1>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 section_second">
+                    <div class="col-md-12">
+                        <form action="/Staff/CheckOnline" method="POST">
+                            <div class="form-group col-md-12">
+                                <label class="control-label col-sm-3">Khoá:</label>
+                                <div class="col-sm-9">
+                                    <select id="txt_course" name="txt_course" class="form-control">
+                                        @foreach (var item in Model)
+                                        {
+                                            <option id="@item.id">@item.CourseName</option>
+                                        }
+                                    </select>
                                 </div>
-                                <div class="form-group col-md-12">
-                                    <label class="control-label col-sm-3">Lớp:</label>
-                                    <div class="col-sm-9">
-                                        <select name="txt_class"  class="form-control">
-                                            @foreach (var item in meoClass)
-                                            {
-                                                <option id="@item.id">@item.ClassName</option>
-                                            }
-                                        </select>
-                                    </div>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label class="control-label col-sm-3">Lớp:</label>
+                                <div class="col-sm-9">
+                                    <select id="txt_class" name="txt_class" class="form-control"></select>
                                 </div>
-                                <div class="form-group col-md-12">
-                                    <label class="control-label col-sm-3" for="pwd">Môn học:</label>
-                                    <div class="col-sm-9">
-                                        <select name="txt_subject"  class="form-control">
-                                            @foreach (var item in meoSubject)
-                                            {
-                                                <option id="@item.id">@item.SubjectName</option>
-                                            }
-                                        </select>
-                                    </div>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label class="control-label col-sm-3" for="pwd">Môn học:</label>
+                                <div class="col-sm-9">
+                                    <select id="txt_subject" name="txt_subject" class="form-control"></select>
                                 </div>
-                                <div class="form-group col-md-12">
-                                    <label class="control-label col-sm-3">Ngày:</label>
-                                    <div class="col-sm-9">
-                                        <input class="form-control" type="date" name="txt_day">
-                                    </div>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label class="control-label col-sm-3">Ngày:</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" type="date" name="txt_day">
                                 </div>
-                                <div class="form-group col-md-12">
-                                    <label class="control-label col-sm-3">Thời gian:</label>
-                                    <div class="col-sm-4">
-                                        <input class="form-control" type="time" name="txt_timefrom">
-                                    </div>
-                                    <span class=" col-sm-1"><i class="fas fa-long-arrow-alt-right "></i></span>
-                                    <div class="col-sm-4">
-                                        <input class="form-control" type="time" name="txt_timeto">
-                                    </div>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label class="control-label col-sm-3">Thời gian:</label>
+                                <div class="col-sm-4">
+                                    <input class="form-control" type="time" name="txt_timefrom">
                                 </div>
-                                <div class="form-group col-md-12">
-                                    <label class="control-label col-sm-3">Số tiết:</label>
-                                    <div class="col-sm-4">
-                                        <input class="form-control" type="number" placeholder="2" name="txt_lesson" />
-                                    </div>
+                                <span class=" col-sm-1"><i class="fas fa-long-arrow-alt-right "></i></span>
+                                <div class="col-sm-4">
+                                    <input class="form-control" type="time" name="txt_timeto">
                                 </div>
-                                <div class="form-group col-md-12">
-                                    <div class="col-sm-offset-3 col-sm-8">
-                                        <button type="submit" class="btn btn-default">Tạo</button>
-                                    </div>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label class="control-label col-sm-3">Số tiết:</label>
+                                <div class="col-sm-4">
+                                    <input class="form-control" type="number" placeholder="2" name="txt_lesson" />
                                 </div>
-                            </form>
-                        </div>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <div class="col-sm-offset-3 col-sm-8">
+                                    <button type="submit" class="btn btn-default">Tạo</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+<script>
+    var txt_class = document.getElementById('txt_class');
+    var txt_course = document.getElementById('txt_course');
+    var txt_subject = document.getElementById('txt_subject');
+    var url = window.location.origin;//get url to local
+    txt_course.addEventListener("change", crawClass);
+    function crawClass() {
+        var id = $(this).children(":selected").attr("id");
+        $.ajax({
+            type: 'GET',
+            url: url + "/Admin/Staff/ClassMeo/" + id,
+            dataType: "json",
+            success: function (data) {
+                $.each(data, function (key, value) {
+                    //console.log(value);
+                    var p = document.createElement('option');
+                    p.innerText = value.classname;
+                    p.setAttribute("id", value.id_class);
+                    txt_class.appendChild(p);
+                })
+            }
+        });
+    }
+
+</script>

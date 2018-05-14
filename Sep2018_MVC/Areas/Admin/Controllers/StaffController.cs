@@ -12,6 +12,7 @@ namespace Sep2018_MVC.Areas.Admin.Controllers
     public class StaffController : Controller
     {
         // GET: Admin/Staff
+        SEP_2018_T6Entities db = new SEP_2018_T6Entities();
         [HttpPost]
         public ActionResult CheckOnline(HttpRequest request)
         {
@@ -24,22 +25,25 @@ namespace Sep2018_MVC.Areas.Admin.Controllers
         }
         public ActionResult CreateSection()
         {
-            SEP_2018_T6Entities db = new SEP_2018_T6Entities();
+           
             List<Course> meoCourse = new List<Course>();
             meoCourse = db.Courses.ToList();
-            List<Class> meoClass = new List<Class>();
-            meoClass =  db.Classes.ToList();
-            List<Subject> meoSubject = new List<Subject>();
-            meoSubject = db.Subjects.ToList();
 
-            ViewData["meoCourse"] = meoCourse;
-            ViewData["meoClass"] = meoClass;
-            ViewData["meoSubject"] = meoSubject;
-            return View();
+            return View(meoCourse);
         }
         public ActionResult CreateAccount()
         {
             return View();
+        }
+
+        public ActionResult ClassMeo(int ?id)
+        {
+            List<object> meo = new List<object>();
+            foreach(var item in db.Classes.Where(s=>s.FK_Course==id))
+            {
+                meo.Add(new { id_class= item.id, classname = item.ClassName});
+            }
+            return Json(meo, JsonRequestBehavior.AllowGet);
         }
     }
 }
