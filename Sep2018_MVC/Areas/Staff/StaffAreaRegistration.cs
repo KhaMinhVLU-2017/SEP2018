@@ -8,15 +8,15 @@ namespace Sep2018_MVC.Areas.Admin
         {
             get 
             {
-                return "Admin";
+                return "Staff";
             }
         }
 
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
-                "Admin_default",
-                "Admin/{controller}/{action}/{id}",
+                "Staff_default",
+                "Staff/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional }
             );
         }

@@ -2,7 +2,7 @@
 @model List<Course>
 @{
     ViewBag.Title = "CreateSection";
-    Layout = "~/Areas/Admin/Views/Shared/_layoutAdmin.cshtml";
+    Layout = "~/Areas/Staff/Views/Shared/_layoutAdmin.cshtml";
 
 }
 
@@ -116,7 +116,7 @@
         $.a
         $.ajax({
             type: 'GET',
-            url: url + "/Admin/Teacher/SemesterMeo/" + id,
+            url: url + "/Staff/Teacher/SemesterMeo/" + id,
             dataType: "json",
             success: function (data) {
                 $.each(data, function (key, value) {
@@ -156,7 +156,7 @@
         }
         $.ajax({
             type: 'GET',
-            url: url + "/Admin/Teacher/ClassMeo/?id=" + id + "&&id_course=" + id_course,
+            url: url + "/Staff/Teacher/ClassMeo/?id=" + id + "&&id_course=" + id_course,
             dataType: "json",
             success: function (data) {
                 $.each(data, function (key, value) {
@@ -183,7 +183,7 @@
         }
         $.ajax({
             type: 'GET',
-            url: url + "/Admin/Teacher/Subject/?id_Class=" + id + "&&id_semester=" + id_semester,
+            url: url + "/Staff/Teacher/Subject/?id_Class=" + id + "&&id_semester=" + id_semester,
             dataType: "json",
             success: function (data) {
                 $.each(data, function (key, value) {
