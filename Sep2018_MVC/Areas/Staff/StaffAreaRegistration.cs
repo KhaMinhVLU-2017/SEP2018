@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 
-namespace Sep2018_MVC.Areas.Admin
-{
+namespace Sep2018_MVC.Areas.Staff
+{   
     public class AdminAreaRegistration : AreaRegistration 
     {
         public override string AreaName 

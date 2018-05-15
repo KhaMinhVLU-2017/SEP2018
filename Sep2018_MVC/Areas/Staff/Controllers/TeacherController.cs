@@ -7,7 +7,7 @@ using System.Data.Entity;
 using Sep2018_MVC;
 using Sep2018_MVC.Models;
 
-namespace Sep2018_MVC.Areas.Admin.Controllers
+namespace Sep2018_MVC.Areas.Staff.Controllers
 {
     public class TeacherController : Controller
     {
