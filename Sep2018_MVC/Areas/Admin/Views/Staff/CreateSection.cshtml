@@ -30,6 +30,12 @@
                                 </div>
                             </div>
                             <div class="form-group col-md-12">
+                                <label class="control-label col-sm-3">Học kì:</label>
+                                <div class="col-sm-9">
+                                    <select id="txt_semester" name="txt_semester" class="form-control"></select>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12">
                                 <label class="control-label col-sm-3">Lớp:</label>
                                 <div class="col-sm-9">
                                     <select id="txt_class" name="txt_class" class="form-control"></select>
@@ -77,15 +83,80 @@
 </div>
 <script>
     var txt_class = document.getElementById('txt_class');
+    var txt_semester = document.getElementById('txt_semester');
     var txt_course = document.getElementById('txt_course');
     var txt_subject = document.getElementById('txt_subject');
     var url = window.location.origin;//get url to local
-    txt_course.addEventListener("change", crawClass);
-    function crawClass() {
+    txt_course.addEventListener("change", crawSemester);
+    function crawSemester() {
         var id = $(this).children(":selected").attr("id");
+        var sub_semester = txt_semester.getElementsByTagName("option");
+        var arr = Array.from(sub_semester);
+        if (arr.length > 0) {
+            arr.forEach((item, index) => {
+                txt_semester.removeChild(item);
+            });
+        }
+        /*Clear Class*/
+        var sub_Class = txt_class.getElementsByTagName("option");
+        var arr = Array.from(sub_Class);
+        if (arr.length > 0) {
+            arr.forEach((item, index) => {
+                txt_class.removeChild(item);
+            });
+        }
+        /*Clear Subject*/
+        var sub_subject = txt_subject.getElementsByTagName("option");
+        var arr = Array.from(sub_subject);
+        if (arr.length > 0) {
+            arr.forEach((item, index) => {
+                txt_subject.removeChild(item);
+            });
+        }
+        $.a
         $.ajax({
             type: 'GET',
-            url: url + "/Admin/Staff/ClassMeo/" + id,
+            url: url + "/Admin/Staff/SemesterMeo/" + id,
+            dataType: "json",
+            success: function (data) {
+                $.each(data, function (key, value) {
+                    //console.log(value);
+                    var p = document.createElement('option');
+                    p.innerText = value.semesName;
+                    p.setAttribute("id", value.id_semes);
+                    txt_semester.appendChild(p);
+                })
+            }
+        });
+
+    }
+    txt_semester.addEventListener("change", crawClass);
+    txt_semester.addEventListener("click", crawClass);
+    function crawClass() {
+        var id = $(this).children(":selected").attr("id");
+        //console.log(id);
+        var sub_class = txt_class.getElementsByTagName("option");
+        var id_course = txt_course.options[txt_course.selectedIndex].id;//get ID
+        //console.log(id_course); 
+        /*Clear Classs */
+        var arr = Array.from(sub_class);
+        if (arr.length > 0) {
+            arr.forEach((item, index) => {
+                //console.log(item);
+                txt_class.removeChild(item);
+            });
+        }
+        /**Clear Subject */
+        var sub_subject = txt_subject.getElementsByTagName("option");
+        var arr = Array.from(sub_subject);
+        if (arr.length > 0) {
+            arr.forEach((item, index) => {
+                txt_subject.removeChild(item);
+            });
+        }
+        $.ajax({
+            type: 'GET',
+            url: url + "/Admin/Staff/ClassMeo/?id=" + id + "&&id_course=" + id_course,
             dataType: "json",
             success: function (data) {
                 $.each(data, function (key, value) {
@@ -94,6 +165,33 @@
                     p.innerText = value.classname;
                     p.setAttribute("id", value.id_class);
                     txt_class.appendChild(p);
+                })
+            }
+        });
+    }
+    txt_class.addEventListener("change", crawSubject);
+    function crawSubject() {
+        var id = $(this).children(":selected").attr("id");
+        var id_semester = txt_semester.options[txt_semester.selectedIndex].id;//get ID
+        //console.log(id_semester);
+        var sub_subject = txt_subject.getElementsByTagName("option");
+        var arr = Array.from(sub_subject);
+        if (arr.length > 0) {
+            arr.forEach((item, index) => {
+                txt_subject.removeChild(item);
+            });
+        }
+        $.ajax({
+            type: 'GET',
+            url: url + "/Admin/Staff/Subject/?id_Class=" + id + "&&id_semester=" + id_semester,
+            dataType: "json",
+            success: function (data) {
+                $.each(data, function (key, value) {
+                    console.log(value);
+                    var p = document.createElement('option');
+                    p.innerText = value.subName;
+                    p.setAttribute("id", value.id_subject);
+                    txt_subject.appendChild(p);
                 })
             }
         });
