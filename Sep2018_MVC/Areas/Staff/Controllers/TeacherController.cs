@@ -16,7 +16,10 @@ namespace Sep2018_MVC.Areas.Staff.Controllers
         [HttpPost]
         public ActionResult CheckOnline(HttpRequest request)
         {
-
+            return View();
+        }
+        public ActionResult CheckOnline()
+        {
             return View();
         }
         public ActionResult Notifi()
