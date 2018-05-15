@@ -151,7 +151,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\StaffController.cs" />
+    <Compile Include="Areas\Admin\Controllers\TeacherController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -365,7 +365,7 @@
     <Content Include="Areas\Admin\Assert\webfonts\fa-solid-900.ttf" />
     <Content Include="Areas\Admin\Assert\webfonts\fa-solid-900.woff" />
     <Content Include="Areas\Admin\Assert\webfonts\fa-solid-900.woff2" />
-    <Content Include="Areas\Admin\Views\Staff\CreateAccount.cshtml" />
+    <Content Include="Areas\Admin\Views\Teacher\CreateAccount.cshtml" />
     <EntityDeploy Include="Models\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
@@ -401,7 +401,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Staff\CreateSection.cshtml" />
+    <Content Include="Areas\Admin\Views\Teacher\CreateSection.cshtml" />
     <Content Include="webfonts\fa-brands-400.eot" />
     <Content Include="webfonts\fa-brands-400.ttf" />
     <Content Include="webfonts\fa-brands-400.woff" />
@@ -414,8 +414,8 @@
     <Content Include="webfonts\fa-solid-900.ttf" />
     <Content Include="webfonts\fa-solid-900.woff" />
     <Content Include="webfonts\fa-solid-900.woff2" />
-    <Content Include="Areas\Admin\Views\Staff\CheckOnline.cshtml" />
-    <Content Include="Areas\Admin\Views\Staff\Notifi.cshtml" />
+    <Content Include="Areas\Admin\Views\Teacher\CheckOnline.cshtml" />
+    <Content Include="Areas\Admin\Views\Teacher\Notifi.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

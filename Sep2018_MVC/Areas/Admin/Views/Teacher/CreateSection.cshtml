@@ -116,7 +116,7 @@
         $.a
         $.ajax({
             type: 'GET',
-            url: url + "/Admin/Staff/SemesterMeo/" + id,
+            url: url + "/Admin/Teacher/SemesterMeo/" + id,
             dataType: "json",
             success: function (data) {
                 $.each(data, function (key, value) {
@@ -156,7 +156,7 @@
         }
         $.ajax({
             type: 'GET',
-            url: url + "/Admin/Staff/ClassMeo/?id=" + id + "&&id_course=" + id_course,
+            url: url + "/Admin/Teacher/ClassMeo/?id=" + id + "&&id_course=" + id_course,
             dataType: "json",
             success: function (data) {
                 $.each(data, function (key, value) {
@@ -183,7 +183,7 @@
         }
         $.ajax({
             type: 'GET',
-            url: url + "/Admin/Staff/Subject/?id_Class=" + id + "&&id_semester=" + id_semester,
+            url: url + "/Admin/Teacher/Subject/?id_Class=" + id + "&&id_semester=" + id_semester,
             dataType: "json",
             success: function (data) {
                 $.each(data, function (key, value) {

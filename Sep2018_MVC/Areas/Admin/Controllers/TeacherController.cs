@@ -9,7 +9,7 @@ using Sep2018_MVC.Models;
 
 namespace Sep2018_MVC.Areas.Admin.Controllers
 {
-    public class StaffController : Controller
+    public class TeacherController : Controller
     {
         // GET: Admin/Staff
         SEP_2018_T6Entities db = new SEP_2018_T6Entities();
