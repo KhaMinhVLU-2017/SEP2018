@@ -38,6 +38,7 @@
     <Property Name="CourseName" Type="nvarchar" MaxLength="100" />
     <Property Name="ShoolYearBegin" Type="date" />
     <Property Name="ShoolYearEnd" Type="date" />
+    <Property Name="FK_Semester" Type="int" />
   </EntityType>
   <EntityType Name="Learning">
     <Key>
@@ -132,6 +133,18 @@
     <Property Name="PK_Position_Roles" Type="int" />
     <Property Name="FK_Class" Type="int" />
   </EntityType>
+  <Association Name="FK__Course__FK_Semes__6FE99F9F">
+    <End Role="Semester" Type="Self.Semester" Multiplicity="0..1" />
+    <End Role="Course" Type="Self.Course" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Semester">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Course">
+        <PropertyRef Name="FK_Semester" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Attendance_ScheduleDetail">
     <End Role="ScheduleDetail" Type="Self.ScheduleDetail" Multiplicity="0..1" />
     <End Role="Attendance" Type="Self.Attendance" Multiplicity="*" />
@@ -338,6 +351,10 @@
     <EntitySet Name="Semester" EntityType="Self.Semester" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Subject" EntityType="Self.Subject" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Course__FK_Semes__6FE99F9F" Association="Self.FK__Course__FK_Semes__6FE99F9F">
+      <End Role="Semester" EntitySet="Semester" />
+      <End Role="Course" EntitySet="Course" />
+    </AssociationSet>
     <AssociationSet Name="FK_Attendance_ScheduleDetail" Association="Self.FK_Attendance_ScheduleDetail">
       <End Role="ScheduleDetail" EntitySet="ScheduleDetail" />
       <End Role="Attendance" EntitySet="Attendance" />

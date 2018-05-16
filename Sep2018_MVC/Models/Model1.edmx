@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SEP_2018_T6Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="SEP_2018_T6Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Attendance">
           <Key>
             <PropertyRef Name="id" />
@@ -43,6 +43,7 @@
           <Property Name="CourseName" Type="nvarchar" MaxLength="100" />
           <Property Name="ShoolYearBegin" Type="date" />
           <Property Name="ShoolYearEnd" Type="date" />
+          <Property Name="FK_Semester" Type="int" />
         </EntityType>
         <EntityType Name="Learning">
           <Key>
@@ -137,6 +138,18 @@
           <Property Name="PK_Position_Roles" Type="int" />
           <Property Name="FK_Class" Type="int" />
         </EntityType>
+        <Association Name="FK__Course__FK_Semes__6FE99F9F">
+          <End Role="Semester" Type="Self.Semester" Multiplicity="0..1" />
+          <End Role="Course" Type="Self.Course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Semester">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Course">
+              <PropertyRef Name="FK_Semester" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Attendance_ScheduleDetail">
           <End Role="ScheduleDetail" Type="Self.ScheduleDetail" Multiplicity="0..1" />
           <End Role="Attendance" Type="Self.Attendance" Multiplicity="*" />
@@ -343,6 +356,10 @@
           <EntitySet Name="Semester" EntityType="Self.Semester" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Subject" EntityType="Self.Subject" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Course__FK_Semes__6FE99F9F" Association="Self.FK__Course__FK_Semes__6FE99F9F">
+            <End Role="Semester" EntitySet="Semester" />
+            <End Role="Course" EntitySet="Course" />
+          </AssociationSet>
           <AssociationSet Name="FK_Attendance_ScheduleDetail" Association="Self.FK_Attendance_ScheduleDetail">
             <End Role="ScheduleDetail" EntitySet="ScheduleDetail" />
             <End Role="Attendance" EntitySet="Attendance" />
@@ -408,8 +425,7 @@
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SEP_2018_T6Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -460,6 +476,8 @@
           <Property Name="ShoolYearEnd" Type="DateTime" Precision="0" />
           <NavigationProperty Name="Classes" Relationship="Self.FK_Class_Course" FromRole="Course" ToRole="Class" />
           <NavigationProperty Name="Schedules" Relationship="Self.FK_Schedule_Course" FromRole="Course" ToRole="Schedule" />
+          <Property Name="FK_Semester" Type="Int32" />
+          <NavigationProperty Name="Semester" Relationship="SEP_2018_T6Model.FK__Course__FK_Semes__6FE99F9F" FromRole="Course" ToRole="Semester" />
         </EntityType>
         <EntityType Name="Learning">
           <Key>
@@ -550,6 +568,7 @@
           <Property Name="SemesterName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Learnings" Relationship="Self.FK_Learning_Semester" FromRole="Semester" ToRole="Learning" />
           <NavigationProperty Name="Schedules" Relationship="Self.FK_Schedule_Semester" FromRole="Semester" ToRole="Schedule" />
+          <NavigationProperty Name="Courses" Relationship="SEP_2018_T6Model.FK__Course__FK_Semes__6FE99F9F" FromRole="Semester" ToRole="Course" />
         </EntityType>
         <EntityType Name="Subject">
           <Key>
@@ -847,7 +866,23 @@
             <End Role="User" EntitySet="Users" />
             <End Role="ScheduleDetail" EntitySet="ScheduleDetails" />
           </AssociationSet>
+          <AssociationSet Name="FK__Course__FK_Semes__6FE99F9F" Association="SEP_2018_T6Model.FK__Course__FK_Semes__6FE99F9F">
+            <End Role="Semester" EntitySet="Semesters" />
+            <End Role="Course" EntitySet="Courses" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK__Course__FK_Semes__6FE99F9F">
+          <End Type="SEP_2018_T6Model.Semester" Role="Semester" Multiplicity="0..1" />
+          <End Type="SEP_2018_T6Model.Course" Role="Course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Semester">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Course">
+              <PropertyRef Name="FK_Semester" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -890,6 +925,7 @@
           <EntitySetMapping Name="Courses">
             <EntityTypeMapping TypeName="SEP_2018_T6Model.Course">
               <MappingFragment StoreEntitySet="Course">
+                <ScalarProperty Name="FK_Semester" ColumnName="FK_Semester" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="CourseName" ColumnName="CourseName" />
                 <ScalarProperty Name="ShoolYearBegin" ColumnName="ShoolYearBegin" />

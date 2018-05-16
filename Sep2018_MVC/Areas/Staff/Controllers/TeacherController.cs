@@ -28,7 +28,7 @@ namespace Sep2018_MVC.Areas.Staff.Controllers
         }
         public ActionResult CreateSection()
         {
-           
+
             List<Course> meoCourse = new List<Course>();
             meoCourse = db.Courses.ToList();
             return View(meoCourse);
@@ -37,34 +37,51 @@ namespace Sep2018_MVC.Areas.Staff.Controllers
         {
             return View();
         }
-
-        public ActionResult ClassMeo(int? id,int? id_course)
+        /*
+         * Ajax field from views CreateSection
+         * 
+         */
+        public ActionResult ClassMeo(int? id, int? id_course)
         {
             List<object> meo = new List<object>();
-            foreach (var item in db.Learnings.Where(s=>s.FK_Semester==id && s.Class.FK_Course==id_course))
+            foreach (var item in db.Classes.Where(s => s.FK_Course == id_course && s.Course.FK_Semester==id))
             {
-                meo.Add(new { id_class = item.Class.id, classname = item.Class.ClassName });
+                meo.Add(new { id_class = item.id, classname = item.ClassName });
             }
             return Json(meo, JsonRequestBehavior.AllowGet);
         }
         public ActionResult SemesterMeo(int? id)
         {
             List<object> meo = new List<object>();
-            foreach (var item in db.Schedules.Where(s=> s.FK_Course==id))
+            foreach (var item in db.Schedules.Where(s => s.FK_Course == id))
             {
                 meo.Add(new { id_semes = item.Semester.id, semesName = item.Semester.SemesterName });
             }
             return Json(meo, JsonRequestBehavior.AllowGet);
         }
-        public ActionResult Subject(int? id_Class,int? id_semester)
+        public ActionResult Subject(int? id_Class, int? id_semester)
         {
             List<object> meo = new List<object>();
-            var listSubject = db.Learnings.Where(s => s.FK_Class == id_Class & s.FK_Semester== id_semester);
-            foreach(var item in listSubject)
+            var listSubject = db.Learnings.Where(s => s.FK_Class == id_Class & s.FK_Semester == id_semester);
+            foreach (var item in listSubject)
             {
 
-                meo.Add(new { id_subject = item.Subject.id, subName=item.Subject.SubjectName });
-              
+                meo.Add(new { id_subject = item.Subject.id, subName = item.Subject.SubjectName });
+
+            }
+            return Json(meo, JsonRequestBehavior.AllowGet);
+        }
+        /*
+         * Ajax ScheduleDetail
+         */
+        public ActionResult ScheDetail(int? id_subject, int? id_course,int? id_semester)
+        {
+            var id_schedule = db.Schedules.FirstOrDefault(s => s.FK_Course == id_course && s.FK_Semester== id_semester).id;//get ID schedule
+            var detail = db.ScheduleDetails.Where(s => s.FK_Subject == id_subject && s.FK_Schedule == id_schedule);//get object Detail Schedule
+            List<object> meo = new List<object>();//Create Json return Views
+            foreach(var item in detail)
+            {
+                meo.Add(new { id = item.id, BeginTime = item.BeginTime, EndTime = item.EndTime, Lession = item.Lession, Unit_Lession = item.Unit_Lession ,SubjectName= db.Subjects.FirstOrDefault(s=>s.id==item.FK_Subject).SubjectName});
             }
             return Json(meo, JsonRequestBehavior.AllowGet);
         }

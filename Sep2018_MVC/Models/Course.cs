@@ -25,10 +25,12 @@ namespace Sep2018_MVC.Models
         public string CourseName { get; set; }
         public Nullable<System.DateTime> ShoolYearBegin { get; set; }
         public Nullable<System.DateTime> ShoolYearEnd { get; set; }
+        public Nullable<int> FK_Semester { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Class> Classes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Schedule> Schedules { get; set; }
+        public virtual Semester Semester { get; set; }
     }
 }

@@ -70,6 +70,12 @@
                                 </div>
                             </div>
                             <div class="form-group col-md-12">
+                                <label class="control-label col-sm-3">Thời khoá biểu:</label>
+                                <div class="col-sm-9">
+                                    <select class="form-control" id="txt_scheduledetail" name="txt_scheduledetail"></select>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12">
                                 <div class="col-sm-offset-3 col-sm-8">
                                     <button type="submit" class="btn btn-default">Tạo</button>
                                 </div>
@@ -82,6 +88,7 @@
     </div>
 </div>
 <script>
+    var txt_scheduledetail = document.getElementById("txt_scheduledetail");
     var txt_class = document.getElementById('txt_class');
     var txt_semester = document.getElementById('txt_semester');
     var txt_course = document.getElementById('txt_course');
@@ -171,11 +178,11 @@
     }
     txt_class.addEventListener("change", crawSubject);
     function crawSubject() {
-        var id = $(this).children(":selected").attr("id");
-        var id_semester = txt_semester.options[txt_semester.selectedIndex].id;//get ID
+        let id = $(this).children(":selected").attr("id");
+        let id_semester = txt_semester.options[txt_semester.selectedIndex].id;//get ID
         //console.log(id_semester);
-        var sub_subject = txt_subject.getElementsByTagName("option");
-        var arr = Array.from(sub_subject);
+        let sub_subject = txt_subject.getElementsByTagName("option");
+        let arr = Array.from(sub_subject);
         if (arr.length > 0) {
             arr.forEach((item, index) => {
                 txt_subject.removeChild(item);
@@ -196,5 +203,27 @@
             }
         });
     }
-
+    txt_subject.addEventListener("click", crawScheSub);
+    txt_subject.addEventListener("change", crawScheSub);
+    /*Craw Schedule*/
+    function crawScheSub() {
+        let id_subject = $(this).children(":selected").attr("id");//Get Value Select choose
+        let id_semester = txt_semester.options[txt_semester.selectedIndex].id;//get ID
+        let id_course = txt_course.options[txt_course.selectedIndex].id;//get ID
+        console.log(id_subject + " " + id_semester + " " + id_course);
+        $.ajax({
+            type: 'GET',
+            url: url + "/Staff/Teacher/ScheDetail/?id_subject=" + id_subject + "&&id_course=" + id_course + "&&id_semester=" + id_semester,
+            dataType: "json",
+            success: function (data) {
+                $.each(data, function (key, value) {
+                    console.log(value);
+                    var p = document.createElement('option');
+                    p.innerText = "Subject: " + value.SubjectName + " BeginTime: " + value.BeginTime + " EndTime: " + value.EndTime
+                    p.setAttribute("id", value.id);
+                    txt_scheduledetail.appendChild(p);
+                })
+            }
+        });
+    }
 </script>

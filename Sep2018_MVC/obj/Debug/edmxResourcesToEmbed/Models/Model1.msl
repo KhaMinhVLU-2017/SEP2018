@@ -37,6 +37,7 @@
     <EntitySetMapping Name="Courses">
       <EntityTypeMapping TypeName="SEP_2018_T6Model.Course">
         <MappingFragment StoreEntitySet="Course">
+          <ScalarProperty Name="FK_Semester" ColumnName="FK_Semester" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="CourseName" ColumnName="CourseName" />
           <ScalarProperty Name="ShoolYearBegin" ColumnName="ShoolYearBegin" />

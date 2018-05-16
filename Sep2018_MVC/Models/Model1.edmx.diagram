@@ -34,6 +34,7 @@
         <AssociationConnector Association="SEP_2018_T6Model.FK_ScheduleDetail_Schedule" ManuallyRouted="false" />
         <AssociationConnector Association="SEP_2018_T6Model.FK_ScheduleDetail_Subject" ManuallyRouted="false" />
         <AssociationConnector Association="SEP_2018_T6Model.FK_ScheduleDetail_User" ManuallyRouted="false" />
+        <AssociationConnector Association="SEP_2018_T6Model.FK__Course__FK_Semes__6FE99F9F" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
