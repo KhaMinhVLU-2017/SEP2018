@@ -120,6 +120,14 @@
                 txt_subject.removeChild(item);
             });
         }
+        /*Clear Schedule*/
+        var sub_scheDetail = txt_scheduledetail.getElementsByTagName("option");
+        var arr = Array.from(sub_scheDetail);
+        if (arr.length > 0) {
+            arr.forEach((item, index) => {
+                txt_scheduledetail.removeChild(item);
+            });
+        }
         $.a
         $.ajax({
             type: 'GET',
@@ -161,6 +169,14 @@
                 txt_subject.removeChild(item);
             });
         }
+        /*Clear Schedule*/
+        var sub_scheDetail = txt_scheduledetail.getElementsByTagName("option");
+        var arr = Array.from(sub_scheDetail);
+        if (arr.length > 0) {
+            arr.forEach((item, index) => {
+                txt_scheduledetail.removeChild(item);
+            });
+        }
         $.ajax({
             type: 'GET',
             url: url + "/Staff/Teacher/ClassMeo/?id=" + id + "&&id_course=" + id_course,
@@ -188,13 +204,13 @@
                 txt_subject.removeChild(item);
             });
         }
+
         $.ajax({
             type: 'GET',
             url: url + "/Staff/Teacher/Subject/?id_Class=" + id + "&&id_semester=" + id_semester,
             dataType: "json",
             success: function (data) {
                 $.each(data, function (key, value) {
-                    console.log(value);
                     var p = document.createElement('option');
                     p.innerText = value.subName;
                     p.setAttribute("id", value.id_subject);
@@ -203,23 +219,28 @@
             }
         });
     }
-    txt_subject.addEventListener("click", crawScheSub);
+    //txt_subject.addEventListener("click", crawScheSub);
     txt_subject.addEventListener("change", crawScheSub);
     /*Craw Schedule*/
     function crawScheSub() {
         let id_subject = $(this).children(":selected").attr("id");//Get Value Select choose
         let id_semester = txt_semester.options[txt_semester.selectedIndex].id;//get ID
         let id_course = txt_course.options[txt_course.selectedIndex].id;//get ID
-        console.log(id_subject + " " + id_semester + " " + id_course);
+        var sub_scheDetail = txt_scheduledetail.getElementsByTagName("option");
+        var arr = Array.from(sub_scheDetail);
+        if (arr.length > 0) {
+            arr.forEach((item, index) => {
+                txt_scheduledetail.removeChild(item);
+            });
+        }
         $.ajax({
             type: 'GET',
             url: url + "/Staff/Teacher/ScheDetail/?id_subject=" + id_subject + "&&id_course=" + id_course + "&&id_semester=" + id_semester,
             dataType: "json",
             success: function (data) {
                 $.each(data, function (key, value) {
-                    console.log(value);
                     var p = document.createElement('option');
-                    p.innerText = "Subject: " + value.SubjectName + " BeginTime: " + value.BeginTime + " EndTime: " + value.EndTime
+                    p.innerHTML =value.SubjectName + " " + value.BeginTime.Hours + ":" + value.BeginTime.Minutes + " --> " + value.EndTime.Hours + ":" + value.EndTime.Minutes;
                     p.setAttribute("id", value.id);
                     txt_scheduledetail.appendChild(p);
                 })
