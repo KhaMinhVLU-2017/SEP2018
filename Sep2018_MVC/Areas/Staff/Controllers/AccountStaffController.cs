@@ -13,5 +13,18 @@ namespace Sep2018_MVC.Areas.Staff.Controllers
         {
             return View();
         }
+
+        public  ActionResult ChangePassword()
+        {
+            return View();
+        }
+        public ActionResult CreateAccount()
+        {
+            return View();
+        }
+        public ActionResult InformationAccountStaff()
+        {
+            return View();
+        }
     }
 }

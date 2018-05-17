@@ -346,6 +346,7 @@
     <Content Include="Areas\Staff\Assert\Images\img\friends\.DS_Store" />
     <Content Include="Areas\Staff\Assert\Images\img\portfolio\.DS_Store" />
     <Content Include="Areas\Staff\Views\AccountStaff\Index.cshtml" />
+<<<<<<< HEAD
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Assert\Webfonts\fontawesome-webfont.eot" />
     <Content Include="Areas\Admin\Assert\Webfonts\fontawesome-webfont.ttf" />
@@ -361,6 +362,11 @@
     <Content Include="Areas\Admin\Assert\Font\glyphicons-halflings-regular.woff" />
     <Content Include="Areas\Admin\Views\Management\LoginAdmin.cshtml" />
     <Content Include="Areas\Admin\Views\Management\DemoLogin.cshtml" />
+=======
+    <Content Include="Areas\Staff\Views\AccountStaff\ChangePassword.cshtml" />
+    <Content Include="Areas\Staff\Views\AccountStaff\CreateAccount.cshtml" />
+    <Content Include="Areas\Staff\Views\AccountStaff\InformationAccountStaff.cshtml" />
+>>>>>>> 6e3d263b18114122ea01b735dda8908cac0e4bb4
     <None Include="Areas\Staff\Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Content\admin.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -442,6 +448,8 @@
     <Content Include="Areas\Staff\Views\Shared\_SiderBarStaff.cshtml" />
     <Content Include="Areas\Staff\Views\Shared\_SiderBarTeacher.cshtml" />
     <Content Include="Areas\Staff\Views\Teacher\Course.cshtml" />
+    <Content Include="Areas\Staff\Views\Teacher\InformationAccount.cshtml" />
+    <Content Include="Areas\Staff\Views\Teacher\History.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

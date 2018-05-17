@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewBag.Title = "CreateAccount";
+    Layout = "~/Areas/Staff/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="body">
+
+    <center><h1>ĐĂNG KÝ TÀI KHOẢN</h1></center>
+    <form name="xuly" action="" method="post">
+        <table border="0" cellpadding="0" cellspacing="0">
+            <tr class="table">
+                <td class="left"><p> Mã số </p></td>
+                <td class="right"><p><input type="text" name="taikhoan"></p></td>
+            </tr>
+            <tr class="table">
+                <td class="left"><p>Họ Và Tên</p></td>
+                <td class="right"><p><input type="text" name="name"></p></td>
+            </tr>
+            <tr class="table">
+                <td class="left"><p>Email</p></td>
+                <td class="right"><p><input type="text" name="email"></p></td>
+            </tr>
+
+            <tr class="table">
+                <td class="left"><p>HomeTown</p></td>
+                <td class="right"><p><input type="text" name="hometown"></p></td>
+            </tr>
+
+            <tr class="table">
+                <td class="left"><p>Birthday</p></td>
+                <td class="right"><p><input type="date" name="Birthday"></p></td>
+            </tr>
+
+            <tr class="table">
+                <td class="left"><p>PhoneNumber</p></td>
+                <td class="right"><p><input type="text" name="PhoneNumber"></p></td>
+            </tr>
+
+
+
+            <tr class="table">
+                <td class="left"><p>Mật khẩu</p></td>
+                <td class="right"><p><input type="password" name="matkhau"></p></td>
+            </tr>
+            <tr class="table">
+                <td class="left"><p>Nhập lại mật khẩu</p></td>
+                <td class="right"><p><input type="password" name="lapmatkhau"></p></td>
+            </tr>
+
+
+            <tr class="table">
+                <td class="left"><p>Giới tính</p></td>
+                <td class="right"><p><input type="radio" checked name="gioitinh"> nam <input type="radio" name="gioitinh"> nữ</p></td>
+            </tr>
+            <tr class="table">
+                <td class="left"><p>Ngành</p></td>
+                <td class="right">
+                    <p>
+                        <select name="nganh">
+                            <option value="congnghethongtin">Công Nghệ thông tin</option>
+                            <option value="ngonnguanh">Ngôn Ngữ Anh</option>
+                            <option value="nhietlanh">Nhiệt Lạnh</option>
+                        </select>
+                    </p>
+                </td>
+            </tr>
+
+            <tr class="table">
+                <td class="left"><p>Ghi chú cá nhân</p></td>
+                <td class="right"><p><textarea style="height:100px;width:auto" name="ghichu"></textarea></p></td>
+            </tr>
+            <tr class="table">
+                <td class="left"><p>Role</p></td>
+                <td class="right"><p><input type="radio" checked name="role"> Giảng Viên <input type="radio" name="role"> Sinh Viên</p></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <center><input type="button" value="Lưu" name="luu"> <input type="reset" value="Nhập lại" name="nhaplai"></center>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
