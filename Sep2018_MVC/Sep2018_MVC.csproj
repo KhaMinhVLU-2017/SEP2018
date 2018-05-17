@@ -381,6 +381,7 @@
     <Content Include="Areas\Staff\Views\Shared\_SiderBarTeacher.cshtml" />
     <Content Include="Areas\Staff\Views\Teacher\Course.cshtml" />
     <Content Include="Areas\Staff\Views\Teacher\InformationAccount.cshtml" />
+    <Content Include="Areas\Staff\Views\Teacher\History.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
