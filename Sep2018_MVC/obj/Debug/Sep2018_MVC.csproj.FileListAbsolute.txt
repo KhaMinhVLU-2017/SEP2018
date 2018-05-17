@@ -278,7 +278,6 @@ D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC\bin\Microsoft.AI.D
 D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC\bin\Microsoft.AI.ServerTelemetryChannel.xml
 D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC\bin\Microsoft.AI.WindowsServer.xml
 D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC\bin\Microsoft.AI.Web.xml
-D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.csprojAssemblyReference.cache
 D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.csproj.CoreCompileInputs.cache
 D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.csproj.CopyComplete
 D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.dll
@@ -664,4 +663,8 @@ D:\Study\Year3\SEP\SE2\SEP2018\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.csprojR
 D:\Study\Year3\SEP\SE2\SEP2018\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.csproj.CoreCompileInputs.cache
 D:\Study\Year3\SEP\SE2\SEP2018\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.dll
 D:\Study\Year3\SEP\SE2\SEP2018\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.pdb
+<<<<<<< HEAD
 >>>>>>> 6e3d263b18114122ea01b735dda8908cac0e4bb4
+=======
+D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.csprojAssemblyReference.cache
+>>>>>>> af6d2a00387f155bc830a5eb861bd9ed7a74b5aa

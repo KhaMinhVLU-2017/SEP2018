@@ -6,7 +6,6 @@
     <edmx:Diagrams>
       <Diagram DiagramId="0da660193a80492fbe770e269571b0c9" Name="Diagram1">
         <EntityTypeShape EntityType="SEP_2018_T6Model.Attendance" Width="1.5" PointX="12.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEP_2018_T6Model.AttendanceDetail" Width="1.5" PointX="10.5" PointY="7.875" IsExpanded="true" />
         <EntityTypeShape EntityType="SEP_2018_T6Model.Class" Width="1.5" PointX="3" PointY="9" IsExpanded="true" />
         <EntityTypeShape EntityType="SEP_2018_T6Model.Course" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
         <EntityTypeShape EntityType="SEP_2018_T6Model.Learning" Width="1.5" PointX="5.25" PointY="8.875" IsExpanded="true" />
@@ -14,13 +13,9 @@
         <EntityTypeShape EntityType="SEP_2018_T6Model.Position" Width="1.5" PointX="6" PointY="6.25" IsExpanded="true" />
         <EntityTypeShape EntityType="SEP_2018_T6Model.Report" Width="1.5" PointX="12.75" PointY="11.625" IsExpanded="true" />
         <EntityTypeShape EntityType="SEP_2018_T6Model.Schedule" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEP_2018_T6Model.ScheduleDetail" Width="1.5" PointX="10.5" PointY="3.375" IsExpanded="true" />
         <EntityTypeShape EntityType="SEP_2018_T6Model.Semester" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
         <EntityTypeShape EntityType="SEP_2018_T6Model.Subject" Width="1.5" PointX="3" PointY="12" IsExpanded="true" />
         <EntityTypeShape EntityType="SEP_2018_T6Model.User" Width="1.5" PointX="8.25" PointY="8.625" IsExpanded="true" />
-        <AssociationConnector Association="SEP_2018_T6Model.FK_Attendance_ScheduleDetail" ManuallyRouted="false" />
-        <AssociationConnector Association="SEP_2018_T6Model.FK_AttendanceDetail_Attendance1" ManuallyRouted="false" />
-        <AssociationConnector Association="SEP_2018_T6Model.FK_AttendanceDetail_User" ManuallyRouted="false" />
         <AssociationConnector Association="SEP_2018_T6Model.FK_Class_Course" ManuallyRouted="false" />
         <AssociationConnector Association="SEP_2018_T6Model.FK_Learning_Class" ManuallyRouted="false" />
         <AssociationConnector Association="SEP_2018_T6Model.FK_User_Class" ManuallyRouted="false" />
@@ -31,10 +26,18 @@
         <AssociationConnector Association="SEP_2018_T6Model.FK_Report_People1" ManuallyRouted="false" />
         <AssociationConnector Association="SEP_2018_T6Model.FK_User_Position1" ManuallyRouted="false" />
         <AssociationConnector Association="SEP_2018_T6Model.FK_Schedule_Semester" ManuallyRouted="false" />
-        <AssociationConnector Association="SEP_2018_T6Model.FK_ScheduleDetail_Schedule" ManuallyRouted="false" />
-        <AssociationConnector Association="SEP_2018_T6Model.FK_ScheduleDetail_Subject" ManuallyRouted="false" />
-        <AssociationConnector Association="SEP_2018_T6Model.FK_ScheduleDetail_User" ManuallyRouted="false" />
         <AssociationConnector Association="SEP_2018_T6Model.FK__Course__FK_Semes__6FE99F9F" />
+        <EntityTypeShape EntityType="SEP_2018_T6Model.AttendanceType" Width="1.5" PointX="0.75" PointY="0.875" />
+        <EntityTypeShape EntityType="SEP_2018_T6Model.ScheduleDetail" Width="1.5" PointX="10.5" PointY="3.625" />
+        <AssociationConnector Association="SEP_2018_T6Model.FK_Attendance_ScheduleDetail" />
+        <AssociationConnector Association="SEP_2018_T6Model.FK_Learning" />
+        <AssociationConnector Association="SEP_2018_T6Model.FK_ScheduleDetail_Schedule" />
+        <AssociationConnector Association="SEP_2018_T6Model.FK_ScheduleDetail_Subject" />
+        <AssociationConnector Association="SEP_2018_T6Model.FK_ScheduleDetail_User" />
+        <EntityTypeShape EntityType="SEP_2018_T6Model.AttendanceDetail" Width="1.5" PointX="15" PointY="5" />
+        <AssociationConnector Association="SEP_2018_T6Model.FK_AttendanceDetail_Attendance1" />
+        <AssociationConnector Association="SEP_2018_T6Model.FK_AttendanceDetail_User" />
+        <AssociationConnector Association="SEP_2018_T6Model.FK_AttendanceType" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
