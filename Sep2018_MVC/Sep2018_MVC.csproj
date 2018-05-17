@@ -297,6 +297,7 @@
     <Content Include="Areas\Staff\Assert\Images\img\friends\.DS_Store" />
     <Content Include="Areas\Staff\Assert\Images\img\portfolio\.DS_Store" />
     <Content Include="Areas\Staff\Views\AccountStaff\Index.cshtml" />
+    <Content Include="Areas\Staff\Views\AccountStaff\ChangePassword.cshtml" />
     <None Include="Areas\Staff\Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Content\admin.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -377,6 +378,8 @@
     </Content>
     <Content Include="Areas\Staff\Views\Shared\_SiderBarStaff.cshtml" />
     <Content Include="Areas\Staff\Views\Shared\_SiderBarTeacher.cshtml" />
+    <Content Include="Areas\Staff\Views\Teacher\Course.cshtml" />
+    <Content Include="Areas\Staff\Views\Teacher\InformationAccount.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
