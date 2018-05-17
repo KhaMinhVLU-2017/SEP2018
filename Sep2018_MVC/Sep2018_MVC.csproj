@@ -347,6 +347,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\importer.less" />
+    <Content Include="Style\main.css" />
     <Content Include="webfonts\fa-brands-400.svg" />
     <Content Include="webfonts\fa-regular-400.svg" />
     <Content Include="webfonts\fa-solid-900.svg" />
@@ -421,6 +422,7 @@
     <Content Include="webfonts\fa-solid-900.woff2" />
     <Content Include="Areas\Staff\Views\Teacher\CheckOnline.cshtml" />
     <Content Include="Areas\Staff\Views\Teacher\Notifi.cshtml" />
+    <Content Include="Views\Home\DetailMonHoc.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
