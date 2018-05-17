@@ -25,12 +25,13 @@ namespace Sep2018_MVC.Models
         public Nullable<System.TimeSpan> EndTime { get; set; }
         public Nullable<int> Lession { get; set; }
         public string Unit_Lession { get; set; }
-        public Nullable<int> FK_Subject { get; set; }
+        public Nullable<int> FK_Learning { get; set; }
         public Nullable<int> FK_Schedule { get; set; }
         public string FK_User_GV { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Attendance> Attendances { get; set; }
+        public virtual Learning Learning { get; set; }
         public virtual Schedule Schedule { get; set; }
         public virtual Subject Subject { get; set; }
         public virtual User User { get; set; }

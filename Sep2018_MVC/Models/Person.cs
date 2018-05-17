@@ -28,6 +28,7 @@ namespace Sep2018_MVC.Models
         public string Email { get; set; }
         public Nullable<int> PhoneNumber { get; set; }
         public string CurrentResidence { get; set; }
+        public Nullable<bool> Gender { get; set; }
     
         public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

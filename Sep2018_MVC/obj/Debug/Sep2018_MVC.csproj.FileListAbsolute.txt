@@ -278,7 +278,6 @@ D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC\bin\Microsoft.AI.D
 D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC\bin\Microsoft.AI.ServerTelemetryChannel.xml
 D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC\bin\Microsoft.AI.WindowsServer.xml
 D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC\bin\Microsoft.AI.Web.xml
-D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.csprojAssemblyReference.cache
 D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.csproj.CoreCompileInputs.cache
 D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.csproj.CopyComplete
 D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.dll
@@ -473,6 +472,103 @@ D:\SEP\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.csproj.CoreCompileInputs.cache
 D:\SEP\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.csproj.CopyComplete
 D:\SEP\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.dll
 D:\SEP\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.pdb
+<<<<<<< HEAD
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\ApplicationInsights.config
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\Sep2018_MVC.dll.config
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\Sep2018_MVC.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\Sep2018_MVC.pdb
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\roslyn\csc.exe
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\roslyn\csc.exe.config
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\roslyn\csc.rsp
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\roslyn\csi.exe
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\roslyn\csi.exe.config
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\roslyn\csi.rsp
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\roslyn\System.AppContext.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\roslyn\System.Collections.Immutable.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\roslyn\System.Console.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\roslyn\System.Diagnostics.Process.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\roslyn\System.IO.Compression.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\roslyn\System.IO.FileSystem.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\roslyn\System.IO.Pipes.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\roslyn\System.Reflection.Metadata.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\roslyn\System.Security.AccessControl.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\roslyn\System.Security.Claims.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\roslyn\System.Security.Principal.Windows.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\roslyn\System.Threading.Thread.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\roslyn\System.ValueTuple.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\roslyn\System.Xml.XmlDocument.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\roslyn\System.Xml.XPath.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\roslyn\vbc.exe
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\roslyn\vbc.exe.config
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\roslyn\vbc.rsp
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\roslyn\VBCSCompiler.exe
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\roslyn\VBCSCompiler.exe.config
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\Antlr3.Runtime.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\EntityFramework.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\EntityFramework.SqlServer.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\Microsoft.AI.Agent.Intercept.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\Microsoft.AI.DependencyCollector.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\Microsoft.AI.Web.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\Microsoft.AI.WindowsServer.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\Microsoft.ApplicationInsights.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\Microsoft.Web.Infrastructure.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\Newtonsoft.Json.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\System.Web.Helpers.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\System.Web.Mvc.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\System.Web.Optimization.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\System.Web.Razor.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\System.Web.WebPages.Deployment.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\System.Web.WebPages.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\System.Web.WebPages.Razor.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\WebGrease.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\EntityFramework.xml
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\EntityFramework.SqlServer.xml
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\System.Web.Helpers.xml
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\System.Web.Mvc.xml
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\System.Web.Optimization.xml
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\System.Web.Razor.xml
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\System.Web.WebPages.xml
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\System.Web.WebPages.Deployment.xml
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\System.Web.WebPages.Razor.xml
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\Antlr3.Runtime.pdb
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\Newtonsoft.Json.xml
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\Microsoft.ApplicationInsights.xml
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\Microsoft.AI.DependencyCollector.xml
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\Microsoft.AI.WindowsServer.xml
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\bin\Microsoft.AI.Web.xml
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.csprojAssemblyReference.cache
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.csproj.CoreCompileInputs.cache
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.csproj.CopyComplete
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.dll
+D:\VLU\HK6_VLU\SEP\project_sep_08\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.pdb
+=======
 D:\Study\Year3\SEP\SE2\SEP2018\SEP2018\Sep2018_MVC\bin\ApplicationInsights.config
 D:\Study\Year3\SEP\SE2\SEP2018\SEP2018\Sep2018_MVC\bin\Sep2018_MVC.dll.config
 D:\Study\Year3\SEP\SE2\SEP2018\SEP2018\Sep2018_MVC\bin\Sep2018_MVC.dll
@@ -567,6 +663,7 @@ D:\Study\Year3\SEP\SE2\SEP2018\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.csprojR
 D:\Study\Year3\SEP\SE2\SEP2018\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.csproj.CoreCompileInputs.cache
 D:\Study\Year3\SEP\SE2\SEP2018\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.dll
 D:\Study\Year3\SEP\SE2\SEP2018\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.pdb
+<<<<<<< HEAD
 D:\Study\Year3\SEP\SEP3\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.csprojResolveAssemblyReference.cache
 D:\Study\Year3\SEP\SEP3\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.csproj.CoreCompileInputs.cache
 D:\Study\Year3\SEP\SEP3\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.dll
@@ -661,3 +758,10 @@ D:\Study\Year3\SEP\SEP3\SEP2018\Sep2018_MVC\bin\Microsoft.AI.DependencyCollector
 D:\Study\Year3\SEP\SEP3\SEP2018\Sep2018_MVC\bin\Microsoft.AI.ServerTelemetryChannel.xml
 D:\Study\Year3\SEP\SEP3\SEP2018\Sep2018_MVC\bin\Microsoft.AI.WindowsServer.xml
 D:\Study\Year3\SEP\SEP3\SEP2018\Sep2018_MVC\bin\Microsoft.AI.Web.xml
+=======
+<<<<<<< HEAD
+>>>>>>> 6e3d263b18114122ea01b735dda8908cac0e4bb4
+=======
+D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.csprojAssemblyReference.cache
+>>>>>>> af6d2a00387f155bc830a5eb861bd9ed7a74b5aa
+>>>>>>> 458194ba99d633145a08f91d64038d605462b09a

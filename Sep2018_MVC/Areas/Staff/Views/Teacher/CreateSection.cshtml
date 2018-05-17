@@ -17,14 +17,14 @@
             <div class="row">
                 <div class="col-md-6 section_second">
                     <div class="col-md-12">
-                        <form action="/Staff/CheckOnline" method="POST">
+                        <form action="/Staff/Teacher/CheckOnline" method="POST">
                             <div class="form-group col-md-12">
                                 <label class="control-label col-sm-3">Khoá:</label>
                                 <div class="col-sm-9">
-                                    <select id="txt_course" name="txt_course" class="form-control">
+                                    <select required="required" id="txt_course" name="txt_course" class="form-control">
                                         @foreach (var item in Model)
                                         {
-                                            <option id="@item.id">@item.CourseName</option>
+                                            <option id="@item.id" value="@item.id">@item.CourseName</option>
                                         }
                                     </select>
                                 </div>
@@ -32,47 +32,47 @@
                             <div class="form-group col-md-12">
                                 <label class="control-label col-sm-3">Học kì:</label>
                                 <div class="col-sm-9">
-                                    <select id="txt_semester" name="txt_semester" class="form-control"></select>
+                                    <select required="required" id="txt_semester" name="txt_semester" class="form-control"></select>
                                 </div>
                             </div>
                             <div class="form-group col-md-12">
                                 <label class="control-label col-sm-3">Lớp:</label>
                                 <div class="col-sm-9">
-                                    <select id="txt_class" name="txt_class" class="form-control"></select>
+                                    <select required="required" id="txt_class" name="txt_class" class="form-control"></select>
                                 </div>
                             </div>
                             <div class="form-group col-md-12">
                                 <label class="control-label col-sm-3" for="pwd">Môn học:</label>
                                 <div class="col-sm-9">
-                                    <select id="txt_subject" name="txt_subject" class="form-control"></select>
+                                    <select required="required" id="txt_subject" name="txt_subject" class="form-control"></select>
                                 </div>
                             </div>
                             <div class="form-group col-md-12">
                                 <label class="control-label col-sm-3">Ngày:</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" type="date" name="txt_day">
+                                    <input required="required" class="form-control" type="date" name="txt_day">
                                 </div>
                             </div>
                             <div class="form-group col-md-12">
                                 <label class="control-label col-sm-3">Thời gian:</label>
                                 <div class="col-sm-4">
-                                    <input class="form-control" type="time" name="txt_timefrom">
+                                    <input required="required" class="form-control" type="time" name="txt_timefrom">
                                 </div>
                                 <span class=" col-sm-1"><i class="fas fa-long-arrow-alt-right "></i></span>
                                 <div class="col-sm-4">
-                                    <input class="form-control" type="time" name="txt_timeto">
+                                    <input required="required" class="form-control" type="time" name="txt_timeto">
                                 </div>
                             </div>
                             <div class="form-group col-md-12">
                                 <label class="control-label col-sm-3">Số tiết:</label>
                                 <div class="col-sm-4">
-                                    <input class="form-control" type="number" placeholder="2" name="txt_lesson" />
+                                    <input required="required" class="form-control" type="number"  name="txt_lesson" />
                                 </div>
                             </div>
                             <div class="form-group col-md-12">
                                 <label class="control-label col-sm-3">Thời khoá biểu:</label>
                                 <div class="col-sm-9">
-                                    <select class="form-control" id="txt_scheduledetail" name="txt_scheduledetail"></select>
+                                    <select required="required" class="form-control" id="txt_scheduledetail" name="txt_scheduledetail"></select>
                                 </div>
                             </div>
                             <div class="form-group col-md-12">
@@ -139,6 +139,7 @@
                     var p = document.createElement('option');
                     p.innerText = value.semesName;
                     p.setAttribute("id", value.id_semes);
+                    p.setAttribute("value", value.id_semes);
                     txt_semester.appendChild(p);
                 })
             }
@@ -187,6 +188,7 @@
                     var p = document.createElement('option');
                     p.innerText = value.classname;
                     p.setAttribute("id", value.id_class);
+                    p.setAttribute("value", value.id_class);
                     txt_class.appendChild(p);
                 })
             }
@@ -195,7 +197,7 @@
     txt_class.addEventListener("change", crawSubject);
     function crawSubject() {
         let id = $(this).children(":selected").attr("id");
-        let id_semester = txt_semester.options[txt_semester.selectedIndex].id;//get ID
+        let id_course = txt_course.options[txt_course.selectedIndex].id;//get ID
         //console.log(id_semester);
         let sub_subject = txt_subject.getElementsByTagName("option");
         let arr = Array.from(sub_subject);
@@ -206,14 +208,15 @@
         }
 
         $.ajax({
-            type: 'GET',
-            url: url + "/Staff/Teacher/Subject/?id_Class=" + id + "&&id_semester=" + id_semester,
+            type: 'GET', 
+            url: url + "/Staff/Teacher/Subject/?id_Class=" + id + "&&id_course=" + id_course,
             dataType: "json",
             success: function (data) {
                 $.each(data, function (key, value) {
                     var p = document.createElement('option');
                     p.innerText = value.subName;
                     p.setAttribute("id", value.id_subject);
+                    p.setAttribute("value", value.id_subject);
                     txt_subject.appendChild(p);
                 })
             }
@@ -226,6 +229,7 @@
         let id_subject = $(this).children(":selected").attr("id");//Get Value Select choose
         let id_semester = txt_semester.options[txt_semester.selectedIndex].id;//get ID
         let id_course = txt_course.options[txt_course.selectedIndex].id;//get ID
+        let id_class = txt_class.options[txt_class.selectedIndex].id;
         var sub_scheDetail = txt_scheduledetail.getElementsByTagName("option");
         var arr = Array.from(sub_scheDetail);
         if (arr.length > 0) {
@@ -235,13 +239,14 @@
         }
         $.ajax({
             type: 'GET',
-            url: url + "/Staff/Teacher/ScheDetail/?id_subject=" + id_subject + "&&id_course=" + id_course + "&&id_semester=" + id_semester,
+            url: url + "/Staff/Teacher/ScheDetail/?id_subject=" + id_subject + "&&id_course=" + id_course + "&&id_semester=" + id_semester + "&&id_class=" + id_class,
             dataType: "json",
             success: function (data) {
                 $.each(data, function (key, value) {
                     var p = document.createElement('option');
                     p.innerHTML =value.SubjectName + " " + value.BeginTime.Hours + ":" + value.BeginTime.Minutes + " --> " + value.EndTime.Hours + ":" + value.EndTime.Minutes;
                     p.setAttribute("id", value.id);
+                    p.setAttribute("value", value.id);
                     txt_scheduledetail.appendChild(p);
                 })
             }
