@@ -298,6 +298,7 @@
     <Content Include="Areas\Staff\Assert\Images\img\portfolio\.DS_Store" />
     <Content Include="Areas\Staff\Views\AccountStaff\Index.cshtml" />
     <Content Include="Areas\Staff\Views\AccountStaff\ChangePassword.cshtml" />
+    <Content Include="Areas\Staff\Views\AccountStaff\CreateAccount.cshtml" />
     <None Include="Areas\Staff\Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Content\admin.css" />
     <Content Include="Content\bootstrap-theme.css" />
