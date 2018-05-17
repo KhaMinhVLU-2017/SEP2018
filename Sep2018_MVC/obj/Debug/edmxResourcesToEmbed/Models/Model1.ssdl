@@ -17,10 +17,17 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Attendance" Type="float" />
+    <Property Name="FK_AttendanceType" Type="int" />
     <Property Name="Note" Type="nvarchar" MaxLength="300" />
     <Property Name="FK_Attendance" Type="int" />
     <Property Name="FK_User" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="AttendanceType">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TypeName" Type="nvarchar" MaxLength="100" Nullable="false" />
   </EntityType>
   <EntityType Name="Class">
     <Key>
@@ -61,6 +68,7 @@
     <Property Name="Email" Type="nvarchar(max)" />
     <Property Name="PhoneNumber" Type="int" />
     <Property Name="CurrentResidence" Type="nvarchar(max)" />
+    <Property Name="Gender" Type="bit" />
   </EntityType>
   <EntityType Name="Position">
     <Key>
@@ -103,7 +111,7 @@
     <Property Name="EndTime" Type="time" Precision="7" />
     <Property Name="Lession" Type="int" />
     <Property Name="Unit_Lession" Type="nvarchar" MaxLength="20" />
-    <Property Name="FK_Subject" Type="int" />
+    <Property Name="FK_Learning" Type="int" />
     <Property Name="FK_Schedule" Type="int" />
     <Property Name="FK_User_GV" Type="varchar" MaxLength="20" />
   </EntityType>
@@ -181,6 +189,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_AttendanceType">
+    <End Role="AttendanceType" Type="Self.AttendanceType" Multiplicity="1" />
+    <End Role="AttendanceDetail" Type="Self.AttendanceDetail" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="AttendanceType">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AttendanceDetail">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Class_Course">
     <End Role="Course" Type="Self.Course" Multiplicity="0..1" />
     <End Role="Class" Type="Self.Class" Multiplicity="*" />
@@ -190,6 +210,18 @@
       </Principal>
       <Dependent Role="Class">
         <PropertyRef Name="FK_Course" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Learning">
+    <End Role="Learning" Type="Self.Learning" Multiplicity="1" />
+    <End Role="ScheduleDetail" Type="Self.ScheduleDetail" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Learning">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ScheduleDetail">
+        <PropertyRef Name="id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -289,18 +321,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_ScheduleDetail_Subject">
-    <End Role="Subject" Type="Self.Subject" Multiplicity="0..1" />
-    <End Role="ScheduleDetail" Type="Self.ScheduleDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Subject">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="ScheduleDetail">
-        <PropertyRef Name="FK_Subject" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_ScheduleDetail_User">
     <End Role="User" Type="Self.User" Multiplicity="0..1" />
     <End Role="ScheduleDetail" Type="Self.ScheduleDetail" Multiplicity="*" />
@@ -340,6 +360,7 @@
   <EntityContainer Name="SEP_2018_T6ModelStoreContainer">
     <EntitySet Name="Attendance" EntityType="Self.Attendance" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AttendanceDetail" EntityType="Self.AttendanceDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AttendanceType" EntityType="Self.AttendanceType" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Class" EntityType="Self.Class" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Learning" EntityType="Self.Learning" Schema="dbo" store:Type="Tables" />
@@ -367,9 +388,17 @@
       <End Role="User" EntitySet="User" />
       <End Role="AttendanceDetail" EntitySet="AttendanceDetail" />
     </AssociationSet>
+    <AssociationSet Name="FK_AttendanceType" Association="Self.FK_AttendanceType">
+      <End Role="AttendanceType" EntitySet="AttendanceType" />
+      <End Role="AttendanceDetail" EntitySet="AttendanceDetail" />
+    </AssociationSet>
     <AssociationSet Name="FK_Class_Course" Association="Self.FK_Class_Course">
       <End Role="Course" EntitySet="Course" />
       <End Role="Class" EntitySet="Class" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Learning" Association="Self.FK_Learning">
+      <End Role="Learning" EntitySet="Learning" />
+      <End Role="ScheduleDetail" EntitySet="ScheduleDetail" />
     </AssociationSet>
     <AssociationSet Name="FK_Learning_Class" Association="Self.FK_Learning_Class">
       <End Role="Class" EntitySet="Class" />
@@ -401,10 +430,6 @@
     </AssociationSet>
     <AssociationSet Name="FK_ScheduleDetail_Schedule" Association="Self.FK_ScheduleDetail_Schedule">
       <End Role="Schedule" EntitySet="Schedule" />
-      <End Role="ScheduleDetail" EntitySet="ScheduleDetail" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ScheduleDetail_Subject" Association="Self.FK_ScheduleDetail_Subject">
-      <End Role="Subject" EntitySet="Subject" />
       <End Role="ScheduleDetail" EntitySet="ScheduleDetail" />
     </AssociationSet>
     <AssociationSet Name="FK_ScheduleDetail_User" Association="Self.FK_ScheduleDetail_User">

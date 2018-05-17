@@ -197,7 +197,7 @@
     txt_class.addEventListener("change", crawSubject);
     function crawSubject() {
         let id = $(this).children(":selected").attr("id");
-        let id_semester = txt_semester.options[txt_semester.selectedIndex].id;//get ID
+        let id_course = txt_course.options[txt_course.selectedIndex].id;//get ID
         //console.log(id_semester);
         let sub_subject = txt_subject.getElementsByTagName("option");
         let arr = Array.from(sub_subject);
@@ -208,8 +208,8 @@
         }
 
         $.ajax({
-            type: 'GET',
-            url: url + "/Staff/Teacher/Subject/?id_Class=" + id + "&&id_semester=" + id_semester,
+            type: 'GET', 
+            url: url + "/Staff/Teacher/Subject/?id_Class=" + id + "&&id_course=" + id_course,
             dataType: "json",
             success: function (data) {
                 $.each(data, function (key, value) {
@@ -229,6 +229,7 @@
         let id_subject = $(this).children(":selected").attr("id");//Get Value Select choose
         let id_semester = txt_semester.options[txt_semester.selectedIndex].id;//get ID
         let id_course = txt_course.options[txt_course.selectedIndex].id;//get ID
+        let id_class = txt_class.options[txt_class.selectedIndex].id;
         var sub_scheDetail = txt_scheduledetail.getElementsByTagName("option");
         var arr = Array.from(sub_scheDetail);
         if (arr.length > 0) {
@@ -238,7 +239,7 @@
         }
         $.ajax({
             type: 'GET',
-            url: url + "/Staff/Teacher/ScheDetail/?id_subject=" + id_subject + "&&id_course=" + id_course + "&&id_semester=" + id_semester,
+            url: url + "/Staff/Teacher/ScheDetail/?id_subject=" + id_subject + "&&id_course=" + id_course + "&&id_semester=" + id_semester + "&&id_class=" + id_class,
             dataType: "json",
             success: function (data) {
                 $.each(data, function (key, value) {

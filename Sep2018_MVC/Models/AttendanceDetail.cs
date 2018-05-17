@@ -15,12 +15,13 @@ namespace Sep2018_MVC.Models
     public partial class AttendanceDetail
     {
         public int id { get; set; }
-        public Nullable<double> Attendance { get; set; }
+        public Nullable<int> FK_AttendanceType { get; set; }
         public string Note { get; set; }
         public Nullable<int> FK_Attendance { get; set; }
         public string FK_User { get; set; }
     
-        public virtual Attendance Attendance1 { get; set; }
+        public virtual Attendance Attendance { get; set; }
         public virtual User User { get; set; }
+        public virtual AttendanceType AttendanceType { get; set; }
     }
 }
