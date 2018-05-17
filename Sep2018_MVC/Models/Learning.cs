@@ -22,5 +22,6 @@ namespace Sep2018_MVC.Models
         public virtual Class Class { get; set; }
         public virtual Semester Semester { get; set; }
         public virtual Subject Subject { get; set; }
+        public virtual ScheduleDetail ScheduleDetail { get; set; }
     }
 }

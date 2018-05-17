@@ -26,6 +26,10 @@ namespace Sep2018_MVC.Controllers
 
             return View();
         }
-     
+        public ActionResult DetailMonHoc()
+        {
+            return View();
+        }
+
     }
 }

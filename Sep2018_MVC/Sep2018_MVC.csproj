@@ -150,6 +150,8 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\ManagementController.cs" />
     <Compile Include="Areas\Staff\Controllers\AccountStaffController.cs" />
     <Compile Include="Areas\Staff\StaffAreaRegistration.cs" />
     <Compile Include="Areas\Staff\Controllers\TeacherController.cs" />
@@ -161,6 +163,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AttendanceDetail.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AttendanceType.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Class.cs">
@@ -214,6 +219,53 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Assert\Font\fontawesome-webfont.svg" />
+    <Content Include="Areas\Admin\Assert\Font\glyphicons-halflings-regular.svg" />
+    <Content Include="Areas\Admin\Assert\Images\1.png" />
+    <Content Include="Areas\Admin\Assert\Images\1G.jpg" />
+    <Content Include="Areas\Admin\Assert\Images\1G_B.jpg" />
+    <Content Include="Areas\Admin\Assert\Images\2.png" />
+    <Content Include="Areas\Admin\Assert\Images\2G.jpg" />
+    <Content Include="Areas\Admin\Assert\Images\2G_B.jpg" />
+    <Content Include="Areas\Admin\Assert\Images\3.png" />
+    <Content Include="Areas\Admin\Assert\Images\4.png" />
+    <Content Include="Areas\Admin\Assert\Images\avatar.jpg" />
+    <Content Include="Areas\Admin\Assert\Images\bg.png" />
+    <Content Include="Areas\Admin\Assert\Images\cp.png" />
+    <Content Include="Areas\Admin\Assert\Images\demoBig.jpg" />
+    <Content Include="Areas\Admin\Assert\Images\demoBig2.jpg" />
+    <Content Include="Areas\Admin\Assert\Images\demoImage.jpg" />
+    <Content Include="Areas\Admin\Assert\Images\demoImage2.jpg" />
+    <Content Include="Areas\Admin\Assert\Images\demoUpload.jpg" />
+    <Content Include="Areas\Admin\Assert\Images\logo.png" />
+    <Content Include="Areas\Admin\Assert\Images\moreNoti.jpg" />
+    <Content Include="Areas\Admin\Assert\Images\moreNoti_old.jpg" />
+    <Content Include="Areas\Admin\Assert\Images\px_by_Gre3g.png" />
+    <Content Include="Areas\Admin\Assert\Images\user.gif" />
+    <Content Include="Areas\Admin\Assert\Images\user_old.gif" />
+    <Content Include="Areas\Admin\Assert\Script\bootstrap.js" />
+    <Content Include="Areas\Admin\Assert\Script\bootstrap.min.js" />
+    <Content Include="Areas\Admin\Assert\Script\for_index.js" />
+    <Content Include="Areas\Admin\Assert\Script\index.js" />
+    <Content Include="Areas\Admin\Assert\Script\jquery-2.0.3.min.js" />
+    <Content Include="Areas\Admin\Assert\Script\jquery.flot.js" />
+    <Content Include="Areas\Admin\Assert\Script\jquery.flot.resize.js" />
+    <Content Include="Areas\Admin\Assert\Script\jquery.flot.stack.js" />
+    <Content Include="Areas\Admin\Assert\Script\jquery.flot.time.js" />
+    <Content Include="Areas\Admin\Assert\Script\login.js" />
+    <Content Include="Areas\Admin\Assert\Script\modernizr-2.6.2-respond-1.1.0.min.js" />
+    <Content Include="Areas\Admin\Assert\Styles\bootstrap.css" />
+    <Content Include="Areas\Admin\Assert\Styles\examples.css" />
+    <Content Include="Areas\Admin\Assert\Styles\font-awesome.css" />
+    <Content Include="Areas\Admin\Assert\Styles\layout2.css" />
+    <Content Include="Areas\Admin\Assert\Styles\login.css" />
+    <Content Include="Areas\Admin\Assert\Styles\magic.css" />
+    <Content Include="Areas\Admin\Assert\Styles\main.css" />
+    <Content Include="Areas\Admin\Assert\Styles\MoneAdmin.css" />
+    <Content Include="Areas\Admin\Assert\Styles\styledemologin.css" />
+    <Content Include="Areas\Admin\Assert\Styles\theme.css" />
+    <Content Include="Areas\Admin\Assert\Styles\timeline.css" />
+    <Content Include="Areas\Admin\Assert\Webfonts\fontawesome-webfont.svg" />
     <Content Include="Areas\Staff\Assert\Images\Identity_VI.png" />
     <Content Include="Areas\Staff\Assert\Images\img\blog-bg.jpg" />
     <Content Include="Areas\Staff\Assert\Images\img\checkbox-gray.png" />
@@ -297,9 +349,31 @@
     <Content Include="Areas\Staff\Assert\Images\img\friends\.DS_Store" />
     <Content Include="Areas\Staff\Assert\Images\img\portfolio\.DS_Store" />
     <Content Include="Areas\Staff\Views\AccountStaff\Index.cshtml" />
+<<<<<<< HEAD
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Assert\Webfonts\fontawesome-webfont.eot" />
+    <Content Include="Areas\Admin\Assert\Webfonts\fontawesome-webfont.ttf" />
+    <Content Include="Areas\Admin\Assert\Webfonts\fontawesome-webfont.woff" />
+    <Content Include="Areas\Admin\Assert\Webfonts\FontAwesome.otf" />
+    <Content Include="Areas\Admin\Views\Management\HomeAdmin.cshtml" />
+    <Content Include="Areas\Admin\Assert\Font\fontawesome-webfont.eot" />
+    <Content Include="Areas\Admin\Assert\Font\fontawesome-webfont.ttf" />
+    <Content Include="Areas\Admin\Assert\Font\fontawesome-webfont.woff" />
+    <Content Include="Areas\Admin\Assert\Font\FontAwesome.otf" />
+    <Content Include="Areas\Admin\Assert\Font\glyphicons-halflings-regular.eot" />
+    <Content Include="Areas\Admin\Assert\Font\glyphicons-halflings-regular.ttf" />
+    <Content Include="Areas\Admin\Assert\Font\glyphicons-halflings-regular.woff" />
+    <Content Include="Areas\Admin\Views\Management\LoginAdmin.cshtml" />
+    <Content Include="Areas\Admin\Views\Management\DemoLogin.cshtml" />
+=======
     <Content Include="Areas\Staff\Views\AccountStaff\ChangePassword.cshtml" />
     <Content Include="Areas\Staff\Views\AccountStaff\CreateAccount.cshtml" />
+<<<<<<< HEAD
     <Content Include="Areas\Staff\Views\AccountStaff\Report.cshtml" />
+=======
+    <Content Include="Areas\Staff\Views\AccountStaff\InformationAccountStaff.cshtml" />
+>>>>>>> 6e3d263b18114122ea01b735dda8908cac0e4bb4
+>>>>>>> 8ab08f216a39758f6e4052cb761f5c0ec88ecbf9
     <None Include="Areas\Staff\Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Content\admin.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -349,6 +423,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\importer.less" />
+    <Content Include="Style\main.css" />
     <Content Include="webfonts\fa-brands-400.svg" />
     <Content Include="webfonts\fa-regular-400.svg" />
     <Content Include="webfonts\fa-solid-900.svg" />
@@ -382,6 +457,7 @@
     <Content Include="Areas\Staff\Views\Shared\_SiderBarTeacher.cshtml" />
     <Content Include="Areas\Staff\Views\Teacher\Course.cshtml" />
     <Content Include="Areas\Staff\Views\Teacher\InformationAccount.cshtml" />
+    <Content Include="Areas\Staff\Views\Teacher\History.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -423,9 +499,15 @@
     <Content Include="webfonts\fa-solid-900.woff2" />
     <Content Include="Areas\Staff\Views\Teacher\CheckOnline.cshtml" />
     <Content Include="Areas\Staff\Views\Teacher\Notifi.cshtml" />
+<<<<<<< HEAD
+    <Content Include="Views\Home\DetailMonHoc.cshtml" />
+=======
+    <Content Include="Areas\Admin\Views\Shared\AdminLayout1.cshtml" />
+>>>>>>> 458194ba99d633145a08f91d64038d605462b09a
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Staff\Models\" />
     <Folder Include="Views\Staff\" />
   </ItemGroup>
