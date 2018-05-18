@@ -349,7 +349,7 @@
     <Content Include="Areas\Staff\Assert\Images\img\friends\.DS_Store" />
     <Content Include="Areas\Staff\Assert\Images\img\portfolio\.DS_Store" />
     <Content Include="Areas\Staff\Views\AccountStaff\Index.cshtml" />
-<<<<<<< HEAD
+
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Assert\Webfonts\fontawesome-webfont.eot" />
     <Content Include="Areas\Admin\Assert\Webfonts\fontawesome-webfont.ttf" />
@@ -365,15 +365,14 @@
     <Content Include="Areas\Admin\Assert\Font\glyphicons-halflings-regular.woff" />
     <Content Include="Areas\Admin\Views\Management\LoginAdmin.cshtml" />
     <Content Include="Areas\Admin\Views\Management\DemoLogin.cshtml" />
-=======
+
     <Content Include="Areas\Staff\Views\AccountStaff\ChangePassword.cshtml" />
     <Content Include="Areas\Staff\Views\AccountStaff\CreateAccount.cshtml" />
-<<<<<<< HEAD
+
     <Content Include="Areas\Staff\Views\AccountStaff\Report.cshtml" />
-=======
+
     <Content Include="Areas\Staff\Views\AccountStaff\InformationAccountStaff.cshtml" />
->>>>>>> 6e3d263b18114122ea01b735dda8908cac0e4bb4
->>>>>>> 8ab08f216a39758f6e4052cb761f5c0ec88ecbf9
+
     <None Include="Areas\Staff\Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Content\admin.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -499,11 +498,11 @@
     <Content Include="webfonts\fa-solid-900.woff2" />
     <Content Include="Areas\Staff\Views\Teacher\CheckOnline.cshtml" />
     <Content Include="Areas\Staff\Views\Teacher\Notifi.cshtml" />
-<<<<<<< HEAD
+
     <Content Include="Views\Home\DetailMonHoc.cshtml" />
-=======
+
     <Content Include="Areas\Admin\Views\Shared\AdminLayout1.cshtml" />
->>>>>>> 458194ba99d633145a08f91d64038d605462b09a
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
