@@ -1,12 +1,13 @@
-﻿
+﻿@using Sep2018_MVC.Models
+@model List<Attendance>
 @{
     ViewBag.Title = "History";
     Layout = "~/Areas/Staff/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+@*<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>*@
 <!------ Include the above in your HEAD tag ---------->
 <div class="container">
     <div class="row">
@@ -15,7 +16,7 @@
                 <h1> History </h1>
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>No.</th>
                         <th>Subject</th>
                         <th>Course</th>
                         <th>Class</th>
@@ -24,23 +25,27 @@
                         <th>End Time</th>
                         <th>Lesson</th>
                         <th>Unit Lession</th>
-
-
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th>1</th>
-                        <th>Software Testing</th>
-                        <th>21</th>
-                        <th>K21T1</th>
-                        <th>17/05/2018</th>
-                        <th>13:00</th>
-                        <th>15:00</th>
-                        <th>2</th>
-                        <th>Tiết</th>
-                    </tr>
-
+                    @{
+                        int count = 0;
+                        foreach (var item in Model)
+                        {
+                            count++;
+                            <tr>
+                                <th>@count</th>
+                                <th>@item.ScheduleDetail.Learning.Subject.SubjectName</th>
+                                <th>@item.ScheduleDetail.Schedule.Course.CourseName</th>
+                                <th>@item.ScheduleDetail.Schedule.Course.CourseName@item.ScheduleDetail.Learning.Class.ClassName</th>
+                                <th>@item.Date</th>
+                                <th>@item.BeginTime</th>
+                                <th>@item.EndTime</th>
+                                <th>@item.Lesson</th>
+                                <th>@item.Unit_Lession</th>
+                            </tr>
+                        }
+                    }
                 </tbody>
             </table>
         </div>

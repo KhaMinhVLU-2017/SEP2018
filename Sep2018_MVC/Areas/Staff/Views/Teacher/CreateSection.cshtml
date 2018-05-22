@@ -195,6 +195,7 @@
         });
     }
     txt_class.addEventListener("change", crawSubject);
+
     function crawSubject() {
         let id = $(this).children(":selected").attr("id");
         let id_course = txt_course.options[txt_course.selectedIndex].id;//get ID
@@ -224,6 +225,7 @@
     }
     //txt_subject.addEventListener("click", crawScheSub);
     txt_subject.addEventListener("change", crawScheSub);
+    txt_subject.addEventListener("click", crawScheSub);
     /*Craw Schedule*/
     function crawScheSub() {
         let id_subject = $(this).children(":selected").attr("id");//Get Value Select choose
