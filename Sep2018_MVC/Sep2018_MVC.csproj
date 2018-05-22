@@ -296,6 +296,10 @@
     <Content Include="Areas\Staff\Assert\Images\img\profile-01.jpg" />
     <Content Include="Areas\Staff\Assert\Images\img\profile-02.jpg" />
     <Content Include="Areas\Staff\Assert\Images\img\radio-gray.png" />
+    <Content Include="Areas\Staff\Assert\Images\img\Schedule\K20.PNG" />
+    <Content Include="Areas\Staff\Assert\Images\img\Schedule\K21.PNG" />
+    <Content Include="Areas\Staff\Assert\Images\img\Schedule\K22.PNG" />
+    <Content Include="Areas\Staff\Assert\Images\img\Schedule\K23.PNG" />
     <Content Include="Areas\Staff\Assert\Images\img\ui-danro.jpg" />
     <Content Include="Areas\Staff\Assert\Images\img\ui-divya.jpg" />
     <Content Include="Areas\Staff\Assert\Images\img\ui-sam.jpg" />
@@ -349,7 +353,6 @@
     <Content Include="Areas\Staff\Assert\Images\img\friends\.DS_Store" />
     <Content Include="Areas\Staff\Assert\Images\img\portfolio\.DS_Store" />
     <Content Include="Areas\Staff\Views\AccountStaff\Index.cshtml" />
-
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Assert\Webfonts\fontawesome-webfont.eot" />
     <Content Include="Areas\Admin\Assert\Webfonts\fontawesome-webfont.ttf" />
@@ -365,14 +368,10 @@
     <Content Include="Areas\Admin\Assert\Font\glyphicons-halflings-regular.woff" />
     <Content Include="Areas\Admin\Views\Management\LoginAdmin.cshtml" />
     <Content Include="Areas\Admin\Views\Management\DemoLogin.cshtml" />
-
     <Content Include="Areas\Staff\Views\AccountStaff\ChangePassword.cshtml" />
     <Content Include="Areas\Staff\Views\AccountStaff\CreateAccount.cshtml" />
-
     <Content Include="Areas\Staff\Views\AccountStaff\Report.cshtml" />
-
     <Content Include="Areas\Staff\Views\AccountStaff\InformationAccountStaff.cshtml" />
-
     <None Include="Areas\Staff\Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Content\admin.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -457,6 +456,7 @@
     <Content Include="Areas\Staff\Views\Teacher\Course.cshtml" />
     <Content Include="Areas\Staff\Views\Teacher\InformationAccount.cshtml" />
     <Content Include="Areas\Staff\Views\Teacher\History.cshtml" />
+    <Content Include="Areas\Staff\Views\Teacher\Schedule.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -498,11 +498,8 @@
     <Content Include="webfonts\fa-solid-900.woff2" />
     <Content Include="Areas\Staff\Views\Teacher\CheckOnline.cshtml" />
     <Content Include="Areas\Staff\Views\Teacher\Notifi.cshtml" />
-
     <Content Include="Views\Home\DetailMonHoc.cshtml" />
-
     <Content Include="Areas\Admin\Views\Shared\AdminLayout1.cshtml" />
-
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
