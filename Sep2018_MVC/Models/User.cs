@@ -17,9 +17,9 @@ namespace Sep2018_MVC.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
+            this.AttendanceDetails = new HashSet<AttendanceDetail>();
             this.People = new HashSet<Person>();
             this.ScheduleDetails = new HashSet<ScheduleDetail>();
-            this.AttendanceDetails = new HashSet<AttendanceDetail>();
         }
     
         public string username { get; set; }
@@ -28,13 +28,13 @@ namespace Sep2018_MVC.Models
         public Nullable<int> PK_Position_Roles { get; set; }
         public Nullable<int> FK_Class { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AttendanceDetail> AttendanceDetails { get; set; }
         public virtual Class Class { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Person> People { get; set; }
         public virtual Position Position { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ScheduleDetail> ScheduleDetails { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AttendanceDetail> AttendanceDetails { get; set; }
     }
 }

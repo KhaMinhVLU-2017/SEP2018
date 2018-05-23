@@ -26,6 +26,8 @@ namespace Sep2018_MVC.Models
         }
     
         public virtual DbSet<Attendance> Attendances { get; set; }
+        public virtual DbSet<AttendanceDetail> AttendanceDetails { get; set; }
+        public virtual DbSet<AttendanceType> AttendanceTypes { get; set; }
         public virtual DbSet<Class> Classes { get; set; }
         public virtual DbSet<Course> Courses { get; set; }
         public virtual DbSet<Learning> Learnings { get; set; }
@@ -33,11 +35,9 @@ namespace Sep2018_MVC.Models
         public virtual DbSet<Position> Positions { get; set; }
         public virtual DbSet<Report> Reports { get; set; }
         public virtual DbSet<Schedule> Schedules { get; set; }
+        public virtual DbSet<ScheduleDetail> ScheduleDetails { get; set; }
         public virtual DbSet<Semester> Semesters { get; set; }
         public virtual DbSet<Subject> Subjects { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<AttendanceType> AttendanceTypes { get; set; }
-        public virtual DbSet<ScheduleDetail> ScheduleDetails { get; set; }
-        public virtual DbSet<AttendanceDetail> AttendanceDetails { get; set; }
     }
 }

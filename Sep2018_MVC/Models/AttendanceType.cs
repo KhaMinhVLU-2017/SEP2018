@@ -16,7 +16,5 @@ namespace Sep2018_MVC.Models
     {
         public int id { get; set; }
         public string TypeName { get; set; }
-    
-        public virtual AttendanceDetail AttendanceDetail { get; set; }
     }
 }

@@ -103,5 +103,14 @@ namespace Sep2018_MVC.Areas.Staff.Controllers
             List<Attendance> meo = db.Attendances.ToList();
             return View(meo);
         }
+
+        public ActionResult EditAttend(int id)
+        {
+            Attendance meo = db.Attendances.Find(id);
+            ViewData["AttenType"] = db.AttendanceTypes.ToList();
+            var leaning = db.Learnings.FirstOrDefault(s => s.id == meo.ScheduleDetail.FK_Learning).FK_Class;
+            ViewData["user"] = db.Users.Where(s =>s.FK_Class == leaning).ToList();
+            return View(meo);
+        }
     }
 }

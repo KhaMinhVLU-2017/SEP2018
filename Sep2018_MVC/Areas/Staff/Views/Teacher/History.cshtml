@@ -12,8 +12,8 @@
 <div class="container">
     <div class="row">
         <div class="table-responsive">
+            <h1> History </h1>
             <table class="table table-bordered">
-                <h1> History </h1>
                 <thead>
                     <tr>
                         <th>No.</th>
@@ -25,6 +25,7 @@
                         <th>End Time</th>
                         <th>Lesson</th>
                         <th>Unit Lession</th>
+                        <th>Note</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -43,6 +44,7 @@
                                 <th>@item.EndTime</th>
                                 <th>@item.Lesson</th>
                                 <th>@item.Unit_Lession</th>
+                                <th><a href="/Staff/Teacher/EditAttend/@item.id">Edit</a></th>
                             </tr>
                         }
                     }
