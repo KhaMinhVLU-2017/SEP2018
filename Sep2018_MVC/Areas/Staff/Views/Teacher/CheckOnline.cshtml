@@ -23,7 +23,8 @@
             <h1>Danh sách điểm danh sinh viên</h1>
         </div>
         <div class="col-md-offset-2 col-md-8">
-            <form>
+            <form method="POST" action="/Staff/Teacher/AttendOnline">
+                <input name="txtatt" value="@Model.id" hidden />
                 <table id="table" class="table ">
                     <tr class="trth">
                         <th>STT</th>
@@ -39,14 +40,15 @@
                         {
                             count = count + 1;
                             <tr>
+                                <input name="txtid" value="@item.username" hidden />
                                 <td>@count</td>
                                 <td>@item.username</td>
                                 <td>@Model.ScheduleDetail.Schedule.Course.CourseName@item.Class.ClassName</td>
-                                <td>@item.People.FirstOrDefault(s => s.MS == item.username).Name</td>
+                                <td>@db.People.FirstOrDefault(s=>s.MS==item.username).Name</td>
                                 <td>
 
-                                    <select id="sec">
-                                        @foreach (var value in attenType)
+                                    <select name="txttype" id="sec">
+                                        @foreach (var  value in attenType)
                                         {
                                             <option value="@value.id">@value.TypeName</option>
 
@@ -58,6 +60,7 @@
                         }
                     }
                 </table>
+                <button type="submit" class="form-control">Submit</button>
             </form>
         </div>
     </div>

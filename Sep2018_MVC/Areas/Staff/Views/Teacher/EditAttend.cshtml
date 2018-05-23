@@ -59,7 +59,7 @@
                                         }
                                     </select>
                                 </td>
-                                <td><input type="text" class="form-control" name="txt_note" /></td>
+                                <td><input type="text"  value="@db.AttendanceDetails.FirstOrDefault(s=>s.FK_User==item.username && s.FK_Attendance==Model.id).Note" class="form-control" name="txt_note" /></td>
                             </tr>
                         }
                     }

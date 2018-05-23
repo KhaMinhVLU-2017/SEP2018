@@ -3,6 +3,8 @@
 @{
     ViewBag.Title = "History";
     Layout = "~/Areas/Staff/Views/Shared/_LayoutAdmin.cshtml";
+    SEP_2018_T6Entities db = new SEP_2018_T6Entities();
+
 }
 
 @*<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -33,10 +35,12 @@
                         int count = 0;
                         foreach (var item in Model)
                         {
+                            var idLearn = db.ScheduleDetails.Find(item.FK_ScheduleDetail).FK_Learning;
+                            var idSubject = db.Learnings.Find(idLearn).FK_Subject;
                             count++;
                             <tr>
                                 <th>@count</th>
-                                <th>@item.ScheduleDetail.Learning.Subject.SubjectName</th>
+                                <th>@db.Subjects.Find(idSubject).SubjectName</th>
                                 <th>@item.ScheduleDetail.Schedule.Course.CourseName</th>
                                 <th>@item.ScheduleDetail.Schedule.Course.CourseName@item.ScheduleDetail.Learning.Class.ClassName</th>
                                 <th>@item.Date</th>
