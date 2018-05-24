@@ -15,23 +15,13 @@ namespace Sep2018_MVC.Areas.Staff.Controllers
         }
 
 
-<<<<<<< HEAD
-=======
->>>>>>> TranVanXil
-=======
->>>>>>> MinhNguyen
+
         public  ActionResult ChangePassword()
         {
             return View();
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> TranVanXil
-=======
->>>>>>> MinhNguyen
         public ActionResult CreateAccount()
         {
             return View();
@@ -46,14 +36,7 @@ namespace Sep2018_MVC.Areas.Staff.Controllers
         {
             return View();
         }
-<<<<<<< HEAD
 
-<<<<<<< HEAD
-=======
-
->>>>>>> TranVanXil
-=======
->>>>>>> MinhNguyen
     }
 
 }

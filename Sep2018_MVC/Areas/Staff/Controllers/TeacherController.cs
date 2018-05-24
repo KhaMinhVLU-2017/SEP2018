@@ -127,13 +127,11 @@ namespace Sep2018_MVC.Areas.Staff.Controllers
             db.SaveChanges();
             return RedirectToAction("History");
         }
-<<<<<<< HEAD
+
         public ActionResult Schedule()
         {
             return View();
         }
-=======
 
->>>>>>> MinhNguyen
     }
 }
