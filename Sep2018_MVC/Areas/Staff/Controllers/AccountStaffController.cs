@@ -14,13 +14,19 @@ namespace Sep2018_MVC.Areas.Staff.Controllers
             return View();
         }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> TranVanXil
         public  ActionResult ChangePassword()
         {
             return View();
         }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> TranVanXil
         public ActionResult CreateAccount()
         {
             return View();
@@ -36,6 +42,10 @@ namespace Sep2018_MVC.Areas.Staff.Controllers
             return View();
         }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> TranVanXil
     }
 
 }
