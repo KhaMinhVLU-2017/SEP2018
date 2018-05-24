@@ -457,15 +457,14 @@
     <Content Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
-<<<<<<< HEAD
+
     <Content Include="Areas\Staff\Views\Shared\_SiderBarStaff.cshtml" />
     <Content Include="Areas\Staff\Views\Shared\_SiderBarTeacher.cshtml" />
     <Content Include="Areas\Staff\Views\Teacher\Course.cshtml" />
     <Content Include="Areas\Staff\Views\Teacher\InformationAccount.cshtml" />
     <Content Include="Areas\Staff\Views\Teacher\History.cshtml" />
     <Content Include="Areas\Staff\Views\Teacher\Schedule.cshtml" />
-=======
->>>>>>> MinhNguyen
+
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
