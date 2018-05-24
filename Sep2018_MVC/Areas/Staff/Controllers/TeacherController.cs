@@ -11,9 +11,8 @@ namespace Sep2018_MVC.Areas.Staff.Controllers
 {
     public class TeacherController : Controller
     {
-        // GET: Admin/Staff
+
         SEP_2018_T6Entities db = new SEP_2018_T6Entities();
-        [HttpPost]
         public ActionResult CheckOnline(int? txt_course,int? txt_scheduledetail, int? txt_lesson, int? txt_semester, int? txt_class, int? txt_subject, DateTime txt_day, TimeSpan? txt_timefrom, TimeSpan? txt_timeto)
         {
             Attendance meo = new Attendance();
@@ -100,11 +99,41 @@ namespace Sep2018_MVC.Areas.Staff.Controllers
         }
         public ActionResult History()
         {
-            return View();
+            List<Attendance> meo = db.Attendances.ToList();
+            return View(meo);
         }
+
+        public ActionResult EditAttend(int id)
+        {
+            Attendance meo = db.Attendances.Find(id);
+            ViewData["AttenType"] = db.AttendanceTypes.ToList();
+            var leaning = db.Learnings.FirstOrDefault(s => s.id == meo.ScheduleDetail.FK_Learning).FK_Class;
+            ViewData["user"] = db.Users.Where(s =>s.FK_Class == leaning).ToList();
+            return View(meo);
+        }
+        
+        [HttpPost]
+        public ActionResult AttendOnline(string[] txtid,string[] txttype,string[] txt_note,string txtatt)
+        {
+            for(int i=0; i< txtid.Length; i++)
+            {
+                AttendanceDetail meo = new AttendanceDetail();
+                meo.FK_Attendance = int.Parse(txtatt);
+                meo.FK_AttendanceDetail_Type = int.Parse(txttype[i]);
+                meo.Note = txt_note[i];
+                meo.FK_User = txtid[i];
+                db.AttendanceDetails.Add(meo);
+            }
+            db.SaveChanges();
+            return RedirectToAction("History");
+        }
+<<<<<<< HEAD
         public ActionResult Schedule()
         {
             return View();
         }
+=======
+
+>>>>>>> MinhNguyen
     }
 }

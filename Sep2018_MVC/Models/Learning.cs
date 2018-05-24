@@ -20,8 +20,8 @@ namespace Sep2018_MVC.Models
         public Nullable<int> FK_Semester { get; set; }
     
         public virtual Class Class { get; set; }
+        public virtual ScheduleDetail ScheduleDetail { get; set; }
         public virtual Semester Semester { get; set; }
         public virtual Subject Subject { get; set; }
-        public virtual ScheduleDetail ScheduleDetail { get; set; }
     }
 }

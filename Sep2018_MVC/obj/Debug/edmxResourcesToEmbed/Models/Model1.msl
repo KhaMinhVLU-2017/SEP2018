@@ -14,6 +14,25 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="AttendanceDetails">
+      <EntityTypeMapping TypeName="SEP_2018_T6Model.AttendanceDetail">
+        <MappingFragment StoreEntitySet="AttendanceDetail">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="FK_Attendance" ColumnName="FK_Attendance" />
+          <ScalarProperty Name="FK_User" ColumnName="FK_User" />
+          <ScalarProperty Name="FK_AttendanceDetail_Type" ColumnName="FK_AttendanceDetail_Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AttendanceTypes">
+      <EntityTypeMapping TypeName="SEP_2018_T6Model.AttendanceType">
+        <MappingFragment StoreEntitySet="AttendanceType">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Classes">
       <EntityTypeMapping TypeName="SEP_2018_T6Model.Class">
         <MappingFragment StoreEntitySet="Class">
@@ -26,11 +45,11 @@
     <EntitySetMapping Name="Courses">
       <EntityTypeMapping TypeName="SEP_2018_T6Model.Course">
         <MappingFragment StoreEntitySet="Course">
-          <ScalarProperty Name="FK_Semester" ColumnName="FK_Semester" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="CourseName" ColumnName="CourseName" />
           <ScalarProperty Name="ShoolYearBegin" ColumnName="ShoolYearBegin" />
           <ScalarProperty Name="ShoolYearEnd" ColumnName="ShoolYearEnd" />
+          <ScalarProperty Name="FK_Semester" ColumnName="FK_Semester" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -47,7 +66,6 @@
     <EntitySetMapping Name="People">
       <EntityTypeMapping TypeName="SEP_2018_T6Model.Person">
         <MappingFragment StoreEntitySet="People">
-          <ScalarProperty Name="Gender" ColumnName="Gender" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="MS" ColumnName="MS" />
           <ScalarProperty Name="Name" ColumnName="Name" />
@@ -56,6 +74,7 @@
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
           <ScalarProperty Name="CurrentResidence" ColumnName="CurrentResidence" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -94,6 +113,20 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ScheduleDetails">
+      <EntityTypeMapping TypeName="SEP_2018_T6Model.ScheduleDetail">
+        <MappingFragment StoreEntitySet="ScheduleDetail">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="BeginTime" ColumnName="BeginTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="Lession" ColumnName="Lession" />
+          <ScalarProperty Name="Unit_Lession" ColumnName="Unit_Lession" />
+          <ScalarProperty Name="FK_Learning" ColumnName="FK_Learning" />
+          <ScalarProperty Name="FK_Schedule" ColumnName="FK_Schedule" />
+          <ScalarProperty Name="FK_User_GV" ColumnName="FK_User_GV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Semesters">
       <EntityTypeMapping TypeName="SEP_2018_T6Model.Semester">
         <MappingFragment StoreEntitySet="Semester">
@@ -120,39 +153,6 @@
           <ScalarProperty Name="avatar" ColumnName="avatar" />
           <ScalarProperty Name="PK_Position_Roles" ColumnName="PK_Position_Roles" />
           <ScalarProperty Name="FK_Class" ColumnName="FK_Class" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="AttendanceTypes">
-      <EntityTypeMapping TypeName="SEP_2018_T6Model.AttendanceType">
-        <MappingFragment StoreEntitySet="AttendanceType">
-          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
-          <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="ScheduleDetails">
-      <EntityTypeMapping TypeName="SEP_2018_T6Model.ScheduleDetail">
-        <MappingFragment StoreEntitySet="ScheduleDetail">
-          <ScalarProperty Name="FK_User_GV" ColumnName="FK_User_GV" />
-          <ScalarProperty Name="FK_Schedule" ColumnName="FK_Schedule" />
-          <ScalarProperty Name="FK_Learning" ColumnName="FK_Learning" />
-          <ScalarProperty Name="Unit_Lession" ColumnName="Unit_Lession" />
-          <ScalarProperty Name="Lession" ColumnName="Lession" />
-          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
-          <ScalarProperty Name="BeginTime" ColumnName="BeginTime" />
-          <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="AttendanceDetails">
-      <EntityTypeMapping TypeName="SEP_2018_T6Model.AttendanceDetail">
-        <MappingFragment StoreEntitySet="AttendanceDetail">
-          <ScalarProperty Name="FK_User" ColumnName="FK_User" />
-          <ScalarProperty Name="FK_Attendance" ColumnName="FK_Attendance" />
-          <ScalarProperty Name="Note" ColumnName="Note" />
-          <ScalarProperty Name="FK_AttendanceType" ColumnName="FK_AttendanceType" />
-          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 D:\Learning School\THe Thrid\HKII\SEP\WEb\Sep2018_MVC\Sep2018_MVC\bin\ApplicationInsights.config
 D:\Learning School\THe Thrid\HKII\SEP\WEb\Sep2018_MVC\Sep2018_MVC\bin\Sep2018_MVC.dll.config
 D:\Learning School\THe Thrid\HKII\SEP\WEb\Sep2018_MVC\Sep2018_MVC\bin\Sep2018_MVC.dll
@@ -189,6 +190,8 @@ C:\Users\khaid\Desktop\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.csproj.CoreComp
 C:\Users\khaid\Desktop\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.csproj.CopyComplete
 C:\Users\khaid\Desktop\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.dll
 C:\Users\khaid\Desktop\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.pdb
+=======
+>>>>>>> MinhNguyen
 D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC\bin\ApplicationInsights.config
 D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC\bin\Sep2018_MVC.dll.config
 D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC\bin\Sep2018_MVC.dll
@@ -283,6 +286,7 @@ D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_
 D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.csproj.CopyComplete
 D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.dll
 D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.pdb
+<<<<<<< HEAD
 D:\VLU\HK6_VLU\SEP\project_sep_06\SEP2018\Sep2018_MVC\bin\ApplicationInsights.config
 D:\VLU\HK6_VLU\SEP\project_sep_06\SEP2018\Sep2018_MVC\bin\Sep2018_MVC.dll.config
 D:\VLU\HK6_VLU\SEP\project_sep_06\SEP2018\Sep2018_MVC\bin\Sep2018_MVC.dll
@@ -955,3 +959,6 @@ C:\Users\Xil Tran\Desktop\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.dll
 C:\Users\Xil Tran\Desktop\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.pdb
 C:\Users\Xil Tran\Desktop\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.csprojAssemblyReference.cache
 >>>>>>> TranVanXil
+=======
+D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.csprojAssemblyReference.cache
+>>>>>>> MinhNguyen
