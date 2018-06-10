@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Sep2018_MVC.Models.AttendanceDetail>
+
+@using Sep2018_MVC.Models;
+@{
+    ViewBag.Title = "Attendance index";
+    Layout = "~/Areas/Staff/Views/Shared/_layoutAdmin.cshtml";
+    SEP_2018_T6Entities2 db = new SEP_2018_T6Entities2();
+    User us = new User();
+    Person p = new Person();
+}
+<h2>
+    @ViewBag.s
+</h2>
+@using (Html.BeginForm("Index", "Attendance", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    <table class="table table-hover">
+        <tr>
+            <td>
+                <h4>MSSV</h4>
+            </td>
+            <td>
+                <h4>Date Attendance</h4>
+            </td>
+            <td>
+                <h4>Status</h4>
+            </td>
+            <td>
+                <h4>Note</h4>
+            </td>
+        </tr>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @item.User.username
+            </td>
+            <td>
+                @item.Attendance.Date
+            </td>
+            <td>
+
+                @switch(item.FK_AttendanceDetail_Type)
+                {
+                    case 1:
+                        <h5>Có</h5>
+                        break;
+                    case 2:
+                        <h5>Vắng phép</h5>
+                        break;
+                    case 3:
+                        <h5>Vắng</h5>
+                        break;
+                    case 4:
+                        <h5>Trễ</h5>
+                        break;
+                }
+            </td>
+            <td>
+                @item.Note
+            </td>
+        </tr>
+        }
+    </table>
+}
+<h1>hello</h1>

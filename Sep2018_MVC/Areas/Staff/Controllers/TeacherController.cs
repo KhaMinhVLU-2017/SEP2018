@@ -12,7 +12,7 @@ namespace Sep2018_MVC.Areas.Staff.Controllers
     public class TeacherController : Controller
     {
         // GET: Admin/Staff
-        SEP_2018_T6Entities db = new SEP_2018_T6Entities();
+        SEP_2018_T6Entities2 db = new SEP_2018_T6Entities2();
         [HttpPost]
         public ActionResult CheckOnline(int? txt_course,int? txt_scheduledetail, int? txt_lesson, int? txt_semester, int? txt_class, int? txt_subject, DateTime txt_day, TimeSpan? txt_timefrom, TimeSpan? txt_timeto)
         {

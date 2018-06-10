@@ -17,10 +17,10 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="FK_AttendanceType" Type="int" />
     <Property Name="Note" Type="nvarchar" MaxLength="300" />
     <Property Name="FK_Attendance" Type="int" />
     <Property Name="FK_User" Type="varchar" MaxLength="20" />
+    <Property Name="FK_AttendanceDetail_Type" Type="int" />
   </EntityType>
   <EntityType Name="AttendanceType">
     <Key>
@@ -141,6 +141,18 @@
     <Property Name="PK_Position_Roles" Type="int" />
     <Property Name="FK_Class" Type="int" />
   </EntityType>
+  <Association Name="FK__Attendanc__FK_At__797309D9">
+    <End Role="AttendanceType" Type="Self.AttendanceType" Multiplicity="0..1" />
+    <End Role="AttendanceDetail" Type="Self.AttendanceDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AttendanceType">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AttendanceDetail">
+        <PropertyRef Name="FK_AttendanceDetail_Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__Course__FK_Semes__6FE99F9F">
     <End Role="Semester" Type="Self.Semester" Multiplicity="0..1" />
     <End Role="Course" Type="Self.Course" Multiplicity="*" />
@@ -186,18 +198,6 @@
       </Principal>
       <Dependent Role="AttendanceDetail">
         <PropertyRef Name="FK_User" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_AttendanceType">
-    <End Role="AttendanceType" Type="Self.AttendanceType" Multiplicity="1" />
-    <End Role="AttendanceDetail" Type="Self.AttendanceDetail" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="AttendanceType">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="AttendanceDetail">
-        <PropertyRef Name="id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -372,6 +372,10 @@
     <EntitySet Name="Semester" EntityType="Self.Semester" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Subject" EntityType="Self.Subject" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Attendanc__FK_At__797309D9" Association="Self.FK__Attendanc__FK_At__797309D9">
+      <End Role="AttendanceType" EntitySet="AttendanceType" />
+      <End Role="AttendanceDetail" EntitySet="AttendanceDetail" />
+    </AssociationSet>
     <AssociationSet Name="FK__Course__FK_Semes__6FE99F9F" Association="Self.FK__Course__FK_Semes__6FE99F9F">
       <End Role="Semester" EntitySet="Semester" />
       <End Role="Course" EntitySet="Course" />
@@ -386,10 +390,6 @@
     </AssociationSet>
     <AssociationSet Name="FK_AttendanceDetail_User" Association="Self.FK_AttendanceDetail_User">
       <End Role="User" EntitySet="User" />
-      <End Role="AttendanceDetail" EntitySet="AttendanceDetail" />
-    </AssociationSet>
-    <AssociationSet Name="FK_AttendanceType" Association="Self.FK_AttendanceType">
-      <End Role="AttendanceType" EntitySet="AttendanceType" />
       <End Role="AttendanceDetail" EntitySet="AttendanceDetail" />
     </AssociationSet>
     <AssociationSet Name="FK_Class_Course" Association="Self.FK_Class_Course">

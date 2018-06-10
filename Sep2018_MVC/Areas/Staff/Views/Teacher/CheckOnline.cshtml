@@ -8,7 +8,7 @@
     List<AttendanceType> attenType = new List<AttendanceType>();
     attenType = (List<AttendanceType>)ViewData["AttenType"];
 
-    SEP_2018_T6Entities db = new SEP_2018_T6Entities();
+    SEP_2018_T6Entities2 db = new SEP_2018_T6Entities2();
     var ScheDetail = db.ScheduleDetails.FirstOrDefault(s => s.id == Model.FK_ScheduleDetail);
     var learning = db.Learnings.FirstOrDefault(s => s.id == ScheDetail.FK_Learning);
 }
@@ -23,7 +23,6 @@
             <h1>Danh sách điểm danh sinh viên</h1>
         </div>
         <div class="col-md-offset-2 col-md-8">
-<<<<<<< HEAD
             <table id="table" class="table ">
                 <tr class="trth">
                     <th>STT</th>
@@ -132,7 +131,6 @@
                     }
                 </table>
             </form>
->>>>>>> 458194ba99d633145a08f91d64038d605462b09a
         </div>
     </div>
 </div>

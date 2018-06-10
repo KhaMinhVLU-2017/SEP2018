@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "Attendance index";
+    Layout = "~/Areas/Staff/Views/Shared/_layoutAdmin.cshtml";
+}
+<h2>
+    Index
+</h2>
+@using (Html.BeginForm("Index", "Attendance", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input type="file" name="file" />
+    <input type="submit" value="OK" />
+}
+<h1>hello</h1>

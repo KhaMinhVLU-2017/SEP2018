@@ -18,7 +18,6 @@ namespace Sep2018_MVC.Models
         public Subject()
         {
             this.Learnings = new HashSet<Learning>();
-            this.ScheduleDetails = new HashSet<ScheduleDetail>();
         }
     
         public int id { get; set; }
@@ -28,7 +27,5 @@ namespace Sep2018_MVC.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Learning> Learnings { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ScheduleDetail> ScheduleDetails { get; set; }
     }
 }

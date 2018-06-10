@@ -1,360 +1,207 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="SEP_2018_T6Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="Attendance">
+<Schema Namespace="SEP_T06Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="lop">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="lop_id" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Date" Type="DateTime" Precision="0" />
-    <Property Name="BeginTime" Type="Time" Precision="7" />
-    <Property Name="EndTime" Type="Time" Precision="7" />
-    <Property Name="Lesson" Type="Double" />
-    <Property Name="FK_Teaching" Type="Int32" />
-    <NavigationProperty Name="Teaching" Relationship="Self.FK_Attendance_Teaching" FromRole="Attendance" ToRole="Teaching" />
-    <NavigationProperty Name="AttendanceDetails" Relationship="Self.FK_AttendanceDetail_Attendance1" FromRole="Attendance" ToRole="AttendanceDetail" />
+    <Property Name="lop_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="lop_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="thoikhoabieux" Relationship="Self.FK_thoikhoabieu_lop" FromRole="lop" ToRole="thoikhoabieu" />
   </EntityType>
-  <EntityType Name="AttendanceDetail">
+  <EntityType Name="monhoc">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="mh_id" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Attendance" Type="Double" />
-    <Property Name="Note" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-    <Property Name="FK_Attendance" Type="Int32" />
-    <Property Name="FK_User" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Attendance1" Relationship="Self.FK_AttendanceDetail_Attendance1" FromRole="AttendanceDetail" ToRole="Attendance" />
-    <NavigationProperty Name="User" Relationship="Self.FK_AttendanceDetail_User" FromRole="AttendanceDetail" ToRole="User" />
+    <Property Name="mh_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="mh_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="thoikhoabieux" Relationship="Self.FK_thoikhoabieu_monhoc" FromRole="monhoc" ToRole="thoikhoabieu" />
   </EntityType>
-  <EntityType Name="Class">
+  <EntityType Name="phong">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="phong_id" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ClassName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="FK_Course" Type="Int32" />
-    <NavigationProperty Name="Course" Relationship="Self.FK_Class_Course" FromRole="Class" ToRole="Course" />
-    <NavigationProperty Name="Learnings" Relationship="Self.FK_Learning_Class" FromRole="Class" ToRole="Learning" />
-    <NavigationProperty Name="Users" Relationship="Self.FK_User_Class" FromRole="Class" ToRole="User" />
+    <Property Name="phong_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="phong_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="thoikhoabieux" Relationship="Self.FK_thoikhoabieu_phong" FromRole="phong" ToRole="thoikhoabieu" />
   </EntityType>
-  <EntityType Name="Course">
+  <EntityType Name="role">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="role_id" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="CourseName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="ShoolYearBegin" Type="DateTime" Precision="0" />
-    <Property Name="ShoolYearEnd" Type="DateTime" Precision="0" />
-    <NavigationProperty Name="Classes" Relationship="Self.FK_Class_Course" FromRole="Course" ToRole="Class" />
-    <NavigationProperty Name="Teachings" Relationship="Self.FK_Teaching_Course" FromRole="Course" ToRole="Teaching" />
+    <Property Name="role_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="role_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="users" Relationship="Self.FK_user_role" FromRole="role" ToRole="user" />
   </EntityType>
-  <EntityType Name="Learning">
+  <EntityType Name="session">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="ss_id" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="LearningName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="FK_Class" Type="Int32" />
-    <Property Name="FK_Subject" Type="Int32" />
-    <NavigationProperty Name="Class" Relationship="Self.FK_Learning_Class" FromRole="Learning" ToRole="Class" />
-    <NavigationProperty Name="Subject" Relationship="Self.FK_Learning_Subject" FromRole="Learning" ToRole="Subject" />
+    <Property Name="ss_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="tkb_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="sv_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="us_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="stt_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="sinhvien" Relationship="Self.FK_session_sinhvien" FromRole="session" ToRole="sinhvien" />
+    <NavigationProperty Name="status" Relationship="Self.FK_session_status" FromRole="session" ToRole="status" />
   </EntityType>
-  <EntityType Name="Person">
+  <EntityType Name="sinhvien">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="sv_mssv" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="MS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="HomeTown" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Birthday" Type="DateTime" Precision="0" />
-    <Property Name="PhoneNumber" Type="Int32" />
-    <Property Name="CurrentResidence" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="User" Relationship="Self.FK_People_User" FromRole="People" ToRole="User" />
-    <NavigationProperty Name="Reports" Relationship="Self.FK_Report_People1" FromRole="People" ToRole="Report" />
+    <Property Name="sv_mssv" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="sv_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sv_bday" Type="DateTime" Precision="0" />
+    <Property Name="sv_gtinh" Type="Boolean" />
+    <Property Name="lp_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="sessions" Relationship="Self.FK_session_sinhvien" FromRole="sinhvien" ToRole="session" />
   </EntityType>
-  <EntityType Name="Position">
+  <EntityType Name="status">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="stt_id" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="PositionName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Users" Relationship="Self.FK_User_Position1" FromRole="Position" ToRole="User" />
+    <Property Name="stt_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="stt_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="sessions" Relationship="Self.FK_session_status" FromRole="status" ToRole="session" />
   </EntityType>
-  <EntityType Name="Report">
+  <EntityType Name="sysdiagram">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="diagram_id" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Dear" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="createAt" Type="DateTime" Precision="0" />
-    <Property Name="Title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="FK_People" Type="Int32" />
-    <Property Name="BeginTime" Type="DateTime" Precision="0" />
-    <Property Name="EndTime" Type="DateTime" Precision="0" />
-    <Property Name="TypeReport" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Person" Relationship="Self.FK_Report_People1" FromRole="Report" ToRole="People" />
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
-  <EntityType Name="Subject">
+  <EntityType Name="thoikhoabieu">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="tkb_id" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="SubjectName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-    <Property Name="Lesson" Type="Double" />
-    <Property Name="Unit_Lesson" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Learnings" Relationship="Self.FK_Learning_Subject" FromRole="Subject" ToRole="Learning" />
-    <NavigationProperty Name="Teachings" Relationship="Self.FK_Teaching_Subject" FromRole="Subject" ToRole="Teaching" />
+    <Property Name="tkb_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="mh_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="lp_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="gv_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="pg_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="lop" Relationship="Self.FK_thoikhoabieu_lop" FromRole="thoikhoabieu" ToRole="lop" />
+    <NavigationProperty Name="monhoc" Relationship="Self.FK_thoikhoabieu_monhoc" FromRole="thoikhoabieu" ToRole="monhoc" />
+    <NavigationProperty Name="phong" Relationship="Self.FK_thoikhoabieu_phong" FromRole="thoikhoabieu" ToRole="phong" />
   </EntityType>
-  <EntityType Name="Teaching">
+  <EntityType Name="user">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="user_id" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="TeachingName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="FK_Subject" Type="Int32" />
-    <Property Name="FK_Course" Type="Int32" />
-    <Property Name="FK_User" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Attendances" Relationship="Self.FK_Attendance_Teaching" FromRole="Teaching" ToRole="Attendance" />
-    <NavigationProperty Name="Course" Relationship="Self.FK_Teaching_Course" FromRole="Teaching" ToRole="Course" />
-    <NavigationProperty Name="Subject" Relationship="Self.FK_Teaching_Subject" FromRole="Teaching" ToRole="Subject" />
-    <NavigationProperty Name="User" Relationship="Self.FK_Teaching_User" FromRole="Teaching" ToRole="User" />
+    <Property Name="user_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="user_name" Type="String" MaxLength="128" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="user_pw" Type="String" MaxLength="128" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="role" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="role1" Relationship="Self.FK_user_role" FromRole="user" ToRole="role" />
   </EntityType>
-  <EntityType Name="User">
-    <Key>
-      <PropertyRef Name="username" />
-    </Key>
-    <Property Name="username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-    <Property Name="avatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="PK_Position_Roles" Type="Int32" />
-    <Property Name="FK_Class" Type="Int32" />
-    <Property Name="FK_Subject" Type="Double" />
-    <NavigationProperty Name="AttendanceDetails" Relationship="Self.FK_AttendanceDetail_User" FromRole="User" ToRole="AttendanceDetail" />
-    <NavigationProperty Name="Class" Relationship="Self.FK_User_Class" FromRole="User" ToRole="Class" />
-    <NavigationProperty Name="People" Relationship="Self.FK_People_User" FromRole="User" ToRole="People" />
-    <NavigationProperty Name="Position" Relationship="Self.FK_User_Position1" FromRole="User" ToRole="Position" />
-    <NavigationProperty Name="Teachings" Relationship="Self.FK_Teaching_User" FromRole="User" ToRole="Teaching" />
-  </EntityType>
-  <Association Name="FK_Attendance_Teaching">
-    <End Role="Teaching" Type="Self.Teaching" Multiplicity="0..1" />
-    <End Role="Attendance" Type="Self.Attendance" Multiplicity="*" />
+  <Association Name="FK_thoikhoabieu_lop">
+    <End Role="lop" Type="Self.lop" Multiplicity="1" />
+    <End Role="thoikhoabieu" Type="Self.thoikhoabieu" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Teaching">
-        <PropertyRef Name="id" />
+      <Principal Role="lop">
+        <PropertyRef Name="lop_id" />
       </Principal>
-      <Dependent Role="Attendance">
-        <PropertyRef Name="FK_Teaching" />
+      <Dependent Role="thoikhoabieu">
+        <PropertyRef Name="lp_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_AttendanceDetail_Attendance1">
-    <End Role="Attendance" Type="Self.Attendance" Multiplicity="0..1" />
-    <End Role="AttendanceDetail" Type="Self.AttendanceDetail" Multiplicity="*" />
+  <Association Name="FK_thoikhoabieu_monhoc">
+    <End Role="monhoc" Type="Self.monhoc" Multiplicity="1" />
+    <End Role="thoikhoabieu" Type="Self.thoikhoabieu" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Attendance">
-        <PropertyRef Name="id" />
+      <Principal Role="monhoc">
+        <PropertyRef Name="mh_id" />
       </Principal>
-      <Dependent Role="AttendanceDetail">
-        <PropertyRef Name="FK_Attendance" />
+      <Dependent Role="thoikhoabieu">
+        <PropertyRef Name="mh_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_AttendanceDetail_User">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="AttendanceDetail" Type="Self.AttendanceDetail" Multiplicity="*" />
+  <Association Name="FK_thoikhoabieu_phong">
+    <End Role="phong" Type="Self.phong" Multiplicity="1" />
+    <End Role="thoikhoabieu" Type="Self.thoikhoabieu" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="username" />
+      <Principal Role="phong">
+        <PropertyRef Name="phong_id" />
       </Principal>
-      <Dependent Role="AttendanceDetail">
-        <PropertyRef Name="FK_User" />
+      <Dependent Role="thoikhoabieu">
+        <PropertyRef Name="pg_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Class_Course">
-    <End Role="Course" Type="Self.Course" Multiplicity="0..1" />
-    <End Role="Class" Type="Self.Class" Multiplicity="*" />
+  <Association Name="FK_user_role">
+    <End Role="role" Type="Self.role" Multiplicity="1" />
+    <End Role="user" Type="Self.user" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Course">
-        <PropertyRef Name="id" />
+      <Principal Role="role">
+        <PropertyRef Name="role_id" />
       </Principal>
-      <Dependent Role="Class">
-        <PropertyRef Name="FK_Course" />
+      <Dependent Role="user">
+        <PropertyRef Name="role" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Learning_Class">
-    <End Role="Class" Type="Self.Class" Multiplicity="0..1" />
-    <End Role="Learning" Type="Self.Learning" Multiplicity="*" />
+  <Association Name="FK_session_sinhvien">
+    <End Role="sinhvien" Type="Self.sinhvien" Multiplicity="1" />
+    <End Role="session" Type="Self.session" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Class">
-        <PropertyRef Name="id" />
+      <Principal Role="sinhvien">
+        <PropertyRef Name="sv_mssv" />
       </Principal>
-      <Dependent Role="Learning">
-        <PropertyRef Name="FK_Class" />
+      <Dependent Role="session">
+        <PropertyRef Name="sv_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_User_Class">
-    <End Role="Class" Type="Self.Class" Multiplicity="0..1" />
-    <End Role="User" Type="Self.User" Multiplicity="*" />
+  <Association Name="FK_session_status">
+    <End Role="status" Type="Self.status" Multiplicity="1" />
+    <End Role="session" Type="Self.session" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Class">
-        <PropertyRef Name="id" />
+      <Principal Role="status">
+        <PropertyRef Name="stt_id" />
       </Principal>
-      <Dependent Role="User">
-        <PropertyRef Name="FK_Class" />
+      <Dependent Role="session">
+        <PropertyRef Name="stt_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Teaching_Course">
-    <End Role="Course" Type="Self.Course" Multiplicity="0..1" />
-    <End Role="Teaching" Type="Self.Teaching" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Course">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="Teaching">
-        <PropertyRef Name="FK_Course" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Learning_Subject">
-    <End Role="Subject" Type="Self.Subject" Multiplicity="0..1" />
-    <End Role="Learning" Type="Self.Learning" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Subject">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="Learning">
-        <PropertyRef Name="FK_Subject" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_People_User">
-    <End Role="User" Type="Self.User" Multiplicity="1" />
-    <End Role="People" Type="Self.Person" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="username" />
-      </Principal>
-      <Dependent Role="People">
-        <PropertyRef Name="MS" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Report_People1">
-    <End Role="People" Type="Self.Person" Multiplicity="0..1" />
-    <End Role="Report" Type="Self.Report" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="People">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="Report">
-        <PropertyRef Name="FK_People" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_User_Position1">
-    <End Role="Position" Type="Self.Position" Multiplicity="0..1" />
-    <End Role="User" Type="Self.User" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Position">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="User">
-        <PropertyRef Name="PK_Position_Roles" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Teaching_Subject">
-    <End Role="Subject" Type="Self.Subject" Multiplicity="0..1" />
-    <End Role="Teaching" Type="Self.Teaching" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Subject">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="Teaching">
-        <PropertyRef Name="FK_Subject" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Teaching_User">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="Teaching" Type="Self.Teaching" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="username" />
-      </Principal>
-      <Dependent Role="Teaching">
-        <PropertyRef Name="FK_User" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityContainer Name="SEP_2018_T6Entities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Attendances" EntityType="Self.Attendance" />
-    <EntitySet Name="AttendanceDetails" EntityType="Self.AttendanceDetail" />
-    <EntitySet Name="Classes" EntityType="Self.Class" />
-    <EntitySet Name="Courses" EntityType="Self.Course" />
-    <EntitySet Name="Learnings" EntityType="Self.Learning" />
-    <EntitySet Name="People" EntityType="Self.Person" />
-    <EntitySet Name="Positions" EntityType="Self.Position" />
-    <EntitySet Name="Reports" EntityType="Self.Report" />
-    <EntitySet Name="Subjects" EntityType="Self.Subject" />
-    <EntitySet Name="Teachings" EntityType="Self.Teaching" />
-    <EntitySet Name="Users" EntityType="Self.User" />
-    <AssociationSet Name="FK_Attendance_Teaching" Association="Self.FK_Attendance_Teaching">
-      <End Role="Teaching" EntitySet="Teachings" />
-      <End Role="Attendance" EntitySet="Attendances" />
+  <EntityContainer Name="SEP_T06Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="lops" EntityType="Self.lop" />
+    <EntitySet Name="monhocs" EntityType="Self.monhoc" />
+    <EntitySet Name="phongs" EntityType="Self.phong" />
+    <EntitySet Name="roles" EntityType="Self.role" />
+    <EntitySet Name="sessions" EntityType="Self.session" />
+    <EntitySet Name="sinhviens" EntityType="Self.sinhvien" />
+    <EntitySet Name="status" EntityType="Self.status" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="thoikhoabieux" EntityType="Self.thoikhoabieu" />
+    <EntitySet Name="users" EntityType="Self.user" />
+    <AssociationSet Name="FK_thoikhoabieu_lop" Association="Self.FK_thoikhoabieu_lop">
+      <End Role="lop" EntitySet="lops" />
+      <End Role="thoikhoabieu" EntitySet="thoikhoabieux" />
     </AssociationSet>
-    <AssociationSet Name="FK_AttendanceDetail_Attendance1" Association="Self.FK_AttendanceDetail_Attendance1">
-      <End Role="Attendance" EntitySet="Attendances" />
-      <End Role="AttendanceDetail" EntitySet="AttendanceDetails" />
+    <AssociationSet Name="FK_thoikhoabieu_monhoc" Association="Self.FK_thoikhoabieu_monhoc">
+      <End Role="monhoc" EntitySet="monhocs" />
+      <End Role="thoikhoabieu" EntitySet="thoikhoabieux" />
     </AssociationSet>
-    <AssociationSet Name="FK_AttendanceDetail_User" Association="Self.FK_AttendanceDetail_User">
-      <End Role="User" EntitySet="Users" />
-      <End Role="AttendanceDetail" EntitySet="AttendanceDetails" />
+    <AssociationSet Name="FK_thoikhoabieu_phong" Association="Self.FK_thoikhoabieu_phong">
+      <End Role="phong" EntitySet="phongs" />
+      <End Role="thoikhoabieu" EntitySet="thoikhoabieux" />
     </AssociationSet>
-    <AssociationSet Name="FK_Class_Course" Association="Self.FK_Class_Course">
-      <End Role="Course" EntitySet="Courses" />
-      <End Role="Class" EntitySet="Classes" />
+    <AssociationSet Name="FK_user_role" Association="Self.FK_user_role">
+      <End Role="role" EntitySet="roles" />
+      <End Role="user" EntitySet="users" />
     </AssociationSet>
-    <AssociationSet Name="FK_Learning_Class" Association="Self.FK_Learning_Class">
-      <End Role="Class" EntitySet="Classes" />
-      <End Role="Learning" EntitySet="Learnings" />
+    <AssociationSet Name="FK_session_sinhvien" Association="Self.FK_session_sinhvien">
+      <End Role="sinhvien" EntitySet="sinhviens" />
+      <End Role="session" EntitySet="sessions" />
     </AssociationSet>
-    <AssociationSet Name="FK_User_Class" Association="Self.FK_User_Class">
-      <End Role="Class" EntitySet="Classes" />
-      <End Role="User" EntitySet="Users" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Teaching_Course" Association="Self.FK_Teaching_Course">
-      <End Role="Course" EntitySet="Courses" />
-      <End Role="Teaching" EntitySet="Teachings" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Learning_Subject" Association="Self.FK_Learning_Subject">
-      <End Role="Subject" EntitySet="Subjects" />
-      <End Role="Learning" EntitySet="Learnings" />
-    </AssociationSet>
-    <AssociationSet Name="FK_People_User" Association="Self.FK_People_User">
-      <End Role="User" EntitySet="Users" />
-      <End Role="People" EntitySet="People" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Report_People1" Association="Self.FK_Report_People1">
-      <End Role="People" EntitySet="People" />
-      <End Role="Report" EntitySet="Reports" />
-    </AssociationSet>
-    <AssociationSet Name="FK_User_Position1" Association="Self.FK_User_Position1">
-      <End Role="Position" EntitySet="Positions" />
-      <End Role="User" EntitySet="Users" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Teaching_Subject" Association="Self.FK_Teaching_Subject">
-      <End Role="Subject" EntitySet="Subjects" />
-      <End Role="Teaching" EntitySet="Teachings" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Teaching_User" Association="Self.FK_Teaching_User">
-      <End Role="User" EntitySet="Users" />
-      <End Role="Teaching" EntitySet="Teachings" />
+    <AssociationSet Name="FK_session_status" Association="Self.FK_session_status">
+      <End Role="status" EntitySet="status" />
+      <End Role="session" EntitySet="sessions" />
     </AssociationSet>
   </EntityContainer>
 </Schema>
