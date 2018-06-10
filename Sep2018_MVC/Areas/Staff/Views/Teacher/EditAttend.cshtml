@@ -1,0 +1,73 @@
+﻿@using Sep2018_MVC.Models
+@model Sep2018_MVC.Models.Attendance
+@{
+    ViewBag.Title = "EditAttend";
+    Layout = "~/Areas/Staff/Views/Shared/_LayoutAdmin.cshtml";
+    List<User> meo = new List<User>();
+    meo = (List<User>)ViewData["user"];
+    List<AttendanceType> attenType = new List<AttendanceType>();
+    attenType = (List<AttendanceType>)ViewData["AttenType"];
+    SEP_2018_T6Entities db = new SEP_2018_T6Entities();
+    var ScheDetail = db.ScheduleDetails.FirstOrDefault(s => s.id == Model.FK_ScheduleDetail);
+    var learning = db.Learnings.FirstOrDefault(s => s.id == ScheDetail.FK_Learning);
+}
+
+
+<div class="container-fluid">
+    <!-- Viết nội dung vào đây -->
+    <div class="row">
+        <div class="col-md-12">
+            <h3>@Model.ScheduleDetail.Schedule.Course.CourseName@learning.Class.ClassName - @learning.Subject.SubjectName - @Model.Date</h3>
+        </div>
+        <div class="col-md-12 first">
+            <h1>Danh sách điểm danh sinh viên</h1>
+        </div>
+        <div class="col-md-offset-2 col-md-8">
+            <form>
+                <table id="table" class="table ">
+                    <tr class="trth">
+                        <th>STT</th>
+                        <th>MSSV</th>
+                        <th>Lớp</th>
+                        <th>Họ và Tên</th>
+                        <th>Trạng thái</th>
+                        <th>Ghi chú</th>
+                    </tr>
+                    @{
+                        int count = 0;
+                        foreach (var item in meo)
+                        {
+                            count = count + 1;
+                            <tr>
+                                <td>@count</td>
+                                <td>@item.username</td>
+                                <td>@Model.ScheduleDetail.Schedule.Course.CourseName@item.Class.ClassName</td>
+                                <td>@db.People.FirstOrDefault(s=>s.MS==item.username).Name</td>
+                                <td>
+                                    <select id="sec">
+                                        @foreach (var value in attenType)
+                                        {
+                                            if (value.TypeName== db.AttendanceTypes.FirstOrDefault(d => d.id == @db.AttendanceDetails.FirstOrDefault(s => s.FK_User == item.username).FK_AttendanceDetail_Type).TypeName)
+                                            {
+                                                <option selected value="@value.id">@value.TypeName</option>
+                                            }
+                                            else
+                                            {
+                                                <option value="@value.id">@value.TypeName</option>
+                                            }
+                                
+                                        }
+                                    </select>
+                                </td>
+                                <td><input type="text"  value="@db.AttendanceDetails.FirstOrDefault(s=>s.FK_User==item.username && s.FK_Attendance==Model.id).Note" class="form-control" name="txt_note" /></td>
+                            </tr>
+                        }
+                    }
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+

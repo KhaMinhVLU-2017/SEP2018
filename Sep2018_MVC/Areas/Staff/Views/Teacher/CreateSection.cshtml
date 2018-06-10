@@ -17,7 +17,7 @@
             <div class="row">
                 <div class="col-md-6 section_second">
                     <div class="col-md-12">
-                        <form action="/Staff/Teacher/CheckOnline" method="POST">
+                        <form action="/Staff/Teacher/CheckOnline" method="get">
                             <div class="form-group col-md-12">
                                 <label class="control-label col-sm-3">Khoá:</label>
                                 <div class="col-sm-9">
@@ -128,7 +128,6 @@
                 txt_scheduledetail.removeChild(item);
             });
         }
-        $.a
         $.ajax({
             type: 'GET',
             url: url + "/Staff/Teacher/SemesterMeo/" + id,
@@ -195,6 +194,7 @@
         });
     }
     txt_class.addEventListener("change", crawSubject);
+
     function crawSubject() {
         let id = $(this).children(":selected").attr("id");
         let id_course = txt_course.options[txt_course.selectedIndex].id;//get ID
@@ -224,6 +224,7 @@
     }
     //txt_subject.addEventListener("click", crawScheSub);
     txt_subject.addEventListener("change", crawScheSub);
+    txt_subject.addEventListener("click", crawScheSub);
     /*Craw Schedule*/
     function crawScheSub() {
         let id_subject = $(this).children(":selected").attr("id");//Get Value Select choose

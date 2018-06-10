@@ -22,8 +22,11 @@ namespace Sep2018_MVC.Models
     
         public int id { get; set; }
         public string TypeName { get; set; }
+<<<<<<< HEAD
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AttendanceDetail> AttendanceDetails { get; set; }
+=======
+>>>>>>> origin/master
     }
 }

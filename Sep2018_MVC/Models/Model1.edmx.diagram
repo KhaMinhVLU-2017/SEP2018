@@ -4,10 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
+<<<<<<< HEAD
       <Diagram DiagramId="c7c5b26756264c9da7fea3e8bb3ca87b" Name="Diagram1">
         <EntityTypeShape EntityType="SEP_2018_T6Model.Attendance" Width="1.5" PointX="15" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="SEP_2018_T6Model.AttendanceDetail" Width="1.5" PointX="17.25" PointY="3.5" IsExpanded="true" />
         <EntityTypeShape EntityType="SEP_2018_T6Model.AttendanceType" Width="1.5" PointX="15" PointY="10" IsExpanded="true" />
+=======
+      <Diagram DiagramId="429d1cb4bf3f4752aca81e0873c47519" Name="Diagram1">
+        <EntityTypeShape EntityType="SEP_2018_T6Model.Attendance" Width="1.5" PointX="15" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEP_2018_T6Model.AttendanceDetail" Width="1.5" PointX="17.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEP_2018_T6Model.AttendanceType" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+>>>>>>> origin/master
         <EntityTypeShape EntityType="SEP_2018_T6Model.Class" Width="1.5" PointX="5.25" PointY="5.625" IsExpanded="true" />
         <EntityTypeShape EntityType="SEP_2018_T6Model.Course" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
         <EntityTypeShape EntityType="SEP_2018_T6Model.Learning" Width="1.5" PointX="7.5" PointY="5.375" IsExpanded="true" />
@@ -21,7 +28,10 @@
         <EntityTypeShape EntityType="SEP_2018_T6Model.User" Width="1.5" PointX="10.5" PointY="5.25" IsExpanded="true" />
         <AssociationConnector Association="SEP_2018_T6Model.FK_Attendance_ScheduleDetail" ManuallyRouted="false" />
         <AssociationConnector Association="SEP_2018_T6Model.FK_AttendanceDetail_Attendance1" ManuallyRouted="false" />
+<<<<<<< HEAD
         <AssociationConnector Association="SEP_2018_T6Model.FK__Attendanc__FK_At__797309D9" ManuallyRouted="false" />
+=======
+>>>>>>> origin/master
         <AssociationConnector Association="SEP_2018_T6Model.FK_AttendanceDetail_User" ManuallyRouted="false" />
         <AssociationConnector Association="SEP_2018_T6Model.FK_Class_Course" ManuallyRouted="false" />
         <AssociationConnector Association="SEP_2018_T6Model.FK_Learning_Class" ManuallyRouted="false" />

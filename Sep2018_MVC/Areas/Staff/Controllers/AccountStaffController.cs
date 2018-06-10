@@ -15,6 +15,10 @@ namespace Sep2018_MVC.Areas.Staff.Controllers
         }
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
         public  ActionResult ChangePassword()
         {
             return View();
@@ -36,7 +40,10 @@ namespace Sep2018_MVC.Areas.Staff.Controllers
             return View();
         }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
     }
 
 }
