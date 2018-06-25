@@ -59,6 +59,9 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -67,6 +70,12 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -155,7 +164,11 @@
     <Compile Include="Areas\Staff\Controllers\AccountStaffController.cs" />
     <Compile Include="Areas\Staff\StaffAreaRegistration.cs" />
     <Compile Include="Areas\Staff\Controllers\TeacherController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AttendanceController.cs" />
+    <Compile Include="Controllers\GiangvienController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SinhvienController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -349,7 +362,6 @@
     <Content Include="Areas\Staff\Assert\Images\img\friends\.DS_Store" />
     <Content Include="Areas\Staff\Assert\Images\img\portfolio\.DS_Store" />
     <Content Include="Areas\Staff\Views\AccountStaff\Index.cshtml" />
-
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Assert\Webfonts\fontawesome-webfont.eot" />
     <Content Include="Areas\Admin\Assert\Webfonts\fontawesome-webfont.ttf" />
@@ -365,14 +377,10 @@
     <Content Include="Areas\Admin\Assert\Font\glyphicons-halflings-regular.woff" />
     <Content Include="Areas\Admin\Views\Management\LoginAdmin.cshtml" />
     <Content Include="Areas\Admin\Views\Management\DemoLogin.cshtml" />
-
     <Content Include="Areas\Staff\Views\AccountStaff\ChangePassword.cshtml" />
     <Content Include="Areas\Staff\Views\AccountStaff\CreateAccount.cshtml" />
-
     <Content Include="Areas\Staff\Views\AccountStaff\Report.cshtml" />
-
     <Content Include="Areas\Staff\Views\AccountStaff\InformationAccountStaff.cshtml" />
-
     <None Include="Areas\Staff\Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Content\admin.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -445,6 +453,11 @@
     <Content Include="Areas\Staff\Assert\webfonts\fa-solid-900.woff" />
     <Content Include="Areas\Staff\Assert\webfonts\fa-solid-900.woff2" />
     <Content Include="Areas\Staff\Views\Teacher\CreateAccount.cshtml" />
+    <Content Include="Areas\Staff\Views\Shared\_SiderBarStaff.cshtml" />
+    <Content Include="Areas\Staff\Views\Shared\_SiderBarTeacher.cshtml" />
+    <Content Include="Areas\Staff\Views\Teacher\Course.cshtml" />
+    <Content Include="Areas\Staff\Views\Teacher\InformationAccount.cshtml" />
+    <Content Include="Areas\Staff\Views\Teacher\History.cshtml" />
     <EntityDeploy Include="Models\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
@@ -452,11 +465,6 @@
     <Content Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
-    <Content Include="Areas\Staff\Views\Shared\_SiderBarStaff.cshtml" />
-    <Content Include="Areas\Staff\Views\Shared\_SiderBarTeacher.cshtml" />
-    <Content Include="Areas\Staff\Views\Teacher\Course.cshtml" />
-    <Content Include="Areas\Staff\Views\Teacher\InformationAccount.cshtml" />
-    <Content Include="Areas\Staff\Views\Teacher\History.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -498,16 +506,19 @@
     <Content Include="webfonts\fa-solid-900.woff2" />
     <Content Include="Areas\Staff\Views\Teacher\CheckOnline.cshtml" />
     <Content Include="Areas\Staff\Views\Teacher\Notifi.cshtml" />
-
     <Content Include="Views\Home\DetailMonHoc.cshtml" />
-
     <Content Include="Areas\Admin\Views\Shared\AdminLayout1.cshtml" />
-
+    <Content Include="Views\Attendance\Index.cshtml" />
+    <Content Include="Views\Attendance\ImportFile.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Giangvien\Index.cshtml" />
+    <Content Include="Views\Sinhvien\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Staff\Models\" />
+    <Folder Include="Files\" />
     <Folder Include="Views\Staff\" />
   </ItemGroup>
   <ItemGroup>

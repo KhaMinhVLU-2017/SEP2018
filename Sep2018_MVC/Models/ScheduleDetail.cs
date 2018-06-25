@@ -33,7 +33,6 @@ namespace Sep2018_MVC.Models
         public virtual ICollection<Attendance> Attendances { get; set; }
         public virtual Learning Learning { get; set; }
         public virtual Schedule Schedule { get; set; }
-        public virtual Subject Subject { get; set; }
         public virtual User User { get; set; }
     }
 }

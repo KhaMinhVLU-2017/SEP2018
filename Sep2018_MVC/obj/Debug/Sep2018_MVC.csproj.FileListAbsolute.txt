@@ -663,7 +663,6 @@ D:\Study\Year3\SEP\SE2\SEP2018\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.csprojR
 D:\Study\Year3\SEP\SE2\SEP2018\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.csproj.CoreCompileInputs.cache
 D:\Study\Year3\SEP\SE2\SEP2018\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.dll
 D:\Study\Year3\SEP\SE2\SEP2018\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.pdb
-<<<<<<< HEAD
 E:\HTML\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.csprojAssemblyReference.cache
 E:\HTML\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.csproj.CoreCompileInputs.cache
 E:\HTML\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.dll
@@ -759,8 +758,6 @@ E:\HTML\SEP2018\Sep2018_MVC\bin\Microsoft.AI.ServerTelemetryChannel.xml
 E:\HTML\SEP2018\Sep2018_MVC\bin\Microsoft.AI.WindowsServer.xml
 E:\HTML\SEP2018\Sep2018_MVC\bin\Microsoft.AI.Web.xml
 E:\HTML\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.csproj.CopyComplete
-=======
-<<<<<<< HEAD
 D:\Study\Year3\SEP\SEP3\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.csprojResolveAssemblyReference.cache
 D:\Study\Year3\SEP\SEP3\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.csproj.CoreCompileInputs.cache
 D:\Study\Year3\SEP\SEP3\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.dll
@@ -855,11 +852,15 @@ D:\Study\Year3\SEP\SEP3\SEP2018\Sep2018_MVC\bin\Microsoft.AI.DependencyCollector
 D:\Study\Year3\SEP\SEP3\SEP2018\Sep2018_MVC\bin\Microsoft.AI.ServerTelemetryChannel.xml
 D:\Study\Year3\SEP\SEP3\SEP2018\Sep2018_MVC\bin\Microsoft.AI.WindowsServer.xml
 D:\Study\Year3\SEP\SEP3\SEP2018\Sep2018_MVC\bin\Microsoft.AI.Web.xml
-=======
-<<<<<<< HEAD
 >>>>>>> 6e3d263b18114122ea01b735dda8908cac0e4bb4
-=======
 D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.csprojAssemblyReference.cache
 >>>>>>> af6d2a00387f155bc830a5eb861bd9ed7a74b5aa
 >>>>>>> 458194ba99d633145a08f91d64038d605462b09a
 >>>>>>> 8ab08f216a39758f6e4052cb761f5c0ec88ecbf9
+D:\SEP\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.csprojResolveAssemblyReference.cache
+D:\SEP\SEP2018\Sep2018_MVC\bin\System.Net.Http.Formatting.dll
+D:\SEP\SEP2018\Sep2018_MVC\bin\System.Web.Http.dll
+D:\SEP\SEP2018\Sep2018_MVC\bin\System.Web.Http.WebHost.dll
+D:\SEP\SEP2018\Sep2018_MVC\bin\System.Net.Http.Formatting.xml
+D:\SEP\SEP2018\Sep2018_MVC\bin\System.Web.Http.xml
+D:\SEP\SEP2018\Sep2018_MVC\bin\System.Web.Http.WebHost.xml

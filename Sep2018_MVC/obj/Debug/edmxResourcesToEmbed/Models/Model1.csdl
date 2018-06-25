@@ -11,8 +11,29 @@
     <Property Name="Lesson" Type="Double" />
     <Property Name="Unit_Lession" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="FK_ScheduleDetail" Type="Int32" />
-    <NavigationProperty Name="ScheduleDetail" Relationship="SEP_2018_T6Model.FK_Attendance_ScheduleDetail" FromRole="Attendance" ToRole="ScheduleDetail" />
-    <NavigationProperty Name="AttendanceDetails" Relationship="SEP_2018_T6Model.FK_AttendanceDetail_Attendance1" FromRole="Attendance" ToRole="AttendanceDetail" />
+    <NavigationProperty Name="ScheduleDetail" Relationship="Self.FK_Attendance_ScheduleDetail" FromRole="Attendance" ToRole="ScheduleDetail" />
+    <NavigationProperty Name="AttendanceDetails" Relationship="Self.FK_AttendanceDetail_Attendance1" FromRole="Attendance" ToRole="AttendanceDetail" />
+  </EntityType>
+  <EntityType Name="AttendanceDetail">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Note" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="FK_Attendance" Type="Int32" />
+    <Property Name="FK_User" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="FK_AttendanceDetail_Type" Type="Int32" />
+    <NavigationProperty Name="Attendance" Relationship="Self.FK_AttendanceDetail_Attendance1" FromRole="AttendanceDetail" ToRole="Attendance" />
+    <NavigationProperty Name="AttendanceType" Relationship="Self.FK__Attendanc__FK_At__797309D9" FromRole="AttendanceDetail" ToRole="AttendanceType" />
+    <NavigationProperty Name="User" Relationship="Self.FK_AttendanceDetail_User" FromRole="AttendanceDetail" ToRole="User" />
+  </EntityType>
+  <EntityType Name="AttendanceType">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TypeName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AttendanceDetails" Relationship="Self.FK__Attendanc__FK_At__797309D9" FromRole="AttendanceType" ToRole="AttendanceDetail" />
   </EntityType>
   <EntityType Name="Class">
     <Key>
@@ -33,10 +54,10 @@
     <Property Name="CourseName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="ShoolYearBegin" Type="DateTime" Precision="0" />
     <Property Name="ShoolYearEnd" Type="DateTime" Precision="0" />
-    <NavigationProperty Name="Classes" Relationship="Self.FK_Class_Course" FromRole="Course" ToRole="Class" />
-    <NavigationProperty Name="Schedules" Relationship="Self.FK_Schedule_Course" FromRole="Course" ToRole="Schedule" />
     <Property Name="FK_Semester" Type="Int32" />
-    <NavigationProperty Name="Semester" Relationship="SEP_2018_T6Model.FK__Course__FK_Semes__6FE99F9F" FromRole="Course" ToRole="Semester" />
+    <NavigationProperty Name="Classes" Relationship="Self.FK_Class_Course" FromRole="Course" ToRole="Class" />
+    <NavigationProperty Name="Semester" Relationship="Self.FK__Course__FK_Semes__6FE99F9F" FromRole="Course" ToRole="Semester" />
+    <NavigationProperty Name="Schedules" Relationship="Self.FK_Schedule_Course" FromRole="Course" ToRole="Schedule" />
   </EntityType>
   <EntityType Name="Learning">
     <Key>
@@ -47,9 +68,9 @@
     <Property Name="FK_Subject" Type="Int32" />
     <Property Name="FK_Semester" Type="Int32" />
     <NavigationProperty Name="Class" Relationship="Self.FK_Learning_Class" FromRole="Learning" ToRole="Class" />
+    <NavigationProperty Name="ScheduleDetail" Relationship="Self.FK_Learning" FromRole="Learning" ToRole="ScheduleDetail" />
     <NavigationProperty Name="Semester" Relationship="Self.FK_Learning_Semester" FromRole="Learning" ToRole="Semester" />
     <NavigationProperty Name="Subject" Relationship="Self.FK_Learning_Subject" FromRole="Learning" ToRole="Subject" />
-    <NavigationProperty Name="ScheduleDetail" Relationship="SEP_2018_T6Model.FK_Learning" FromRole="Learning" ToRole="ScheduleDetail" />
   </EntityType>
   <EntityType Name="Person">
     <Key>
@@ -63,9 +84,9 @@
     <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="PhoneNumber" Type="Int32" />
     <Property Name="CurrentResidence" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="Boolean" />
     <NavigationProperty Name="User" Relationship="Self.FK_People_User" FromRole="People" ToRole="User" />
     <NavigationProperty Name="Reports" Relationship="Self.FK_Report_People1" FromRole="People" ToRole="Report" />
-    <Property Name="Gender" Type="Boolean" />
   </EntityType>
   <EntityType Name="Position">
     <Key>
@@ -102,7 +123,24 @@
     <Property Name="FK_Semester" Type="Int32" />
     <NavigationProperty Name="Course" Relationship="Self.FK_Schedule_Course" FromRole="Schedule" ToRole="Course" />
     <NavigationProperty Name="Semester" Relationship="Self.FK_Schedule_Semester" FromRole="Schedule" ToRole="Semester" />
-    <NavigationProperty Name="ScheduleDetails" Relationship="SEP_2018_T6Model.FK_ScheduleDetail_Schedule" FromRole="Schedule" ToRole="ScheduleDetail" />
+    <NavigationProperty Name="ScheduleDetails" Relationship="Self.FK_ScheduleDetail_Schedule" FromRole="Schedule" ToRole="ScheduleDetail" />
+  </EntityType>
+  <EntityType Name="ScheduleDetail">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BeginTime" Type="Time" Precision="7" />
+    <Property Name="EndTime" Type="Time" Precision="7" />
+    <Property Name="Lession" Type="Int32" />
+    <Property Name="Unit_Lession" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="FK_Learning" Type="Int32" />
+    <Property Name="FK_Schedule" Type="Int32" />
+    <Property Name="FK_User_GV" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Attendances" Relationship="Self.FK_Attendance_ScheduleDetail" FromRole="ScheduleDetail" ToRole="Attendance" />
+    <NavigationProperty Name="Learning" Relationship="Self.FK_Learning" FromRole="ScheduleDetail" ToRole="Learning" />
+    <NavigationProperty Name="Schedule" Relationship="Self.FK_ScheduleDetail_Schedule" FromRole="ScheduleDetail" ToRole="Schedule" />
+    <NavigationProperty Name="User" Relationship="Self.FK_ScheduleDetail_User" FromRole="ScheduleDetail" ToRole="User" />
   </EntityType>
   <EntityType Name="Semester">
     <Key>
@@ -110,9 +148,9 @@
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="SemesterName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Courses" Relationship="Self.FK__Course__FK_Semes__6FE99F9F" FromRole="Semester" ToRole="Course" />
     <NavigationProperty Name="Learnings" Relationship="Self.FK_Learning_Semester" FromRole="Semester" ToRole="Learning" />
     <NavigationProperty Name="Schedules" Relationship="Self.FK_Schedule_Semester" FromRole="Semester" ToRole="Schedule" />
-    <NavigationProperty Name="Courses" Relationship="SEP_2018_T6Model.FK__Course__FK_Semes__6FE99F9F" FromRole="Semester" ToRole="Course" />
   </EntityType>
   <EntityType Name="Subject">
     <Key>
@@ -123,7 +161,6 @@
     <Property Name="Lesson" Type="Double" />
     <Property Name="Unit_Lesson" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Learnings" Relationship="Self.FK_Learning_Subject" FromRole="Subject" ToRole="Learning" />
-    <NavigationProperty Name="ScheduleDetails" Relationship="SEP_2018_T6Model.FK_ScheduleDetail_Subject" FromRole="Subject" ToRole="ScheduleDetail" />
   </EntityType>
   <EntityType Name="User">
     <Key>
@@ -134,12 +171,60 @@
     <Property Name="avatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="PK_Position_Roles" Type="Int32" />
     <Property Name="FK_Class" Type="Int32" />
+    <NavigationProperty Name="AttendanceDetails" Relationship="Self.FK_AttendanceDetail_User" FromRole="User" ToRole="AttendanceDetail" />
     <NavigationProperty Name="Class" Relationship="Self.FK_User_Class" FromRole="User" ToRole="Class" />
     <NavigationProperty Name="People" Relationship="Self.FK_People_User" FromRole="User" ToRole="People" />
     <NavigationProperty Name="Position" Relationship="Self.FK_User_Position1" FromRole="User" ToRole="Position" />
-    <NavigationProperty Name="ScheduleDetails" Relationship="SEP_2018_T6Model.FK_ScheduleDetail_User" FromRole="User" ToRole="ScheduleDetail" />
-    <NavigationProperty Name="AttendanceDetails" Relationship="SEP_2018_T6Model.FK_AttendanceDetail_User" FromRole="User" ToRole="AttendanceDetail" />
+    <NavigationProperty Name="ScheduleDetails" Relationship="Self.FK_ScheduleDetail_User" FromRole="User" ToRole="ScheduleDetail" />
   </EntityType>
+  <Association Name="FK_Attendance_ScheduleDetail">
+    <End Role="ScheduleDetail" Type="Self.ScheduleDetail" Multiplicity="0..1" />
+    <End Role="Attendance" Type="Self.Attendance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ScheduleDetail">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Attendance">
+        <PropertyRef Name="FK_ScheduleDetail" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AttendanceDetail_Attendance1">
+    <End Role="Attendance" Type="Self.Attendance" Multiplicity="0..1" />
+    <End Role="AttendanceDetail" Type="Self.AttendanceDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Attendance">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AttendanceDetail">
+        <PropertyRef Name="FK_Attendance" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Attendanc__FK_At__797309D9">
+    <End Role="AttendanceType" Type="Self.AttendanceType" Multiplicity="0..1" />
+    <End Role="AttendanceDetail" Type="Self.AttendanceDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AttendanceType">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AttendanceDetail">
+        <PropertyRef Name="FK_AttendanceDetail_Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AttendanceDetail_User">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="AttendanceDetail" Type="Self.AttendanceDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="username" />
+      </Principal>
+      <Dependent Role="AttendanceDetail">
+        <PropertyRef Name="FK_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Class_Course">
     <End Role="Course" Type="Self.Course" Multiplicity="0..1" />
     <End Role="Class" Type="Self.Class" Multiplicity="*" />
@@ -176,6 +261,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__Course__FK_Semes__6FE99F9F">
+    <End Role="Semester" Type="Self.Semester" Multiplicity="0..1" />
+    <End Role="Course" Type="Self.Course" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Semester">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Course">
+        <PropertyRef Name="FK_Semester" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Schedule_Course">
     <End Role="Course" Type="Self.Course" Multiplicity="0..1" />
     <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
@@ -185,6 +282,18 @@
       </Principal>
       <Dependent Role="Schedule">
         <PropertyRef Name="FK_Course" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Learning">
+    <End Role="Learning" Type="Self.Learning" Multiplicity="1" />
+    <End Role="ScheduleDetail" Type="Self.ScheduleDetail" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Learning">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ScheduleDetail">
+        <PropertyRef Name="id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -260,8 +369,34 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="SEP_2018_T6Entities" annotation:LazyLoadingEnabled="true">
+  <Association Name="FK_ScheduleDetail_Schedule">
+    <End Role="Schedule" Type="Self.Schedule" Multiplicity="0..1" />
+    <End Role="ScheduleDetail" Type="Self.ScheduleDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Schedule">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ScheduleDetail">
+        <PropertyRef Name="FK_Schedule" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ScheduleDetail_User">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="ScheduleDetail" Type="Self.ScheduleDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="username" />
+      </Principal>
+      <Dependent Role="ScheduleDetail">
+        <PropertyRef Name="FK_User_GV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SEP_2018_T6Entities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Attendances" EntityType="Self.Attendance" />
+    <EntitySet Name="AttendanceDetails" EntityType="Self.AttendanceDetail" />
+    <EntitySet Name="AttendanceTypes" EntityType="Self.AttendanceType" />
     <EntitySet Name="Classes" EntityType="Self.Class" />
     <EntitySet Name="Courses" EntityType="Self.Course" />
     <EntitySet Name="Learnings" EntityType="Self.Learning" />
@@ -269,9 +404,26 @@
     <EntitySet Name="Positions" EntityType="Self.Position" />
     <EntitySet Name="Reports" EntityType="Self.Report" />
     <EntitySet Name="Schedules" EntityType="Self.Schedule" />
+    <EntitySet Name="ScheduleDetails" EntityType="Self.ScheduleDetail" />
     <EntitySet Name="Semesters" EntityType="Self.Semester" />
     <EntitySet Name="Subjects" EntityType="Self.Subject" />
     <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK_Attendance_ScheduleDetail" Association="Self.FK_Attendance_ScheduleDetail">
+      <End Role="ScheduleDetail" EntitySet="ScheduleDetails" />
+      <End Role="Attendance" EntitySet="Attendances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AttendanceDetail_Attendance1" Association="Self.FK_AttendanceDetail_Attendance1">
+      <End Role="Attendance" EntitySet="Attendances" />
+      <End Role="AttendanceDetail" EntitySet="AttendanceDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Attendanc__FK_At__797309D9" Association="Self.FK__Attendanc__FK_At__797309D9">
+      <End Role="AttendanceType" EntitySet="AttendanceTypes" />
+      <End Role="AttendanceDetail" EntitySet="AttendanceDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AttendanceDetail_User" Association="Self.FK_AttendanceDetail_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="AttendanceDetail" EntitySet="AttendanceDetails" />
+    </AssociationSet>
     <AssociationSet Name="FK_Class_Course" Association="Self.FK_Class_Course">
       <End Role="Course" EntitySet="Courses" />
       <End Role="Class" EntitySet="Classes" />
@@ -284,9 +436,17 @@
       <End Role="Class" EntitySet="Classes" />
       <End Role="User" EntitySet="Users" />
     </AssociationSet>
+    <AssociationSet Name="FK__Course__FK_Semes__6FE99F9F" Association="Self.FK__Course__FK_Semes__6FE99F9F">
+      <End Role="Semester" EntitySet="Semesters" />
+      <End Role="Course" EntitySet="Courses" />
+    </AssociationSet>
     <AssociationSet Name="FK_Schedule_Course" Association="Self.FK_Schedule_Course">
       <End Role="Course" EntitySet="Courses" />
       <End Role="Schedule" EntitySet="Schedules" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Learning" Association="Self.FK_Learning">
+      <End Role="Learning" EntitySet="Learnings" />
+      <End Role="ScheduleDetail" EntitySet="ScheduleDetails" />
     </AssociationSet>
     <AssociationSet Name="FK_Learning_Semester" Association="Self.FK_Learning_Semester">
       <End Role="Semester" EntitySet="Semesters" />
@@ -312,191 +472,13 @@
       <End Role="Semester" EntitySet="Semesters" />
       <End Role="Schedule" EntitySet="Schedules" />
     </AssociationSet>
-    <AssociationSet Name="FK__Course__FK_Semes__6FE99F9F" Association="SEP_2018_T6Model.FK__Course__FK_Semes__6FE99F9F">
-      <End Role="Semester" EntitySet="Semesters" />
-      <End Role="Course" EntitySet="Courses" />
-    </AssociationSet>
-    <EntitySet Name="AttendanceTypes" EntityType="SEP_2018_T6Model.AttendanceType" />
-    <EntitySet Name="ScheduleDetails" EntityType="SEP_2018_T6Model.ScheduleDetail" />
-    <AssociationSet Name="FK_Attendance_ScheduleDetail" Association="SEP_2018_T6Model.FK_Attendance_ScheduleDetail">
-      <End Role="ScheduleDetail" EntitySet="ScheduleDetails" />
-      <End Role="Attendance" EntitySet="Attendances" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Learning" Association="SEP_2018_T6Model.FK_Learning">
-      <End Role="Learning" EntitySet="Learnings" />
-      <End Role="ScheduleDetail" EntitySet="ScheduleDetails" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ScheduleDetail_Schedule" Association="SEP_2018_T6Model.FK_ScheduleDetail_Schedule">
+    <AssociationSet Name="FK_ScheduleDetail_Schedule" Association="Self.FK_ScheduleDetail_Schedule">
       <End Role="Schedule" EntitySet="Schedules" />
       <End Role="ScheduleDetail" EntitySet="ScheduleDetails" />
     </AssociationSet>
-    <AssociationSet Name="FK_ScheduleDetail_Subject" Association="SEP_2018_T6Model.FK_ScheduleDetail_Subject">
-      <End Role="Subject" EntitySet="Subjects" />
-      <End Role="ScheduleDetail" EntitySet="ScheduleDetails" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ScheduleDetail_User" Association="SEP_2018_T6Model.FK_ScheduleDetail_User">
+    <AssociationSet Name="FK_ScheduleDetail_User" Association="Self.FK_ScheduleDetail_User">
       <End Role="User" EntitySet="Users" />
       <End Role="ScheduleDetail" EntitySet="ScheduleDetails" />
-    </AssociationSet>
-    <EntitySet Name="AttendanceDetails" EntityType="SEP_2018_T6Model.AttendanceDetail" />
-    <AssociationSet Name="FK_AttendanceDetail_Attendance1" Association="SEP_2018_T6Model.FK_AttendanceDetail_Attendance1">
-      <End Role="Attendance" EntitySet="Attendances" />
-      <End Role="AttendanceDetail" EntitySet="AttendanceDetails" />
-    </AssociationSet>
-    <AssociationSet Name="FK_AttendanceDetail_User" Association="SEP_2018_T6Model.FK_AttendanceDetail_User">
-      <End Role="User" EntitySet="Users" />
-      <End Role="AttendanceDetail" EntitySet="AttendanceDetails" />
-    </AssociationSet>
-    <AssociationSet Name="FK_AttendanceType" Association="SEP_2018_T6Model.FK_AttendanceType">
-      <End Role="AttendanceType" EntitySet="AttendanceTypes" />
-      <End Role="AttendanceDetail" EntitySet="AttendanceDetails" />
     </AssociationSet>
   </EntityContainer>
-  <Association Name="FK__Course__FK_Semes__6FE99F9F">
-    <End Type="SEP_2018_T6Model.Semester" Role="Semester" Multiplicity="0..1" />
-    <End Type="SEP_2018_T6Model.Course" Role="Course" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Semester">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="Course">
-        <PropertyRef Name="FK_Semester" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityType Name="AttendanceType">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="TypeName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="AttendanceDetail" Relationship="SEP_2018_T6Model.FK_AttendanceType" FromRole="AttendanceType" ToRole="AttendanceDetail" />
-  </EntityType>
-  <EntityType Name="ScheduleDetail">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="BeginTime" Type="Time" Precision="7" />
-    <Property Name="EndTime" Type="Time" Precision="7" />
-    <Property Name="Lession" Type="Int32" />
-    <Property Name="Unit_Lession" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-    <Property Name="FK_Learning" Type="Int32" />
-    <Property Name="FK_Schedule" Type="Int32" />
-    <Property Name="FK_User_GV" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Attendances" Relationship="SEP_2018_T6Model.FK_Attendance_ScheduleDetail" FromRole="ScheduleDetail" ToRole="Attendance" />
-    <NavigationProperty Name="Learning" Relationship="SEP_2018_T6Model.FK_Learning" FromRole="ScheduleDetail" ToRole="Learning" />
-    <NavigationProperty Name="Schedule" Relationship="SEP_2018_T6Model.FK_ScheduleDetail_Schedule" FromRole="ScheduleDetail" ToRole="Schedule" />
-    <NavigationProperty Name="Subject" Relationship="SEP_2018_T6Model.FK_ScheduleDetail_Subject" FromRole="ScheduleDetail" ToRole="Subject" />
-    <NavigationProperty Name="User" Relationship="SEP_2018_T6Model.FK_ScheduleDetail_User" FromRole="ScheduleDetail" ToRole="User" />
-  </EntityType>
-  <Association Name="FK_Attendance_ScheduleDetail">
-    <End Type="SEP_2018_T6Model.ScheduleDetail" Role="ScheduleDetail" Multiplicity="0..1" />
-    <End Type="SEP_2018_T6Model.Attendance" Role="Attendance" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ScheduleDetail">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="Attendance">
-        <PropertyRef Name="FK_ScheduleDetail" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Learning">
-    <End Type="SEP_2018_T6Model.Learning" Role="Learning" Multiplicity="1" />
-    <End Type="SEP_2018_T6Model.ScheduleDetail" Role="ScheduleDetail" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="Learning">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="ScheduleDetail">
-        <PropertyRef Name="id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_ScheduleDetail_Schedule">
-    <End Type="SEP_2018_T6Model.Schedule" Role="Schedule" Multiplicity="0..1" />
-    <End Type="SEP_2018_T6Model.ScheduleDetail" Role="ScheduleDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Schedule">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="ScheduleDetail">
-        <PropertyRef Name="FK_Schedule" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_ScheduleDetail_Subject">
-    <End Type="SEP_2018_T6Model.Subject" Role="Subject" Multiplicity="0..1" />
-    <End Type="SEP_2018_T6Model.ScheduleDetail" Role="ScheduleDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Subject">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="ScheduleDetail">
-        <PropertyRef Name="FK_Learning" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_ScheduleDetail_User">
-    <End Type="SEP_2018_T6Model.User" Role="User" Multiplicity="0..1" />
-    <End Type="SEP_2018_T6Model.ScheduleDetail" Role="ScheduleDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="username" />
-      </Principal>
-      <Dependent Role="ScheduleDetail">
-        <PropertyRef Name="FK_User_GV" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityType Name="AttendanceDetail">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="FK_AttendanceType" Type="Int32" />
-    <Property Name="Note" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-    <Property Name="FK_Attendance" Type="Int32" />
-    <Property Name="FK_User" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Attendance" Relationship="SEP_2018_T6Model.FK_AttendanceDetail_Attendance1" FromRole="AttendanceDetail" ToRole="Attendance" />
-    <NavigationProperty Name="User" Relationship="SEP_2018_T6Model.FK_AttendanceDetail_User" FromRole="AttendanceDetail" ToRole="User" />
-    <NavigationProperty Name="AttendanceType" Relationship="SEP_2018_T6Model.FK_AttendanceType" FromRole="AttendanceDetail" ToRole="AttendanceType" />
-  </EntityType>
-  <Association Name="FK_AttendanceDetail_Attendance1">
-    <End Type="SEP_2018_T6Model.Attendance" Role="Attendance" Multiplicity="0..1" />
-    <End Type="SEP_2018_T6Model.AttendanceDetail" Role="AttendanceDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Attendance">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="AttendanceDetail">
-        <PropertyRef Name="FK_Attendance" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_AttendanceDetail_User">
-    <End Type="SEP_2018_T6Model.User" Role="User" Multiplicity="0..1" />
-    <End Type="SEP_2018_T6Model.AttendanceDetail" Role="AttendanceDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="username" />
-      </Principal>
-      <Dependent Role="AttendanceDetail">
-        <PropertyRef Name="FK_User" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_AttendanceType">
-    <End Type="SEP_2018_T6Model.AttendanceType" Role="AttendanceType" Multiplicity="1" />
-    <End Type="SEP_2018_T6Model.AttendanceDetail" Role="AttendanceDetail" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="AttendanceType">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="AttendanceDetail">
-        <PropertyRef Name="id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
 </Schema>

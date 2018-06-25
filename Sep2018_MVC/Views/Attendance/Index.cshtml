@@ -1,0 +1,16 @@
+﻿@model IEnumerable<Sep2018_MVC.Models.AttendanceDetail>
+    @{
+        Layout = "~/Areas/Staff/Views/Shared/_LayoutAdmin.cshtml";
+    }
+    <div>
+        @foreach (var value in Model)
+        {
+            <table class="table table-hover">
+                <tr>
+                    <td>@value.User.username</td>
+                    <td>@value.Attendance.Date</td>
+                    <td>@value.FK_AttendanceDetail_Type.Value</td>
+                </tr>
+            </table>
+        }
+    </div>
