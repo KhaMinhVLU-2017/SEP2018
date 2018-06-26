@@ -141,6 +141,18 @@
     <Property Name="PK_Position_Roles" Type="int" />
     <Property Name="FK_Class" Type="int" />
   </EntityType>
+  <Association Name="FK__Attendanc__FK_At__797309D9">
+    <End Role="AttendanceType" Type="Self.AttendanceType" Multiplicity="0..1" />
+    <End Role="AttendanceDetail" Type="Self.AttendanceDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AttendanceType">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="AttendanceDetail">
+        <PropertyRef Name="FK_AttendanceDetail_Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__Course__FK_Semes__6FE99F9F">
     <End Role="Semester" Type="Self.Semester" Multiplicity="0..1" />
     <End Role="Course" Type="Self.Course" Multiplicity="*" />
@@ -360,6 +372,10 @@
     <EntitySet Name="Semester" EntityType="Self.Semester" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Subject" EntityType="Self.Subject" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Attendanc__FK_At__797309D9" Association="Self.FK__Attendanc__FK_At__797309D9">
+      <End Role="AttendanceType" EntitySet="AttendanceType" />
+      <End Role="AttendanceDetail" EntitySet="AttendanceDetail" />
+    </AssociationSet>
     <AssociationSet Name="FK__Course__FK_Semes__6FE99F9F" Association="Self.FK__Course__FK_Semes__6FE99F9F">
       <End Role="Semester" EntitySet="Semester" />
       <End Role="Course" EntitySet="Course" />

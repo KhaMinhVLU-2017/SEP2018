@@ -146,6 +146,18 @@
           <Property Name="PK_Position_Roles" Type="int" />
           <Property Name="FK_Class" Type="int" />
         </EntityType>
+        <Association Name="FK__Attendanc__FK_At__797309D9">
+          <End Role="AttendanceType" Type="Self.AttendanceType" Multiplicity="0..1" />
+          <End Role="AttendanceDetail" Type="Self.AttendanceDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AttendanceType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="AttendanceDetail">
+              <PropertyRef Name="FK_AttendanceDetail_Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__Course__FK_Semes__6FE99F9F">
           <End Role="Semester" Type="Self.Semester" Multiplicity="0..1" />
           <End Role="Course" Type="Self.Course" Multiplicity="*" />
@@ -365,6 +377,10 @@
           <EntitySet Name="Semester" EntityType="Self.Semester" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Subject" EntityType="Self.Subject" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Attendanc__FK_At__797309D9" Association="Self.FK__Attendanc__FK_At__797309D9">
+            <End Role="AttendanceType" EntitySet="AttendanceType" />
+            <End Role="AttendanceDetail" EntitySet="AttendanceDetail" />
+          </AssociationSet>
           <AssociationSet Name="FK__Course__FK_Semes__6FE99F9F" Association="Self.FK__Course__FK_Semes__6FE99F9F">
             <End Role="Semester" EntitySet="Semester" />
             <End Role="Course" EntitySet="Course" />
@@ -463,6 +479,10 @@
           <Property Name="FK_User" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="FK_AttendanceDetail_Type" Type="Int32" />
           <NavigationProperty Name="Attendance" Relationship="Self.FK_AttendanceDetail_Attendance1" FromRole="AttendanceDetail" ToRole="Attendance" />
+<<<<<<< HEAD
+=======
+          <NavigationProperty Name="AttendanceType" Relationship="Self.FK__Attendanc__FK_At__797309D9" FromRole="AttendanceDetail" ToRole="AttendanceType" />
+>>>>>>> account
           <NavigationProperty Name="User" Relationship="Self.FK_AttendanceDetail_User" FromRole="AttendanceDetail" ToRole="User" />
         </EntityType>
         <EntityType Name="AttendanceType">
@@ -471,6 +491,10 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TypeName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+<<<<<<< HEAD
+=======
+          <NavigationProperty Name="AttendanceDetails" Relationship="Self.FK__Attendanc__FK_At__797309D9" FromRole="AttendanceType" ToRole="AttendanceDetail" />
+>>>>>>> account
         </EntityType>
         <EntityType Name="Class">
           <Key>
@@ -638,6 +662,21 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+<<<<<<< HEAD
+=======
+        <Association Name="FK__Attendanc__FK_At__797309D9">
+          <End Role="AttendanceType" Type="Self.AttendanceType" Multiplicity="0..1" />
+          <End Role="AttendanceDetail" Type="Self.AttendanceDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AttendanceType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="AttendanceDetail">
+              <PropertyRef Name="FK_AttendanceDetail_Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+>>>>>>> account
         <Association Name="FK_AttendanceDetail_User">
           <End Role="User" Type="Self.User" Multiplicity="0..1" />
           <End Role="AttendanceDetail" Type="Self.AttendanceDetail" Multiplicity="*" />
@@ -818,7 +857,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+<<<<<<< HEAD
         <EntityContainer Name="SEP_2018_T6Entities" annotation:LazyLoadingEnabled="true">
+=======
+        <EntityContainer Name="SEP_2018_T6Entities1" annotation:LazyLoadingEnabled="true">
+>>>>>>> account
           <EntitySet Name="Attendances" EntityType="Self.Attendance" />
           <EntitySet Name="AttendanceDetails" EntityType="Self.AttendanceDetail" />
           <EntitySet Name="AttendanceTypes" EntityType="Self.AttendanceType" />
@@ -841,6 +884,13 @@
             <End Role="Attendance" EntitySet="Attendances" />
             <End Role="AttendanceDetail" EntitySet="AttendanceDetails" />
           </AssociationSet>
+<<<<<<< HEAD
+=======
+          <AssociationSet Name="FK__Attendanc__FK_At__797309D9" Association="Self.FK__Attendanc__FK_At__797309D9">
+            <End Role="AttendanceType" EntitySet="AttendanceTypes" />
+            <End Role="AttendanceDetail" EntitySet="AttendanceDetails" />
+          </AssociationSet>
+>>>>>>> account
           <AssociationSet Name="FK_AttendanceDetail_User" Association="Self.FK_AttendanceDetail_User">
             <End Role="User" EntitySet="Users" />
             <End Role="AttendanceDetail" EntitySet="AttendanceDetails" />
@@ -907,7 +957,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="SEP_2018_T6ModelStoreContainer" CdmEntityContainer="SEP_2018_T6Entities">
+        <EntityContainerMapping StorageEntityContainer="SEP_2018_T6ModelStoreContainer" CdmEntityContainer="SEP_2018_T6Entities1">
           <EntitySetMapping Name="Attendances">
             <EntityTypeMapping TypeName="SEP_2018_T6Model.Attendance">
               <MappingFragment StoreEntitySet="Attendance">

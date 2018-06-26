@@ -1,0 +1,31 @@
+﻿@using Sep2018_MVC;
+@using Sep2018_MVC.Models;
+@model IEnumerable<Sep2018_MVC.Models.Subject>
+@{
+    SEP_2018_T6Entities1 db = new SEP_2018_T6Entities1();
+    var subject = new Course();
+}
+<div class="panel panel-primary">
+    <div class="panel panel-info" style="padding: 5% 20% 20% 40%">
+        <form class="navbar-form navbar-left" action="~/Sinhvien" method="get">
+            <br />
+            <div style="font-size: x-large;">
+
+                <h1 class="text-center login-title">Chọn môn học</h1>
+                <select>
+
+                    @foreach (var item in Model)
+        {
+            <option name="@item.SubjectName" class="list-group-item">
+                @item.SubjectName
+            </option>
+
+
+}
+                </select><br /><br />
+                <button type="submit" class="btn btn-default" style="font-size: x-large; color: blue; ">Click để xem</button>
+            </div>
+
+        </form>
+    </div>
+</div>

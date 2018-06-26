@@ -13,10 +13,10 @@ namespace Sep2018_MVC.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class SEP_2018_T6Entities : DbContext
+    public partial class SEP_2018_T6Entities1 : DbContext
     {
-        public SEP_2018_T6Entities()
-            : base("name=SEP_2018_T6Entities")
+        public SEP_2018_T6Entities1()
+            : base("name=SEP_2018_T6Entities1")
         {
         }
     
