@@ -462,10 +462,7 @@
     <Content Include="Areas\Staff\Views\Teacher\Course.cshtml" />
     <Content Include="Areas\Staff\Views\Teacher\InformationAccount.cshtml" />
     <Content Include="Areas\Staff\Views\Teacher\History.cshtml" />
-<<<<<<< HEAD
     <Content Include="Areas\Staff\Views\Teacher\EditAttend.cshtml" />
-=======
->>>>>>> account
     <EntityDeploy Include="Models\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
@@ -473,7 +470,6 @@
     <Content Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
-<<<<<<< HEAD
 
     <Content Include="Areas\Staff\Views\Shared\_SiderBarStaff.cshtml" />
     <Content Include="Areas\Staff\Views\Shared\_SiderBarTeacher.cshtml" />
@@ -481,9 +477,6 @@
     <Content Include="Areas\Staff\Views\Teacher\InformationAccount.cshtml" />
     <Content Include="Areas\Staff\Views\Teacher\History.cshtml" />
     <Content Include="Areas\Staff\Views\Teacher\Schedule.cshtml" />
-
-=======
->>>>>>> account
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -527,14 +520,11 @@
     <Content Include="Areas\Staff\Views\Teacher\Notifi.cshtml" />
     <Content Include="Views\Home\DetailMonHoc.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\AdminLayout1.cshtml" />
-<<<<<<< HEAD
-=======
     <Content Include="Views\Attendance\Index.cshtml" />
     <Content Include="Views\Attendance\ImportFile.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Giangvien\Index.cshtml" />
     <Content Include="Views\Sinhvien\Index.cshtml" />
->>>>>>> account
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
