@@ -15,7 +15,10 @@ namespace Sep2018_MVC.Areas.Staff.Controllers
         }
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> account
         public  ActionResult ChangePassword()
         {
             return View();

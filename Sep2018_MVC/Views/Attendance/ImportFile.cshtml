@@ -1,0 +1,12 @@
+﻿
+@{
+    Layout = "~/Areas/Staff/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h2>
+    Index
+</h2>
+@using (Html.BeginForm("ImportFile", "Attendance", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input type="file" name="file" />
+    <input type="submit" value="OK" />
+}

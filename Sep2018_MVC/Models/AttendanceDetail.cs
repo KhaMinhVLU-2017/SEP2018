@@ -21,6 +21,10 @@ namespace Sep2018_MVC.Models
         public Nullable<int> FK_AttendanceDetail_Type { get; set; }
     
         public virtual Attendance Attendance { get; set; }
+<<<<<<< HEAD
+=======
+        public virtual AttendanceType AttendanceType { get; set; }
+>>>>>>> account
         public virtual User User { get; set; }
     }
 }
