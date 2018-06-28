@@ -12,8 +12,7 @@ namespace Sep2018_MVC.Controllers
         SEP_2018_T6Entities1 db = new SEP_2018_T6Entities1();
         // GET: Giangvien
         public ActionResult Index()
-        {
-            
+        {            
             return View();
         }
     }
