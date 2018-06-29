@@ -12,16 +12,12 @@ namespace Sep2018_MVC.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class AttendanceDetail
+    public partial class sysdiagram
     {
-        public int id { get; set; }
-        public string Note { get; set; }
-        public Nullable<int> FK_Attendance { get; set; }
-        public string FK_User { get; set; }
-        public Nullable<int> FK_AttendanceDetail_Type { get; set; }
-    
-        public virtual Attendance Attendance { get; set; }
-        public virtual AttendanceType AttendanceType { get; set; }
-        public virtual User User { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

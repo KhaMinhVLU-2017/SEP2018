@@ -12,20 +12,18 @@ namespace Sep2018_MVC.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Subject
+    public partial class status
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Subject()
+        public status()
         {
-            this.Learnings = new HashSet<Learning>();
+            this.diemdanhs = new HashSet<diemdanh>();
         }
     
-        public int id { get; set; }
-        public string SubjectName { get; set; }
-        public Nullable<double> Lesson { get; set; }
-        public string Unit_Lesson { get; set; }
+        public int stt_id { get; set; }
+        public string stt_name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Learning> Learnings { get; set; }
+        public virtual ICollection<diemdanh> diemdanhs { get; set; }
     }
 }

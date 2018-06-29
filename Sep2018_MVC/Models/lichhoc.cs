@@ -12,16 +12,16 @@ namespace Sep2018_MVC.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Learning
+    public partial class lichhoc
     {
-        public int id { get; set; }
-        public Nullable<int> FK_Class { get; set; }
-        public Nullable<int> FK_Subject { get; set; }
-        public Nullable<int> FK_Semester { get; set; }
+        public int lh_id { get; set; }
+        public int mh_id { get; set; }
+        public int lop_id { get; set; }
+        public int hk_id { get; set; }
+        public int hk_nam { get; set; }
     
-        public virtual Class Class { get; set; }
-        public virtual ScheduleDetail ScheduleDetail { get; set; }
-        public virtual Semester Semester { get; set; }
-        public virtual Subject Subject { get; set; }
+        public virtual hocki hocki { get; set; }
+        public virtual lop lop { get; set; }
+        public virtual monhoc monhoc { get; set; }
     }
 }

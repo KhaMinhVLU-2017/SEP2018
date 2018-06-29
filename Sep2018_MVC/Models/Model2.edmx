@@ -1,0 +1,1428 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SEP_T06Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="diemdanh">
+          <Key>
+            <PropertyRef Name="dd_id" />
+          </Key>
+          <Property Name="sv_id" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="mh_id" Type="int" Nullable="false" />
+          <Property Name="ss_id" Type="int" Nullable="false" />
+          <Property Name="stt_id" Type="int" Nullable="false" />
+          <Property Name="dd_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="giaovien">
+          <Key>
+            <PropertyRef Name="gv_ms" />
+          </Key>
+          <Property Name="gv_ms" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="gv_gioitinh" Type="bit" Nullable="false" />
+          <Property Name="gv_ten" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="gv_sdt" Type="nchar" MaxLength="11" Nullable="false" />
+          <Property Name="gv_diachi" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="gv_email" Type="nchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="giaovu">
+          <Key>
+            <PropertyRef Name="gvu_ms" />
+          </Key>
+          <Property Name="gvu_ms" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="gvu_ten" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="gvu_gioitinh" Type="bit" Nullable="false" />
+          <Property Name="gvu_sdt" Type="nchar" MaxLength="11" Nullable="false" />
+          <Property Name="gvu_diachi" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="gvu_email" Type="nvarchar" MaxLength="1000" Nullable="false" />
+        </EntityType>
+        <EntityType Name="hocki">
+          <Key>
+            <PropertyRef Name="hk_id" />
+            <PropertyRef Name="hk_nam" />
+          </Key>
+          <Property Name="hk_id" Type="int" Nullable="false" />
+          <Property Name="hk_nam" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="lichday">
+          <Key>
+            <PropertyRef Name="ld_id" />
+          </Key>
+          <Property Name="ld_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mh_id" Type="int" Nullable="false" />
+          <Property Name="gv_id" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="hk_id" Type="int" Nullable="false" />
+          <Property Name="hk_nam" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="lichhoc">
+          <Key>
+            <PropertyRef Name="lh_id" />
+          </Key>
+          <Property Name="lh_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mh_id" Type="int" Nullable="false" />
+          <Property Name="lop_id" Type="int" Nullable="false" />
+          <Property Name="hk_id" Type="int" Nullable="false" />
+          <Property Name="hk_nam" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="lop">
+          <Key>
+            <PropertyRef Name="lop_id" />
+          </Key>
+          <Property Name="lop_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="lop_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="monhoc">
+          <Key>
+            <PropertyRef Name="mh_id" />
+          </Key>
+          <Property Name="mh_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mh_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="phong">
+          <Key>
+            <PropertyRef Name="phong_id" />
+          </Key>
+          <Property Name="phong_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="phong_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="role">
+          <Key>
+            <PropertyRef Name="role_id" />
+          </Key>
+          <Property Name="role_id" Type="int" Nullable="false" />
+          <Property Name="role_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="session">
+          <Key>
+            <PropertyRef Name="ss_id" />
+          </Key>
+          <Property Name="ss_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tkb_id" Type="int" Nullable="false" />
+          <Property Name="us_id" Type="int" Nullable="false" />
+          <Property Name="ss_create" Type="date" />
+        </EntityType>
+        <EntityType Name="sinhvien">
+          <Key>
+            <PropertyRef Name="sv_mssv" />
+          </Key>
+          <Property Name="sv_mssv" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="sv_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="sv_bday" Type="date" Nullable="false" />
+          <Property Name="sv_gtinh" Type="bit" Nullable="false" />
+          <Property Name="lp_id" Type="int" Nullable="false" />
+          <Property Name="sv_email" Type="nchar" MaxLength="100" />
+          <Property Name="sv_sdt" Type="nchar" MaxLength="11" />
+        </EntityType>
+        <EntityType Name="status">
+          <Key>
+            <PropertyRef Name="stt_id" />
+          </Key>
+          <Property Name="stt_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="stt_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="thoikhoabieu">
+          <Key>
+            <PropertyRef Name="tkb_id" />
+          </Key>
+          <Property Name="tkb_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mh_id" Type="int" Nullable="false" />
+          <Property Name="lp_id" Type="int" Nullable="false" />
+          <Property Name="gv_id" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="pg_id" Type="int" Nullable="false" />
+          <Property Name="tkb_date" Type="date" />
+          <Property Name="hk_id" Type="int" Nullable="false" />
+          <Property Name="hk_nam" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_name" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="user_pw" Type="nchar" MaxLength="128" Nullable="false" />
+          <Property Name="role" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="usergiaovien">
+          <Key>
+            <PropertyRef Name="usgv_id" />
+          </Key>
+          <Property Name="usgv_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="usgv_username" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="usgv_pw" Type="nchar" MaxLength="128" Nullable="false" />
+          <Property Name="role_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="usergiaovu">
+          <Key>
+            <PropertyRef Name="usgvu_id" />
+          </Key>
+          <Property Name="usgvu_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="usgvu_username" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="usgvu_pw" Type="nchar" MaxLength="128" Nullable="false" />
+          <Property Name="role_id" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_diemdanh_monhoc">
+          <End Role="monhoc" Type="Self.monhoc" Multiplicity="1" />
+          <End Role="diemdanh" Type="Self.diemdanh" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="monhoc">
+              <PropertyRef Name="mh_id" />
+            </Principal>
+            <Dependent Role="diemdanh">
+              <PropertyRef Name="mh_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_diemdanh_session">
+          <End Role="session" Type="Self.session" Multiplicity="1" />
+          <End Role="diemdanh" Type="Self.diemdanh" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="session">
+              <PropertyRef Name="ss_id" />
+            </Principal>
+            <Dependent Role="diemdanh">
+              <PropertyRef Name="ss_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_diemdanh_sinhvien">
+          <End Role="sinhvien" Type="Self.sinhvien" Multiplicity="1" />
+          <End Role="diemdanh" Type="Self.diemdanh" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sinhvien">
+              <PropertyRef Name="sv_mssv" />
+            </Principal>
+            <Dependent Role="diemdanh">
+              <PropertyRef Name="sv_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_diemdanh_status">
+          <End Role="status" Type="Self.status" Multiplicity="1" />
+          <End Role="diemdanh" Type="Self.diemdanh" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="status">
+              <PropertyRef Name="stt_id" />
+            </Principal>
+            <Dependent Role="diemdanh">
+              <PropertyRef Name="stt_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_lichday_giaovien">
+          <End Role="giaovien" Type="Self.giaovien" Multiplicity="1" />
+          <End Role="lichday" Type="Self.lichday" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="giaovien">
+              <PropertyRef Name="gv_ms" />
+            </Principal>
+            <Dependent Role="lichday">
+              <PropertyRef Name="gv_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_lichday_hocki">
+          <End Role="hocki" Type="Self.hocki" Multiplicity="1" />
+          <End Role="lichday" Type="Self.lichday" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hocki">
+              <PropertyRef Name="hk_id" />
+              <PropertyRef Name="hk_nam" />
+            </Principal>
+            <Dependent Role="lichday">
+              <PropertyRef Name="hk_id" />
+              <PropertyRef Name="hk_nam" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_lichday_monhoc">
+          <End Role="monhoc" Type="Self.monhoc" Multiplicity="1" />
+          <End Role="lichday" Type="Self.lichday" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="monhoc">
+              <PropertyRef Name="mh_id" />
+            </Principal>
+            <Dependent Role="lichday">
+              <PropertyRef Name="mh_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_lichhoc_hocki">
+          <End Role="hocki" Type="Self.hocki" Multiplicity="1" />
+          <End Role="lichhoc" Type="Self.lichhoc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hocki">
+              <PropertyRef Name="hk_id" />
+              <PropertyRef Name="hk_nam" />
+            </Principal>
+            <Dependent Role="lichhoc">
+              <PropertyRef Name="hk_id" />
+              <PropertyRef Name="hk_nam" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_lichhoc_lop">
+          <End Role="lop" Type="Self.lop" Multiplicity="1" />
+          <End Role="lichhoc" Type="Self.lichhoc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lop">
+              <PropertyRef Name="lop_id" />
+            </Principal>
+            <Dependent Role="lichhoc">
+              <PropertyRef Name="lop_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_lichhoc_monhoc">
+          <End Role="monhoc" Type="Self.monhoc" Multiplicity="1" />
+          <End Role="lichhoc" Type="Self.lichhoc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="monhoc">
+              <PropertyRef Name="mh_id" />
+            </Principal>
+            <Dependent Role="lichhoc">
+              <PropertyRef Name="mh_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_session_thoikhoabieu">
+          <End Role="thoikhoabieu" Type="Self.thoikhoabieu" Multiplicity="1" />
+          <End Role="session" Type="Self.session" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="thoikhoabieu">
+              <PropertyRef Name="tkb_id" />
+            </Principal>
+            <Dependent Role="session">
+              <PropertyRef Name="tkb_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_session_usergiaovien">
+          <End Role="usergiaovien" Type="Self.usergiaovien" Multiplicity="1" />
+          <End Role="session" Type="Self.session" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usergiaovien">
+              <PropertyRef Name="usgv_id" />
+            </Principal>
+            <Dependent Role="session">
+              <PropertyRef Name="us_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_sinhvien_lop">
+          <End Role="lop" Type="Self.lop" Multiplicity="1" />
+          <End Role="sinhvien" Type="Self.sinhvien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lop">
+              <PropertyRef Name="lop_id" />
+            </Principal>
+            <Dependent Role="sinhvien">
+              <PropertyRef Name="lp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_thoikhoabieu_hocki">
+          <End Role="hocki" Type="Self.hocki" Multiplicity="1" />
+          <End Role="thoikhoabieu" Type="Self.thoikhoabieu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hocki">
+              <PropertyRef Name="hk_id" />
+              <PropertyRef Name="hk_nam" />
+            </Principal>
+            <Dependent Role="thoikhoabieu">
+              <PropertyRef Name="hk_id" />
+              <PropertyRef Name="hk_nam" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_thoikhoabieu_hocki1">
+          <End Role="hocki" Type="Self.hocki" Multiplicity="1" />
+          <End Role="thoikhoabieu" Type="Self.thoikhoabieu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hocki">
+              <PropertyRef Name="hk_id" />
+              <PropertyRef Name="hk_nam" />
+            </Principal>
+            <Dependent Role="thoikhoabieu">
+              <PropertyRef Name="hk_id" />
+              <PropertyRef Name="hk_nam" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_thoikhoabieu_lop">
+          <End Role="lop" Type="Self.lop" Multiplicity="1" />
+          <End Role="thoikhoabieu" Type="Self.thoikhoabieu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lop">
+              <PropertyRef Name="lop_id" />
+            </Principal>
+            <Dependent Role="thoikhoabieu">
+              <PropertyRef Name="lp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_thoikhoabieu_monhoc">
+          <End Role="monhoc" Type="Self.monhoc" Multiplicity="1" />
+          <End Role="thoikhoabieu" Type="Self.thoikhoabieu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="monhoc">
+              <PropertyRef Name="mh_id" />
+            </Principal>
+            <Dependent Role="thoikhoabieu">
+              <PropertyRef Name="mh_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_thoikhoabieu_phong">
+          <End Role="phong" Type="Self.phong" Multiplicity="1" />
+          <End Role="thoikhoabieu" Type="Self.thoikhoabieu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="phong">
+              <PropertyRef Name="phong_id" />
+            </Principal>
+            <Dependent Role="thoikhoabieu">
+              <PropertyRef Name="pg_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_role1">
+          <End Role="role" Type="Self.role" Multiplicity="1" />
+          <End Role="user" Type="Self.user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="role">
+              <PropertyRef Name="role_id" />
+            </Principal>
+            <Dependent Role="user">
+              <PropertyRef Name="role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_sinhvien">
+          <End Role="sinhvien" Type="Self.sinhvien" Multiplicity="1" />
+          <End Role="user" Type="Self.user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sinhvien">
+              <PropertyRef Name="sv_mssv" />
+            </Principal>
+            <Dependent Role="user">
+              <PropertyRef Name="user_name" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usergiaovien_giaovien">
+          <End Role="giaovien" Type="Self.giaovien" Multiplicity="1" />
+          <End Role="usergiaovien" Type="Self.usergiaovien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="giaovien">
+              <PropertyRef Name="gv_ms" />
+            </Principal>
+            <Dependent Role="usergiaovien">
+              <PropertyRef Name="usgv_username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usergiaovien_role">
+          <End Role="role" Type="Self.role" Multiplicity="1" />
+          <End Role="usergiaovien" Type="Self.usergiaovien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="role">
+              <PropertyRef Name="role_id" />
+            </Principal>
+            <Dependent Role="usergiaovien">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usergiaovu_giaovu">
+          <End Role="giaovu" Type="Self.giaovu" Multiplicity="1" />
+          <End Role="usergiaovu" Type="Self.usergiaovu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="giaovu">
+              <PropertyRef Name="gvu_ms" />
+            </Principal>
+            <Dependent Role="usergiaovu">
+              <PropertyRef Name="usgvu_username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usergiaovu_role">
+          <End Role="role" Type="Self.role" Multiplicity="1" />
+          <End Role="usergiaovu" Type="Self.usergiaovu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="role">
+              <PropertyRef Name="role_id" />
+            </Principal>
+            <Dependent Role="usergiaovu">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SEP_T06ModelStoreContainer">
+          <EntitySet Name="diemdanh" EntityType="Self.diemdanh" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="giaovien" EntityType="Self.giaovien" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="giaovu" EntityType="Self.giaovu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="hocki" EntityType="Self.hocki" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="lichday" EntityType="Self.lichday" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="lichhoc" EntityType="Self.lichhoc" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="lop" EntityType="Self.lop" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="monhoc" EntityType="Self.monhoc" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="phong" EntityType="Self.phong" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="role" EntityType="Self.role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="session" EntityType="Self.session" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sinhvien" EntityType="Self.sinhvien" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="status" EntityType="Self.status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="thoikhoabieu" EntityType="Self.thoikhoabieu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="usergiaovien" EntityType="Self.usergiaovien" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="usergiaovu" EntityType="Self.usergiaovu" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_diemdanh_monhoc" Association="Self.FK_diemdanh_monhoc">
+            <End Role="monhoc" EntitySet="monhoc" />
+            <End Role="diemdanh" EntitySet="diemdanh" />
+          </AssociationSet>
+          <AssociationSet Name="FK_diemdanh_session" Association="Self.FK_diemdanh_session">
+            <End Role="session" EntitySet="session" />
+            <End Role="diemdanh" EntitySet="diemdanh" />
+          </AssociationSet>
+          <AssociationSet Name="FK_diemdanh_sinhvien" Association="Self.FK_diemdanh_sinhvien">
+            <End Role="sinhvien" EntitySet="sinhvien" />
+            <End Role="diemdanh" EntitySet="diemdanh" />
+          </AssociationSet>
+          <AssociationSet Name="FK_diemdanh_status" Association="Self.FK_diemdanh_status">
+            <End Role="status" EntitySet="status" />
+            <End Role="diemdanh" EntitySet="diemdanh" />
+          </AssociationSet>
+          <AssociationSet Name="FK_lichday_giaovien" Association="Self.FK_lichday_giaovien">
+            <End Role="giaovien" EntitySet="giaovien" />
+            <End Role="lichday" EntitySet="lichday" />
+          </AssociationSet>
+          <AssociationSet Name="FK_lichday_hocki" Association="Self.FK_lichday_hocki">
+            <End Role="hocki" EntitySet="hocki" />
+            <End Role="lichday" EntitySet="lichday" />
+          </AssociationSet>
+          <AssociationSet Name="FK_lichday_monhoc" Association="Self.FK_lichday_monhoc">
+            <End Role="monhoc" EntitySet="monhoc" />
+            <End Role="lichday" EntitySet="lichday" />
+          </AssociationSet>
+          <AssociationSet Name="FK_lichhoc_hocki" Association="Self.FK_lichhoc_hocki">
+            <End Role="hocki" EntitySet="hocki" />
+            <End Role="lichhoc" EntitySet="lichhoc" />
+          </AssociationSet>
+          <AssociationSet Name="FK_lichhoc_lop" Association="Self.FK_lichhoc_lop">
+            <End Role="lop" EntitySet="lop" />
+            <End Role="lichhoc" EntitySet="lichhoc" />
+          </AssociationSet>
+          <AssociationSet Name="FK_lichhoc_monhoc" Association="Self.FK_lichhoc_monhoc">
+            <End Role="monhoc" EntitySet="monhoc" />
+            <End Role="lichhoc" EntitySet="lichhoc" />
+          </AssociationSet>
+          <AssociationSet Name="FK_session_thoikhoabieu" Association="Self.FK_session_thoikhoabieu">
+            <End Role="thoikhoabieu" EntitySet="thoikhoabieu" />
+            <End Role="session" EntitySet="session" />
+          </AssociationSet>
+          <AssociationSet Name="FK_session_usergiaovien" Association="Self.FK_session_usergiaovien">
+            <End Role="usergiaovien" EntitySet="usergiaovien" />
+            <End Role="session" EntitySet="session" />
+          </AssociationSet>
+          <AssociationSet Name="FK_sinhvien_lop" Association="Self.FK_sinhvien_lop">
+            <End Role="lop" EntitySet="lop" />
+            <End Role="sinhvien" EntitySet="sinhvien" />
+          </AssociationSet>
+          <AssociationSet Name="FK_thoikhoabieu_hocki" Association="Self.FK_thoikhoabieu_hocki">
+            <End Role="hocki" EntitySet="hocki" />
+            <End Role="thoikhoabieu" EntitySet="thoikhoabieu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_thoikhoabieu_hocki1" Association="Self.FK_thoikhoabieu_hocki1">
+            <End Role="hocki" EntitySet="hocki" />
+            <End Role="thoikhoabieu" EntitySet="thoikhoabieu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_thoikhoabieu_lop" Association="Self.FK_thoikhoabieu_lop">
+            <End Role="lop" EntitySet="lop" />
+            <End Role="thoikhoabieu" EntitySet="thoikhoabieu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_thoikhoabieu_monhoc" Association="Self.FK_thoikhoabieu_monhoc">
+            <End Role="monhoc" EntitySet="monhoc" />
+            <End Role="thoikhoabieu" EntitySet="thoikhoabieu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_thoikhoabieu_phong" Association="Self.FK_thoikhoabieu_phong">
+            <End Role="phong" EntitySet="phong" />
+            <End Role="thoikhoabieu" EntitySet="thoikhoabieu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_role1" Association="Self.FK_user_role1">
+            <End Role="role" EntitySet="role" />
+            <End Role="user" EntitySet="user" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_sinhvien" Association="Self.FK_user_sinhvien">
+            <End Role="sinhvien" EntitySet="sinhvien" />
+            <End Role="user" EntitySet="user" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usergiaovien_giaovien" Association="Self.FK_usergiaovien_giaovien">
+            <End Role="giaovien" EntitySet="giaovien" />
+            <End Role="usergiaovien" EntitySet="usergiaovien" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usergiaovien_role" Association="Self.FK_usergiaovien_role">
+            <End Role="role" EntitySet="role" />
+            <End Role="usergiaovien" EntitySet="usergiaovien" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usergiaovu_giaovu" Association="Self.FK_usergiaovu_giaovu">
+            <End Role="giaovu" EntitySet="giaovu" />
+            <End Role="usergiaovu" EntitySet="usergiaovu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usergiaovu_role" Association="Self.FK_usergiaovu_role">
+            <End Role="role" EntitySet="role" />
+            <End Role="usergiaovu" EntitySet="usergiaovu" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SEP_T06Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="diemdanh">
+          <Key>
+            <PropertyRef Name="dd_id" />
+          </Key>
+          <Property Name="sv_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="mh_id" Type="Int32" Nullable="false" />
+          <Property Name="ss_id" Type="Int32" Nullable="false" />
+          <Property Name="stt_id" Type="Int32" Nullable="false" />
+          <Property Name="dd_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="monhoc" Relationship="Self.FK_diemdanh_monhoc" FromRole="diemdanh" ToRole="monhoc" />
+          <NavigationProperty Name="session" Relationship="Self.FK_diemdanh_session" FromRole="diemdanh" ToRole="session" />
+          <NavigationProperty Name="sinhvien" Relationship="Self.FK_diemdanh_sinhvien" FromRole="diemdanh" ToRole="sinhvien" />
+          <NavigationProperty Name="status" Relationship="Self.FK_diemdanh_status" FromRole="diemdanh" ToRole="status" />
+        </EntityType>
+        <EntityType Name="giaovien">
+          <Key>
+            <PropertyRef Name="gv_ms" />
+          </Key>
+          <Property Name="gv_ms" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="gv_gioitinh" Type="Boolean" Nullable="false" />
+          <Property Name="gv_ten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="gv_sdt" Type="String" MaxLength="11" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="gv_diachi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="gv_email" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="lichdays" Relationship="Self.FK_lichday_giaovien" FromRole="giaovien" ToRole="lichday" />
+          <NavigationProperty Name="usergiaoviens" Relationship="Self.FK_usergiaovien_giaovien" FromRole="giaovien" ToRole="usergiaovien" />
+        </EntityType>
+        <EntityType Name="giaovu">
+          <Key>
+            <PropertyRef Name="gvu_ms" />
+          </Key>
+          <Property Name="gvu_ms" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="gvu_ten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="gvu_gioitinh" Type="Boolean" Nullable="false" />
+          <Property Name="gvu_sdt" Type="String" MaxLength="11" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="gvu_diachi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="gvu_email" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="usergiaovus" Relationship="Self.FK_usergiaovu_giaovu" FromRole="giaovu" ToRole="usergiaovu" />
+        </EntityType>
+        <EntityType Name="hocki">
+          <Key>
+            <PropertyRef Name="hk_id" />
+            <PropertyRef Name="hk_nam" />
+          </Key>
+          <Property Name="hk_id" Type="Int32" Nullable="false" />
+          <Property Name="hk_nam" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="lichdays" Relationship="Self.FK_lichday_hocki" FromRole="hocki" ToRole="lichday" />
+          <NavigationProperty Name="thoikhoabieux" Relationship="Self.FK_thoikhoabieu_hocki" FromRole="hocki" ToRole="thoikhoabieu" />
+          <NavigationProperty Name="thoikhoabieux1" Relationship="Self.FK_thoikhoabieu_hocki1" FromRole="hocki" ToRole="thoikhoabieu" />
+          <NavigationProperty Name="lichhocs" Relationship="SEP_T06Model.FK_lichhoc_hocki" FromRole="hocki" ToRole="lichhoc" />
+        </EntityType>
+        <EntityType Name="lichday">
+          <Key>
+            <PropertyRef Name="ld_id" />
+          </Key>
+          <Property Name="ld_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mh_id" Type="Int32" Nullable="false" />
+          <Property Name="gv_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="hk_id" Type="Int32" Nullable="false" />
+          <Property Name="hk_nam" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="giaovien" Relationship="Self.FK_lichday_giaovien" FromRole="lichday" ToRole="giaovien" />
+          <NavigationProperty Name="hocki" Relationship="Self.FK_lichday_hocki" FromRole="lichday" ToRole="hocki" />
+          <NavigationProperty Name="monhoc" Relationship="Self.FK_lichday_monhoc" FromRole="lichday" ToRole="monhoc" />
+        </EntityType>
+        <EntityType Name="lop">
+          <Key>
+            <PropertyRef Name="lop_id" />
+          </Key>
+          <Property Name="lop_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="lop_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="sinhviens" Relationship="Self.FK_sinhvien_lop" FromRole="lop" ToRole="sinhvien" />
+          <NavigationProperty Name="thoikhoabieux" Relationship="Self.FK_thoikhoabieu_lop" FromRole="lop" ToRole="thoikhoabieu" />
+          <NavigationProperty Name="lichhocs" Relationship="SEP_T06Model.FK_lichhoc_lop" FromRole="lop" ToRole="lichhoc" />
+        </EntityType>
+        <EntityType Name="monhoc">
+          <Key>
+            <PropertyRef Name="mh_id" />
+          </Key>
+          <Property Name="mh_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mh_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="diemdanhs" Relationship="Self.FK_diemdanh_monhoc" FromRole="monhoc" ToRole="diemdanh" />
+          <NavigationProperty Name="lichdays" Relationship="Self.FK_lichday_monhoc" FromRole="monhoc" ToRole="lichday" />
+          <NavigationProperty Name="thoikhoabieux" Relationship="Self.FK_thoikhoabieu_monhoc" FromRole="monhoc" ToRole="thoikhoabieu" />
+          <NavigationProperty Name="lichhocs" Relationship="SEP_T06Model.FK_lichhoc_monhoc" FromRole="monhoc" ToRole="lichhoc" />
+        </EntityType>
+        <EntityType Name="phong">
+          <Key>
+            <PropertyRef Name="phong_id" />
+          </Key>
+          <Property Name="phong_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="phong_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="thoikhoabieux" Relationship="Self.FK_thoikhoabieu_phong" FromRole="phong" ToRole="thoikhoabieu" />
+        </EntityType>
+        <EntityType Name="role">
+          <Key>
+            <PropertyRef Name="role_id" />
+          </Key>
+          <Property Name="role_id" Type="Int32" Nullable="false" />
+          <Property Name="role_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="users" Relationship="Self.FK_user_role1" FromRole="role" ToRole="user" />
+          <NavigationProperty Name="usergiaoviens" Relationship="Self.FK_usergiaovien_role" FromRole="role" ToRole="usergiaovien" />
+          <NavigationProperty Name="usergiaovus" Relationship="Self.FK_usergiaovu_role" FromRole="role" ToRole="usergiaovu" />
+        </EntityType>
+        <EntityType Name="session">
+          <Key>
+            <PropertyRef Name="ss_id" />
+          </Key>
+          <Property Name="ss_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tkb_id" Type="Int32" Nullable="false" />
+          <Property Name="us_id" Type="Int32" Nullable="false" />
+          <Property Name="ss_create" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="diemdanhs" Relationship="Self.FK_diemdanh_session" FromRole="session" ToRole="diemdanh" />
+          <NavigationProperty Name="thoikhoabieu" Relationship="Self.FK_session_thoikhoabieu" FromRole="session" ToRole="thoikhoabieu" />
+          <NavigationProperty Name="usergiaovien" Relationship="Self.FK_session_usergiaovien" FromRole="session" ToRole="usergiaovien" />
+        </EntityType>
+        <EntityType Name="sinhvien">
+          <Key>
+            <PropertyRef Name="sv_mssv" />
+          </Key>
+          <Property Name="sv_mssv" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="sv_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="sv_bday" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="sv_gtinh" Type="Boolean" Nullable="false" />
+          <Property Name="lp_id" Type="Int32" Nullable="false" />
+          <Property Name="sv_email" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="sv_sdt" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="diemdanhs" Relationship="Self.FK_diemdanh_sinhvien" FromRole="sinhvien" ToRole="diemdanh" />
+          <NavigationProperty Name="lop" Relationship="Self.FK_sinhvien_lop" FromRole="sinhvien" ToRole="lop" />
+          <NavigationProperty Name="users" Relationship="Self.FK_user_sinhvien" FromRole="sinhvien" ToRole="user" />
+        </EntityType>
+        <EntityType Name="status">
+          <Key>
+            <PropertyRef Name="stt_id" />
+          </Key>
+          <Property Name="stt_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="stt_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="diemdanhs" Relationship="Self.FK_diemdanh_status" FromRole="status" ToRole="diemdanh" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="thoikhoabieu">
+          <Key>
+            <PropertyRef Name="tkb_id" />
+          </Key>
+          <Property Name="tkb_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mh_id" Type="Int32" Nullable="false" />
+          <Property Name="lp_id" Type="Int32" Nullable="false" />
+          <Property Name="gv_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="pg_id" Type="Int32" Nullable="false" />
+          <Property Name="tkb_date" Type="DateTime" Precision="0" />
+          <Property Name="hk_id" Type="Int32" Nullable="false" />
+          <Property Name="hk_nam" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="hocki" Relationship="Self.FK_thoikhoabieu_hocki" FromRole="thoikhoabieu" ToRole="hocki" />
+          <NavigationProperty Name="hocki1" Relationship="Self.FK_thoikhoabieu_hocki1" FromRole="thoikhoabieu" ToRole="hocki" />
+          <NavigationProperty Name="lop" Relationship="Self.FK_thoikhoabieu_lop" FromRole="thoikhoabieu" ToRole="lop" />
+          <NavigationProperty Name="monhoc" Relationship="Self.FK_thoikhoabieu_monhoc" FromRole="thoikhoabieu" ToRole="monhoc" />
+          <NavigationProperty Name="phong" Relationship="Self.FK_thoikhoabieu_phong" FromRole="thoikhoabieu" ToRole="phong" />
+          <NavigationProperty Name="sessions" Relationship="Self.FK_session_thoikhoabieu" FromRole="thoikhoabieu" ToRole="session" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="user_pw" Type="String" MaxLength="128" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="role" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="role1" Relationship="Self.FK_user_role1" FromRole="user" ToRole="role" />
+          <NavigationProperty Name="sinhvien" Relationship="Self.FK_user_sinhvien" FromRole="user" ToRole="sinhvien" />
+        </EntityType>
+        <EntityType Name="usergiaovien">
+          <Key>
+            <PropertyRef Name="usgv_id" />
+          </Key>
+          <Property Name="usgv_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="usgv_username" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="usgv_pw" Type="String" MaxLength="128" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="role_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="giaovien" Relationship="Self.FK_usergiaovien_giaovien" FromRole="usergiaovien" ToRole="giaovien" />
+          <NavigationProperty Name="role" Relationship="Self.FK_usergiaovien_role" FromRole="usergiaovien" ToRole="role" />
+          <NavigationProperty Name="sessions" Relationship="Self.FK_session_usergiaovien" FromRole="usergiaovien" ToRole="session" />
+        </EntityType>
+        <EntityType Name="usergiaovu">
+          <Key>
+            <PropertyRef Name="usgvu_id" />
+          </Key>
+          <Property Name="usgvu_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="usgvu_username" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="usgvu_pw" Type="String" MaxLength="128" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="role_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="giaovu" Relationship="Self.FK_usergiaovu_giaovu" FromRole="usergiaovu" ToRole="giaovu" />
+          <NavigationProperty Name="role" Relationship="Self.FK_usergiaovu_role" FromRole="usergiaovu" ToRole="role" />
+        </EntityType>
+        <Association Name="FK_diemdanh_monhoc">
+          <End Role="monhoc" Type="Self.monhoc" Multiplicity="1" />
+          <End Role="diemdanh" Type="Self.diemdanh" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="monhoc">
+              <PropertyRef Name="mh_id" />
+            </Principal>
+            <Dependent Role="diemdanh">
+              <PropertyRef Name="mh_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_diemdanh_session">
+          <End Role="session" Type="Self.session" Multiplicity="1" />
+          <End Role="diemdanh" Type="Self.diemdanh" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="session">
+              <PropertyRef Name="ss_id" />
+            </Principal>
+            <Dependent Role="diemdanh">
+              <PropertyRef Name="ss_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_diemdanh_sinhvien">
+          <End Role="sinhvien" Type="Self.sinhvien" Multiplicity="1" />
+          <End Role="diemdanh" Type="Self.diemdanh" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sinhvien">
+              <PropertyRef Name="sv_mssv" />
+            </Principal>
+            <Dependent Role="diemdanh">
+              <PropertyRef Name="sv_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_diemdanh_status">
+          <End Role="status" Type="Self.status" Multiplicity="1" />
+          <End Role="diemdanh" Type="Self.diemdanh" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="status">
+              <PropertyRef Name="stt_id" />
+            </Principal>
+            <Dependent Role="diemdanh">
+              <PropertyRef Name="stt_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_lichday_giaovien">
+          <End Role="giaovien" Type="Self.giaovien" Multiplicity="1" />
+          <End Role="lichday" Type="Self.lichday" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="giaovien">
+              <PropertyRef Name="gv_ms" />
+            </Principal>
+            <Dependent Role="lichday">
+              <PropertyRef Name="gv_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usergiaovien_giaovien">
+          <End Role="giaovien" Type="Self.giaovien" Multiplicity="1" />
+          <End Role="usergiaovien" Type="Self.usergiaovien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="giaovien">
+              <PropertyRef Name="gv_ms" />
+            </Principal>
+            <Dependent Role="usergiaovien">
+              <PropertyRef Name="usgv_username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usergiaovu_giaovu">
+          <End Role="giaovu" Type="Self.giaovu" Multiplicity="1" />
+          <End Role="usergiaovu" Type="Self.usergiaovu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="giaovu">
+              <PropertyRef Name="gvu_ms" />
+            </Principal>
+            <Dependent Role="usergiaovu">
+              <PropertyRef Name="usgvu_username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_lichday_hocki">
+          <End Role="hocki" Type="Self.hocki" Multiplicity="1" />
+          <End Role="lichday" Type="Self.lichday" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hocki">
+              <PropertyRef Name="hk_id" />
+              <PropertyRef Name="hk_nam" />
+            </Principal>
+            <Dependent Role="lichday">
+              <PropertyRef Name="hk_id" />
+              <PropertyRef Name="hk_nam" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_thoikhoabieu_hocki">
+          <End Role="hocki" Type="Self.hocki" Multiplicity="1" />
+          <End Role="thoikhoabieu" Type="Self.thoikhoabieu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hocki">
+              <PropertyRef Name="hk_id" />
+              <PropertyRef Name="hk_nam" />
+            </Principal>
+            <Dependent Role="thoikhoabieu">
+              <PropertyRef Name="hk_id" />
+              <PropertyRef Name="hk_nam" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_thoikhoabieu_hocki1">
+          <End Role="hocki" Type="Self.hocki" Multiplicity="1" />
+          <End Role="thoikhoabieu" Type="Self.thoikhoabieu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hocki">
+              <PropertyRef Name="hk_id" />
+              <PropertyRef Name="hk_nam" />
+            </Principal>
+            <Dependent Role="thoikhoabieu">
+              <PropertyRef Name="hk_id" />
+              <PropertyRef Name="hk_nam" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_lichday_monhoc">
+          <End Role="monhoc" Type="Self.monhoc" Multiplicity="1" />
+          <End Role="lichday" Type="Self.lichday" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="monhoc">
+              <PropertyRef Name="mh_id" />
+            </Principal>
+            <Dependent Role="lichday">
+              <PropertyRef Name="mh_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_sinhvien_lop">
+          <End Role="lop" Type="Self.lop" Multiplicity="1" />
+          <End Role="sinhvien" Type="Self.sinhvien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lop">
+              <PropertyRef Name="lop_id" />
+            </Principal>
+            <Dependent Role="sinhvien">
+              <PropertyRef Name="lp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_thoikhoabieu_lop">
+          <End Role="lop" Type="Self.lop" Multiplicity="1" />
+          <End Role="thoikhoabieu" Type="Self.thoikhoabieu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lop">
+              <PropertyRef Name="lop_id" />
+            </Principal>
+            <Dependent Role="thoikhoabieu">
+              <PropertyRef Name="lp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_thoikhoabieu_monhoc">
+          <End Role="monhoc" Type="Self.monhoc" Multiplicity="1" />
+          <End Role="thoikhoabieu" Type="Self.thoikhoabieu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="monhoc">
+              <PropertyRef Name="mh_id" />
+            </Principal>
+            <Dependent Role="thoikhoabieu">
+              <PropertyRef Name="mh_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_thoikhoabieu_phong">
+          <End Role="phong" Type="Self.phong" Multiplicity="1" />
+          <End Role="thoikhoabieu" Type="Self.thoikhoabieu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="phong">
+              <PropertyRef Name="phong_id" />
+            </Principal>
+            <Dependent Role="thoikhoabieu">
+              <PropertyRef Name="pg_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_role1">
+          <End Role="role" Type="Self.role" Multiplicity="1" />
+          <End Role="user" Type="Self.user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="role">
+              <PropertyRef Name="role_id" />
+            </Principal>
+            <Dependent Role="user">
+              <PropertyRef Name="role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usergiaovien_role">
+          <End Role="role" Type="Self.role" Multiplicity="1" />
+          <End Role="usergiaovien" Type="Self.usergiaovien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="role">
+              <PropertyRef Name="role_id" />
+            </Principal>
+            <Dependent Role="usergiaovien">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usergiaovu_role">
+          <End Role="role" Type="Self.role" Multiplicity="1" />
+          <End Role="usergiaovu" Type="Self.usergiaovu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="role">
+              <PropertyRef Name="role_id" />
+            </Principal>
+            <Dependent Role="usergiaovu">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_session_thoikhoabieu">
+          <End Role="thoikhoabieu" Type="Self.thoikhoabieu" Multiplicity="1" />
+          <End Role="session" Type="Self.session" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="thoikhoabieu">
+              <PropertyRef Name="tkb_id" />
+            </Principal>
+            <Dependent Role="session">
+              <PropertyRef Name="tkb_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_session_usergiaovien">
+          <End Role="usergiaovien" Type="Self.usergiaovien" Multiplicity="1" />
+          <End Role="session" Type="Self.session" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usergiaovien">
+              <PropertyRef Name="usgv_id" />
+            </Principal>
+            <Dependent Role="session">
+              <PropertyRef Name="us_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_sinhvien">
+          <End Role="sinhvien" Type="Self.sinhvien" Multiplicity="1" />
+          <End Role="user" Type="Self.user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sinhvien">
+              <PropertyRef Name="sv_mssv" />
+            </Principal>
+            <Dependent Role="user">
+              <PropertyRef Name="user_name" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SEP_T06Entities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="diemdanhs" EntityType="Self.diemdanh" />
+          <EntitySet Name="giaoviens" EntityType="Self.giaovien" />
+          <EntitySet Name="giaovus" EntityType="Self.giaovu" />
+          <EntitySet Name="hockis" EntityType="Self.hocki" />
+          <EntitySet Name="lichdays" EntityType="Self.lichday" />
+          <EntitySet Name="lops" EntityType="Self.lop" />
+          <EntitySet Name="monhocs" EntityType="Self.monhoc" />
+          <EntitySet Name="phongs" EntityType="Self.phong" />
+          <EntitySet Name="roles" EntityType="Self.role" />
+          <EntitySet Name="sessions" EntityType="Self.session" />
+          <EntitySet Name="sinhviens" EntityType="Self.sinhvien" />
+          <EntitySet Name="status" EntityType="Self.status" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="thoikhoabieux" EntityType="Self.thoikhoabieu" />
+          <EntitySet Name="users" EntityType="Self.user" />
+          <EntitySet Name="usergiaoviens" EntityType="Self.usergiaovien" />
+          <EntitySet Name="usergiaovus" EntityType="Self.usergiaovu" />
+          <AssociationSet Name="FK_diemdanh_monhoc" Association="Self.FK_diemdanh_monhoc">
+            <End Role="monhoc" EntitySet="monhocs" />
+            <End Role="diemdanh" EntitySet="diemdanhs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_diemdanh_session" Association="Self.FK_diemdanh_session">
+            <End Role="session" EntitySet="sessions" />
+            <End Role="diemdanh" EntitySet="diemdanhs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_diemdanh_sinhvien" Association="Self.FK_diemdanh_sinhvien">
+            <End Role="sinhvien" EntitySet="sinhviens" />
+            <End Role="diemdanh" EntitySet="diemdanhs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_diemdanh_status" Association="Self.FK_diemdanh_status">
+            <End Role="status" EntitySet="status" />
+            <End Role="diemdanh" EntitySet="diemdanhs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_lichday_giaovien" Association="Self.FK_lichday_giaovien">
+            <End Role="giaovien" EntitySet="giaoviens" />
+            <End Role="lichday" EntitySet="lichdays" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usergiaovien_giaovien" Association="Self.FK_usergiaovien_giaovien">
+            <End Role="giaovien" EntitySet="giaoviens" />
+            <End Role="usergiaovien" EntitySet="usergiaoviens" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usergiaovu_giaovu" Association="Self.FK_usergiaovu_giaovu">
+            <End Role="giaovu" EntitySet="giaovus" />
+            <End Role="usergiaovu" EntitySet="usergiaovus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_lichday_hocki" Association="Self.FK_lichday_hocki">
+            <End Role="hocki" EntitySet="hockis" />
+            <End Role="lichday" EntitySet="lichdays" />
+          </AssociationSet>
+          <AssociationSet Name="FK_thoikhoabieu_hocki" Association="Self.FK_thoikhoabieu_hocki">
+            <End Role="hocki" EntitySet="hockis" />
+            <End Role="thoikhoabieu" EntitySet="thoikhoabieux" />
+          </AssociationSet>
+          <AssociationSet Name="FK_thoikhoabieu_hocki1" Association="Self.FK_thoikhoabieu_hocki1">
+            <End Role="hocki" EntitySet="hockis" />
+            <End Role="thoikhoabieu" EntitySet="thoikhoabieux" />
+          </AssociationSet>
+          <AssociationSet Name="FK_lichday_monhoc" Association="Self.FK_lichday_monhoc">
+            <End Role="monhoc" EntitySet="monhocs" />
+            <End Role="lichday" EntitySet="lichdays" />
+          </AssociationSet>
+          <AssociationSet Name="FK_sinhvien_lop" Association="Self.FK_sinhvien_lop">
+            <End Role="lop" EntitySet="lops" />
+            <End Role="sinhvien" EntitySet="sinhviens" />
+          </AssociationSet>
+          <AssociationSet Name="FK_thoikhoabieu_lop" Association="Self.FK_thoikhoabieu_lop">
+            <End Role="lop" EntitySet="lops" />
+            <End Role="thoikhoabieu" EntitySet="thoikhoabieux" />
+          </AssociationSet>
+          <AssociationSet Name="FK_thoikhoabieu_monhoc" Association="Self.FK_thoikhoabieu_monhoc">
+            <End Role="monhoc" EntitySet="monhocs" />
+            <End Role="thoikhoabieu" EntitySet="thoikhoabieux" />
+          </AssociationSet>
+          <AssociationSet Name="FK_thoikhoabieu_phong" Association="Self.FK_thoikhoabieu_phong">
+            <End Role="phong" EntitySet="phongs" />
+            <End Role="thoikhoabieu" EntitySet="thoikhoabieux" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_role1" Association="Self.FK_user_role1">
+            <End Role="role" EntitySet="roles" />
+            <End Role="user" EntitySet="users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usergiaovien_role" Association="Self.FK_usergiaovien_role">
+            <End Role="role" EntitySet="roles" />
+            <End Role="usergiaovien" EntitySet="usergiaoviens" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usergiaovu_role" Association="Self.FK_usergiaovu_role">
+            <End Role="role" EntitySet="roles" />
+            <End Role="usergiaovu" EntitySet="usergiaovus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_session_thoikhoabieu" Association="Self.FK_session_thoikhoabieu">
+            <End Role="thoikhoabieu" EntitySet="thoikhoabieux" />
+            <End Role="session" EntitySet="sessions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_session_usergiaovien" Association="Self.FK_session_usergiaovien">
+            <End Role="usergiaovien" EntitySet="usergiaoviens" />
+            <End Role="session" EntitySet="sessions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_sinhvien" Association="Self.FK_user_sinhvien">
+            <End Role="sinhvien" EntitySet="sinhviens" />
+            <End Role="user" EntitySet="users" />
+          </AssociationSet>
+          <EntitySet Name="lichhocs" EntityType="SEP_T06Model.lichhoc" />
+          <AssociationSet Name="FK_lichhoc_hocki" Association="SEP_T06Model.FK_lichhoc_hocki">
+            <End Role="hocki" EntitySet="hockis" />
+            <End Role="lichhoc" EntitySet="lichhocs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_lichhoc_lop" Association="SEP_T06Model.FK_lichhoc_lop">
+            <End Role="lop" EntitySet="lops" />
+            <End Role="lichhoc" EntitySet="lichhocs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_lichhoc_monhoc" Association="SEP_T06Model.FK_lichhoc_monhoc">
+            <End Role="monhoc" EntitySet="monhocs" />
+            <End Role="lichhoc" EntitySet="lichhocs" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="lichhoc">
+          <Key>
+            <PropertyRef Name="lh_id" />
+          </Key>
+          <Property Name="lh_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mh_id" Type="Int32" Nullable="false" />
+          <Property Name="lop_id" Type="Int32" Nullable="false" />
+          <Property Name="hk_id" Type="Int32" Nullable="false" />
+          <Property Name="hk_nam" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="hocki" Relationship="SEP_T06Model.FK_lichhoc_hocki" FromRole="lichhoc" ToRole="hocki" />
+          <NavigationProperty Name="lop" Relationship="SEP_T06Model.FK_lichhoc_lop" FromRole="lichhoc" ToRole="lop" />
+          <NavigationProperty Name="monhoc" Relationship="SEP_T06Model.FK_lichhoc_monhoc" FromRole="lichhoc" ToRole="monhoc" />
+        </EntityType>
+        <Association Name="FK_lichhoc_hocki">
+          <End Type="SEP_T06Model.hocki" Role="hocki" Multiplicity="1" />
+          <End Type="SEP_T06Model.lichhoc" Role="lichhoc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hocki">
+              <PropertyRef Name="hk_id" />
+              <PropertyRef Name="hk_nam" />
+            </Principal>
+            <Dependent Role="lichhoc">
+              <PropertyRef Name="hk_id" />
+              <PropertyRef Name="hk_nam" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_lichhoc_lop">
+          <End Type="SEP_T06Model.lop" Role="lop" Multiplicity="1" />
+          <End Type="SEP_T06Model.lichhoc" Role="lichhoc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lop">
+              <PropertyRef Name="lop_id" />
+            </Principal>
+            <Dependent Role="lichhoc">
+              <PropertyRef Name="lop_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_lichhoc_monhoc">
+          <End Type="SEP_T06Model.monhoc" Role="monhoc" Multiplicity="1" />
+          <End Type="SEP_T06Model.lichhoc" Role="lichhoc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="monhoc">
+              <PropertyRef Name="mh_id" />
+            </Principal>
+            <Dependent Role="lichhoc">
+              <PropertyRef Name="mh_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SEP_T06ModelStoreContainer" CdmEntityContainer="SEP_T06Entities1">
+          <EntitySetMapping Name="diemdanhs">
+            <EntityTypeMapping TypeName="SEP_T06Model.diemdanh">
+              <MappingFragment StoreEntitySet="diemdanh">
+                <ScalarProperty Name="sv_id" ColumnName="sv_id" />
+                <ScalarProperty Name="mh_id" ColumnName="mh_id" />
+                <ScalarProperty Name="ss_id" ColumnName="ss_id" />
+                <ScalarProperty Name="stt_id" ColumnName="stt_id" />
+                <ScalarProperty Name="dd_id" ColumnName="dd_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="giaoviens">
+            <EntityTypeMapping TypeName="SEP_T06Model.giaovien">
+              <MappingFragment StoreEntitySet="giaovien">
+                <ScalarProperty Name="gv_ms" ColumnName="gv_ms" />
+                <ScalarProperty Name="gv_gioitinh" ColumnName="gv_gioitinh" />
+                <ScalarProperty Name="gv_ten" ColumnName="gv_ten" />
+                <ScalarProperty Name="gv_sdt" ColumnName="gv_sdt" />
+                <ScalarProperty Name="gv_diachi" ColumnName="gv_diachi" />
+                <ScalarProperty Name="gv_email" ColumnName="gv_email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="giaovus">
+            <EntityTypeMapping TypeName="SEP_T06Model.giaovu">
+              <MappingFragment StoreEntitySet="giaovu">
+                <ScalarProperty Name="gvu_ms" ColumnName="gvu_ms" />
+                <ScalarProperty Name="gvu_ten" ColumnName="gvu_ten" />
+                <ScalarProperty Name="gvu_gioitinh" ColumnName="gvu_gioitinh" />
+                <ScalarProperty Name="gvu_sdt" ColumnName="gvu_sdt" />
+                <ScalarProperty Name="gvu_diachi" ColumnName="gvu_diachi" />
+                <ScalarProperty Name="gvu_email" ColumnName="gvu_email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="hockis">
+            <EntityTypeMapping TypeName="SEP_T06Model.hocki">
+              <MappingFragment StoreEntitySet="hocki">
+                <ScalarProperty Name="hk_id" ColumnName="hk_id" />
+                <ScalarProperty Name="hk_nam" ColumnName="hk_nam" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="lichdays">
+            <EntityTypeMapping TypeName="SEP_T06Model.lichday">
+              <MappingFragment StoreEntitySet="lichday">
+                <ScalarProperty Name="ld_id" ColumnName="ld_id" />
+                <ScalarProperty Name="mh_id" ColumnName="mh_id" />
+                <ScalarProperty Name="gv_id" ColumnName="gv_id" />
+                <ScalarProperty Name="hk_id" ColumnName="hk_id" />
+                <ScalarProperty Name="hk_nam" ColumnName="hk_nam" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="lops">
+            <EntityTypeMapping TypeName="SEP_T06Model.lop">
+              <MappingFragment StoreEntitySet="lop">
+                <ScalarProperty Name="lop_id" ColumnName="lop_id" />
+                <ScalarProperty Name="lop_name" ColumnName="lop_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="monhocs">
+            <EntityTypeMapping TypeName="SEP_T06Model.monhoc">
+              <MappingFragment StoreEntitySet="monhoc">
+                <ScalarProperty Name="mh_id" ColumnName="mh_id" />
+                <ScalarProperty Name="mh_name" ColumnName="mh_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="phongs">
+            <EntityTypeMapping TypeName="SEP_T06Model.phong">
+              <MappingFragment StoreEntitySet="phong">
+                <ScalarProperty Name="phong_id" ColumnName="phong_id" />
+                <ScalarProperty Name="phong_name" ColumnName="phong_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="roles">
+            <EntityTypeMapping TypeName="SEP_T06Model.role">
+              <MappingFragment StoreEntitySet="role">
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+                <ScalarProperty Name="role_name" ColumnName="role_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sessions">
+            <EntityTypeMapping TypeName="SEP_T06Model.session">
+              <MappingFragment StoreEntitySet="session">
+                <ScalarProperty Name="ss_id" ColumnName="ss_id" />
+                <ScalarProperty Name="tkb_id" ColumnName="tkb_id" />
+                <ScalarProperty Name="us_id" ColumnName="us_id" />
+                <ScalarProperty Name="ss_create" ColumnName="ss_create" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sinhviens">
+            <EntityTypeMapping TypeName="SEP_T06Model.sinhvien">
+              <MappingFragment StoreEntitySet="sinhvien">
+                <ScalarProperty Name="sv_mssv" ColumnName="sv_mssv" />
+                <ScalarProperty Name="sv_name" ColumnName="sv_name" />
+                <ScalarProperty Name="sv_bday" ColumnName="sv_bday" />
+                <ScalarProperty Name="sv_gtinh" ColumnName="sv_gtinh" />
+                <ScalarProperty Name="lp_id" ColumnName="lp_id" />
+                <ScalarProperty Name="sv_email" ColumnName="sv_email" />
+                <ScalarProperty Name="sv_sdt" ColumnName="sv_sdt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="status">
+            <EntityTypeMapping TypeName="SEP_T06Model.status">
+              <MappingFragment StoreEntitySet="status">
+                <ScalarProperty Name="stt_id" ColumnName="stt_id" />
+                <ScalarProperty Name="stt_name" ColumnName="stt_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="SEP_T06Model.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="thoikhoabieux">
+            <EntityTypeMapping TypeName="SEP_T06Model.thoikhoabieu">
+              <MappingFragment StoreEntitySet="thoikhoabieu">
+                <ScalarProperty Name="tkb_id" ColumnName="tkb_id" />
+                <ScalarProperty Name="mh_id" ColumnName="mh_id" />
+                <ScalarProperty Name="lp_id" ColumnName="lp_id" />
+                <ScalarProperty Name="gv_id" ColumnName="gv_id" />
+                <ScalarProperty Name="pg_id" ColumnName="pg_id" />
+                <ScalarProperty Name="tkb_date" ColumnName="tkb_date" />
+                <ScalarProperty Name="hk_id" ColumnName="hk_id" />
+                <ScalarProperty Name="hk_nam" ColumnName="hk_nam" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="SEP_T06Model.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="user_pw" ColumnName="user_pw" />
+                <ScalarProperty Name="role" ColumnName="role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usergiaoviens">
+            <EntityTypeMapping TypeName="SEP_T06Model.usergiaovien">
+              <MappingFragment StoreEntitySet="usergiaovien">
+                <ScalarProperty Name="usgv_id" ColumnName="usgv_id" />
+                <ScalarProperty Name="usgv_username" ColumnName="usgv_username" />
+                <ScalarProperty Name="usgv_pw" ColumnName="usgv_pw" />
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usergiaovus">
+            <EntityTypeMapping TypeName="SEP_T06Model.usergiaovu">
+              <MappingFragment StoreEntitySet="usergiaovu">
+                <ScalarProperty Name="usgvu_id" ColumnName="usgvu_id" />
+                <ScalarProperty Name="usgvu_username" ColumnName="usgvu_username" />
+                <ScalarProperty Name="usgvu_pw" ColumnName="usgvu_pw" />
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="lichhocs">
+            <EntityTypeMapping TypeName="SEP_T06Model.lichhoc">
+              <MappingFragment StoreEntitySet="lichhoc">
+                <ScalarProperty Name="hk_nam" ColumnName="hk_nam" />
+                <ScalarProperty Name="hk_id" ColumnName="hk_id" />
+                <ScalarProperty Name="lop_id" ColumnName="lop_id" />
+                <ScalarProperty Name="mh_id" ColumnName="mh_id" />
+                <ScalarProperty Name="lh_id" ColumnName="lh_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

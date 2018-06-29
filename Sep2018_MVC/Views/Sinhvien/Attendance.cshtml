@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Sep2018_MVC.Models.diemdanh>
+
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<br />
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
+            @if (@ViewBag.msg != null)
+            {
+    <h1><span class="label label-danger">  @ViewBag.msg</span> </h1>
+
+            }
+            <br />
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
+
+
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><b>@ViewBag.monhoc</b></h3>
+                </div>
+                <br />
+                &ensp;&ensp;&ensp; &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;  <span class="glyphicon glyphicon-ok" aria-hidden="true"> </span>Có đi học : @ViewBag.co&ensp;&ensp;&ensp;&ensp;
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Vắng : @ViewBag.vang&ensp;&ensp;&ensp;&ensp;
+                <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Có phép : @ViewBag.phep&ensp;&ensp;&ensp;&ensp;
+                <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>Trễ : @ViewBag.tre
+                <div class="panel-body">
+                    <div class="row">
+                        <div class=" col-md-10 col-lg-12 ">
+                            <table class="table table-user-information">
+                                <tr>
+                                    <td>Họ Tên</td>
+                                    <td>Ngày</td>
+                                    <td>Tình trạng</td>
+                                </tr>
+                                <tbody>
+                                    @foreach (var value in Model)
+                        {
+                            <tr>
+
+                                <td>@value.sinhvien.sv_name</td>
+
+                                <td>@value.session.thoikhoabieu.tkb_date</td>
+                                @if (value.status.stt_name.Trim() == "co")
+                    {
+                        <td> <span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>}
+
+                                @if (value.status.stt_name.Trim() == "vang")
+                    {
+                        <td> <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>}
+
+                                @if (value.status.stt_name.Trim() == "phep")
+                    {
+                        <td> <span class="glyphicon glyphicon-minus" aria-hidden="true"></span></td>}
+
+                                @if (value.status.stt_name.Trim() == "tre")
+                    {
+                        <td> <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span></td>}
+
+
+
+                            </tr>
+            }
+                                </tbody>
+
+
+                            </table>
+                            @Html.ActionLink("Trở lại", "Sinhvien")
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</br>

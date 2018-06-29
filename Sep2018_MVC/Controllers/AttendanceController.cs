@@ -12,6 +12,7 @@ namespace Sep2018_MVC.Controllers
 {
     public class AttendanceController : Controller
     {
+        /*
         // GET: Attendance
         SEP_2018_T6Entities1 db = new SEP_2018_T6Entities1();
         public ActionResult Index()
@@ -109,7 +110,7 @@ namespace Sep2018_MVC.Controllers
                      con.Open();
                      SqlCommand cmd = new SqlCommand(query, con);
                      cmd.ExecuteNonQuery();
-                     con.Close();*/
+                     con.Close();
                     var atd = new AttendanceDetail(); 
                     atd.FK_User = (string)ds.Tables[0].Rows[i][0]; ;
                     string s1 = (string)ds.Tables[0].Rows[i][3];
@@ -138,5 +139,6 @@ namespace Sep2018_MVC.Controllers
             }
             return RedirectToAction("Index", "Attendance");
         }
+        */
     }
 }

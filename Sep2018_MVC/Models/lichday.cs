@@ -12,14 +12,16 @@ namespace Sep2018_MVC.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class user
+    public partial class lichday
     {
-        public int user_id { get; set; }
-        public string user_name { get; set; }
-        public string user_pw { get; set; }
-        public int role { get; set; }
+        public int ld_id { get; set; }
+        public int mh_id { get; set; }
+        public string gv_id { get; set; }
+        public int hk_id { get; set; }
+        public int hk_nam { get; set; }
     
-        public virtual role role1 { get; set; }
-        public virtual sinhvien sinhvien { get; set; }
+        public virtual giaovien giaovien { get; set; }
+        public virtual hocki hocki { get; set; }
+        public virtual monhoc monhoc { get; set; }
     }
 }

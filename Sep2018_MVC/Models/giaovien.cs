@@ -12,26 +12,25 @@ namespace Sep2018_MVC.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Person
+    public partial class giaovien
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Person()
+        public giaovien()
         {
-            this.Reports = new HashSet<Report>();
+            this.lichdays = new HashSet<lichday>();
+            this.usergiaoviens = new HashSet<usergiaovien>();
         }
     
-        public int id { get; set; }
-        public string MS { get; set; }
-        public string Name { get; set; }
-        public string HomeTown { get; set; }
-        public Nullable<System.DateTime> Birthday { get; set; }
-        public string Email { get; set; }
-        public Nullable<int> PhoneNumber { get; set; }
-        public string CurrentResidence { get; set; }
-        public Nullable<bool> Gender { get; set; }
+        public string gv_ms { get; set; }
+        public bool gv_gioitinh { get; set; }
+        public string gv_ten { get; set; }
+        public string gv_sdt { get; set; }
+        public string gv_diachi { get; set; }
+        public string gv_email { get; set; }
     
-        public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Report> Reports { get; set; }
+        public virtual ICollection<lichday> lichdays { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<usergiaovien> usergiaoviens { get; set; }
     }
 }

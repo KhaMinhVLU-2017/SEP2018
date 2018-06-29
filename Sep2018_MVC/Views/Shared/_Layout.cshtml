@@ -22,51 +22,55 @@
     <br />
     <div id='cssmenu'>
         <ul class="navbar-nav text-uppercase ml-auto">
-            @if (Session["username"] == null) {
-            <li class="nav-item active">
-                <a href="~/Home/Index">Trang Chủ</a>
-            </li>
-            }
+            @if (Session["username"] == null)
+    {
+        <li class="nav-item active">
+            <a href="~/Home/Index">Trang Chủ</a>
+        </li>
+}
             @if (Session["username"] != null)
-            {
-                if ((int)Session["role"] == 10)
-                {
-                    <li class="nav-item active">
-                        <a href="~/Sinhvien">Điểm danh</a>
-                    </li>
-                }
-                if ((int)Session["role"] == 9)
-                {
-                    <li class="nav-item active">
-                        <a href="~/Giangvien">Điểm danh</a>
-                    </li>
-                }
-                if ((int)Session["role"] == 11)
-                {
-                    <li class="nav-item active">
-                        <a href="~/Giaovu">Điểm danh</a>
-                    </li>
-                }
-            }
-            else
-            {
-                <li class="nav-item">
-                    <a href="~/Account">Điểm danh</a>
-                </li>
-            }
+    {
+        if ((int)Session["role"] == 2)
+        {
+            <li class="nav-item active">
+                <a href="~/Sinhvien/Sinhvien">Điểm danh</a>
+            </li>
+}
+if ((int)Session["role"] == 1)
+{
+        <li class="nav-item active">
+            <a href="~/Giangvien">Điểm danh</a>
+        </li>
+}
+if ((int)Session["role"] == 3)
+{
+        <li class="nav-item active">
+            <a href="~/Giaovu">Điểm danh</a>
+        </li>
+}
+}
+else
+{
+        <li class="nav-item">
+            <a href="~/Account">Điểm danh</a>
+        </li>
+}
 
             @if (Session["username"] == null)
-            {
-                <li class="nav-item" style="padding-left: 80em;">
-                    <a href="~/Account/Index">Đăng nhập</a>
-                </li>
-            }
-            else
-            {
-                <li class="nav-item" style="padding-left: 80em;">
-                    <a href="~/Account/Logout">Đăng xuất</a>
-                </li>
-            }
+    {
+
+        <li class="nav-item" style="padding-left: 50em;">
+            <a href="~/Account/Index">Đăng nhập</a>
+        </li>
+}
+else
+{
+        <li class="nav-item" style="padding-left: 50em;">
+            <i>Chào  @Session["username"]</i><a href="~/Account/Logout">Đăng xuất</a>
+        </li>
+       
+        
+}
         </ul>
     </div>
 </head>

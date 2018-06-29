@@ -12,24 +12,27 @@ namespace Sep2018_MVC.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Semester
+    public partial class monhoc
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Semester()
+        public monhoc()
         {
-            this.Courses = new HashSet<Course>();
-            this.Learnings = new HashSet<Learning>();
-            this.Schedules = new HashSet<Schedule>();
+            this.diemdanhs = new HashSet<diemdanh>();
+            this.lichdays = new HashSet<lichday>();
+            this.thoikhoabieux = new HashSet<thoikhoabieu>();
+            this.lichhocs = new HashSet<lichhoc>();
         }
     
-        public int id { get; set; }
-        public string SemesterName { get; set; }
+        public int mh_id { get; set; }
+        public string mh_name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Course> Courses { get; set; }
+        public virtual ICollection<diemdanh> diemdanhs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Learning> Learnings { get; set; }
+        public virtual ICollection<lichday> lichdays { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Schedule> Schedules { get; set; }
+        public virtual ICollection<thoikhoabieu> thoikhoabieux { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<lichhoc> lichhocs { get; set; }
     }
 }

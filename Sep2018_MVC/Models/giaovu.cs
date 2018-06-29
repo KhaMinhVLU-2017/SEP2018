@@ -12,18 +12,22 @@ namespace Sep2018_MVC.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class AttendanceType
+    public partial class giaovu
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public AttendanceType()
+        public giaovu()
         {
-            this.AttendanceDetails = new HashSet<AttendanceDetail>();
+            this.usergiaovus = new HashSet<usergiaovu>();
         }
     
-        public int id { get; set; }
-        public string TypeName { get; set; }
+        public string gvu_ms { get; set; }
+        public string gvu_ten { get; set; }
+        public bool gvu_gioitinh { get; set; }
+        public string gvu_sdt { get; set; }
+        public string gvu_diachi { get; set; }
+        public string gvu_email { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AttendanceDetail> AttendanceDetails { get; set; }
+        public virtual ICollection<usergiaovu> usergiaovus { get; set; }
     }
 }

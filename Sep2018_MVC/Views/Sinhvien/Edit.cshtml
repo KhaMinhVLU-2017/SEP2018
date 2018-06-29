@@ -1,0 +1,129 @@
+﻿@model Sep2018_MVC.Models.sinhvien
+@using Sep2018_MVC;
+@using Sep2018_MVC.Models;
+
+@{
+    SEP_T06Entities1 db = new SEP_T06Entities1();
+
+
+    var lopp = new lop();
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+    <br />
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
+                @if (@ViewBag.msg != null)
+                {
+                    <h1><span class="label label-danger">  @ViewBag.msg</span> </h1>
+
+                }
+                <br />
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
+
+
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><i>Chỉnh sửa thông tin</i></h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class=" col-md-3 col-lg-12 ">
+                                <table class="table table-user-information">
+                                    <tbody>
+
+                                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                        @Html.HiddenFor(model => model.sv_mssv)
+
+
+                                        <tr>
+                                            <td>
+                                                @Html.LabelFor(model => model.sv_name, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                                                    </td>
+                                            <td>
+                                                @Html.EditorFor(model => model.sv_name, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.sv_name, "", new { @class = "text-danger" })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                @Html.LabelFor(model => model.sv_bday, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            </td>
+                                             <td>  
+                                                @Html.EditorFor(model => model.sv_bday, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.sv_bday, "", new { @class = "text-danger" })
+                                            </td>
+                                            
+                                        </tr>
+
+                                        <tr >
+                                            <td>
+                                                @Html.LabelFor(model => model.sv_gtinh, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            </td>
+                                                <td >
+                                                    @Html.EditorFor(model => model.sv_gtinh)
+                                                    @Html.ValidationMessageFor(model => model.sv_gtinh, "", new { @class = "text-danger" })
+                                                </td>
+                                            
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                @Html.LabelFor(model => model.lp_id, "lp_id", htmlAttributes: new { @class = "control-label col-md-2" })
+                                            </td>
+                                                <td >
+                                                @Html.DropDownList("lp_id", new SelectList(db.lops, "lop_id", "lop_name"), new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.lp_id, "", new { @class = "text-danger" })
+                                            </td>
+                                            
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                @Html.LabelFor(model => model.sv_email, htmlAttributes: new { @class = "control-label col-md-1" })
+                                            </td>
+                                                <td>
+                                                @Html.EditorFor(model => model.sv_email, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.sv_email, "", new { @class = "text-danger" })
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                @Html.LabelFor(model => model.sv_sdt, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            </td>
+                                                <td >
+                                                @Html.EditorFor(model => model.sv_sdt, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.sv_sdt, "", new { @class = "text-danger" })
+                                            </td>
+                                        </tr>
+
+                                        <tr >
+                                            <td>
+                                                <input type="submit" value="Lưu" class="btn btn-default" />
+                                            </td>                                        
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Account")
+</div>

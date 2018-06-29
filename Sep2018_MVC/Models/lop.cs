@@ -12,24 +12,24 @@ namespace Sep2018_MVC.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Attendance
+    public partial class lop
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Attendance()
+        public lop()
         {
-            this.AttendanceDetails = new HashSet<AttendanceDetail>();
+            this.sinhviens = new HashSet<sinhvien>();
+            this.thoikhoabieux = new HashSet<thoikhoabieu>();
+            this.lichhocs = new HashSet<lichhoc>();
         }
     
-        public int id { get; set; }
-        public Nullable<System.DateTime> Date { get; set; }
-        public Nullable<System.TimeSpan> BeginTime { get; set; }
-        public Nullable<System.TimeSpan> EndTime { get; set; }
-        public Nullable<double> Lesson { get; set; }
-        public string Unit_Lession { get; set; }
-        public Nullable<int> FK_ScheduleDetail { get; set; }
+        public int lop_id { get; set; }
+        public string lop_name { get; set; }
     
-        public virtual ScheduleDetail ScheduleDetail { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AttendanceDetail> AttendanceDetails { get; set; }
+        public virtual ICollection<sinhvien> sinhviens { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<thoikhoabieu> thoikhoabieux { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<lichhoc> lichhocs { get; set; }
     }
 }

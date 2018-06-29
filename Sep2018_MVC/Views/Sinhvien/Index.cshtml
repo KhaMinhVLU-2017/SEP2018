@@ -1,13 +1,13 @@
 ﻿@using Sep2018_MVC;
 @using Sep2018_MVC.Models;
-@model IEnumerable<Sep2018_MVC.Models.Subject>
+@model IEnumerable<Sep2018_MVC.Models.lichhoc>
 @{
-    SEP_2018_T6Entities1 db = new SEP_2018_T6Entities1();
-    var subject = new Course();
+    SEP_T06Entities1 db = new SEP_T06Entities1();
+
 }
 <div class="panel panel-primary">
-    <div class="panel panel-info" style="padding: 5% 20% 20% 40%">
-        <form class="navbar-form navbar-left" action="~/Sinhvien" method="get">
+    <div class="panel panel-info" style="padding: 10% 20% 30% 20%">
+        @*<form class="navbar-form navbar-left" action="~/Sinhvien" method="get">
             <br />
             <div style="font-size: x-large;">
 
@@ -15,17 +15,35 @@
                 <select>
 
                     @foreach (var item in Model)
-        {
-            <option name="@item.SubjectName" class="list-group-item">
-                @item.SubjectName
-            </option>
+                    {
+                        <option name="@item.SubjectName" class="list-group-item">
+                            @item.SubjectName
+                        </option>
 
 
-}
+                    }
                 </select><br /><br />
                 <button type="submit" class="btn btn-default" style="font-size: x-large; color: blue; ">Click để xem</button>
             </div>
 
+        </form>*@
+        @foreach (var item in Model)
+    {
+        <form action="~/Sinhvien/Attendance" method="get">
+            <div class="">
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img src="..." alt="">
+                        <div class="caption">
+                            <input type="text" class="form-control" value="@item.monhoc.mh_name" required name="idmonhoc" style="font-size:22px" readonly="readonly">
+                            <button class="btn btn-lg btn-primary btn-block" type="submit">
+                                Xem điểm danh
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </form>
+}
     </div>
 </div>

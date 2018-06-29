@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SEP_T06ModelStoreContainer" CdmEntityContainer="SEP_T06Entities1">
+    <EntitySetMapping Name="diemdanhs">
+      <EntityTypeMapping TypeName="SEP_T06Model.diemdanh">
+        <MappingFragment StoreEntitySet="diemdanh">
+          <ScalarProperty Name="sv_id" ColumnName="sv_id" />
+          <ScalarProperty Name="mh_id" ColumnName="mh_id" />
+          <ScalarProperty Name="ss_id" ColumnName="ss_id" />
+          <ScalarProperty Name="stt_id" ColumnName="stt_id" />
+          <ScalarProperty Name="dd_id" ColumnName="dd_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="giaoviens">
+      <EntityTypeMapping TypeName="SEP_T06Model.giaovien">
+        <MappingFragment StoreEntitySet="giaovien">
+          <ScalarProperty Name="gv_ms" ColumnName="gv_ms" />
+          <ScalarProperty Name="gv_gioitinh" ColumnName="gv_gioitinh" />
+          <ScalarProperty Name="gv_ten" ColumnName="gv_ten" />
+          <ScalarProperty Name="gv_sdt" ColumnName="gv_sdt" />
+          <ScalarProperty Name="gv_diachi" ColumnName="gv_diachi" />
+          <ScalarProperty Name="gv_email" ColumnName="gv_email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="giaovus">
+      <EntityTypeMapping TypeName="SEP_T06Model.giaovu">
+        <MappingFragment StoreEntitySet="giaovu">
+          <ScalarProperty Name="gvu_ms" ColumnName="gvu_ms" />
+          <ScalarProperty Name="gvu_ten" ColumnName="gvu_ten" />
+          <ScalarProperty Name="gvu_gioitinh" ColumnName="gvu_gioitinh" />
+          <ScalarProperty Name="gvu_sdt" ColumnName="gvu_sdt" />
+          <ScalarProperty Name="gvu_diachi" ColumnName="gvu_diachi" />
+          <ScalarProperty Name="gvu_email" ColumnName="gvu_email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hockis">
+      <EntityTypeMapping TypeName="SEP_T06Model.hocki">
+        <MappingFragment StoreEntitySet="hocki">
+          <ScalarProperty Name="hk_id" ColumnName="hk_id" />
+          <ScalarProperty Name="hk_nam" ColumnName="hk_nam" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="lichdays">
+      <EntityTypeMapping TypeName="SEP_T06Model.lichday">
+        <MappingFragment StoreEntitySet="lichday">
+          <ScalarProperty Name="ld_id" ColumnName="ld_id" />
+          <ScalarProperty Name="mh_id" ColumnName="mh_id" />
+          <ScalarProperty Name="gv_id" ColumnName="gv_id" />
+          <ScalarProperty Name="hk_id" ColumnName="hk_id" />
+          <ScalarProperty Name="hk_nam" ColumnName="hk_nam" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="lops">
+      <EntityTypeMapping TypeName="SEP_T06Model.lop">
+        <MappingFragment StoreEntitySet="lop">
+          <ScalarProperty Name="lop_id" ColumnName="lop_id" />
+          <ScalarProperty Name="lop_name" ColumnName="lop_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="monhocs">
+      <EntityTypeMapping TypeName="SEP_T06Model.monhoc">
+        <MappingFragment StoreEntitySet="monhoc">
+          <ScalarProperty Name="mh_id" ColumnName="mh_id" />
+          <ScalarProperty Name="mh_name" ColumnName="mh_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="phongs">
+      <EntityTypeMapping TypeName="SEP_T06Model.phong">
+        <MappingFragment StoreEntitySet="phong">
+          <ScalarProperty Name="phong_id" ColumnName="phong_id" />
+          <ScalarProperty Name="phong_name" ColumnName="phong_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="roles">
+      <EntityTypeMapping TypeName="SEP_T06Model.role">
+        <MappingFragment StoreEntitySet="role">
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+          <ScalarProperty Name="role_name" ColumnName="role_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sessions">
+      <EntityTypeMapping TypeName="SEP_T06Model.session">
+        <MappingFragment StoreEntitySet="session">
+          <ScalarProperty Name="ss_id" ColumnName="ss_id" />
+          <ScalarProperty Name="tkb_id" ColumnName="tkb_id" />
+          <ScalarProperty Name="us_id" ColumnName="us_id" />
+          <ScalarProperty Name="ss_create" ColumnName="ss_create" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sinhviens">
+      <EntityTypeMapping TypeName="SEP_T06Model.sinhvien">
+        <MappingFragment StoreEntitySet="sinhvien">
+          <ScalarProperty Name="sv_mssv" ColumnName="sv_mssv" />
+          <ScalarProperty Name="sv_name" ColumnName="sv_name" />
+          <ScalarProperty Name="sv_bday" ColumnName="sv_bday" />
+          <ScalarProperty Name="sv_gtinh" ColumnName="sv_gtinh" />
+          <ScalarProperty Name="lp_id" ColumnName="lp_id" />
+          <ScalarProperty Name="sv_email" ColumnName="sv_email" />
+          <ScalarProperty Name="sv_sdt" ColumnName="sv_sdt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="status">
+      <EntityTypeMapping TypeName="SEP_T06Model.status">
+        <MappingFragment StoreEntitySet="status">
+          <ScalarProperty Name="stt_id" ColumnName="stt_id" />
+          <ScalarProperty Name="stt_name" ColumnName="stt_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="SEP_T06Model.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="thoikhoabieux">
+      <EntityTypeMapping TypeName="SEP_T06Model.thoikhoabieu">
+        <MappingFragment StoreEntitySet="thoikhoabieu">
+          <ScalarProperty Name="tkb_id" ColumnName="tkb_id" />
+          <ScalarProperty Name="mh_id" ColumnName="mh_id" />
+          <ScalarProperty Name="lp_id" ColumnName="lp_id" />
+          <ScalarProperty Name="gv_id" ColumnName="gv_id" />
+          <ScalarProperty Name="pg_id" ColumnName="pg_id" />
+          <ScalarProperty Name="tkb_date" ColumnName="tkb_date" />
+          <ScalarProperty Name="hk_id" ColumnName="hk_id" />
+          <ScalarProperty Name="hk_nam" ColumnName="hk_nam" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="SEP_T06Model.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="user_pw" ColumnName="user_pw" />
+          <ScalarProperty Name="role" ColumnName="role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usergiaoviens">
+      <EntityTypeMapping TypeName="SEP_T06Model.usergiaovien">
+        <MappingFragment StoreEntitySet="usergiaovien">
+          <ScalarProperty Name="usgv_id" ColumnName="usgv_id" />
+          <ScalarProperty Name="usgv_username" ColumnName="usgv_username" />
+          <ScalarProperty Name="usgv_pw" ColumnName="usgv_pw" />
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usergiaovus">
+      <EntityTypeMapping TypeName="SEP_T06Model.usergiaovu">
+        <MappingFragment StoreEntitySet="usergiaovu">
+          <ScalarProperty Name="usgvu_id" ColumnName="usgvu_id" />
+          <ScalarProperty Name="usgvu_username" ColumnName="usgvu_username" />
+          <ScalarProperty Name="usgvu_pw" ColumnName="usgvu_pw" />
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="lichhocs">
+      <EntityTypeMapping TypeName="SEP_T06Model.lichhoc">
+        <MappingFragment StoreEntitySet="lichhoc">
+          <ScalarProperty Name="hk_nam" ColumnName="hk_nam" />
+          <ScalarProperty Name="hk_id" ColumnName="hk_id" />
+          <ScalarProperty Name="lop_id" ColumnName="lop_id" />
+          <ScalarProperty Name="mh_id" ColumnName="mh_id" />
+          <ScalarProperty Name="lh_id" ColumnName="lh_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

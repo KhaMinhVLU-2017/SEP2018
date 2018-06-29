@@ -12,14 +12,17 @@ namespace Sep2018_MVC.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class user
+    public partial class diemdanh
     {
-        public int user_id { get; set; }
-        public string user_name { get; set; }
-        public string user_pw { get; set; }
-        public int role { get; set; }
+        public string sv_id { get; set; }
+        public int mh_id { get; set; }
+        public int ss_id { get; set; }
+        public int stt_id { get; set; }
+        public int dd_id { get; set; }
     
-        public virtual role role1 { get; set; }
+        public virtual monhoc monhoc { get; set; }
+        public virtual session session { get; set; }
         public virtual sinhvien sinhvien { get; set; }
+        public virtual status status { get; set; }
     }
 }

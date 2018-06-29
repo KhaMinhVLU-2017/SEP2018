@@ -12,23 +12,29 @@ namespace Sep2018_MVC.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Class
+    public partial class thoikhoabieu
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Class()
+        public thoikhoabieu()
         {
-            this.Learnings = new HashSet<Learning>();
-            this.Users = new HashSet<User>();
+            this.sessions = new HashSet<session>();
         }
     
-        public int id { get; set; }
-        public string ClassName { get; set; }
-        public Nullable<int> FK_Course { get; set; }
+        public int tkb_id { get; set; }
+        public int mh_id { get; set; }
+        public int lp_id { get; set; }
+        public string gv_id { get; set; }
+        public int pg_id { get; set; }
+        public Nullable<System.DateTime> tkb_date { get; set; }
+        public int hk_id { get; set; }
+        public int hk_nam { get; set; }
     
-        public virtual Course Course { get; set; }
+        public virtual hocki hocki { get; set; }
+        public virtual hocki hocki1 { get; set; }
+        public virtual lop lop { get; set; }
+        public virtual monhoc monhoc { get; set; }
+        public virtual phong phong { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Learning> Learnings { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> Users { get; set; }
+        public virtual ICollection<session> sessions { get; set; }
     }
 }

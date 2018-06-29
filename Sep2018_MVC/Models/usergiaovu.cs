@@ -12,18 +12,14 @@ namespace Sep2018_MVC.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Position
+    public partial class usergiaovu
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Position()
-        {
-            this.Users = new HashSet<User>();
-        }
+        public int usgvu_id { get; set; }
+        public string usgvu_username { get; set; }
+        public string usgvu_pw { get; set; }
+        public int role_id { get; set; }
     
-        public int id { get; set; }
-        public string PositionName { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> Users { get; set; }
+        public virtual giaovu giaovu { get; set; }
+        public virtual role role { get; set; }
     }
 }

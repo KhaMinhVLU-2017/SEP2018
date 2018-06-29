@@ -10,9 +10,9 @@ using Sep2018_MVC.Models;
 namespace Sep2018_MVC.Areas.Staff.Controllers
 {
     public class TeacherController : Controller
-    {
+    {/*
         // GET: Admin/Staff
-        SEP_2018_T6Entities1 db = new SEP_2018_T6Entities1();
+        SEP_T06Entities1 db = new SEP_T06Entities1();
         [HttpPost]
         public ActionResult CheckOnline(int? txt_course,int? txt_scheduledetail, int? txt_lesson, int? txt_semester, int? txt_class, int? txt_subject, DateTime txt_day, TimeSpan? txt_timefrom, TimeSpan? txt_timeto)
         {
@@ -41,10 +41,6 @@ namespace Sep2018_MVC.Areas.Staff.Controllers
         {
             return View();
         }
-        /*
-         * Ajax field from views CreateSection
-         * 
-         */
         public ActionResult ClassMeo(int? id, int? id_course)
         {
             List<object> meo = new List<object>();
@@ -75,9 +71,6 @@ namespace Sep2018_MVC.Areas.Staff.Controllers
             }
             return Json(meo, JsonRequestBehavior.AllowGet);
         }
-        /*
-         * Ajax ScheduleDetail
-         */
         public ActionResult ScheDetail(int? id_subject, int? id_course, int? id_semester,int? id_class)
         {
             var id_schedule = db.Schedules.FirstOrDefault(s => s.FK_Course == id_course && s.FK_Semester == id_semester).id;//get ID schedule
@@ -102,5 +95,6 @@ namespace Sep2018_MVC.Areas.Staff.Controllers
         {
             return View();
         }
+        */
     }
 }
