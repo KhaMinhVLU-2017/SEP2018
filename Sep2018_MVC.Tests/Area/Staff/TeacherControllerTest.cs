@@ -253,6 +253,31 @@ namespace Sep2018_MVC.Tests.Area.Staff
             //Assert
             Assert.IsNotNull(result.Data);
         }
+        [TestMethod]
+        public void CheckOnline()
+        {
+            //Arrange
+      
+            int id_Course = 4;          //Khoa 21
+            int id_Semester = 1;        //HK1
+            int id_Class = 12;          //T2
+            int id_Subject = 3;         //Software Requirement
+            int txt_Lesson = 3;         //Tiet Hoc
+            DateTime txt_time = Convert.ToDateTime("01/07/2018");   //Date
+            TimeSpan timeFrom = TimeSpan.Parse("3:00");
+            TimeSpan timeTo = TimeSpan.Parse("5:00");
+            int id_SCheduleDetail = 39;     //Software Requirment 7:30 --> 9:30
+            TeacherController controller = new TeacherController();
+            //Actual
+            var result = ((ViewResult)controller.CheckOnline(id_Course, id_SCheduleDetail, txt_Lesson, id_Semester, id_Class,id_Subject, txt_time, timeFrom, timeTo)).Model ;
+            //Assert
+            Assert.IsNotNull(result);
+            //DeleteModel
+            int maxCount = db.Attendances.Max(s => s.id);
+            Attendance model = db.Attendances.Find(maxCount);
+            db.Attendances.Remove(model);
+            db.SaveChanges();
+        }
     }
     public class Result
     {
