@@ -473,6 +473,7 @@
     <Content Include="Areas\Staff\Views\Teacher\Schedule.cshtml" />
     <Content Include="Areas\Staff\Views\Teacher\InformationAccount.cshtml" />
     <Content Include="Areas\Staff\Views\Teacher\History.cshtml" />
+    <Content Include="Areas\Staff\Views\Teacher\ViewsAttendance.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
