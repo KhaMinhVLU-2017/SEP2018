@@ -39,3 +39,9 @@ D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC.Tests\obj\Debug\Se
 D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC.Tests\bin\Debug\Sep2018_MVC.Tests.dll.config
 D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC.Tests\bin\Debug\System.Web.Helpers.dll
 D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC.Tests\bin\Debug\System.Web.Helpers.xml
+D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC.Tests\bin\Debug\EntityFramework.SqlServer.dll
+D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC.Tests\bin\Debug\EntityFramework.SqlServer.xml
+D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC.Tests\bin\Debug\Newtonsoft.Json.dll
+D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC.Tests\bin\Debug\System.Net.Http.Formatting.dll
+D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC.Tests\bin\Debug\Newtonsoft.Json.xml
+D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC.Tests\bin\Debug\System.Net.Http.Formatting.xml
