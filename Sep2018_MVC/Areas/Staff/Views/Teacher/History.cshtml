@@ -1,0 +1,59 @@
+﻿@using Sep2018_MVC.Models
+@model List<Attendance>
+@{
+    ViewBag.Title = "History";
+    Layout = "~/Areas/Staff/Views/Shared/_LayoutAdmin.cshtml";
+    SEP_2018_T6Entities1 db = new SEP_2018_T6Entities1();
+
+}
+
+@*<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>*@
+<!------ Include the above in your HEAD tag ---------->
+<div class="container">
+    <div class="row">
+        <div class="table-responsive">
+            <h1> History </h1>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Subject</th>
+                        <th>Course</th>
+                        <th>Class</th>
+                        <th>Date</th>
+                        <th>Begin Time</th>
+                        <th>End Time</th>
+                        <th>Lesson</th>
+                        <th>Unit Lession</th>
+                        <th>Note</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        int count = 0;
+                        foreach (var item in Model)
+                        {
+                            var idLearn = db.ScheduleDetails.Find(item.FK_ScheduleDetail).FK_Learning;
+                            var idSubject = db.Learnings.Find(idLearn).FK_Subject;
+                            count++;
+                            <tr>
+                                <th>@count</th>
+                                <th>@db.Subjects.Find(idSubject).SubjectName</th>
+                                <th>@item.ScheduleDetail.Schedule.Course.CourseName</th>
+                                <th>@item.ScheduleDetail.Schedule.Course.CourseName@item.ScheduleDetail.Learning.Class.ClassName</th>
+                                <th>@item.Date</th>
+                                <th>@item.BeginTime</th>
+                                <th>@item.EndTime</th>
+                                <th>@item.Lesson</th>
+                                <th>@item.Unit_Lession</th>
+                                <th><a href="/Staff/Teacher/EditAttend/@item.id">Edit</a></th>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
