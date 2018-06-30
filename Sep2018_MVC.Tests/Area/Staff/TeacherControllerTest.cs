@@ -27,7 +27,7 @@ namespace Sep2018_MVC.Tests.Area.Staff
             Assert.IsNotNull(result);
         }
         [TestMethod]
-        public void SemesterMeo() //Test API Semester of Studdents
+        public void API_SemesterMeo() //Test API Semester of Studdents
         {
             //Desire
             List<object> JsonDesire = new List<object>();
@@ -49,7 +49,7 @@ namespace Sep2018_MVC.Tests.Area.Staff
             Assert.AreEqual(JsonDesire.Count(), Acctual.Count());
         }
         [TestMethod]
-        public void ClassMeo() //Test API Class Of Students
+        public void API_ClassMeo() //Test API Class Of Students
         {
             //Arrange
             List<object> JsonDesire = new List<object>();
@@ -81,7 +81,7 @@ namespace Sep2018_MVC.Tests.Area.Staff
             Assert.AreEqual(JsonDesire.Count(), Acctual.Count());
         }
         [TestMethod]
-        public void Subject()
+        public void API_Subject()
         {
             //Arrange
             List<object> JsonDesire = new List<object>();
@@ -216,6 +216,48 @@ namespace Sep2018_MVC.Tests.Area.Staff
             //Assert Check Type Of Action
             Assert.IsNotNull(result); // check have null
         }
+        [TestMethod]
+        public void EditAttend()//Test Edit Attendance when you inside HIstory
+        {
+            //Desire
+            List<Attendance> DataDesire = db.Attendances.ToList();
+            //Arrange
+            TeacherController controller = new TeacherController();
+            //Acttual
+            foreach (var item in DataDesire)
+            {
+                var result = ((ViewResult)controller.EditAttend(item.id)).Model as Attendance;
+                //Assert
+                Assert.AreEqual(item.id, result.id);
+                Assert.AreEqual(item.Lesson, result.Lesson);
+                Assert.AreEqual(item.ScheduleDetail.id, result.ScheduleDetail.id);
+                Assert.AreEqual(item.Unit_Lession, result.Unit_Lession);
+                Assert.AreEqual(item.FK_ScheduleDetail, result.FK_ScheduleDetail);
+            }
+        }
+        [TestMethod]
+        public void API_ScheDetail()
+        {
+            //Arrange
+            int id_Course = 3;  // K20
+            int id_Semester = 1;    //HK1
+            int id_Class = 9;   //Class T2
+            int id_Subject = 8;     //Quan Tri Doanh Nghiep
+            int id_learning = db.Learnings.FirstOrDefault(s => s.FK_Subject == id_Subject && s.FK_Semester == id_Semester && s.FK_Class == id_Class).id;
+            TeacherController controller = new TeacherController();
+
+            //Actual
+            JsonResult result = controller.ScheDetail(id_Subject, id_Course, id_Semester, id_Class) as JsonResult;
+
+
+            //Assert
+            Assert.IsNotNull(result.Data);
+        }
+    }
+    public class Result
+    {
+        public bool success;
+        public string error;
     }
 
 }
