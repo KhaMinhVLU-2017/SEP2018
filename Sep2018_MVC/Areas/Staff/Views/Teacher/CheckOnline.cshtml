@@ -8,7 +8,7 @@
     List<AttendanceType> attenType = new List<AttendanceType>();
     attenType = (List<AttendanceType>)ViewData["AttenType"];
 
-    SEP_2018_T6Entities db = new SEP_2018_T6Entities();
+    SEP_2018_T6Entities1 db = new SEP_2018_T6Entities1();
     var ScheDetail = db.ScheduleDetails.FirstOrDefault(s => s.id == Model.FK_ScheduleDetail);
     var learning = db.Learnings.FirstOrDefault(s => s.id == ScheDetail.FK_Learning);
 }

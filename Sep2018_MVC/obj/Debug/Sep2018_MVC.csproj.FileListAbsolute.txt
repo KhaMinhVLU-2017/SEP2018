@@ -98,3 +98,4 @@ D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_
 D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.csproj.CopyComplete
 D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.dll
 D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.pdb
+D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC\obj\Debug\Sep2018_MVC.csprojAssemblyReference.cache
