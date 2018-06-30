@@ -117,6 +117,51 @@ namespace Sep2018_MVC.Tests.Area.Staff
             //Assert
             Assert.AreEqual(JsonDesire.Count(), Acctual.Count());
         }
+        [TestMethod]
+        public void InformationAccount()//Test Redirect of Function
+        {
+            //Arrange
+            TeacherController controller = new TeacherController();
+            //Acctual
+            ActionResult result = controller.InformationAccount();
+            //Asert
+            Assert.IsInstanceOfType(result, typeof(ViewResult));
+        }
+        [TestMethod]
+        public void History()   //Test History Attendance of Teacher
+        {
+            //Desire
+            var dataHistory = db.Attendances.ToList();
+            //Arrange
+            TeacherController controller = new TeacherController();
+            //Acctual
+            var actual = ((ViewResult)controller.History()).Model as List<Attendance>;
+            //Assert
+            if (dataHistory.Count == actual.Count)
+            {
+                CheckData(dataHistory, actual);
+            }
+            else
+            {
+                Assert.AreEqual(dataHistory.Count, actual.Count);
+            }
+        }
+        /*
+         * You should Check once row for Easy Handing
+         */
+        public void CheckData(List<Attendance> Desire, List<Attendance> Actual)
+        {
+            int count = 0;
+            foreach (var item in Actual)
+            {
+                Assert.AreEqual(Desire[count].id, item.id);
+                Assert.AreEqual(Desire[count].Lesson, item.Lesson);
+                Assert.AreEqual(Desire[count].Unit_Lession, item.Unit_Lession);
+                Assert.AreEqual(Desire[count].FK_ScheduleDetail, item.FK_ScheduleDetail);
+                count++;
+            }
+        }
+        
     }
 
 }
