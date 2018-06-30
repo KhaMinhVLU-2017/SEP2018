@@ -278,6 +278,25 @@ namespace Sep2018_MVC.Tests.Area.Staff
             db.Attendances.Remove(model);
             db.SaveChanges();
         }
+        [TestMethod]
+        public void ViewsAttendance()//Test Edit Attendance when you inside HIstory
+        {
+            //Desire
+            List<Attendance> DataDesire = db.Attendances.ToList();
+            //Arrange
+            TeacherController controller = new TeacherController();
+            //Acttual
+            foreach (var item in DataDesire)
+            {
+                var result = ((ViewResult)controller.EditAttend(item.id)).Model as Attendance;
+                //Assert
+                Assert.AreEqual(item.id, result.id);
+                Assert.AreEqual(item.Lesson, result.Lesson);
+                Assert.AreEqual(item.ScheduleDetail.id, result.ScheduleDetail.id);
+                Assert.AreEqual(item.Unit_Lession, result.Unit_Lession);
+                Assert.AreEqual(item.FK_ScheduleDetail, result.FK_ScheduleDetail);
+            }
+        }
     }
     public class Result
     {
