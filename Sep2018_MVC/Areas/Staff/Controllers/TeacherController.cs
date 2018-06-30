@@ -16,8 +16,8 @@ namespace Sep2018_MVC.Areas.Staff.Controllers
 
         // GET: Admin/Staff
         SEP_2018_T6Entities1 db = new SEP_2018_T6Entities1();
-        [HttpPost]
 
+        [HttpPost]
         public ActionResult CheckOnline(int? txt_course,int? txt_scheduledetail, int? txt_lesson, int? txt_semester, int? txt_class, int? txt_subject, DateTime txt_day, TimeSpan? txt_timefrom, TimeSpan? txt_timeto)
         {
             Attendance meo = new Attendance();
@@ -94,7 +94,7 @@ namespace Sep2018_MVC.Areas.Staff.Controllers
             }
             return Json(meo, JsonRequestBehavior.AllowGet);
         }
-        public ActionResult Course()
+        public ActionResult Course()// Can't test because Action is Not Complete 
         {
             return View();
         }

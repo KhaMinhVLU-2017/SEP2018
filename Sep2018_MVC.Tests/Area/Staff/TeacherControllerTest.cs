@@ -31,22 +31,22 @@ namespace Sep2018_MVC.Tests.Area.Staff
         {
             //Desire
             List<object> JsonDesire = new List<object>();
-            foreach(var item in db.Courses.ToList())
+            foreach (var item in db.Courses.ToList())
             {
-                JsonDesire.Add(new { id_sm = item.Semester.id,smName = item.Semester.SemesterName});
+                JsonDesire.Add(new { id_sm = item.Semester.id, smName = item.Semester.SemesterName });
             }
             //Arrange
             TeacherController controller = new TeacherController();
             //Act
             List<object> Acctual = new List<object>();
-            foreach(var item in db.Courses.ToList())
+            foreach (var item in db.Courses.ToList())
             {
                 JsonResult result = controller.SemesterMeo(item.id) as JsonResult;
-              
+
                 Acctual.Add(result.Data);
             }
             //Assert
-            Assert.AreEqual(JsonDesire.Count(),Acctual.Count());
+            Assert.AreEqual(JsonDesire.Count(), Acctual.Count());
         }
         [TestMethod]
         public void ClassMeo() //Test API Class Of Students
@@ -56,13 +56,13 @@ namespace Sep2018_MVC.Tests.Area.Staff
 
             foreach (var item in db.Semesters.ToList())
             {
-                foreach(var Subitem in db.Courses.Where(s => s.FK_Semester == item.id))
+                foreach (var Subitem in db.Courses.Where(s => s.FK_Semester == item.id))
                 {
                     List<object> ConCon = new List<object>();
                     foreach (var SClass in db.Classes.Where(s => s.FK_Course == Subitem.id))
                     {
                         //Desire
-                 
+
                         ConCon.Add(new { id_class = SClass.id, name_Class = SClass.ClassName });
                     }
                     JsonDesire.Add(ConCon);
@@ -86,11 +86,11 @@ namespace Sep2018_MVC.Tests.Area.Staff
             //Arrange
             List<object> JsonDesire = new List<object>();
 
-            foreach(var item in db.Semesters.ToList())
+            foreach (var item in db.Semesters.ToList())
             {
-                foreach(var subitem in db.Courses.Where(s => s.FK_Semester == item.id))
+                foreach (var subitem in db.Courses.Where(s => s.FK_Semester == item.id))
                 {
-                    foreach(var xClass  in db.Classes.Where(s => s.FK_Course == subitem.id))
+                    foreach (var xClass in db.Classes.Where(s => s.FK_Course == subitem.id))
                     {
                         List<object> SubCon = new List<object>();
                         foreach (var xSubject in db.Learnings.Where(d => d.FK_Class == xClass.id))
@@ -106,13 +106,13 @@ namespace Sep2018_MVC.Tests.Area.Staff
             List<object> Acctual = new List<object>();
             foreach (var item in db.Courses.ToList())
             {
-                foreach(var XClass  in db.Classes.Where(s => s.FK_Course == item.id))
+                foreach (var XClass in db.Classes.Where(s => s.FK_Course == item.id))
                 {
-                    JsonResult result = controller.Subject(XClass.id,item.id) as JsonResult;
+                    JsonResult result = controller.Subject(XClass.id, item.id) as JsonResult;
 
-                     Acctual.Add(result.Data);
+                    Acctual.Add(result.Data);
                 }
-              
+
             }
             //Assert
             Assert.AreEqual(JsonDesire.Count(), Acctual.Count());
@@ -161,7 +161,61 @@ namespace Sep2018_MVC.Tests.Area.Staff
                 count++;
             }
         }
-        
+        [TestMethod]
+        public void CreateSection()
+        {
+            //Desire
+            List<Course> DesireData = db.Courses.ToList();
+            //Arrange
+            TeacherController controller = new TeacherController();
+            //Actual
+            var Actual = ((ViewResult)controller.CreateSection()).Model as List<Course>;
+            //Asert
+            if (DesireData.Count == Actual.Count)//Check Count Data
+            {
+                CheckDataCourse(DesireData, Actual);
+            }
+            else
+            {
+                Assert.AreEqual(DesireData.Count, Actual.Count);
+            }
+        }
+        /*
+         * You should Check once row for Easy Handing
+         */
+        public void CheckDataCourse(List<Course> Desire, List<Course> Actual)
+        {
+            int count = 0;
+            foreach (var item in Actual)
+            {
+                Assert.AreEqual(Desire[count].id, item.id);
+                Assert.AreEqual(Desire[count].CourseName, item.CourseName);
+                Assert.AreEqual(Desire[count].Semester.id, item.Semester.id);
+                Assert.AreEqual(Desire[count].ShoolYearEnd, item.ShoolYearEnd);
+                Assert.AreEqual(Desire[count].FK_Semester, item.FK_Semester);
+                count++;
+            }
+        }
+        [TestMethod]
+        public void Schedule()
+        {
+            //Arrange
+            TeacherController controller = new TeacherController();
+            //Actual
+            var result = controller.Schedule();
+            //Assert Check Type Of Action
+            Assert.IsInstanceOfType(result, typeof(ViewResult));
+        }
+        [TestMethod]
+        public void Notifi()
+        {
+            //Arrange
+            TeacherController controller = new TeacherController();
+            //Actual
+            ViewResult result = controller.Notifi() as ViewResult;
+            //Assert Check Type Of Action
+            Assert.IsNotNull(result); // check have null
+        }
     }
 
 }
