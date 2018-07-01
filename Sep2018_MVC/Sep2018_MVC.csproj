@@ -457,8 +457,6 @@
     <Content Include="Areas\Staff\Assert\webfonts\fa-solid-900.woff" />
     <Content Include="Areas\Staff\Assert\webfonts\fa-solid-900.woff2" />
     <Content Include="Areas\Staff\Views\Teacher\CreateAccount.cshtml" />
-    <Content Include="Areas\Staff\Views\Shared\_SiderBarStaff.cshtml" />
-    <Content Include="Areas\Staff\Views\Shared\_SiderBarTeacher.cshtml" />
     <Content Include="Areas\Staff\Views\Teacher\Course.cshtml" />
     <Content Include="Areas\Staff\Views\Teacher\EditAttend.cshtml" />
     <EntityDeploy Include="Models\Model1.edmx">
@@ -468,12 +466,12 @@
     <Content Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
-    <Content Include="Areas\Staff\Views\Shared\_SiderBarStaff.cshtml" />
-    <Content Include="Areas\Staff\Views\Shared\_SiderBarTeacher.cshtml" />
     <Content Include="Areas\Staff\Views\Teacher\Schedule.cshtml" />
     <Content Include="Areas\Staff\Views\Teacher\InformationAccount.cshtml" />
     <Content Include="Areas\Staff\Views\Teacher\History.cshtml" />
     <Content Include="Areas\Staff\Views\Teacher\ViewsAttendance.cshtml" />
+    <Content Include="Areas\Staff\Views\Shared\_SiderBarTeacher.cshtml" />
+    <Content Include="Areas\Staff\Views\Shared\_SiderBarStaff.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
