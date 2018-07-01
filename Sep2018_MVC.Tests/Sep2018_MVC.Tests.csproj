@@ -92,6 +92,7 @@
   <ItemGroup>
     <Compile Include="Area\Staff\TeacherControllerTest.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
+    <Compile Include="Controllers\GiangvienControllerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

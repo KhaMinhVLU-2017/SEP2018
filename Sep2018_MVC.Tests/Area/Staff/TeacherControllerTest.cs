@@ -298,10 +298,4 @@ namespace Sep2018_MVC.Tests.Area.Staff
             }
         }
     }
-    public class Result
-    {
-        public bool success;
-        public string error;
-    }
-
 }
