@@ -28,11 +28,9 @@ namespace Sep2018_MVC.Tests.Controllers
         public void Login_Student()     //Check Login in views
         {
             //Arrange
-
-
             var mockControllerContext = new Mock<ControllerContext>();
             var mockSession = new Mock<HttpSessionStateBase>();
-            mockSession.SetupGet(s => s["username"]).Returns("1"); //session
+            mockSession.SetupGet(s => s["username"]).Returns("t1305"); //session
             mockSession.SetupGet(s => s["role"]).Returns("10");     //session
             mockSession.SetupGet(s => s["class"]).Returns("3");     //session
             mockControllerContext.Setup(p => p.HttpContext.Session).Returns(mockSession.Object);
@@ -46,6 +44,46 @@ namespace Sep2018_MVC.Tests.Controllers
             Assert.IsInstanceOfType(result, typeof(RedirectToRouteResult));//Check type
             RedirectToRouteResult routeResult = result as RedirectToRouteResult;
             Assert.AreEqual(routeResult.RouteValues["action"], "Index");//Check Route\
+        }
+        [TestMethod]
+        public void Login_Teacher()     //Check Login in views
+        {
+            //Arrange
+            var mockControllerContext = new Mock<ControllerContext>();
+            var mockSession = new Mock<HttpSessionStateBase>();
+            mockSession.SetupGet(s => s["username"]).Returns("gv8989"); //session
+            mockSession.SetupGet(s => s["role"]).Returns("9");     //session
+            mockSession.SetupGet(s => s["class"]).Returns("3");     //session
+            mockControllerContext.Setup(p => p.HttpContext.Session).Returns(mockSession.Object);
+
+            AccountController controller = new AccountController();
+            controller.ControllerContext = mockControllerContext.Object;
+
+            //Actual
+            var result = controller.Index("gv8989", "toor");
+            //Assert
+            Assert.IsInstanceOfType(result, typeof(RedirectToRouteResult));//Check type
+            RedirectToRouteResult routeResult = result as RedirectToRouteResult;
+            Assert.AreEqual(routeResult.RouteValues["action"], "Index");//Check Route\
+        }
+        [TestMethod]
+        public void Logout()
+        {
+            //Arrange
+            var mockControllerContext = new Mock<ControllerContext>();
+            var mockSession = new Mock<HttpSessionStateBase>();
+            mockSession.SetupGet(s => s["username"]).Returns("t150737"); //session
+            mockControllerContext.Setup(p => p.HttpContext.Session).Returns(mockSession.Object);
+
+            AccountController controller = new AccountController();
+            controller.ControllerContext = mockControllerContext.Object;
+            //Actual
+            var result = controller.Logout();
+            //Assert
+            Assert.IsInstanceOfType(result, typeof(RedirectToRouteResult));//Check type
+            RedirectToRouteResult routeResult = result as RedirectToRouteResult;
+            Assert.AreEqual(routeResult.RouteValues["action"], "Index");//Check Route\
+
         }
     }
 }
