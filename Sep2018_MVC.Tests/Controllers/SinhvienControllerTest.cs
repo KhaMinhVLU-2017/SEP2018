@@ -16,7 +16,7 @@ namespace Sep2018_MVC.Tests.Controllers
     public class SinhvienControllerTest
     {
         [TestMethod]
-        public void Index()
+        public void Index_Redirect()        //Check redirect when session is null
         {
             //Arrange
          
@@ -36,6 +36,25 @@ namespace Sep2018_MVC.Tests.Controllers
             RedirectToRouteResult routeResult = result as RedirectToRouteResult;
             Assert.AreEqual(routeResult.RouteValues["action"], "Index");//Check redirect
 
+        }
+        [TestMethod]
+        public void Index_HaveSession()     //Check have Session
+        {
+            //Arrange
+
+            //Fake session for Controller
+            var mockControllerContext = new Mock<ControllerContext>();
+            var mockSession = new Mock<HttpSessionStateBase>();
+            mockSession.SetupGet(s => s["username"]).Returns("1"); //somevalue
+            mockControllerContext.Setup(p => p.HttpContext.Session).Returns(mockSession.Object);
+
+            SinhvienController controller = new SinhvienController();
+            controller.ControllerContext = mockControllerContext.Object;
+
+            //Actual
+            var result = ((ViewResult)controller.Index()).Model;
+            //Assert
+            Assert.IsNotNull(result);
         }
     }
 }
