@@ -18,13 +18,13 @@ namespace Sep2018_MVC.Areas.Staff.Controllers
         SEP_2018_T6Entities1 db = new SEP_2018_T6Entities1();
 
         [HttpPost]
-        public ActionResult CheckOnline(int? txt_course,int? txt_scheduledetail, int? txt_lesson, int? txt_semester, int? txt_class, int? txt_subject, DateTime txt_day, TimeSpan? txt_timefrom, TimeSpan? txt_timeto)
+        public ActionResult CheckOnline(int? txt_course,int? txt_scheduledetail, int txt_lesson, int? txt_semester, int? txt_class, int? txt_subject, DateTime txt_day, TimeSpan? txt_timefrom, TimeSpan? txt_timeto)
         {
             Attendance meo = new Attendance();
             meo.Date = txt_day;
             meo.BeginTime = txt_timefrom;
             meo.EndTime = txt_timeto;
-            meo.Lesson = txt_lesson;
+            meo.Lesson =Math.Abs(txt_lesson);
             meo.Unit_Lession = db.ScheduleDetails.FirstOrDefault(s => s.id == txt_scheduledetail).Unit_Lession;
             meo.FK_ScheduleDetail = txt_scheduledetail;
             db.Attendances.Add(meo);
