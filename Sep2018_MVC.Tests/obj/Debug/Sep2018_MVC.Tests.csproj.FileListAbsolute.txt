@@ -45,3 +45,13 @@ D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC.Tests\bin\Debug\Ne
 D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC.Tests\bin\Debug\System.Net.Http.Formatting.dll
 D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC.Tests\bin\Debug\Newtonsoft.Json.xml
 D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC.Tests\bin\Debug\System.Net.Http.Formatting.xml
+D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC.Tests\bin\Debug\Rhino.Mocks.dll
+D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC.Tests\bin\Debug\Castle.Core.dll
+D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC.Tests\bin\Debug\Moq.dll
+D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC.Tests\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC.Tests\bin\Debug\System.ValueTuple.dll
+D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC.Tests\bin\Debug\Castle.Core.xml
+D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC.Tests\bin\Debug\Moq.pdb
+D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC.Tests\bin\Debug\Moq.xml
+D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC.Tests\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\Learning School\THe Thrid\HKII\SEP\WEb\SEP2018\Sep2018_MVC.Tests\bin\Debug\System.ValueTuple.xml

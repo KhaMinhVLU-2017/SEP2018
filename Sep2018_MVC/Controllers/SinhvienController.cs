@@ -13,7 +13,11 @@ namespace Sep2018_MVC.Controllers
         // GET: Sinhvien
         public ActionResult Index()
         {
-            if(Session["username"] == null) { return RedirectToAction("Index", "Account"); }
+            //if(Session["username"] == null)
+            if (string.IsNullOrEmpty((string)Session["username"]))
+            {
+                return RedirectToAction("Index", "Account");
+            }
             var sj = db.Subjects.ToList();
             return View(sj);
         }
