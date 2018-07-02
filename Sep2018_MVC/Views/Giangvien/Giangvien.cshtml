@@ -1,0 +1,30 @@
+﻿@using Sep2018_MVC;
+@using Sep2018_MVC.Models;
+@model IEnumerable<Sep2018_MVC.Models.lichday>
+@{
+    SEP_T06Entities1 db = new SEP_T06Entities1();
+
+}
+<div class="panel panel-primary">
+    <div class="panel panel-info" style="padding: 10% 20% 30% 20%">
+        @foreach (var item in Model)
+        {
+            <form action="~/Giangvien/listlop" method="get">
+                <div class="">
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <img src="..." alt="">
+                            <div class="caption">
+                                <input type="text" class="form-control" value="@item.monhoc.mh_name" required name="idmonhoc" style="font-size:22px" readonly="readonly">
+                                <button class="btn btn-lg btn-primary btn-block" type="submit">
+                                    Xem điểm danh
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        }
+    </div>
+</div>
+

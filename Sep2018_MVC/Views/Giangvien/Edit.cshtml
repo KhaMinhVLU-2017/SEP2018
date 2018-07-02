@@ -1,0 +1,113 @@
+﻿@model Sep2018_MVC.Models.giaovien
+@using Sep2018_MVC;
+@using Sep2018_MVC.Models;
+
+@{
+    SEP_T06Entities1 db = new SEP_T06Entities1();
+
+
+    var lopp = new lop();
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+    <br />
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
+                @if (@ViewBag.msg != null)
+                {
+                    <h1><span class="label label-danger">  @ViewBag.msg</span> </h1>
+
+                }
+                <br />
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
+
+
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><i>Chỉnh sửa thông tin</i></h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class=" col-md-3 col-lg-12 ">
+                                <table class="table table-user-information">
+                                    <tbody>
+                                        
+                                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                        @Html.HiddenFor(model => model.gv_ms)
+                                        
+                                        <tr>
+                                            <td>
+                                                @Html.LabelFor(model => model.gv_gioitinh, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            </td>
+                                                
+                                                <td >
+                                                    @Html.EditorFor(model => model.gv_gioitinh)
+                                                    @Html.ValidationMessageFor(model => model.gv_gioitinh, "", new { @class = "text-danger" })
+                                                </td>
+                                            
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                @Html.LabelFor(model => model.gv_ten, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            </td>
+                                                <td>
+                                                @Html.EditorFor(model => model.gv_ten, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.gv_ten, "", new { @class = "text-danger" })
+                                            </td>
+                                        </tr>
+
+                                        <tr><td>
+                                            @Html.LabelFor(model => model.gv_sdt, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            
+                                            <td>
+                                                @Html.EditorFor(model => model.gv_sdt, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.gv_sdt, "", new { @class = "text-danger" })
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                @Html.LabelFor(model => model.gv_diachi, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            </td>
+                                            <td>
+                                                @Html.EditorFor(model => model.gv_diachi, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.gv_diachi, "", new { @class = "text-danger" })
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+    @Html.LabelFor(model => model.gv_email, htmlAttributes: new { @class = "control-label col-md-2" })
+</td>
+                                            <td>
+                                                @Html.EditorFor(model => model.gv_email, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.gv_email, "", new { @class = "text-danger" })
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <input type="submit" value="Save" class="btn btn-default" />
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                                @Html.ActionLink("Trở về","Account")
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

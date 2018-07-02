@@ -1,158 +1,177 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="SEP_2018_T6ModelStoreContainer" CdmEntityContainer="SEP_2018_T6Entities1">
-    <EntitySetMapping Name="Attendances">
-      <EntityTypeMapping TypeName="SEP_2018_T6Model.Attendance">
-        <MappingFragment StoreEntitySet="Attendance">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="Date" ColumnName="Date" />
-          <ScalarProperty Name="BeginTime" ColumnName="BeginTime" />
-          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
-          <ScalarProperty Name="Lesson" ColumnName="Lesson" />
-          <ScalarProperty Name="Unit_Lession" ColumnName="Unit_Lession" />
-          <ScalarProperty Name="FK_ScheduleDetail" ColumnName="FK_ScheduleDetail" />
+  <EntityContainerMapping StorageEntityContainer="sep21t16ModelStoreContainer" CdmEntityContainer="sep21t16Entities">
+    <EntitySetMapping Name="diemdanhs">
+      <EntityTypeMapping TypeName="sep21t16Model.diemdanh">
+        <MappingFragment StoreEntitySet="diemdanh">
+          <ScalarProperty Name="dd_id" ColumnName="dd_id" />
+          <ScalarProperty Name="sv_id" ColumnName="sv_id" />
+          <ScalarProperty Name="ss_id" ColumnName="ss_id" />
+          <ScalarProperty Name="mh_id" ColumnName="mh_id" />
+          <ScalarProperty Name="stt_id" ColumnName="stt_id" />
+          <ScalarProperty Name="tkb_id" ColumnName="tkb_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="AttendanceDetails">
-      <EntityTypeMapping TypeName="SEP_2018_T6Model.AttendanceDetail">
-        <MappingFragment StoreEntitySet="AttendanceDetail">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="Note" ColumnName="Note" />
-          <ScalarProperty Name="FK_Attendance" ColumnName="FK_Attendance" />
-          <ScalarProperty Name="FK_User" ColumnName="FK_User" />
-          <ScalarProperty Name="FK_AttendanceDetail_Type" ColumnName="FK_AttendanceDetail_Type" />
+    <EntitySetMapping Name="giaoviens">
+      <EntityTypeMapping TypeName="sep21t16Model.giaovien">
+        <MappingFragment StoreEntitySet="giaovien">
+          <ScalarProperty Name="gv_ms" ColumnName="gv_ms" />
+          <ScalarProperty Name="gv_gioitinh" ColumnName="gv_gioitinh" />
+          <ScalarProperty Name="gv_ten" ColumnName="gv_ten" />
+          <ScalarProperty Name="gv_sdt" ColumnName="gv_sdt" />
+          <ScalarProperty Name="gv_diachi" ColumnName="gv_diachi" />
+          <ScalarProperty Name="gv_email" ColumnName="gv_email" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="AttendanceTypes">
-      <EntityTypeMapping TypeName="SEP_2018_T6Model.AttendanceType">
-        <MappingFragment StoreEntitySet="AttendanceType">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+    <EntitySetMapping Name="giaovus">
+      <EntityTypeMapping TypeName="sep21t16Model.giaovu">
+        <MappingFragment StoreEntitySet="giaovu">
+          <ScalarProperty Name="gvu_ms" ColumnName="gvu_ms" />
+          <ScalarProperty Name="gvu_ten" ColumnName="gvu_ten" />
+          <ScalarProperty Name="gvu_gioitinh" ColumnName="gvu_gioitinh" />
+          <ScalarProperty Name="gvu_sdt" ColumnName="gvu_sdt" />
+          <ScalarProperty Name="gvu_diachi" ColumnName="gvu_diachi" />
+          <ScalarProperty Name="gvu_email" ColumnName="gvu_email" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Classes">
-      <EntityTypeMapping TypeName="SEP_2018_T6Model.Class">
-        <MappingFragment StoreEntitySet="Class">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="ClassName" ColumnName="ClassName" />
-          <ScalarProperty Name="FK_Course" ColumnName="FK_Course" />
+    <EntitySetMapping Name="hockis">
+      <EntityTypeMapping TypeName="sep21t16Model.hocki">
+        <MappingFragment StoreEntitySet="hocki">
+          <ScalarProperty Name="hk_id" ColumnName="hk_id" />
+          <ScalarProperty Name="hk_nam" ColumnName="hk_nam" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Courses">
-      <EntityTypeMapping TypeName="SEP_2018_T6Model.Course">
-        <MappingFragment StoreEntitySet="Course">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="CourseName" ColumnName="CourseName" />
-          <ScalarProperty Name="ShoolYearBegin" ColumnName="ShoolYearBegin" />
-          <ScalarProperty Name="ShoolYearEnd" ColumnName="ShoolYearEnd" />
-          <ScalarProperty Name="FK_Semester" ColumnName="FK_Semester" />
+    <EntitySetMapping Name="lichdays">
+      <EntityTypeMapping TypeName="sep21t16Model.lichday">
+        <MappingFragment StoreEntitySet="lichday">
+          <ScalarProperty Name="ld_id" ColumnName="ld_id" />
+          <ScalarProperty Name="mh_id" ColumnName="mh_id" />
+          <ScalarProperty Name="gv_id" ColumnName="gv_id" />
+          <ScalarProperty Name="hk_id" ColumnName="hk_id" />
+          <ScalarProperty Name="hk_nam" ColumnName="hk_nam" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Learnings">
-      <EntityTypeMapping TypeName="SEP_2018_T6Model.Learning">
-        <MappingFragment StoreEntitySet="Learning">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="FK_Class" ColumnName="FK_Class" />
-          <ScalarProperty Name="FK_Subject" ColumnName="FK_Subject" />
-          <ScalarProperty Name="FK_Semester" ColumnName="FK_Semester" />
+    <EntitySetMapping Name="lichhocs">
+      <EntityTypeMapping TypeName="sep21t16Model.lichhoc">
+        <MappingFragment StoreEntitySet="lichhoc">
+          <ScalarProperty Name="lh_id" ColumnName="lh_id" />
+          <ScalarProperty Name="mh_id" ColumnName="mh_id" />
+          <ScalarProperty Name="lop_id" ColumnName="lop_id" />
+          <ScalarProperty Name="hk_id" ColumnName="hk_id" />
+          <ScalarProperty Name="hk_nam" ColumnName="hk_nam" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="People">
-      <EntityTypeMapping TypeName="SEP_2018_T6Model.Person">
-        <MappingFragment StoreEntitySet="People">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="MS" ColumnName="MS" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="HomeTown" ColumnName="HomeTown" />
-          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-          <ScalarProperty Name="CurrentResidence" ColumnName="CurrentResidence" />
-          <ScalarProperty Name="Gender" ColumnName="Gender" />
+    <EntitySetMapping Name="lops">
+      <EntityTypeMapping TypeName="sep21t16Model.lop">
+        <MappingFragment StoreEntitySet="lop">
+          <ScalarProperty Name="lop_id" ColumnName="lop_id" />
+          <ScalarProperty Name="lop_name" ColumnName="lop_name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Positions">
-      <EntityTypeMapping TypeName="SEP_2018_T6Model.Position">
-        <MappingFragment StoreEntitySet="Position">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="PositionName" ColumnName="PositionName" />
+    <EntitySetMapping Name="monhocs">
+      <EntityTypeMapping TypeName="sep21t16Model.monhoc">
+        <MappingFragment StoreEntitySet="monhoc">
+          <ScalarProperty Name="mh_id" ColumnName="mh_id" />
+          <ScalarProperty Name="mh_name" ColumnName="mh_name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Reports">
-      <EntityTypeMapping TypeName="SEP_2018_T6Model.Report">
-        <MappingFragment StoreEntitySet="Report">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="Dear" ColumnName="Dear" />
-          <ScalarProperty Name="createAt" ColumnName="createAt" />
-          <ScalarProperty Name="Title" ColumnName="Title" />
-          <ScalarProperty Name="Content" ColumnName="Content" />
-          <ScalarProperty Name="FK_People" ColumnName="FK_People" />
-          <ScalarProperty Name="BeginTime" ColumnName="BeginTime" />
-          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
-          <ScalarProperty Name="TypeReport" ColumnName="TypeReport" />
+    <EntitySetMapping Name="phongs">
+      <EntityTypeMapping TypeName="sep21t16Model.phong">
+        <MappingFragment StoreEntitySet="phong">
+          <ScalarProperty Name="phong_id" ColumnName="phong_id" />
+          <ScalarProperty Name="phong_name" ColumnName="phong_name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Schedules">
-      <EntityTypeMapping TypeName="SEP_2018_T6Model.Schedule">
-        <MappingFragment StoreEntitySet="Schedule">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="ScheduleName" ColumnName="ScheduleName" />
-          <ScalarProperty Name="DateBegin" ColumnName="DateBegin" />
-          <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
-          <ScalarProperty Name="FK_Course" ColumnName="FK_Course" />
-          <ScalarProperty Name="FK_Semester" ColumnName="FK_Semester" />
+    <EntitySetMapping Name="roles">
+      <EntityTypeMapping TypeName="sep21t16Model.role">
+        <MappingFragment StoreEntitySet="role">
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+          <ScalarProperty Name="role_name" ColumnName="role_name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ScheduleDetails">
-      <EntityTypeMapping TypeName="SEP_2018_T6Model.ScheduleDetail">
-        <MappingFragment StoreEntitySet="ScheduleDetail">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="BeginTime" ColumnName="BeginTime" />
-          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
-          <ScalarProperty Name="Lession" ColumnName="Lession" />
-          <ScalarProperty Name="Unit_Lession" ColumnName="Unit_Lession" />
-          <ScalarProperty Name="FK_Learning" ColumnName="FK_Learning" />
-          <ScalarProperty Name="FK_Schedule" ColumnName="FK_Schedule" />
-          <ScalarProperty Name="FK_User_GV" ColumnName="FK_User_GV" />
+    <EntitySetMapping Name="sessions">
+      <EntityTypeMapping TypeName="sep21t16Model.session">
+        <MappingFragment StoreEntitySet="session">
+          <ScalarProperty Name="ss_id" ColumnName="ss_id" />
+          <ScalarProperty Name="mh_id" ColumnName="mh_id" />
+          <ScalarProperty Name="us_id" ColumnName="us_id" />
+          <ScalarProperty Name="ss_create" ColumnName="ss_create" />
+          <ScalarProperty Name="lop_id" ColumnName="lop_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Semesters">
-      <EntityTypeMapping TypeName="SEP_2018_T6Model.Semester">
-        <MappingFragment StoreEntitySet="Semester">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="SemesterName" ColumnName="SemesterName" />
+    <EntitySetMapping Name="sinhviens">
+      <EntityTypeMapping TypeName="sep21t16Model.sinhvien">
+        <MappingFragment StoreEntitySet="sinhvien">
+          <ScalarProperty Name="sv_mssv" ColumnName="sv_mssv" />
+          <ScalarProperty Name="sv_name" ColumnName="sv_name" />
+          <ScalarProperty Name="sv_bday" ColumnName="sv_bday" />
+          <ScalarProperty Name="sv_gtinh" ColumnName="sv_gtinh" />
+          <ScalarProperty Name="lp_id" ColumnName="lp_id" />
+          <ScalarProperty Name="sv_email" ColumnName="sv_email" />
+          <ScalarProperty Name="sv_sdt" ColumnName="sv_sdt" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Subjects">
-      <EntityTypeMapping TypeName="SEP_2018_T6Model.Subject">
-        <MappingFragment StoreEntitySet="Subject">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="SubjectName" ColumnName="SubjectName" />
-          <ScalarProperty Name="Lesson" ColumnName="Lesson" />
-          <ScalarProperty Name="Unit_Lesson" ColumnName="Unit_Lesson" />
+    <EntitySetMapping Name="status">
+      <EntityTypeMapping TypeName="sep21t16Model.status">
+        <MappingFragment StoreEntitySet="status">
+          <ScalarProperty Name="stt_id" ColumnName="stt_id" />
+          <ScalarProperty Name="stt_name" ColumnName="stt_name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Users">
-      <EntityTypeMapping TypeName="SEP_2018_T6Model.User">
-        <MappingFragment StoreEntitySet="User">
-          <ScalarProperty Name="username" ColumnName="username" />
-          <ScalarProperty Name="password" ColumnName="password" />
-          <ScalarProperty Name="avatar" ColumnName="avatar" />
-          <ScalarProperty Name="PK_Position_Roles" ColumnName="PK_Position_Roles" />
-          <ScalarProperty Name="FK_Class" ColumnName="FK_Class" />
+    <EntitySetMapping Name="thoikhoabieux">
+      <EntityTypeMapping TypeName="sep21t16Model.thoikhoabieu">
+        <MappingFragment StoreEntitySet="thoikhoabieu">
+          <ScalarProperty Name="tkb_id" ColumnName="tkb_id" />
+          <ScalarProperty Name="mh_id" ColumnName="mh_id" />
+          <ScalarProperty Name="lp_id" ColumnName="lp_id" />
+          <ScalarProperty Name="gv_id" ColumnName="gv_id" />
+          <ScalarProperty Name="pg_id" ColumnName="pg_id" />
+          <ScalarProperty Name="tkb_date" ColumnName="tkb_date" />
+          <ScalarProperty Name="hk_id" ColumnName="hk_id" />
+          <ScalarProperty Name="hk_nam" ColumnName="hk_nam" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="sep21t16Model.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="user_pw" ColumnName="user_pw" />
+          <ScalarProperty Name="role" ColumnName="role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usergiaoviens">
+      <EntityTypeMapping TypeName="sep21t16Model.usergiaovien">
+        <MappingFragment StoreEntitySet="usergiaovien">
+          <ScalarProperty Name="usgv_id" ColumnName="usgv_id" />
+          <ScalarProperty Name="usgv_username" ColumnName="usgv_username" />
+          <ScalarProperty Name="usgv_pw" ColumnName="usgv_pw" />
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usergiaovus">
+      <EntityTypeMapping TypeName="sep21t16Model.usergiaovu">
+        <MappingFragment StoreEntitySet="usergiaovu">
+          <ScalarProperty Name="usgvu_id" ColumnName="usgvu_id" />
+          <ScalarProperty Name="usgvu_username" ColumnName="usgvu_username" />
+          <ScalarProperty Name="usgvu_pw" ColumnName="usgvu_pw" />
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

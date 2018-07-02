@@ -1,0 +1,80 @@
+﻿@model Sep2018_MVC.Models.giaovien
+@using Sep2018_MVC;
+@{
+
+}
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<br />
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
+            @if (@ViewBag.msg != null)
+            {<h1><span class="label label-danger">  @ViewBag.msg</span> <br /> </h1>
+        }
+            <br />
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
+
+
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title"></h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwiHlbyw-_TbAhXI7xQKHfHMB58QjRx6BAgBEAU&url=http%3A%2F%2Fwww.anhdepgirlxinh.net%2F2017%2F07%2Fanh-hot-girl-hoc-sinh-cap-3.html&psig=AOvVaw2-d-mSJMjIIR3EQzv5Cf-P&ust=1530227386323458" class="img-circle img-responsive"> </div>
+                        <div class=" col-md-9 col-lg-9 ">
+                            <table class="table table-user-information">
+                                <tbody>
+                                    <tr>
+                                        <td>MSSV:</td>
+                                        <td>@Html.DisplayFor(model => Model.gv_ms)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Name:</td>
+                                        <td>@Html.DisplayFor(model => Model.gv_ten)</td>
+                                    </tr>
+
+                                    <tr>
+                                    <tr>
+                                        <td>Gender</td>
+                                        <td>
+                                            @if (Model.gv_gioitinh == false)
+                                            {
+                                                <span>Nữ</span>
+                                            }
+                                            else
+                                            {
+                                                <span>Nam</span>
+                                            }
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email</td>
+                                        <td><a href="mailto:info@support.com">@Html.DisplayFor(model => Model.gv_email)</a></td>
+                                    </tr>
+                                <td>Phone Number</td>
+                                <td>
+                                    @Html.DisplayFor(model => Model.gv_sdt)
+                                </td>
+                                <tr>
+                                    @Html.ActionLink("Chỉnh sửa", "Edit", new { msgv = Session["id"] })
+                                </tr>
+                                </tbody>
+
+                            </table>
+
+                            @Html.ActionLink("Trở lại", "Index")
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</br>

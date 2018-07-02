@@ -17,19 +17,22 @@ namespace Sep2018_MVC.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public lop()
         {
+            this.lichhocs = new HashSet<lichhoc>();
+            this.sessions = new HashSet<session>();
             this.sinhviens = new HashSet<sinhvien>();
             this.thoikhoabieux = new HashSet<thoikhoabieu>();
-            this.lichhocs = new HashSet<lichhoc>();
         }
     
         public int lop_id { get; set; }
         public string lop_name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<lichhoc> lichhocs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<session> sessions { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<sinhvien> sinhviens { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<thoikhoabieu> thoikhoabieux { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<lichhoc> lichhocs { get; set; }
     }
 }

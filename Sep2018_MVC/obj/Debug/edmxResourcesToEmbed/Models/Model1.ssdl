@@ -1,448 +1,588 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="SEP_2018_T6Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityType Name="Attendance">
+<Schema Namespace="sep21t16Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="diemdanh">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="dd_id" />
     </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Date" Type="date" />
-    <Property Name="BeginTime" Type="time" Precision="7" />
-    <Property Name="EndTime" Type="time" Precision="7" />
-    <Property Name="Lesson" Type="float" />
-    <Property Name="Unit_Lession" Type="nvarchar" MaxLength="50" />
-    <Property Name="FK_ScheduleDetail" Type="int" />
+    <Property Name="dd_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sv_id" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="ss_id" Type="int" Nullable="false" />
+    <Property Name="mh_id" Type="int" Nullable="false" />
+    <Property Name="stt_id" Type="int" Nullable="false" />
+    <Property Name="tkb_id" Type="int" />
   </EntityType>
-  <EntityType Name="AttendanceDetail">
+  <EntityType Name="giaovien">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="gv_ms" />
     </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Note" Type="nvarchar" MaxLength="300" />
-    <Property Name="FK_Attendance" Type="int" />
-    <Property Name="FK_User" Type="varchar" MaxLength="20" />
-    <Property Name="FK_AttendanceDetail_Type" Type="int" />
+    <Property Name="gv_ms" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="gv_gioitinh" Type="bit" Nullable="false" />
+    <Property Name="gv_ten" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="gv_sdt" Type="nchar" MaxLength="11" Nullable="false" />
+    <Property Name="gv_diachi" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="gv_email" Type="nchar" MaxLength="100" Nullable="false" />
   </EntityType>
-  <EntityType Name="AttendanceType">
+  <EntityType Name="giaovu">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="gvu_ms" />
     </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="TypeName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="gvu_ms" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="gvu_ten" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="gvu_gioitinh" Type="bit" Nullable="false" />
+    <Property Name="gvu_sdt" Type="nchar" MaxLength="11" Nullable="false" />
+    <Property Name="gvu_diachi" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="gvu_email" Type="nvarchar" MaxLength="1000" Nullable="false" />
   </EntityType>
-  <EntityType Name="Class">
+  <EntityType Name="hocki">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="hk_id" />
+      <PropertyRef Name="hk_nam" />
     </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ClassName" Type="nvarchar" MaxLength="200" />
-    <Property Name="FK_Course" Type="int" />
+    <Property Name="hk_id" Type="int" Nullable="false" />
+    <Property Name="hk_nam" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="Course">
+  <EntityType Name="lichday">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="ld_id" />
     </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="CourseName" Type="nvarchar" MaxLength="100" />
-    <Property Name="ShoolYearBegin" Type="date" />
-    <Property Name="ShoolYearEnd" Type="date" />
-    <Property Name="FK_Semester" Type="int" />
+    <Property Name="ld_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mh_id" Type="int" Nullable="false" />
+    <Property Name="gv_id" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="hk_id" Type="int" Nullable="false" />
+    <Property Name="hk_nam" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="Learning">
+  <EntityType Name="lichhoc">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="lh_id" />
     </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="FK_Class" Type="int" />
-    <Property Name="FK_Subject" Type="int" />
-    <Property Name="FK_Semester" Type="int" />
+    <Property Name="lh_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mh_id" Type="int" Nullable="false" />
+    <Property Name="lop_id" Type="int" Nullable="false" />
+    <Property Name="hk_id" Type="int" Nullable="false" />
+    <Property Name="hk_nam" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="People">
+  <EntityType Name="lop">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="lop_id" />
     </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="MS" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="Name" Type="nvarchar" MaxLength="200" />
-    <Property Name="HomeTown" Type="nvarchar(max)" />
-    <Property Name="Birthday" Type="date" />
-    <Property Name="Email" Type="nvarchar(max)" />
-    <Property Name="PhoneNumber" Type="int" />
-    <Property Name="CurrentResidence" Type="nvarchar(max)" />
-    <Property Name="Gender" Type="bit" />
+    <Property Name="lop_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="lop_name" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
-  <EntityType Name="Position">
+  <EntityType Name="monhoc">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="mh_id" />
     </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="PositionName" Type="nvarchar" MaxLength="100" />
+    <Property Name="mh_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mh_name" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
-  <EntityType Name="Report">
+  <EntityType Name="phong">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="phong_id" />
     </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Dear" Type="nvarchar(max)" />
-    <Property Name="createAt" Type="date" />
-    <Property Name="Title" Type="nvarchar" MaxLength="200" />
-    <Property Name="Content" Type="nvarchar(max)" />
-    <Property Name="FK_People" Type="int" />
-    <Property Name="BeginTime" Type="date" />
-    <Property Name="EndTime" Type="date" />
-    <Property Name="TypeReport" Type="nvarchar(max)" />
+    <Property Name="phong_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="phong_name" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
-  <EntityType Name="Schedule">
+  <EntityType Name="role">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="role_id" />
     </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ScheduleName" Type="nvarchar(max)" />
-    <Property Name="DateBegin" Type="date" />
-    <Property Name="DateEnd" Type="date" />
-    <Property Name="FK_Course" Type="int" />
-    <Property Name="FK_Semester" Type="int" />
+    <Property Name="role_id" Type="int" Nullable="false" />
+    <Property Name="role_name" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
-  <EntityType Name="ScheduleDetail">
+  <EntityType Name="session">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="ss_id" />
     </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="BeginTime" Type="time" Precision="7" />
-    <Property Name="EndTime" Type="time" Precision="7" />
-    <Property Name="Lession" Type="int" />
-    <Property Name="Unit_Lession" Type="nvarchar" MaxLength="20" />
-    <Property Name="FK_Learning" Type="int" />
-    <Property Name="FK_Schedule" Type="int" />
-    <Property Name="FK_User_GV" Type="varchar" MaxLength="20" />
+    <Property Name="ss_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mh_id" Type="int" Nullable="false" />
+    <Property Name="us_id" Type="int" Nullable="false" />
+    <Property Name="ss_create" Type="date" />
+    <Property Name="lop_id" Type="int" />
   </EntityType>
-  <EntityType Name="Semester">
+  <EntityType Name="sinhvien">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="sv_mssv" />
     </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="SemesterName" Type="nvarchar" MaxLength="100" />
+    <Property Name="sv_mssv" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="sv_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="sv_bday" Type="date" Nullable="false" />
+    <Property Name="sv_gtinh" Type="bit" Nullable="false" />
+    <Property Name="lp_id" Type="int" Nullable="false" />
+    <Property Name="sv_email" Type="nchar" MaxLength="100" />
+    <Property Name="sv_sdt" Type="nchar" MaxLength="11" />
   </EntityType>
-  <EntityType Name="Subject">
+  <EntityType Name="status">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="stt_id" />
     </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="SubjectName" Type="nvarchar(max)" />
-    <Property Name="Lesson" Type="float" />
-    <Property Name="Unit_Lesson" Type="nvarchar" MaxLength="10" />
+    <Property Name="stt_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="stt_name" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
-  <EntityType Name="User">
+  <EntityType Name="thoikhoabieu">
     <Key>
-      <PropertyRef Name="username" />
+      <PropertyRef Name="tkb_id" />
     </Key>
-    <Property Name="username" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="password" Type="nchar" MaxLength="10" Nullable="false" />
-    <Property Name="avatar" Type="varchar(max)" />
-    <Property Name="PK_Position_Roles" Type="int" />
-    <Property Name="FK_Class" Type="int" />
+    <Property Name="tkb_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mh_id" Type="int" Nullable="false" />
+    <Property Name="lp_id" Type="int" Nullable="false" />
+    <Property Name="gv_id" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="pg_id" Type="int" Nullable="false" />
+    <Property Name="tkb_date" Type="date" />
+    <Property Name="hk_id" Type="int" Nullable="false" />
+    <Property Name="hk_nam" Type="int" Nullable="false" />
   </EntityType>
-  <Association Name="FK__Attendanc__FK_At__797309D9">
-    <End Role="AttendanceType" Type="Self.AttendanceType" Multiplicity="0..1" />
-    <End Role="AttendanceDetail" Type="Self.AttendanceDetail" Multiplicity="*" />
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_name" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="user_pw" Type="nchar" MaxLength="128" Nullable="false" />
+    <Property Name="role" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="usergiaovien">
+    <Key>
+      <PropertyRef Name="usgv_id" />
+    </Key>
+    <Property Name="usgv_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="usgv_username" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="usgv_pw" Type="nchar" MaxLength="128" Nullable="false" />
+    <Property Name="role_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="usergiaovu">
+    <Key>
+      <PropertyRef Name="usgvu_id" />
+    </Key>
+    <Property Name="usgvu_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="usgvu_username" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="usgvu_pw" Type="nchar" MaxLength="128" Nullable="false" />
+    <Property Name="role_id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_diemdanh_monhoc">
+    <End Role="monhoc" Type="Self.monhoc" Multiplicity="1" />
+    <End Role="diemdanh" Type="Self.diemdanh" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="AttendanceType">
-        <PropertyRef Name="id" />
+      <Principal Role="monhoc">
+        <PropertyRef Name="mh_id" />
       </Principal>
-      <Dependent Role="AttendanceDetail">
-        <PropertyRef Name="FK_AttendanceDetail_Type" />
+      <Dependent Role="diemdanh">
+        <PropertyRef Name="mh_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Course__FK_Semes__6FE99F9F">
-    <End Role="Semester" Type="Self.Semester" Multiplicity="0..1" />
-    <End Role="Course" Type="Self.Course" Multiplicity="*" />
+  <Association Name="FK_diemdanh_session">
+    <End Role="session" Type="Self.session" Multiplicity="1" />
+    <End Role="diemdanh" Type="Self.diemdanh" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Semester">
-        <PropertyRef Name="id" />
+      <Principal Role="session">
+        <PropertyRef Name="ss_id" />
       </Principal>
-      <Dependent Role="Course">
-        <PropertyRef Name="FK_Semester" />
+      <Dependent Role="diemdanh">
+        <PropertyRef Name="ss_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Attendance_ScheduleDetail">
-    <End Role="ScheduleDetail" Type="Self.ScheduleDetail" Multiplicity="0..1" />
-    <End Role="Attendance" Type="Self.Attendance" Multiplicity="*" />
+  <Association Name="FK_diemdanh_sinhvien">
+    <End Role="sinhvien" Type="Self.sinhvien" Multiplicity="1" />
+    <End Role="diemdanh" Type="Self.diemdanh" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="ScheduleDetail">
-        <PropertyRef Name="id" />
+      <Principal Role="sinhvien">
+        <PropertyRef Name="sv_mssv" />
       </Principal>
-      <Dependent Role="Attendance">
-        <PropertyRef Name="FK_ScheduleDetail" />
+      <Dependent Role="diemdanh">
+        <PropertyRef Name="sv_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_AttendanceDetail_Attendance1">
-    <End Role="Attendance" Type="Self.Attendance" Multiplicity="0..1" />
-    <End Role="AttendanceDetail" Type="Self.AttendanceDetail" Multiplicity="*" />
+  <Association Name="FK_diemdanh_status">
+    <End Role="status" Type="Self.status" Multiplicity="1" />
+    <End Role="diemdanh" Type="Self.diemdanh" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Attendance">
-        <PropertyRef Name="id" />
+      <Principal Role="status">
+        <PropertyRef Name="stt_id" />
       </Principal>
-      <Dependent Role="AttendanceDetail">
-        <PropertyRef Name="FK_Attendance" />
+      <Dependent Role="diemdanh">
+        <PropertyRef Name="stt_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_AttendanceDetail_User">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="AttendanceDetail" Type="Self.AttendanceDetail" Multiplicity="*" />
+  <Association Name="FK_lichday_giaovien">
+    <End Role="giaovien" Type="Self.giaovien" Multiplicity="1" />
+    <End Role="lichday" Type="Self.lichday" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="username" />
+      <Principal Role="giaovien">
+        <PropertyRef Name="gv_ms" />
       </Principal>
-      <Dependent Role="AttendanceDetail">
-        <PropertyRef Name="FK_User" />
+      <Dependent Role="lichday">
+        <PropertyRef Name="gv_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Class_Course">
-    <End Role="Course" Type="Self.Course" Multiplicity="0..1" />
-    <End Role="Class" Type="Self.Class" Multiplicity="*" />
+  <Association Name="FK_lichday_hocki">
+    <End Role="hocki" Type="Self.hocki" Multiplicity="1" />
+    <End Role="lichday" Type="Self.lichday" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Course">
-        <PropertyRef Name="id" />
+      <Principal Role="hocki">
+        <PropertyRef Name="hk_id" />
+        <PropertyRef Name="hk_nam" />
       </Principal>
-      <Dependent Role="Class">
-        <PropertyRef Name="FK_Course" />
+      <Dependent Role="lichday">
+        <PropertyRef Name="hk_id" />
+        <PropertyRef Name="hk_nam" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Learning">
-    <End Role="Learning" Type="Self.Learning" Multiplicity="1" />
-    <End Role="ScheduleDetail" Type="Self.ScheduleDetail" Multiplicity="0..1" />
+  <Association Name="FK_lichday_monhoc">
+    <End Role="monhoc" Type="Self.monhoc" Multiplicity="1" />
+    <End Role="lichday" Type="Self.lichday" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Learning">
-        <PropertyRef Name="id" />
+      <Principal Role="monhoc">
+        <PropertyRef Name="mh_id" />
       </Principal>
-      <Dependent Role="ScheduleDetail">
-        <PropertyRef Name="id" />
+      <Dependent Role="lichday">
+        <PropertyRef Name="mh_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Learning_Class">
-    <End Role="Class" Type="Self.Class" Multiplicity="0..1" />
-    <End Role="Learning" Type="Self.Learning" Multiplicity="*" />
+  <Association Name="FK_lichhoc_hocki">
+    <End Role="hocki" Type="Self.hocki" Multiplicity="1" />
+    <End Role="lichhoc" Type="Self.lichhoc" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Class">
-        <PropertyRef Name="id" />
+      <Principal Role="hocki">
+        <PropertyRef Name="hk_id" />
+        <PropertyRef Name="hk_nam" />
       </Principal>
-      <Dependent Role="Learning">
-        <PropertyRef Name="FK_Class" />
+      <Dependent Role="lichhoc">
+        <PropertyRef Name="hk_id" />
+        <PropertyRef Name="hk_nam" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Learning_Semester">
-    <End Role="Semester" Type="Self.Semester" Multiplicity="0..1" />
-    <End Role="Learning" Type="Self.Learning" Multiplicity="*" />
+  <Association Name="FK_lichhoc_lop">
+    <End Role="lop" Type="Self.lop" Multiplicity="1" />
+    <End Role="lichhoc" Type="Self.lichhoc" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Semester">
-        <PropertyRef Name="id" />
+      <Principal Role="lop">
+        <PropertyRef Name="lop_id" />
       </Principal>
-      <Dependent Role="Learning">
-        <PropertyRef Name="FK_Semester" />
+      <Dependent Role="lichhoc">
+        <PropertyRef Name="lop_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Learning_Subject">
-    <End Role="Subject" Type="Self.Subject" Multiplicity="0..1" />
-    <End Role="Learning" Type="Self.Learning" Multiplicity="*" />
+  <Association Name="FK_lichhoc_monhoc">
+    <End Role="monhoc" Type="Self.monhoc" Multiplicity="1" />
+    <End Role="lichhoc" Type="Self.lichhoc" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Subject">
-        <PropertyRef Name="id" />
+      <Principal Role="monhoc">
+        <PropertyRef Name="mh_id" />
       </Principal>
-      <Dependent Role="Learning">
-        <PropertyRef Name="FK_Subject" />
+      <Dependent Role="lichhoc">
+        <PropertyRef Name="mh_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_People_User">
-    <End Role="User" Type="Self.User" Multiplicity="1" />
-    <End Role="People" Type="Self.People" Multiplicity="*" />
+  <Association Name="FK_session_lop">
+    <End Role="lop" Type="Self.lop" Multiplicity="0..1" />
+    <End Role="session" Type="Self.session" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="username" />
+      <Principal Role="lop">
+        <PropertyRef Name="lop_id" />
       </Principal>
-      <Dependent Role="People">
-        <PropertyRef Name="MS" />
+      <Dependent Role="session">
+        <PropertyRef Name="lop_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Report_People1">
-    <End Role="People" Type="Self.People" Multiplicity="0..1" />
-    <End Role="Report" Type="Self.Report" Multiplicity="*" />
+  <Association Name="FK_session_monhoc">
+    <End Role="monhoc" Type="Self.monhoc" Multiplicity="1" />
+    <End Role="session" Type="Self.session" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="People">
-        <PropertyRef Name="id" />
+      <Principal Role="monhoc">
+        <PropertyRef Name="mh_id" />
       </Principal>
-      <Dependent Role="Report">
-        <PropertyRef Name="FK_People" />
+      <Dependent Role="session">
+        <PropertyRef Name="mh_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Schedule_Course">
-    <End Role="Course" Type="Self.Course" Multiplicity="0..1" />
-    <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+  <Association Name="FK_session_usergiaovien">
+    <End Role="usergiaovien" Type="Self.usergiaovien" Multiplicity="1" />
+    <End Role="session" Type="Self.session" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Course">
-        <PropertyRef Name="id" />
+      <Principal Role="usergiaovien">
+        <PropertyRef Name="usgv_id" />
       </Principal>
-      <Dependent Role="Schedule">
-        <PropertyRef Name="FK_Course" />
+      <Dependent Role="session">
+        <PropertyRef Name="us_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Schedule_Semester">
-    <End Role="Semester" Type="Self.Semester" Multiplicity="0..1" />
-    <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+  <Association Name="FK_sinhvien_lop">
+    <End Role="lop" Type="Self.lop" Multiplicity="1" />
+    <End Role="sinhvien" Type="Self.sinhvien" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Semester">
-        <PropertyRef Name="id" />
+      <Principal Role="lop">
+        <PropertyRef Name="lop_id" />
       </Principal>
-      <Dependent Role="Schedule">
-        <PropertyRef Name="FK_Semester" />
+      <Dependent Role="sinhvien">
+        <PropertyRef Name="lp_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_ScheduleDetail_Schedule">
-    <End Role="Schedule" Type="Self.Schedule" Multiplicity="0..1" />
-    <End Role="ScheduleDetail" Type="Self.ScheduleDetail" Multiplicity="*" />
+  <Association Name="FK_thoikhoabieu_hocki">
+    <End Role="hocki" Type="Self.hocki" Multiplicity="1" />
+    <End Role="thoikhoabieu" Type="Self.thoikhoabieu" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Schedule">
-        <PropertyRef Name="id" />
+      <Principal Role="hocki">
+        <PropertyRef Name="hk_id" />
+        <PropertyRef Name="hk_nam" />
       </Principal>
-      <Dependent Role="ScheduleDetail">
-        <PropertyRef Name="FK_Schedule" />
+      <Dependent Role="thoikhoabieu">
+        <PropertyRef Name="hk_id" />
+        <PropertyRef Name="hk_nam" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_ScheduleDetail_User">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="ScheduleDetail" Type="Self.ScheduleDetail" Multiplicity="*" />
+  <Association Name="FK_thoikhoabieu_hocki1">
+    <End Role="hocki" Type="Self.hocki" Multiplicity="1" />
+    <End Role="thoikhoabieu" Type="Self.thoikhoabieu" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="username" />
+      <Principal Role="hocki">
+        <PropertyRef Name="hk_id" />
+        <PropertyRef Name="hk_nam" />
       </Principal>
-      <Dependent Role="ScheduleDetail">
-        <PropertyRef Name="FK_User_GV" />
+      <Dependent Role="thoikhoabieu">
+        <PropertyRef Name="hk_id" />
+        <PropertyRef Name="hk_nam" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_User_Class">
-    <End Role="Class" Type="Self.Class" Multiplicity="0..1" />
-    <End Role="User" Type="Self.User" Multiplicity="*" />
+  <Association Name="FK_thoikhoabieu_lop">
+    <End Role="lop" Type="Self.lop" Multiplicity="1" />
+    <End Role="thoikhoabieu" Type="Self.thoikhoabieu" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Class">
-        <PropertyRef Name="id" />
+      <Principal Role="lop">
+        <PropertyRef Name="lop_id" />
       </Principal>
-      <Dependent Role="User">
-        <PropertyRef Name="FK_Class" />
+      <Dependent Role="thoikhoabieu">
+        <PropertyRef Name="lp_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_User_Position1">
-    <End Role="Position" Type="Self.Position" Multiplicity="0..1" />
-    <End Role="User" Type="Self.User" Multiplicity="*" />
+  <Association Name="FK_thoikhoabieu_monhoc">
+    <End Role="monhoc" Type="Self.monhoc" Multiplicity="1" />
+    <End Role="thoikhoabieu" Type="Self.thoikhoabieu" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Position">
-        <PropertyRef Name="id" />
+      <Principal Role="monhoc">
+        <PropertyRef Name="mh_id" />
       </Principal>
-      <Dependent Role="User">
-        <PropertyRef Name="PK_Position_Roles" />
+      <Dependent Role="thoikhoabieu">
+        <PropertyRef Name="mh_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="SEP_2018_T6ModelStoreContainer">
-    <EntitySet Name="Attendance" EntityType="Self.Attendance" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="AttendanceDetail" EntityType="Self.AttendanceDetail" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="AttendanceType" EntityType="Self.AttendanceType" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Class" EntityType="Self.Class" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Learning" EntityType="Self.Learning" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="People" EntityType="Self.People" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Report" EntityType="Self.Report" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Schedule" EntityType="Self.Schedule" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="ScheduleDetail" EntityType="Self.ScheduleDetail" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Semester" EntityType="Self.Semester" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Subject" EntityType="Self.Subject" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__Attendanc__FK_At__797309D9" Association="Self.FK__Attendanc__FK_At__797309D9">
-      <End Role="AttendanceType" EntitySet="AttendanceType" />
-      <End Role="AttendanceDetail" EntitySet="AttendanceDetail" />
+  <Association Name="FK_thoikhoabieu_phong">
+    <End Role="phong" Type="Self.phong" Multiplicity="1" />
+    <End Role="thoikhoabieu" Type="Self.thoikhoabieu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="phong">
+        <PropertyRef Name="phong_id" />
+      </Principal>
+      <Dependent Role="thoikhoabieu">
+        <PropertyRef Name="pg_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_role1">
+    <End Role="role" Type="Self.role" Multiplicity="1" />
+    <End Role="user" Type="Self.user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="role">
+        <PropertyRef Name="role_id" />
+      </Principal>
+      <Dependent Role="user">
+        <PropertyRef Name="role" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_sinhvien">
+    <End Role="sinhvien" Type="Self.sinhvien" Multiplicity="1" />
+    <End Role="user" Type="Self.user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sinhvien">
+        <PropertyRef Name="sv_mssv" />
+      </Principal>
+      <Dependent Role="user">
+        <PropertyRef Name="user_name" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_usergiaovien_giaovien">
+    <End Role="giaovien" Type="Self.giaovien" Multiplicity="1" />
+    <End Role="usergiaovien" Type="Self.usergiaovien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="giaovien">
+        <PropertyRef Name="gv_ms" />
+      </Principal>
+      <Dependent Role="usergiaovien">
+        <PropertyRef Name="usgv_username" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_usergiaovien_role">
+    <End Role="role" Type="Self.role" Multiplicity="1" />
+    <End Role="usergiaovien" Type="Self.usergiaovien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="role">
+        <PropertyRef Name="role_id" />
+      </Principal>
+      <Dependent Role="usergiaovien">
+        <PropertyRef Name="role_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_usergiaovu_giaovu">
+    <End Role="giaovu" Type="Self.giaovu" Multiplicity="1" />
+    <End Role="usergiaovu" Type="Self.usergiaovu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="giaovu">
+        <PropertyRef Name="gvu_ms" />
+      </Principal>
+      <Dependent Role="usergiaovu">
+        <PropertyRef Name="usgvu_username" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_usergiaovu_role">
+    <End Role="role" Type="Self.role" Multiplicity="1" />
+    <End Role="usergiaovu" Type="Self.usergiaovu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="role">
+        <PropertyRef Name="role_id" />
+      </Principal>
+      <Dependent Role="usergiaovu">
+        <PropertyRef Name="role_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="sep21t16ModelStoreContainer">
+    <EntitySet Name="diemdanh" EntityType="Self.diemdanh" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="giaovien" EntityType="Self.giaovien" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="giaovu" EntityType="Self.giaovu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hocki" EntityType="Self.hocki" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="lichday" EntityType="Self.lichday" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="lichhoc" EntityType="Self.lichhoc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="lop" EntityType="Self.lop" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="monhoc" EntityType="Self.monhoc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="phong" EntityType="Self.phong" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="role" EntityType="Self.role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="session" EntityType="Self.session" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sinhvien" EntityType="Self.sinhvien" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="status" EntityType="Self.status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="thoikhoabieu" EntityType="Self.thoikhoabieu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="usergiaovien" EntityType="Self.usergiaovien" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="usergiaovu" EntityType="Self.usergiaovu" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_diemdanh_monhoc" Association="Self.FK_diemdanh_monhoc">
+      <End Role="monhoc" EntitySet="monhoc" />
+      <End Role="diemdanh" EntitySet="diemdanh" />
     </AssociationSet>
-    <AssociationSet Name="FK__Course__FK_Semes__6FE99F9F" Association="Self.FK__Course__FK_Semes__6FE99F9F">
-      <End Role="Semester" EntitySet="Semester" />
-      <End Role="Course" EntitySet="Course" />
+    <AssociationSet Name="FK_diemdanh_session" Association="Self.FK_diemdanh_session">
+      <End Role="session" EntitySet="session" />
+      <End Role="diemdanh" EntitySet="diemdanh" />
     </AssociationSet>
-    <AssociationSet Name="FK_Attendance_ScheduleDetail" Association="Self.FK_Attendance_ScheduleDetail">
-      <End Role="ScheduleDetail" EntitySet="ScheduleDetail" />
-      <End Role="Attendance" EntitySet="Attendance" />
+    <AssociationSet Name="FK_diemdanh_sinhvien" Association="Self.FK_diemdanh_sinhvien">
+      <End Role="sinhvien" EntitySet="sinhvien" />
+      <End Role="diemdanh" EntitySet="diemdanh" />
     </AssociationSet>
-    <AssociationSet Name="FK_AttendanceDetail_Attendance1" Association="Self.FK_AttendanceDetail_Attendance1">
-      <End Role="Attendance" EntitySet="Attendance" />
-      <End Role="AttendanceDetail" EntitySet="AttendanceDetail" />
+    <AssociationSet Name="FK_diemdanh_status" Association="Self.FK_diemdanh_status">
+      <End Role="status" EntitySet="status" />
+      <End Role="diemdanh" EntitySet="diemdanh" />
     </AssociationSet>
-    <AssociationSet Name="FK_AttendanceDetail_User" Association="Self.FK_AttendanceDetail_User">
-      <End Role="User" EntitySet="User" />
-      <End Role="AttendanceDetail" EntitySet="AttendanceDetail" />
+    <AssociationSet Name="FK_lichday_giaovien" Association="Self.FK_lichday_giaovien">
+      <End Role="giaovien" EntitySet="giaovien" />
+      <End Role="lichday" EntitySet="lichday" />
     </AssociationSet>
-    <AssociationSet Name="FK_Class_Course" Association="Self.FK_Class_Course">
-      <End Role="Course" EntitySet="Course" />
-      <End Role="Class" EntitySet="Class" />
+    <AssociationSet Name="FK_lichday_hocki" Association="Self.FK_lichday_hocki">
+      <End Role="hocki" EntitySet="hocki" />
+      <End Role="lichday" EntitySet="lichday" />
     </AssociationSet>
-    <AssociationSet Name="FK_Learning" Association="Self.FK_Learning">
-      <End Role="Learning" EntitySet="Learning" />
-      <End Role="ScheduleDetail" EntitySet="ScheduleDetail" />
+    <AssociationSet Name="FK_lichday_monhoc" Association="Self.FK_lichday_monhoc">
+      <End Role="monhoc" EntitySet="monhoc" />
+      <End Role="lichday" EntitySet="lichday" />
     </AssociationSet>
-    <AssociationSet Name="FK_Learning_Class" Association="Self.FK_Learning_Class">
-      <End Role="Class" EntitySet="Class" />
-      <End Role="Learning" EntitySet="Learning" />
+    <AssociationSet Name="FK_lichhoc_hocki" Association="Self.FK_lichhoc_hocki">
+      <End Role="hocki" EntitySet="hocki" />
+      <End Role="lichhoc" EntitySet="lichhoc" />
     </AssociationSet>
-    <AssociationSet Name="FK_Learning_Semester" Association="Self.FK_Learning_Semester">
-      <End Role="Semester" EntitySet="Semester" />
-      <End Role="Learning" EntitySet="Learning" />
+    <AssociationSet Name="FK_lichhoc_lop" Association="Self.FK_lichhoc_lop">
+      <End Role="lop" EntitySet="lop" />
+      <End Role="lichhoc" EntitySet="lichhoc" />
     </AssociationSet>
-    <AssociationSet Name="FK_Learning_Subject" Association="Self.FK_Learning_Subject">
-      <End Role="Subject" EntitySet="Subject" />
-      <End Role="Learning" EntitySet="Learning" />
+    <AssociationSet Name="FK_lichhoc_monhoc" Association="Self.FK_lichhoc_monhoc">
+      <End Role="monhoc" EntitySet="monhoc" />
+      <End Role="lichhoc" EntitySet="lichhoc" />
     </AssociationSet>
-    <AssociationSet Name="FK_People_User" Association="Self.FK_People_User">
-      <End Role="User" EntitySet="User" />
-      <End Role="People" EntitySet="People" />
+    <AssociationSet Name="FK_session_lop" Association="Self.FK_session_lop">
+      <End Role="lop" EntitySet="lop" />
+      <End Role="session" EntitySet="session" />
     </AssociationSet>
-    <AssociationSet Name="FK_Report_People1" Association="Self.FK_Report_People1">
-      <End Role="People" EntitySet="People" />
-      <End Role="Report" EntitySet="Report" />
+    <AssociationSet Name="FK_session_monhoc" Association="Self.FK_session_monhoc">
+      <End Role="monhoc" EntitySet="monhoc" />
+      <End Role="session" EntitySet="session" />
     </AssociationSet>
-    <AssociationSet Name="FK_Schedule_Course" Association="Self.FK_Schedule_Course">
-      <End Role="Course" EntitySet="Course" />
-      <End Role="Schedule" EntitySet="Schedule" />
+    <AssociationSet Name="FK_session_usergiaovien" Association="Self.FK_session_usergiaovien">
+      <End Role="usergiaovien" EntitySet="usergiaovien" />
+      <End Role="session" EntitySet="session" />
     </AssociationSet>
-    <AssociationSet Name="FK_Schedule_Semester" Association="Self.FK_Schedule_Semester">
-      <End Role="Semester" EntitySet="Semester" />
-      <End Role="Schedule" EntitySet="Schedule" />
+    <AssociationSet Name="FK_sinhvien_lop" Association="Self.FK_sinhvien_lop">
+      <End Role="lop" EntitySet="lop" />
+      <End Role="sinhvien" EntitySet="sinhvien" />
     </AssociationSet>
-    <AssociationSet Name="FK_ScheduleDetail_Schedule" Association="Self.FK_ScheduleDetail_Schedule">
-      <End Role="Schedule" EntitySet="Schedule" />
-      <End Role="ScheduleDetail" EntitySet="ScheduleDetail" />
+    <AssociationSet Name="FK_thoikhoabieu_hocki" Association="Self.FK_thoikhoabieu_hocki">
+      <End Role="hocki" EntitySet="hocki" />
+      <End Role="thoikhoabieu" EntitySet="thoikhoabieu" />
     </AssociationSet>
-    <AssociationSet Name="FK_ScheduleDetail_User" Association="Self.FK_ScheduleDetail_User">
-      <End Role="User" EntitySet="User" />
-      <End Role="ScheduleDetail" EntitySet="ScheduleDetail" />
+    <AssociationSet Name="FK_thoikhoabieu_hocki1" Association="Self.FK_thoikhoabieu_hocki1">
+      <End Role="hocki" EntitySet="hocki" />
+      <End Role="thoikhoabieu" EntitySet="thoikhoabieu" />
     </AssociationSet>
-    <AssociationSet Name="FK_User_Class" Association="Self.FK_User_Class">
-      <End Role="Class" EntitySet="Class" />
-      <End Role="User" EntitySet="User" />
+    <AssociationSet Name="FK_thoikhoabieu_lop" Association="Self.FK_thoikhoabieu_lop">
+      <End Role="lop" EntitySet="lop" />
+      <End Role="thoikhoabieu" EntitySet="thoikhoabieu" />
     </AssociationSet>
-    <AssociationSet Name="FK_User_Position1" Association="Self.FK_User_Position1">
-      <End Role="Position" EntitySet="Position" />
-      <End Role="User" EntitySet="User" />
+    <AssociationSet Name="FK_thoikhoabieu_monhoc" Association="Self.FK_thoikhoabieu_monhoc">
+      <End Role="monhoc" EntitySet="monhoc" />
+      <End Role="thoikhoabieu" EntitySet="thoikhoabieu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_thoikhoabieu_phong" Association="Self.FK_thoikhoabieu_phong">
+      <End Role="phong" EntitySet="phong" />
+      <End Role="thoikhoabieu" EntitySet="thoikhoabieu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_role1" Association="Self.FK_user_role1">
+      <End Role="role" EntitySet="role" />
+      <End Role="user" EntitySet="user" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_sinhvien" Association="Self.FK_user_sinhvien">
+      <End Role="sinhvien" EntitySet="sinhvien" />
+      <End Role="user" EntitySet="user" />
+    </AssociationSet>
+    <AssociationSet Name="FK_usergiaovien_giaovien" Association="Self.FK_usergiaovien_giaovien">
+      <End Role="giaovien" EntitySet="giaovien" />
+      <End Role="usergiaovien" EntitySet="usergiaovien" />
+    </AssociationSet>
+    <AssociationSet Name="FK_usergiaovien_role" Association="Self.FK_usergiaovien_role">
+      <End Role="role" EntitySet="role" />
+      <End Role="usergiaovien" EntitySet="usergiaovien" />
+    </AssociationSet>
+    <AssociationSet Name="FK_usergiaovu_giaovu" Association="Self.FK_usergiaovu_giaovu">
+      <End Role="giaovu" EntitySet="giaovu" />
+      <End Role="usergiaovu" EntitySet="usergiaovu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_usergiaovu_role" Association="Self.FK_usergiaovu_role">
+      <End Role="role" EntitySet="role" />
+      <End Role="usergiaovu" EntitySet="usergiaovu" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

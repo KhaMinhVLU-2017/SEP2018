@@ -7,43 +7,24 @@
 }
 <div class="panel panel-primary">
     <div class="panel panel-info" style="padding: 10% 20% 30% 20%">
-        @*<form class="navbar-form navbar-left" action="~/Sinhvien" method="get">
-            <br />
-            <div style="font-size: x-large;">
-
-                <h1 class="text-center login-title">Chọn môn học</h1>
-                <select>
-
-                    @foreach (var item in Model)
-                    {
-                        <option name="@item.SubjectName" class="list-group-item">
-                            @item.SubjectName
-                        </option>
-
-
-                    }
-                </select><br /><br />
-                <button type="submit" class="btn btn-default" style="font-size: x-large; color: blue; ">Click để xem</button>
-            </div>
-
-        </form>*@
         @foreach (var item in Model)
-    {
-        <form action="~/Sinhvien/Attendance" method="get">
-            <div class="">
-                <div class="col-sm-6 col-md-4">
-                    <div class="thumbnail">
-                        <img src="..." alt="">
-                        <div class="caption">
-                            <input type="text" class="form-control" value="@item.monhoc.mh_name" required name="idmonhoc" style="font-size:22px" readonly="readonly">
-                            <button class="btn btn-lg btn-primary btn-block" type="submit">
-                                Xem điểm danh
-                            </button>
+        {
+            <form action="~/Sinhvien/Attendance" method="get">
+                <div class="">
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <img src="..." alt="">
+                            <div class="caption">
+                                <input type="text" class="form-control" value="@item.monhoc.mh_name" required name="idmonhoc" style="font-size:22px" readonly="readonly">
+                                <button class="btn btn-lg btn-primary btn-block" type="submit">
+                                    Xem điểm danh
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </form>
-}
+            </form>
+        }
     </div>
 </div>
+

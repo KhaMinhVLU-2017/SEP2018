@@ -21,13 +21,15 @@ namespace Sep2018_MVC.Models
         }
     
         public int ss_id { get; set; }
-        public int tkb_id { get; set; }
+        public int mh_id { get; set; }
         public int us_id { get; set; }
         public Nullable<System.DateTime> ss_create { get; set; }
+        public Nullable<int> lop_id { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<diemdanh> diemdanhs { get; set; }
-        public virtual thoikhoabieu thoikhoabieu { get; set; }
+        public virtual lop lop { get; set; }
+        public virtual monhoc monhoc { get; set; }
         public virtual usergiaovien usergiaovien { get; set; }
     }
 }

@@ -40,13 +40,14 @@
         <AssociationConnector Association="SEP_T06Model.FK_user_role1" ManuallyRouted="false" />
         <AssociationConnector Association="SEP_T06Model.FK_usergiaovien_role" ManuallyRouted="false" />
         <AssociationConnector Association="SEP_T06Model.FK_usergiaovu_role" ManuallyRouted="false" />
-        <AssociationConnector Association="SEP_T06Model.FK_session_thoikhoabieu" ManuallyRouted="false" />
         <AssociationConnector Association="SEP_T06Model.FK_session_usergiaovien" ManuallyRouted="false" />
         <AssociationConnector Association="SEP_T06Model.FK_user_sinhvien" ManuallyRouted="false" />
         <EntityTypeShape EntityType="SEP_T06Model.lichhoc" Width="1.5" PointX="6" PointY="0.75" />
         <AssociationConnector Association="SEP_T06Model.FK_lichhoc_hocki" />
         <AssociationConnector Association="SEP_T06Model.FK_lichhoc_lop" />
         <AssociationConnector Association="SEP_T06Model.FK_lichhoc_monhoc" />
+        <AssociationConnector Association="SEP_T06Model.FK_session_monhoc" />
+        <AssociationConnector Association="SEP_T06Model.FK_session_lop" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

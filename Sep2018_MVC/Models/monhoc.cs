@@ -19,8 +19,9 @@ namespace Sep2018_MVC.Models
         {
             this.diemdanhs = new HashSet<diemdanh>();
             this.lichdays = new HashSet<lichday>();
-            this.thoikhoabieux = new HashSet<thoikhoabieu>();
             this.lichhocs = new HashSet<lichhoc>();
+            this.sessions = new HashSet<session>();
+            this.thoikhoabieux = new HashSet<thoikhoabieu>();
         }
     
         public int mh_id { get; set; }
@@ -31,8 +32,10 @@ namespace Sep2018_MVC.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<lichday> lichdays { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<thoikhoabieu> thoikhoabieux { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<lichhoc> lichhocs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<session> sessions { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<thoikhoabieu> thoikhoabieux { get; set; }
     }
 }

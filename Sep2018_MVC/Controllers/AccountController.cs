@@ -9,7 +9,7 @@ namespace Sep2018_MVC.Controllers
 {
     public class AccountController : Controller
     {
-        SEP_T06Entities1 db = new SEP_T06Entities1();
+        sep21t16Entities db = new sep21t16Entities();
         // GET: Account
         [HttpGet]
         public ActionResult Index()
@@ -43,13 +43,14 @@ namespace Sep2018_MVC.Controllers
             else
             {
                 //neu role la giang vien
-                if (userGiangVien != null)
+                if (userGiangVien.usgv_pw.Trim() != null)
                 {
                     string s1 = pw.Trim();
                     if (userGiangVien.usgv_pw.Trim().Equals(s1))
                     {
                         Session["username"] = userGiangVien.giaovien.gv_ten.Trim();
                         Session["role"] = userGiangVien.role_id;
+                        Session["id"] = userGiangVien.usgv_username.Trim();
                         return RedirectToAction("Index", "Giangvien");
                     }
                     else
@@ -60,13 +61,14 @@ namespace Sep2018_MVC.Controllers
                 else
                 {
                     //neu role la giao vu
-                    if (userGiaoVu != null)
+                    if (userGiaoVu.usgvu_pw.Trim() != null)
                     {
                         string s1 = pw.Trim();
                         if (userGiaoVu.usgvu_pw.Trim().Equals(s1))
                         {
                             Session["username"] = userGiaoVu.giaovu.gvu_ten.Trim();
                             Session["role"] = userGiaoVu.role_id;
+                            Session["id"] = userGiaoVu.usgvu_username.Trim();
                             return RedirectToAction("Index", "Giaovu");
                         }
                         else

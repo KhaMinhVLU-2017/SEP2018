@@ -4,6 +4,7 @@
     <EntitySetMapping Name="diemdanhs">
       <EntityTypeMapping TypeName="SEP_T06Model.diemdanh">
         <MappingFragment StoreEntitySet="diemdanh">
+          <ScalarProperty Name="tkb_id" ColumnName="tkb_id" />
           <ScalarProperty Name="sv_id" ColumnName="sv_id" />
           <ScalarProperty Name="mh_id" ColumnName="mh_id" />
           <ScalarProperty Name="ss_id" ColumnName="ss_id" />
@@ -90,8 +91,9 @@
     <EntitySetMapping Name="sessions">
       <EntityTypeMapping TypeName="SEP_T06Model.session">
         <MappingFragment StoreEntitySet="session">
+          <ScalarProperty Name="lop_id" ColumnName="lop_id" />
+          <ScalarProperty Name="mh_id" ColumnName="mh_id" />
           <ScalarProperty Name="ss_id" ColumnName="ss_id" />
-          <ScalarProperty Name="tkb_id" ColumnName="tkb_id" />
           <ScalarProperty Name="us_id" ColumnName="us_id" />
           <ScalarProperty Name="ss_create" ColumnName="ss_create" />
         </MappingFragment>

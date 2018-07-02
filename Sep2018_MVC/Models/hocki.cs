@@ -18,9 +18,9 @@ namespace Sep2018_MVC.Models
         public hocki()
         {
             this.lichdays = new HashSet<lichday>();
+            this.lichhocs = new HashSet<lichhoc>();
             this.thoikhoabieux = new HashSet<thoikhoabieu>();
             this.thoikhoabieux1 = new HashSet<thoikhoabieu>();
-            this.lichhocs = new HashSet<lichhoc>();
         }
     
         public int hk_id { get; set; }
@@ -29,10 +29,10 @@ namespace Sep2018_MVC.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<lichday> lichdays { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<lichhoc> lichhocs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<thoikhoabieu> thoikhoabieux { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<thoikhoabieu> thoikhoabieux1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<lichhoc> lichhocs { get; set; }
     }
 }

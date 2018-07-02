@@ -14,11 +14,12 @@ namespace Sep2018_MVC.Models
     
     public partial class diemdanh
     {
-        public string sv_id { get; set; }
-        public int mh_id { get; set; }
-        public int ss_id { get; set; }
-        public int stt_id { get; set; }
         public int dd_id { get; set; }
+        public string sv_id { get; set; }
+        public int ss_id { get; set; }
+        public int mh_id { get; set; }
+        public int stt_id { get; set; }
+        public Nullable<int> tkb_id { get; set; }
     
         public virtual monhoc monhoc { get; set; }
         public virtual session session { get; set; }

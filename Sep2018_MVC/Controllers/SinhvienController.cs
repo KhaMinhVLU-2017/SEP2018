@@ -9,7 +9,7 @@ namespace Sep2018_MVC.Controllers
 {
     public class SinhvienController : Controller
     {
-        SEP_T06Entities1 db = new SEP_T06Entities1();
+        sep21t16Entities db = new sep21t16Entities();
         // GET: Sinhvien
         public ActionResult Index()
         {
@@ -37,6 +37,7 @@ namespace Sep2018_MVC.Controllers
             user.sv_sdt = sv.sv_sdt;
             user.lp_id = sv.lp_id;
             user.sv_gtinh = sv.sv_gtinh;
+           
             db.SaveChanges();
             return RedirectToAction("Account","Sinhvien");
         }

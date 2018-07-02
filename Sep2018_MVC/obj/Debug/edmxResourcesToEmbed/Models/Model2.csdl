@@ -13,6 +13,7 @@
     <NavigationProperty Name="session" Relationship="Self.FK_diemdanh_session" FromRole="diemdanh" ToRole="session" />
     <NavigationProperty Name="sinhvien" Relationship="Self.FK_diemdanh_sinhvien" FromRole="diemdanh" ToRole="sinhvien" />
     <NavigationProperty Name="status" Relationship="Self.FK_diemdanh_status" FromRole="diemdanh" ToRole="status" />
+    <Property Name="tkb_id" Type="Int32" />
   </EntityType>
   <EntityType Name="giaovien">
     <Key>
@@ -73,6 +74,7 @@
     <NavigationProperty Name="sinhviens" Relationship="Self.FK_sinhvien_lop" FromRole="lop" ToRole="sinhvien" />
     <NavigationProperty Name="thoikhoabieux" Relationship="Self.FK_thoikhoabieu_lop" FromRole="lop" ToRole="thoikhoabieu" />
     <NavigationProperty Name="lichhocs" Relationship="SEP_T06Model.FK_lichhoc_lop" FromRole="lop" ToRole="lichhoc" />
+    <NavigationProperty Name="sessions" Relationship="SEP_T06Model.FK_session_lop" FromRole="lop" ToRole="session" />
   </EntityType>
   <EntityType Name="monhoc">
     <Key>
@@ -84,6 +86,7 @@
     <NavigationProperty Name="lichdays" Relationship="Self.FK_lichday_monhoc" FromRole="monhoc" ToRole="lichday" />
     <NavigationProperty Name="thoikhoabieux" Relationship="Self.FK_thoikhoabieu_monhoc" FromRole="monhoc" ToRole="thoikhoabieu" />
     <NavigationProperty Name="lichhocs" Relationship="SEP_T06Model.FK_lichhoc_monhoc" FromRole="monhoc" ToRole="lichhoc" />
+    <NavigationProperty Name="sessions" Relationship="SEP_T06Model.FK_session_monhoc" FromRole="monhoc" ToRole="session" />
   </EntityType>
   <EntityType Name="phong">
     <Key>
@@ -108,12 +111,14 @@
       <PropertyRef Name="ss_id" />
     </Key>
     <Property Name="ss_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="tkb_id" Type="Int32" Nullable="false" />
     <Property Name="us_id" Type="Int32" Nullable="false" />
     <Property Name="ss_create" Type="DateTime" Precision="0" />
     <NavigationProperty Name="diemdanhs" Relationship="Self.FK_diemdanh_session" FromRole="session" ToRole="diemdanh" />
-    <NavigationProperty Name="thoikhoabieu" Relationship="Self.FK_session_thoikhoabieu" FromRole="session" ToRole="thoikhoabieu" />
     <NavigationProperty Name="usergiaovien" Relationship="Self.FK_session_usergiaovien" FromRole="session" ToRole="usergiaovien" />
+    <Property Name="mh_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="monhoc" Relationship="SEP_T06Model.FK_session_monhoc" FromRole="session" ToRole="monhoc" />
+    <Property Name="lop_id" Type="Int32" />
+    <NavigationProperty Name="lop" Relationship="SEP_T06Model.FK_session_lop" FromRole="session" ToRole="lop" />
   </EntityType>
   <EntityType Name="sinhvien">
     <Key>
@@ -165,7 +170,6 @@
     <NavigationProperty Name="lop" Relationship="Self.FK_thoikhoabieu_lop" FromRole="thoikhoabieu" ToRole="lop" />
     <NavigationProperty Name="monhoc" Relationship="Self.FK_thoikhoabieu_monhoc" FromRole="thoikhoabieu" ToRole="monhoc" />
     <NavigationProperty Name="phong" Relationship="Self.FK_thoikhoabieu_phong" FromRole="thoikhoabieu" ToRole="phong" />
-    <NavigationProperty Name="sessions" Relationship="Self.FK_session_thoikhoabieu" FromRole="thoikhoabieu" ToRole="session" />
   </EntityType>
   <EntityType Name="user">
     <Key>
@@ -423,18 +427,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_session_thoikhoabieu">
-    <End Role="thoikhoabieu" Type="Self.thoikhoabieu" Multiplicity="1" />
-    <End Role="session" Type="Self.session" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="thoikhoabieu">
-        <PropertyRef Name="tkb_id" />
-      </Principal>
-      <Dependent Role="session">
-        <PropertyRef Name="tkb_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_session_usergiaovien">
     <End Role="usergiaovien" Type="Self.usergiaovien" Multiplicity="1" />
     <End Role="session" Type="Self.session" Multiplicity="*" />
@@ -549,10 +541,6 @@
       <End Role="role" EntitySet="roles" />
       <End Role="usergiaovu" EntitySet="usergiaovus" />
     </AssociationSet>
-    <AssociationSet Name="FK_session_thoikhoabieu" Association="Self.FK_session_thoikhoabieu">
-      <End Role="thoikhoabieu" EntitySet="thoikhoabieux" />
-      <End Role="session" EntitySet="sessions" />
-    </AssociationSet>
     <AssociationSet Name="FK_session_usergiaovien" Association="Self.FK_session_usergiaovien">
       <End Role="usergiaovien" EntitySet="usergiaoviens" />
       <End Role="session" EntitySet="sessions" />
@@ -573,6 +561,14 @@
     <AssociationSet Name="FK_lichhoc_monhoc" Association="SEP_T06Model.FK_lichhoc_monhoc">
       <End Role="monhoc" EntitySet="monhocs" />
       <End Role="lichhoc" EntitySet="lichhocs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_session_monhoc" Association="SEP_T06Model.FK_session_monhoc">
+      <End Role="monhoc" EntitySet="monhocs" />
+      <End Role="session" EntitySet="sessions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_session_lop" Association="SEP_T06Model.FK_session_lop">
+      <End Role="lop" EntitySet="lops" />
+      <End Role="session" EntitySet="sessions" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="lichhoc">
@@ -623,6 +619,30 @@
       </Principal>
       <Dependent Role="lichhoc">
         <PropertyRef Name="mh_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_session_monhoc">
+    <End Type="SEP_T06Model.monhoc" Role="monhoc" Multiplicity="1" />
+    <End Type="SEP_T06Model.session" Role="session" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="monhoc">
+        <PropertyRef Name="mh_id" />
+      </Principal>
+      <Dependent Role="session">
+        <PropertyRef Name="mh_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_session_lop">
+    <End Type="SEP_T06Model.lop" Role="lop" Multiplicity="0..1" />
+    <End Type="SEP_T06Model.session" Role="session" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lop">
+        <PropertyRef Name="lop_id" />
+      </Principal>
+      <Dependent Role="session">
+        <PropertyRef Name="lop_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

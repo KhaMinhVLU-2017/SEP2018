@@ -1,0 +1,92 @@
+﻿@model IEnumerable<Sep2018_MVC.Models.sinhvien>
+@using Sep2018_MVC.Models;
+@{
+    sep21t16Entities db = new sep21t16Entities();
+    var statusss = new status();
+}
+@using (Html.BeginForm("online", "Giangvien", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+    <br />
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
+                @if (@ViewBag.msg != null)
+                {
+                    <h1><span class="label label-danger">  @ViewBag.msg</span> </h1>
+
+                }
+                <br />
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
+
+
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><b> Danh sách học sinh lớp @ViewBag.lop</b></h3>
+                    </div>
+                    <br />
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class=" col-md-10 col-lg-12 ">
+                                <table class="table table-user-information">
+                                    <tr>
+                                        <td>Họ Tên</td>
+                                        <td>MSSV</td>
+                                        <td>Giới tính</td>
+                                        <td>Lớp</td>
+                                        <td>Điểm danh</td>
+                                    </tr>
+
+                                    <tbody>
+                                        @foreach (var value in Model)
+            {
+                            <tr>
+
+                                <td>@value.sv_name</td>
+
+                                <td>
+                                    <input type="text" value="@value.sv_mssv" name="mssv" readonly="readonly" />
+                                </td>
+                                @if (value.sv_gtinh)
+    {
+                            <td>Nam</td>
+}
+else
+{
+                            <td>Nữ</td>
+}
+                                <td>@value.lop.lop_name</td>
+                                <td>
+                                <td>
+                                    @Html.DropDownList("stt_id", new SelectList(db.status, "stt_id", "stt_name"), new { @class = "form-control" })
+                                </td>
+
+
+                            </tr>
+                            <tr></tr>
+
+
+}
+                                    </tbody>
+
+
+                                </table>
+                                <td>
+                                    <input type="submit" value="Lưu" class="btn btn-default" />
+                                </td>
+                                @Html.ActionLink("Trở lại", "Sinhvien")
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+}

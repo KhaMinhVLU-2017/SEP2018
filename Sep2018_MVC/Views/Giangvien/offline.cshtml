@@ -1,0 +1,16 @@
+﻿@using Sep2018_MVC;
+@using Sep2018_MVC.Models;
+@{
+
+}
+@using (Html.BeginForm("Import", "Giangvien", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.Raw(ViewBag.Error);
+<div class="form-group">
+
+    <input type="file" name="file" />
+    <input type="submit" value="OK" />
+</div>
+
+}
+
