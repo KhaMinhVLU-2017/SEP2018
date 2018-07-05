@@ -19,8 +19,11 @@
     else
     {
         <div class="container">
-            <h2>Hi @db.People.FirstOrDefault(s => s.MS == User.Identity.Name).Name</h2>
-            <h4>Nơi đây không phù hợp cho thí chủ. Thí chủ là giáo viên mà đi đăng nhập sinh viên làm gì...!</h4>
+            <h1>Hi @db.People.FirstOrDefault(s => s.MS == User.Identity.Name).Name</h1>
+            <h2>Nơi đây không phù hợp cho thí chủ.</h2>
+            <h2>Thí chủ là giáo viên mà đi đăng nhập sinh viên làm gì...!</h2>
+            <h2><a href="~/Staff/Teacher/InformationAccount" class="btn btn-success">Đến trang giáo viên</a></h2>
+            <h2><a href="~/Account/Logout" class="btn btn-danger">Đăng Xuất</a></h2>
         </div>
     }
 

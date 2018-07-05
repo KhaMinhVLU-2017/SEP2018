@@ -9,7 +9,7 @@ using Sep2018_MVC.Models;
 
 namespace Sep2018_MVC.Areas.Staff.Controllers
 {
-    [Authorize]
+    [Authorize (Roles ="Giao Vien")]
     public class TeacherController : Controller
     {
 

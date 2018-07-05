@@ -29,10 +29,15 @@ namespace Sep2018_MVC.Controllers
                 {
                     return Redirect(returnURL);
                 }
+                else if(User.IsInRole("Giao Vien"))
+                {
+                    return RedirectToAction("Index", "Home");
+                }
                 else
                 {
                     return RedirectToAction("Index", "Sinhvien");
                 }
+                
             }
             ModelState.AddModelError("", "Invalid User & Password");
             return View();
