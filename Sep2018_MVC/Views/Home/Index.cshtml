@@ -1,8 +1,23 @@
-﻿@{
+﻿@using Sep2018_MVC.Models
+@{
     ViewBag.Title = "Sep2018 MVC";
+    SEP_2018_T6Entities1 db = new SEP_2018_T6Entities1();
 }
 
-<div class="col-md-12">
-    <br /><br /></br>
-    <h1 style="padding-left: 30%">Vui lòng <a href="~/Account" style="color:red">đăng nhập</a> để sử dụng các tính năng </h1>
-</div>
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="container">
+        <h2>Hi @db.People.FirstOrDefault(s=>s.MS==User.Identity.Name).Name</h2>
+        <h4>Welcome to Attendancen Online</h4>
+    </div>
+}
+else
+{
+    <div  class="container">
+        <div class="col-md-12">
+            <h1>
+                Vui lòng <a href="~/Account/Login" style="color:red">đăng nhập</a> để sử dụng các tính năng
+            </h1>
+        </div>
+    </div>
+}

@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using Sep2018_MVC.Models
+@{ 
+    SEP_2018_T6Entities1 db = new SEP_2018_T6Entities1();
+}
+<!DOCTYPE html>
 <html>
 <head>
     <title>@ViewBag.Title</title>
@@ -21,50 +25,28 @@
     <br />
     <br />
     <div id='cssmenu'>
-        <ul class="navbar-nav text-uppercase ml-auto">
-            @if (Session["username"] == null) {
-            <li class="nav-item active">
-                <a href="~/Home/Index">Trang Chủ</a>
-            </li>
-            }
-            @if (Session["username"] != null)
-            {
-                if ((int)Session["role"] == 10)
-                {
-                    <li class="nav-item active">
-                        <a href="~/Sinhvien">Điểm danh</a>
-                    </li>
-                }
-                if ((int)Session["role"] == 9)
-                {
-                    <li class="nav-item active">
-                        <a href="~/Giangvien">Điểm danh</a>
-                    </li>
-                }
-                if ((int)Session["role"] == 11)
-                {
-                    <li class="nav-item active">
-                        <a href="~/Giaovu">Điểm danh</a>
-                    </li>
-                }
-            }
-            else
-            {
-                <li class="nav-item">
-                    <a href="~/Account">Điểm danh</a>
-                </li>
-            }
-
+        <ul class="navbar-nav text-uppercase ml-auto" style="width:100%;">
             @if (Session["username"] == null)
             {
-                <li class="nav-item" style="padding-left: 80em;">
-                    <a href="~/Account/Index">Đăng nhập</a>
+                <li class="nav-item active">
+                    <a href="~/Home/Index">Trang Chủ</a>
+                </li>
+            }
+        
+
+            @if (User.Identity.IsAuthenticated)
+            {
+                <li class="nav-item" style="position:absolute;right:200px;height:auto;">
+                    <a href="~/Account/#">@db.People.FirstOrDefault(s=>s.MS == User.Identity.Name).Name</a>
+                </li>
+                <li class="nav-item" style="float:right">
+                    <a href="~/Account/Logout">Đăng xuất</a>
                 </li>
             }
             else
             {
                 <li class="nav-item" style="padding-left: 80em;">
-                    <a href="~/Account/Logout">Đăng xuất</a>
+                    <a href="~/Account/Login">Đăng nhập</a>
                 </li>
             }
         </ul>

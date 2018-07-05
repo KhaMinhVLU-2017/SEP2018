@@ -9,6 +9,7 @@ using Sep2018_MVC.Models;
 
 namespace Sep2018_MVC.Areas.Staff.Controllers
 {
+    [Authorize]
     public class TeacherController : Controller
     {
 

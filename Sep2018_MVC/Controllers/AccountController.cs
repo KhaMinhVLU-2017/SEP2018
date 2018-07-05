@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using Sep2018_MVC.Models;
 
 namespace Sep2018_MVC.Controllers
@@ -12,51 +13,34 @@ namespace Sep2018_MVC.Controllers
         SEP_2018_T6Entities1 db = new SEP_2018_T6Entities1();
         // GET: Account
         [HttpGet]
-        public ActionResult Index()
+        public ActionResult Login()
         {
             return View();
         }
         [HttpPost]
-        public ActionResult Index(string email, string pw)
+        public ActionResult Login(string email, string pw,string returnURL)
         {
-            var user = db.Users.FirstOrDefault(x => x.username == email );
-            if(user != null)
+            var user = db.Users.FirstOrDefault(x => x.username == email);
+            if (user != null)
             {
-                string s1 = pw;
-                if (user.password.Trim().Equals(s1))
+                FormsAuthentication.SetAuthCookie(user.username, false);
+                if (Url.IsLocalUrl(returnURL) && returnURL.Length > 1 && returnURL.StartsWith("/")
+                    && !returnURL.StartsWith("//") && !returnURL.StartsWith("/\\"))
                 {
-                    Session["username"] = user.username;
-                    Session["role"] = (int)user.PK_Position_Roles.Value;
-                    Session["class"] = user.FK_Class;
-                    if (user.PK_Position_Roles == 9)
-                    {
-                        return RedirectToAction("Index", "Giangvien");
-                    }
-                    if(user.PK_Position_Roles == 10 )
-                    {
-                        return RedirectToAction("Index", "Sinhvien");
-                    }
-                    if (user.PK_Position_Roles == 11)
-                        return RedirectToAction("Index", "Giaovu");
-                }else
+                    return Redirect(returnURL);
+                }
+                else
                 {
-                    ViewBag.msg = "Quên luôn mật khẩu mới ác :v ";
+                    return RedirectToAction("Index", "Sinhvien");
                 }
             }
-            else
-            {
-                ViewBag.msg = "Có cái tên đăng nhập không è mà cũng quên -_-";
-            }
+            ModelState.AddModelError("", "Invalid User & Password");
             return View();
         }
         public ActionResult Logout()
         {
-            if (Session["name"] != null)
-            {
-                Session["name"] = null;
-            }
-            Session.Abandon();
-            return RedirectToAction("Index");
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index","Home");
         }
     }
 }
