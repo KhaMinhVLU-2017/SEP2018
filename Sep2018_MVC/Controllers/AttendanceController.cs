@@ -10,6 +10,7 @@ using Sep2018_MVC.Models;
 
 namespace Sep2018_MVC.Controllers
 {
+    [Authorize]
     public class AttendanceController : Controller
     {
         // GET: Attendance

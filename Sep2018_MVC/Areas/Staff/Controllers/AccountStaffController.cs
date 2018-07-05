@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace Sep2018_MVC.Areas.Staff.Controllers
 {
+    [Authorize]
     public class AccountStaffController : Controller
     {
         // GET: Staff/AccountStaff

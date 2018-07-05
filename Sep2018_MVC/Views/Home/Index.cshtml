@@ -1,4 +1,6 @@
 ﻿@using Sep2018_MVC.Models
+@using Microsoft.AspNet.Identity
+@using Microsoft.AspNet.Identity.Owin;
 @{
     ViewBag.Title = "Sep2018 MVC";
     SEP_2018_T6Entities1 db = new SEP_2018_T6Entities1();
@@ -6,14 +8,26 @@
 
 @if (User.Identity.IsAuthenticated)
 {
-    <div class="container">
-        <h2>Hi @db.People.FirstOrDefault(s=>s.MS==User.Identity.Name).Name</h2>
-        <h4>Welcome to Attendancen Online</h4>
-    </div>
+
+    if (User.IsInRole("Sinh Vien"))
+    {
+        <div class="container">
+            <h2>Hi @db.People.FirstOrDefault(s => s.MS == User.Identity.Name).Name</h2>
+            <h4>Welcome to Attendancen Online</h4>
+        </div>
+    }
+    else
+    {
+        <div class="container">
+            <h2>Hi @db.People.FirstOrDefault(s => s.MS == User.Identity.Name).Name</h2>
+            <h4>Nơi đây không phù hợp cho thí chủ. Thí chủ là giáo viên mà đi đăng nhập sinh viên làm gì...!</h4>
+        </div>
+    }
+
 }
 else
 {
-    <div  class="container" style="margin:300px 500px;">
+    <div class="container" style="margin:300px 500px;">
         <div class="col-md-12">
             <h1>
                 Vui lòng <a href="~/Account/Login" style="color:red">đăng nhập</a> để sử dụng các tính năng

@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace Sep2018_MVC.Areas.Admin.Controllers
 {
+    [Authorize]
     public class ManagementController : Controller
     {
         // GET: Admin/Management
