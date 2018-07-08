@@ -24,6 +24,7 @@ namespace Sep2018_MVC.Controllers
             if (user != null)
             {
                 FormsAuthentication.SetAuthCookie(user.username, false);
+                Session["id_user"] = user.username;
                 if (Url.IsLocalUrl(returnURL) && returnURL.Length > 1 && returnURL.StartsWith("/")
                     && !returnURL.StartsWith("//") && !returnURL.StartsWith("/\\"))
                 {
@@ -44,6 +45,7 @@ namespace Sep2018_MVC.Controllers
         }
         public ActionResult Logout()
         {
+            Session["id_user"] = null;
             FormsAuthentication.SignOut();
             return RedirectToAction("Index","Home");
         }

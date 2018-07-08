@@ -14,19 +14,19 @@ namespace Sep2018_MVC.Controllers
         // GET: Sinhvien
         public ActionResult Index()
         {
-            //if(Session["username"] == null)
-            if (string.IsNullOrEmpty((string)Session["username"]))
-            {
-                return RedirectToAction("Index", "Account");
-            }
-            var sj = db.Subjects.ToList();
-            return View(sj);
+            string id = Session["id_user"].ToString();
+            List<Learning> listLearning = new List<Learning>();
+            int? Mate_Class = db.Users.FirstOrDefault(s=>s.username==id).FK_Class;
+            listLearning = db.Learnings.Where(s => s.FK_Class == Mate_Class).ToList();
+            ViewData["list_Learning"] = listLearning;
+            return View();
         }
-        [HttpGet]
-        public ActionResult Index(string subject)
-        {
-            var sj = db.Subjects.ToList();
-            return View(sj);
-        }
+        //[HttpGet]
+        //public ActionResult Index(string subject)
+        //{
+        //    var sj = db.Subjects.ToList();
+        //    return View(sj);
+        //}
+
     }
 }

@@ -1,9 +1,8 @@
-﻿@using Sep2018_MVC;
-@using Sep2018_MVC.Models;
-@model IEnumerable<Sep2018_MVC.Models.Subject>
+﻿@using Sep2018_MVC.Models
 @{
-    SEP_2018_T6Entities1 db = new SEP_2018_T6Entities1();
-    var subject = new Course();
+    List<Learning> modellist = new List<Learning>();
+    modellist = ViewData["list_Learning"] as List<Learning>;
+
 }
 <div class="panel panel-primary">
     <div class="panel panel-info" style="padding: 5% 20% 20% 40%">
@@ -13,10 +12,10 @@
 
                 <h1 class="text-center login-title">Chọn môn học</h1>
                 <select>
-                    @foreach (var item in Model)
+                    @foreach (var item in modellist)
                     {
-                        <option name="@item.SubjectName" class="list-group-item">
-                            @item.SubjectName
+                        <option name="@item.Subject.id" class="list-group-item">
+                            @item.Subject.SubjectName
                         </option>
                     }
                 </select><br /><br />
