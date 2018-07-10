@@ -101,7 +101,11 @@ namespace Sep2018_MVC.Areas.Staff.Controllers
         }
         public ActionResult InformationAccount()
         {
-            return View();
+            string id_User = Session["id_user"].ToString();
+            Person teacher = new Person();
+            teacher = db.People.FirstOrDefault(s => s.MS == id_User);
+            TempData["User_Teacher"] = db.Users.Find(id_User);
+            return View(teacher);
         }
         public ActionResult History()
         {

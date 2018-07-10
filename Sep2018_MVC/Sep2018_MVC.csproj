@@ -548,6 +548,7 @@
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Staff\Models\" />
     <Folder Include="Files\" />
+    <Folder Include="images\Avatar\" />
     <Folder Include="Views\Staff\" />
   </ItemGroup>
   <ItemGroup>
