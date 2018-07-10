@@ -30,11 +30,15 @@
         </a>
     </li>
 
-    <li class="history">
-        <a class="active" href="/Staff/Teacher/History">
-            <i class="fa fa-dashboard"></i>
+    <li class="sub-menu">
+        <a href="javascript:;">
+            <i class="fa fa-desktop"></i>
             <span>History</span>
         </a>
+        <ul class="sub">
+            <li>@Html.ActionLink("All Attendance", "History", "Teacher")</li>
+            <li>@Html.ActionLink("Attendance Detail", "ReviewAttendace", "Teacher")</li>
+        </ul>
     </li>
 
     <li class="change">

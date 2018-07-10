@@ -155,5 +155,18 @@ namespace Sep2018_MVC.Areas.Staff.Controllers
             ViewData["user"] = db.Users.Where(s => s.FK_Class == leaning).ToList();
             return View(meo);
         }
+        public ActionResult ReviewAttendace()
+        {
+            string id_Teacher = Session["id_user"].ToString();
+            var listScheduleDetail = db.ScheduleDetails.Where(s => s.FK_User_GV == id_Teacher);
+            List<Schedule> listShe = new List<Schedule>();
+            foreach (var item in listScheduleDetail)
+            {
+                Schedule meo = new Schedule();
+                meo = db.Schedules.Find(item.FK_Schedule);
+                listShe.Add(meo);
+            }
+            return View(listShe);
+        }
     }
 }

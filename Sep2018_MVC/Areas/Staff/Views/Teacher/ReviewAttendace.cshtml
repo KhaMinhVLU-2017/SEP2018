@@ -1,0 +1,18 @@
+﻿@using Sep2018_MVC.Models
+@model List<Schedule>
+@{
+    ViewBag.Title = "ReviewAttendace";
+    Layout = "~/Areas/Staff/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>ReviewAttendace</h2>
+
+
+<div class="container">
+    <div class="row">
+        @foreach(var item in Model)
+        {
+            <h1>@item.Course.CourseName</h1>
+        }
+    </div>
+</div>
