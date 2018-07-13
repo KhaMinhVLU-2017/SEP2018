@@ -235,24 +235,24 @@ namespace Sep2018_MVC.Tests.Area.Staff
                 Assert.AreEqual(item.FK_ScheduleDetail, result.FK_ScheduleDetail);
             }
         }
-        [TestMethod]
-        public void API_ScheDetail()
-        {
-            //Arrange
-            int id_Course = 3;  // K20
-            int id_Semester = 1;    //HK1
-            int id_Class = 9;   //Class T2
-            int id_Subject = 8;     //Quan Tri Doanh Nghiep
-            int id_learning = db.Learnings.FirstOrDefault(s => s.FK_Subject == id_Subject && s.FK_Semester == id_Semester && s.FK_Class == id_Class).id;
-            TeacherController controller = new TeacherController();
+        //[TestMethod]
+        //public void API_ScheDetail()
+        //{
+        //    //Arrange
+        //    int id_Course = 3;  // K20
+        //    int id_Semester = 1;    //HK1
+        //    int id_Class = 9;   //Class T2
+        //    int id_Subject = 8;     //Quan Tri Doanh Nghiep
+        //    int id_learning = db.Learnings.FirstOrDefault(s => s.FK_Subject == id_Subject && s.FK_Semester == id_Semester && s.FK_Class == id_Class).id;
+        //    TeacherController controller = new TeacherController();
 
-            //Actual
-            JsonResult result = controller.ScheDetail(id_Subject, id_Course, id_Semester, id_Class) as JsonResult;
+        //    //Actual
+        //    JsonResult result = controller.ScheDetail(id_Subject, id_Course, id_Semester, id_Class) as JsonResult;
 
 
-            //Assert
-            Assert.IsNotNull(result.Data);
-        }
+        //    //Assert
+        //    Assert.IsNotNull(result.Data);
+        //}
         [TestMethod]
         public void CheckOnline()
         {

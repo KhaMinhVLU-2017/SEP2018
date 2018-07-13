@@ -1,8 +1,9 @@
 ﻿@using Sep2018_MVC.Models
-@model List<Schedule>
+@model List<Course>
 @{
     ViewBag.Title = "ReviewAttendace";
     Layout = "~/Areas/Staff/Views/Shared/_LayoutAdmin.cshtml";
+    var ScheDetail = TempData["listSchDetail"] as List<ScheduleDetail>;
 }
 
 <h2>ReviewAttendace</h2>
@@ -10,9 +11,14 @@
 
 <div class="container">
     <div class="row">
-        @foreach(var item in Model)
+        @foreach (var item in Model.OrderBy(s=>s.CourseName))
         {
-            <h1>@item.Course.CourseName</h1>
+            <ul>@item.CourseName
+                @foreach (var iclass in ScheDetail)
+                    {
+                        
+                    }
+            </ul>
         }
     </div>
 </div>

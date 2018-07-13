@@ -37,10 +37,27 @@ namespace Sep2018_MVC.Areas.Staff.Controllers
         }
         public ActionResult CreateSection()
         {
+            string id_Teacher = Session["id_user"].ToString();
+            List<ScheduleDetail> listScheduleDetail = new List<ScheduleDetail>();
+            listScheduleDetail = db.ScheduleDetails.Where(s => s.FK_User_GV == id_Teacher).ToList();
+            List<int> listShe = new List<int>();
+            foreach (var item in listScheduleDetail)
+            {
+                int meo;
+                meo = (int)db.Schedules.Find(item.FK_Schedule).FK_Course;
+                listShe.Add(meo);
+            }
+            List<Course> mon = new List<Course>();//Save List Course's Teacher
+            foreach (var item in listShe.Distinct())
+            {
+                Course su = new Course();
+                su = db.Courses.Find(item);
+                mon.Add(su);
+            }
 
-            List<Course> meoCourse = new List<Course>();
-            meoCourse = db.Courses.ToList();
-            return View(meoCourse);
+            //List<Course> meoCourse = new List<Course>();
+            //meoCourse = db.Courses.ToList();
+            return View(mon);
         }
         public ActionResult CreateAccount()
         {
@@ -83,11 +100,12 @@ namespace Sep2018_MVC.Areas.Staff.Controllers
         /*
          * Ajax ScheduleDetail
          */
-        public ActionResult ScheDetail(int? id_subject, int? id_course, int? id_semester,int? id_class)
+         //post Session of Teacher for get ScheduleDetail's teacher
+        public ActionResult ScheDetail(int? id_subject, int? id_course, int? id_semester,int? id_class,string sessionLove)
         {
             var id_schedule = db.Schedules.FirstOrDefault(s => s.FK_Course == id_course && s.FK_Semester == id_semester).id;//get ID schedule
             int id_learning = db.Learnings.FirstOrDefault(s => s.FK_Subject == id_subject && s.FK_Semester == id_semester && s.FK_Class == id_class).id;
-            var detail = db.ScheduleDetails.Where(s => s.FK_Learning==id_learning);//get object Detail Schedule
+            var detail = db.ScheduleDetails.Where(s => s.FK_Learning==id_learning && s.FK_User_GV==sessionLove);//get object Detail Schedule
             List<object> meo = new List<object>();//Create Json return Views
             foreach (var item in detail)
             {
@@ -155,18 +173,27 @@ namespace Sep2018_MVC.Areas.Staff.Controllers
             ViewData["user"] = db.Users.Where(s => s.FK_Class == leaning).ToList();
             return View(meo);
         }
-        public ActionResult ReviewAttendace()
+        public ActionResult ReviewAttendace()//Error fix view
         {
             string id_Teacher = Session["id_user"].ToString();
-            var listScheduleDetail = db.ScheduleDetails.Where(s => s.FK_User_GV == id_Teacher);
-            List<Schedule> listShe = new List<Schedule>();
+            List<ScheduleDetail> listScheduleDetail = new List<ScheduleDetail>();
+            listScheduleDetail = db.ScheduleDetails.Where(s => s.FK_User_GV == id_Teacher).ToList();
+            List<int> listShe = new List<int>();
             foreach (var item in listScheduleDetail)
             {
-                Schedule meo = new Schedule();
-                meo = db.Schedules.Find(item.FK_Schedule);
+                int meo;
+                meo =(int) db.Schedules.Find(item.FK_Schedule).FK_Course;
                 listShe.Add(meo);
             }
-            return View(listShe);
+            List<Course> mon = new List<Course>();//Save List Course's Teacher
+            foreach (var item in listShe.Distinct())
+            {
+                Course su = new Course();
+                su = db.Courses.Find(item);
+                mon.Add(su);
+            }
+            TempData["listSchDetail"] = listScheduleDetail;
+            return View(mon);
         }
     }
 }
