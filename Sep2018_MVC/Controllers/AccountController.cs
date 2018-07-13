@@ -25,6 +25,7 @@ namespace Sep2018_MVC.Controllers
             {
                 FormsAuthentication.SetAuthCookie(user.username, false);
                 Session["id_user"] = user.username;
+                Session["ava_user"] = user.avatar;
                 if (Url.IsLocalUrl(returnURL) && returnURL.Length > 1 && returnURL.StartsWith("/")
                     && !returnURL.StartsWith("//") && !returnURL.StartsWith("/\\"))
                 {
