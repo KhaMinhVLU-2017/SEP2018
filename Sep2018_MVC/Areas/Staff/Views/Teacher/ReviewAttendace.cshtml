@@ -5,6 +5,7 @@
     Layout = "~/Areas/Staff/Views/Shared/_LayoutAdmin.cshtml";
     var ScheDetail = TempData["listSchDetail"] as List<ScheduleDetail>;
     SEP_2018_T6Entities1 db = new SEP_2018_T6Entities1();
+    string sessionName = Session["id_user"].ToString();
 }
 <style type="text/css">
     .rev_teacher > img {
@@ -80,8 +81,12 @@
                             <p>Course @item.CourseName</p>
                             @foreach (var subim in ScheDetail.Where(s => s.Schedule.FK_Course == item.id).ToList())
                             {
-                                <li>@item.CourseName@db.Learnings.FirstOrDefault(s => s.id == subim.FK_Learning).Class.ClassName         
-                                @db.Learnings.FirstOrDefault(s => s.id == subim.FK_Learning).Subject.SubjectName</li>
+                                <li>
+                                    <a href="~/Staff/Teacher/RevAttenDetail/?id_ScheDetail=@subim.id&&ses_teacher=@sessionName">
+                                        @item.CourseName@db.Learnings.FirstOrDefault(s => s.id == subim.FK_Learning).Class.ClassName
+                                        @db.Learnings.FirstOrDefault(s => s.id == subim.FK_Learning).Subject.SubjectName
+                                    </a>
+                                </li>
                             }
                         </ul>
                     </div>

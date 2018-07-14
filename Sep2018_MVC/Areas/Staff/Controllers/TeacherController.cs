@@ -195,5 +195,12 @@ namespace Sep2018_MVC.Areas.Staff.Controllers
             TempData["listSchDetail"] = listScheduleDetail;
             return View(mon);
         }
+        public ActionResult RevAttenDetail(int id_ScheDetail,string ses_teacher)
+        {
+            //getData objevct
+            ScheduleDetail meo = new ScheduleDetail();
+             meo = db.ScheduleDetails.Find(id_ScheDetail);
+            return View(meo);
+        }
     }
 }
