@@ -433,6 +433,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="images\banner.jpg" />
     <Content Include="images\bannerleft.jpg" />
+    <Content Include="images\bg2_rev.jpg" />
+    <Content Include="images\bg_rev.jpg" />
     <Content Include="images\logo.png" />
     <Content Include="images\notification.png" />
     <Content Include="Models\Model1.Context.tt">

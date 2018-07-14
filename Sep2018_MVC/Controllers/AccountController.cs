@@ -20,7 +20,7 @@ namespace Sep2018_MVC.Controllers
         [HttpPost]
         public ActionResult Login(string email, string pw,string returnURL)
         {
-            var user = db.Users.FirstOrDefault(x => x.username == email);
+            var user = db.Users.FirstOrDefault(x => x.username == email && x.password==pw);
             if (user != null)
             {
                 FormsAuthentication.SetAuthCookie(user.username, false);
