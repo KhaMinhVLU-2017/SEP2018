@@ -42,7 +42,7 @@
                         <th>@count</th>
                         <th>@db.Subjects.Find(idSubject).SubjectName</th>
                         <th>@item.ScheduleDetail.Schedule.Course.CourseName</th>
-                        <th>@item.ScheduleDetail.Schedule.Course.CourseName@item.ScheduleDetail.Learning.Class.ClassName</th>
+                        <th>@item.ScheduleDetail.Schedule.Course.CourseName@db.Learnings.Find(@item.ScheduleDetail.FK_Learning).Class.ClassName</th>
                         <th>@item.Date</th>
                         <th>@item.BeginTime</th>
                         <th>@item.EndTime</th>

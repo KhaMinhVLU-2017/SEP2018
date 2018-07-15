@@ -195,11 +195,18 @@ namespace Sep2018_MVC.Areas.Staff.Controllers
             TempData["listSchDetail"] = listScheduleDetail;
             return View(mon);
         }
-        public ActionResult RevAttenDetail(int id_ScheDetail,string ses_teacher)
+        public ActionResult RevAttenDetail(int id_ScheDetail,int id_Class,int id_subject,int id_course) //getData schedule Detail not need Seesion ID Teacher
         {
             //getData objevct
-            ScheduleDetail meo = new ScheduleDetail();
-             meo = db.ScheduleDetails.Find(id_ScheDetail);
+            List<Attendance> meo = new List<Attendance>();
+            meo = db.Attendances.Where(s=>s.FK_ScheduleDetail==id_ScheDetail).ToList();
+            var Course_Name = db.Courses.Find(id_course).CourseName;
+            var Class_Name = db.Classes.Find(id_Class).ClassName;
+            var Subject_Name = db.Subjects.Find(id_subject).SubjectName;
+            
+            TempData["Course"] = Course_Name;
+            TempData["Class"] = Class_Name;
+            TempData["Subject"] = Subject_Name;
             return View(meo);
         }
     }
