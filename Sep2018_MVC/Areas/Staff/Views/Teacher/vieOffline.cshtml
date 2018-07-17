@@ -1,0 +1,97 @@
+﻿@using Sep2018_MVC.Models
+@model List<Course>
+@{
+    ViewBag.Title = "Attendance - Offline";
+    Layout = "~/Areas/Staff/Views/Shared/_LayoutAdmin.cshtml";
+    var ScheDetail = TempData["listSchDetail"] as List<ScheduleDetail>;
+    SEP_2018_T6Entities1 db = new SEP_2018_T6Entities1();
+    string sessionName = Session["id_user"].ToString();
+}
+<style type="text/css">
+    .rev_teacher > img {
+        position: relative;
+    }
+
+    .rev_teacher {
+        overflow: hidden;
+        padding: 0;
+    }
+
+    .sub_rev_time {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        color: white;
+        padding: 60px;
+    }
+
+        .sub_rev_time p:nth-child(1) {
+            font-size: 50px;
+            font-family: initial;
+            font-weight: bold;
+        }
+
+        .sub_rev_time > ul > li {
+            padding: 10px;
+        }
+
+        .sub_rev_time > ul {
+            padding: 0;
+        }
+
+    .rev_teacher:not(hover) .sub_rev_time {
+        transform: translateY(235px);
+        background: black;
+        background-color: rgba(255,255,255,.15);
+        transition: 0.5s;
+    }
+
+    .rev_teacher:hover .sub_rev_time {
+        transition: 0.5s;
+        transform: translateY(0);
+    }
+</style>
+<h2>Attendance Offline</h2>
+
+
+<div class="container">
+    <div class="row">
+
+        @{
+            int count = 0;
+            foreach (var item in Model.OrderBy(s => s.CourseName))
+            {
+
+                <div class="col-md-6 rev_teacher">
+                    @if (count % 2 == 0)
+                    {
+                        <img src="~/images/bg_rev.jpg" class="img-responsive" />
+                        count++;
+                    }
+                    else
+                    {
+                        <img src="~/images/bg2_rev.jpg" class="img-responsive" />
+                        count++;
+                    }
+                    <div class="col-md-12 sub_rev_time">
+                        <ul>
+                            <p>Course @item.CourseName</p>
+                            @foreach (var subim in ScheDetail.Where(s => s.Schedule.FK_Course == item.id).ToList())
+                            {
+                                <li>
+                                    <a href="~/Staff/Teacher/RevOffline/?id_ScheDetail=@subim.id&&id_Class=@db.Learnings.FirstOrDefault(s => s.id == subim.FK_Learning).Class.id&&id_subject=@db.Learnings.FirstOrDefault(s => s.id == subim.FK_Learning).Subject.id&&id_course=@item.id">
+                                        @item.CourseName@db.Learnings.FirstOrDefault(s => s.id == subim.FK_Learning).Class.ClassName
+                                        @db.Learnings.FirstOrDefault(s => s.id == subim.FK_Learning).Subject.SubjectName
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>

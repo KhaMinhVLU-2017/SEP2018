@@ -209,5 +209,65 @@ namespace Sep2018_MVC.Areas.Staff.Controllers
             TempData["Subject"] = Subject_Name;
             return View(meo);
         }
+        public ActionResult vieOffline()
+        {
+            string id_Teacher = Session["id_user"].ToString();
+            List<ScheduleDetail> listScheduleDetail = new List<ScheduleDetail>();
+            listScheduleDetail = db.ScheduleDetails.Where(s => s.FK_User_GV == id_Teacher).ToList();
+            List<int> listShe = new List<int>();
+            foreach (var item in listScheduleDetail)
+            {
+                int meo;
+                meo = (int)db.Schedules.Find(item.FK_Schedule).FK_Course;
+                listShe.Add(meo);
+            }
+            List<Course> mon = new List<Course>();//Save List Course's Teacher
+            foreach (var item in listShe.Distinct())
+            {
+                Course su = new Course();
+                su = db.Courses.Find(item);
+                mon.Add(su);
+            }
+            TempData["listSchDetail"] = listScheduleDetail;
+            return View(mon);
+        }
+        public ActionResult RevOffline(int id_ScheDetail, int id_Class, int id_subject, int id_course)
+        {
+            List<Attendance> meo = new List<Attendance>();
+            meo = db.Attendances.Where(s => s.FK_ScheduleDetail == id_ScheDetail).ToList();
+            var Course_Name = db.Courses.Find(id_course).CourseName;
+            var Class_Name = db.Classes.Find(id_Class).ClassName;
+            var Subject_Name = db.Subjects.Find(id_subject).SubjectName;
+            List<User> listStudent = new List<User>();
+            listStudent = db.Users.Where(s => s.FK_Class == id_Class).ToList();
+            TempData["ListStudent"] = listStudent;//students
+            TempData["Course"] = Course_Name;
+            TempData["Class"] = Class_Name;
+            TempData["Subject"] = Subject_Name;
+            TempData["id_Schedetail"] = id_ScheDetail;
+            return View(meo);
+        }
+        [HttpPost]
+        public ActionResult ImportExcel(HttpPostedFileBase excelfile)
+        {
+            if(excelfile.ContentLength == 0)
+            {
+                ViewBag.Error = "Please select a excel file";
+                return View();
+            }
+            else
+            {
+                if (excelfile.FileName.EndsWith("xls") || excelfile.FileName.EndsWith("xlsx"))
+                {
+                    return View();
+                }
+                else
+                {
+                    ViewBag.Error = "Please select a excel file";
+                    return View();
+                }
+          
+            }
+        }
     }
 }

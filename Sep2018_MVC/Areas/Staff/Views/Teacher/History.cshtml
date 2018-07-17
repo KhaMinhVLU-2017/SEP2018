@@ -27,6 +27,7 @@
                         <th>End Time</th>
                         <th>Lesson</th>
                         <th>Unit Lession</th>
+                        <th>Teacher</th>
                         <th>Note</th>
                     </tr>
                 </thead>
@@ -48,6 +49,7 @@
                         <th>@item.EndTime</th>
                         <th>@item.Lesson</th>
                         <th>@item.Unit_Lession</th>
+                        <th>@db.People.FirstOrDefault(s=>s.MS==@item.ScheduleDetail.FK_User_GV).Name</th>
                         <th><a href="/Staff/Teacher/ViewsAttendance/@item.id">View</a></th>
                         <th><a href="/Staff/Teacher/EditAttend/@item.id">Edit</a></th>
                     </tr>

@@ -1,0 +1,91 @@
+﻿@using Sep2018_MVC.Models
+@model List<Attendance>
+@{
+    ViewBag.Title = "Offline";
+    Layout = "~/Areas/Staff/Views/Shared/_LayoutAdmin.cshtml";
+    SEP_2018_T6Entities1 db = new SEP_2018_T6Entities1();
+    var CourseName = TempData["Course"];
+    var ClassName = TempData["Class"];
+    var SubjectName = TempData["Subject"];
+    var ListStudent = TempData["ListStudent"] as List<User>;
+}
+
+
+@if (Model == null)
+{
+    <h1>Chưa có buổi điểm danh nào cho môn học này...!</h1>
+}
+else
+{
+    <h2>@CourseName@ClassName - @SubjectName  </h2>
+    <div class="container">
+        <div class="row">
+            <div class="table-responsive">
+                <div class="col-md-6">
+                    <h2>Attendance's History</h2>
+                </div>
+                <div class="col-md-6">
+                    @using (Html.BeginForm("", "", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        <input class="btn" type="file" name="excelfile" accept=".xls,.xlsx" />
+                        <button class="btn btn-success" type="submit" value="Import">ImportExcel</button>
+                    }
+                </div>       
+                    <div class="col-md-12">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>No.</th>
+                                    <th>MSSV</th>
+                                    <th>Student</th>
+                                    @foreach (var item in Model)
+                                    {
+                                        <th>@item.Date</th>
+                                    }
+                                    @*<th>Begin Time</th>
+                                        <th>End Time</th>*@
+                                    @*<th>Lesson</th>
+                                        <th>Unit Lession</th>*@
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    int count = 1;
+                                    @*foreach (var item in Model)
+                                        {
+                                            var idLearn = db.ScheduleDetails.Find(item.FK_ScheduleDetail).FK_Learning;
+                                            var idSubject = db.Learnings.Find(idLearn).FK_Subject;
+                                            count++;
+                                            <tr>
+                                                <th>@count</th>
+                                                <th>@item.Date</th>
+                                                <th>@item.BeginTime</th>
+                                                <th>@item.EndTime</th>
+                                                <th>@item.Lesson</th>
+                                                <th>@item.Unit_Lession</th>
+                                                <th><a href="/Staff/Teacher/ViewsAttendance/@item.id">View</a></th>
+                                            </tr>
+                                        }*@
+                                    foreach (var stu in ListStudent)
+                                    {
+                                        <tr>
+                                            <td>@count</td>
+                                            <td>@stu.username</td>
+                                            <td>@db.People.FirstOrDefault(s => s.MS == stu.username).Name</td>
+                                            @foreach (var ite in Model)
+                                            {
+                                                <td>@db.AttendanceDetails.FirstOrDefault(s => s.FK_Attendance == ite.id && s.FK_User == stu.username).AttendanceType.TypeName</td>
+                                            }
+                                          </tr>
+                                          count++;
+                                     }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+         
+            </div>
+        </div>
+    </div>
+}
+
