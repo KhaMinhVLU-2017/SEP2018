@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Sep2018_MVC.Models.Class>
+@using Sep2018_MVC.Models;
+@{
+    ViewBag.Title = "List Course";
+    Layout = "~/Areas/Staff/Views/Shared/LayoutGiaovu.cshtml";
+}
+<div class="container">
+    <h2>Danh sách lớp của khóa @ViewBag.course</h2>
+        @foreach (var item in Model)
+        {
+            
+                <form action="~/Staff/Giaovu/Schedule" method="get">
+                    <div class="">
+                        <div class="col-sm-6 col-md-4">
+                                    <input class="btn btn-default" value="@item.ClassName" name="classname" type="text"/>
+                                    <input class="btn btn-success" value="Xem danh sách lớp" type="submit" />
+                        </div>
+                    </div>
+                </form>
+            
+        }
+</div>
+

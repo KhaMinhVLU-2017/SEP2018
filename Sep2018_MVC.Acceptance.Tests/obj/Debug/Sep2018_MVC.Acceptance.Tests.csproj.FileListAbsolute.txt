@@ -34,3 +34,21 @@ D:\Learning School\THe Thrid\HKII\SEP\SEP2018\Sep2018_MVC.Acceptance.Tests\obj\D
 D:\Learning School\THe Thrid\HKII\SEP\SEP2018\Sep2018_MVC.Acceptance.Tests\obj\Debug\Sep2018_MVC.Acceptance.Tests.csproj.CopyComplete
 D:\Learning School\THe Thrid\HKII\SEP\SEP2018\Sep2018_MVC.Acceptance.Tests\obj\Debug\Sep2018_MVC.Acceptance.Tests.exe
 D:\Learning School\THe Thrid\HKII\SEP\SEP2018\Sep2018_MVC.Acceptance.Tests\obj\Debug\Sep2018_MVC.Acceptance.Tests.pdb
+C:\Users\Admin\Desktop\SEP2018\Sep2018_MVC.Acceptance.Tests\bin\Debug\Default.srprofile
+C:\Users\Admin\Desktop\SEP2018\Sep2018_MVC.Acceptance.Tests\bin\Debug\Sep2018_MVC.Acceptance.Tests.exe.config
+C:\Users\Admin\Desktop\SEP2018\Sep2018_MVC.Acceptance.Tests\bin\Debug\Sep2018_MVC.Acceptance.Tests.exe
+C:\Users\Admin\Desktop\SEP2018\Sep2018_MVC.Acceptance.Tests\bin\Debug\Sep2018_MVC.Acceptance.Tests.pdb
+C:\Users\Admin\Desktop\SEP2018\Sep2018_MVC.Acceptance.Tests\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Admin\Desktop\SEP2018\Sep2018_MVC.Acceptance.Tests\bin\Debug\nunit.framework.dll
+C:\Users\Admin\Desktop\SEP2018\Sep2018_MVC.Acceptance.Tests\bin\Debug\SpecRun.SpecFlowPlugin.dll
+C:\Users\Admin\Desktop\SEP2018\Sep2018_MVC.Acceptance.Tests\bin\Debug\System.ValueTuple.dll
+C:\Users\Admin\Desktop\SEP2018\Sep2018_MVC.Acceptance.Tests\bin\Debug\TechTalk.SpecFlow.dll
+C:\Users\Admin\Desktop\SEP2018\Sep2018_MVC.Acceptance.Tests\bin\Debug\TechTalk.SpecRun.Common.dll
+C:\Users\Admin\Desktop\SEP2018\Sep2018_MVC.Acceptance.Tests\bin\Debug\TechTalk.SpecRun.dll
+C:\Users\Admin\Desktop\SEP2018\Sep2018_MVC.Acceptance.Tests\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Admin\Desktop\SEP2018\Sep2018_MVC.Acceptance.Tests\bin\Debug\nunit.framework.xml
+C:\Users\Admin\Desktop\SEP2018\Sep2018_MVC.Acceptance.Tests\obj\Debug\Sep2018_MVC.Acceptance.Tests.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\SEP2018\Sep2018_MVC.Acceptance.Tests\obj\Debug\Sep2018_MVC.Acceptance.Tests.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\SEP2018\Sep2018_MVC.Acceptance.Tests\obj\Debug\Sep2018_MVC.Acceptance.Tests.csproj.CopyComplete
+C:\Users\Admin\Desktop\SEP2018\Sep2018_MVC.Acceptance.Tests\obj\Debug\Sep2018_MVC.Acceptance.Tests.exe
+C:\Users\Admin\Desktop\SEP2018\Sep2018_MVC.Acceptance.Tests\obj\Debug\Sep2018_MVC.Acceptance.Tests.pdb

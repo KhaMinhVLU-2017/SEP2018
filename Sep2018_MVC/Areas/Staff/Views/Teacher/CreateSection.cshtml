@@ -18,7 +18,6 @@
                 <div class="col-md-6 section_second">
                     <div class="col-md-12">
                         <form action="/Staff/Teacher/CheckOnline" method="post">
-                            <input id="id_session" type="hidden" value="@Session["id_user"]" />
                             <div class="form-group col-md-12">
                                 <label class="control-label col-sm-3">Khoá:</label>
                                 <div class="col-sm-9">
@@ -232,7 +231,6 @@
         let id_semester = txt_semester.options[txt_semester.selectedIndex].id;//get ID
         let id_course = txt_course.options[txt_course.selectedIndex].id;//get ID
         let id_class = txt_class.options[txt_class.selectedIndex].id;
-        let sessionName = document.getElementById('id_session').value;
         var sub_scheDetail = txt_scheduledetail.getElementsByTagName("option");
         var arr = Array.from(sub_scheDetail);
         if (arr.length > 0) {
@@ -242,7 +240,7 @@
         }
         $.ajax({
             type: 'GET',
-            url: url + "/Staff/Teacher/ScheDetail/?id_subject=" + id_subject + "&&id_course=" + id_course + "&&id_semester=" + id_semester + "&&id_class=" + id_class + "&&sessionLove=" + sessionName,
+            url: url + "/Staff/Teacher/ScheDetail/?id_subject=" + id_subject + "&&id_course=" + id_course + "&&id_semester=" + id_semester + "&&id_class=" + id_class,
             dataType: "json",
             success: function (data) {
                 $.each(data, function (key, value) {

@@ -183,6 +183,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\ManagementController.cs" />
     <Compile Include="Areas\Staff\Controllers\AccountStaffController.cs" />
+    <Compile Include="Areas\Staff\Controllers\GiaovuController.cs" />
     <Compile Include="Areas\Staff\StaffAreaRegistration.cs" />
     <Compile Include="Areas\Staff\Controllers\TeacherController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -407,6 +408,12 @@
     <Content Include="Areas\Staff\Views\AccountStaff\CreateAccount.cshtml" />
     <Content Include="Areas\Staff\Views\AccountStaff\Report.cshtml" />
     <Content Include="Areas\Staff\Views\AccountStaff\InformationAccountStaff.cshtml" />
+    <Content Include="Areas\Staff\Views\Giaovu\Index.cshtml" />
+    <Content Include="Areas\Staff\Views\Shared\LayoutGiaovu.cshtml" />
+    <Content Include="Areas\Staff\Views\Shared\SiderBarGiaovu.cshtml" />
+    <Content Include="Areas\Staff\Views\Giaovu\Schedule.cshtml" />
+    <Content Include="Areas\Staff\Views\Giaovu\ListCourse.cshtml" />
+    <Content Include="Areas\Staff\Views\Giaovu\ListClass.cshtml" />
     <None Include="Areas\Staff\Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Content\admin.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -433,10 +440,10 @@
     <Content Include="Content\Site.css" />
     <Content Include="images\banner.jpg" />
     <Content Include="images\bannerleft.jpg" />
-    <Content Include="images\bg2_rev.jpg" />
-    <Content Include="images\bg_rev.jpg" />
     <Content Include="images\logo.png" />
     <Content Include="images\notification.png" />
+    <Content Include="images\schedule.png" />
+    <Content Include="images\statistical.png" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -496,8 +503,6 @@
     <Content Include="Areas\Staff\Views\Teacher\ViewsAttendance.cshtml" />
     <Content Include="Areas\Staff\Views\Shared\_SiderBarTeacher.cshtml" />
     <Content Include="Areas\Staff\Views\Shared\_SiderBarStaff.cshtml" />
-    <Content Include="Areas\Staff\Views\Teacher\ReviewAttendace.cshtml" />
-    <Content Include="Areas\Staff\Views\Teacher\RevAttenDetail.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -552,7 +557,6 @@
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Staff\Models\" />
     <Folder Include="Files\" />
-    <Folder Include="images\Avatar\" />
     <Folder Include="Views\Staff\" />
   </ItemGroup>
   <ItemGroup>

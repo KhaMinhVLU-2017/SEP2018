@@ -1,0 +1,54 @@
+﻿@using Sep2018_MVC.Models
+@{
+    SEP_2018_T6Entities1 db = new SEP_2018_T6Entities1();
+}
+<style>
+ul li.IA:hover{
+        background-color:black;
+}
+#item-slider:hover{
+    background-color:bisque;
+    color:black;
+    font-size:15px;
+}
+</style>
+<ul class="sidebar-menu" id="nav-accordion" style="background-color:black">
+    <p class="centered">
+        <a href="profile.html">
+            <img src="~/Areas/Staff/Assert/Images/img/ui-sam.jpg" class="img-circle" width="160" style="padding-top:3em;padding-bottom:1em" />
+        </a>
+
+        <br>
+        <span style="font-size: 20px; color:moccasin">@*@db.People.FirstOrDefault(s => s.MS == User.Identity.Name).Name*@ Hi,Giáo Vụ</span>
+    </p>
+    @*<h5 class="centered">Marcel Newman</h5>*@
+    @*<img src="~/Areas/Staff/Assert/Images/Identity_VI.png" class="img-responsive" />*@
+    
+    <li class="IA">
+        <a id="item-slider" href="/Staff/Giaovu/Index">
+            <i class="fa fa-dashboard"></i>
+            <span>MANAGEMENT</span>
+        </a>
+    </li>
+    <li class="noti">
+        <a id="item-slider" href="">
+            <i class="fa fa-dashboard"></i>
+            <span>SCHEDULE</span>
+        </a>
+        <ul>
+            <li>@Html.ActionLink("2018", "")</li>
+            <li>@Html.ActionLink("2019", "")</li>
+        </ul>
+    </li>
+    <li class="tkb">
+        <a id="item-slider" href="">
+            <i class="fa fa-dashboard"></i>
+            <span>STATISTICAL</span>
+        </a>
+        <ul>
+            <li>@Html.ActionLink("YEAR", "")</li>
+            <li>@Html.ActionLink("TIME", "")</li>
+        </ul>
+    </li>
+
+</ul>

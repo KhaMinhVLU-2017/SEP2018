@@ -20,12 +20,11 @@ namespace Sep2018_MVC.Controllers
         [HttpPost]
         public ActionResult Login(string email, string pw,string returnURL)
         {
-            var user = db.Users.FirstOrDefault(x => x.username == email && x.password==pw);
+            var user = db.Users.FirstOrDefault(x => x.username == email);
             if (user != null)
             {
                 FormsAuthentication.SetAuthCookie(user.username, false);
                 Session["id_user"] = user.username;
-                Session["ava_user"] = user.avatar;
                 if (Url.IsLocalUrl(returnURL) && returnURL.Length > 1 && returnURL.StartsWith("/")
                     && !returnURL.StartsWith("//") && !returnURL.StartsWith("/\\"))
                 {

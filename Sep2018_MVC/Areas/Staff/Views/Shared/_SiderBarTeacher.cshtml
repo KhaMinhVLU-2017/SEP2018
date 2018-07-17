@@ -1,11 +1,8 @@
 ﻿
-@{ 
-    string ava = Session["ava_user"].ToString();
-}
 <ul class="sidebar-menu" id="nav-accordion">
     <p class="centered">
-        <a href="~/Staff/Teacher/InformationAccount">
-            <img src="~/images/Avatar/@ava" class="img-circle" width="100"/>
+        <a href="profile.html">
+            <img src="~/Areas/Staff/Assert/Images/img/ui-sam.jpg" class="img-circle" width="60" />
         </a>
     </p>
     @*<h5 class="centered">Marcel Newman</h5>*@
@@ -33,15 +30,11 @@
         </a>
     </li>
 
-    <li class="sub-menu">
-        <a href="javascript:;">
-            <i class="fa fa-desktop"></i>
+    <li class="history">
+        <a class="active" href="/Staff/Teacher/History">
+            <i class="fa fa-dashboard"></i>
             <span>History</span>
         </a>
-        <ul class="sub">
-            <li>@Html.ActionLink("All Attendance", "History", "Teacher")</li>
-            <li>@Html.ActionLink("Attendance Detail", "ReviewAttendace", "Teacher")</li>
-        </ul>
     </li>
 
     <li class="change">

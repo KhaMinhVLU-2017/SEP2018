@@ -6,31 +6,21 @@
     <meta name="description" content="">
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-    <title>@ViewBag.Title - Admin</title>
+    <title>@ViewBag.Title - Giaovu</title>
     @*<title>DASHGUM - FREE Bootstrap Admin Template</title>*@
-
     <!-- Bootstrap core CSS -->
     <link href="~/Areas/Staff/Assert/Styles/bootstrap.css" rel="stylesheet" />
     <!--external css-->
     <link href="~/Areas/Staff/Assert/Styles/admin.css" rel="stylesheet" />
-
     <link href="~/Areas/Staff/Assert/Styles/font-awesome.css" rel="stylesheet" />
-
     <link href="~/Areas/Staff/Assert/Styles/zabuto_calendar.css" rel="stylesheet" />
-
     <link href="~/Areas/Staff/Assert/Styles/jquery.gritter.css" rel="stylesheet" />
-
     <link href="~/Areas/Staff/Assert/Styles/styleAdmin.css" rel="stylesheet" />
-
     <!-- Custom styles for this template -->
-    
 
     <link href="~/Areas/Staff/Assert/Styles/style1.css" rel="stylesheet" />
-
     <link href="~/Areas/Staff/Assert/Styles/style-responsive.css" rel="stylesheet" />
-
     <script src="~/Areas/Staff/Assert/Script/Chart.js"></script>
-
     <!-- My Minh -->
     <link href="~/Areas/Staff/Assert/Styles/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Areas/Staff/Assert/Styles/fontawesome-all.min.css" rel="stylesheet" />
@@ -41,14 +31,14 @@
         TOP BAR CONTENT & NOTIFICATIONS
         *********************************************************************************************************************************************************** -->
         <!--header start-->
-        <header class="header black-bg">
+        <header class="header black-bg" style="background-color: black">
             <div class="sidebar-toggle-box">
                 <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
             </div>
             <!--logo start-->
-            <a href="index.html" class="logo"><b>Quản Trị</b></a>
+            <a href="Index" class="logo"><b>Management</b></a>
             <!--logo end-->
-            <div class="nav notify-row" id="top_menu">
+            @*<div class="nav notify-row" id="top_menu">
                 <!--  notification start -->
                 <ul class="nav top-menu">
                     <!-- settings start -->
@@ -195,10 +185,10 @@
                     <!-- inbox dropdown end -->
                 </ul>
                 <!--  notification end -->
-            </div>
+            </div>*@
             <div class="top-menu">
-                <ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="login.html">Logout</a></li>
+                <ul class="nav pull-right top-menu" >
+                    <li><a class="logout" href="logout.html" style="background-color:#f2dc87; color:black"><b>Logout</b></a></li>
                 </ul>
             </div>
         </header>
@@ -208,11 +198,11 @@
         *********************************************************************************************************************************************************** -->
         <!--sidebar start-->
         <aside>
-            <div id="sidebar" class="nav-collapse ">
+            <div id="sidebar" class="nav-collapse " style="background-color:black">
                 <!-- sidebar menu start-->
                 @*@RenderPage("_SiderBarStaff.cshtml")*@
-                @RenderPage("_SiderBarTeacher.cshtml")
-                <!-- sidebar menu end-->    
+                @RenderPage("SiderBarGiaovu.cshtml")
+                <!-- sidebar menu end-->
             </div>
         </aside>
         <!--sidebar end-->
@@ -229,13 +219,12 @@
                 </div><! --/row -->
             </section>
         </section>
-
         <!--main content end-->
         <!--footer start-->
-        <footer class="site-footer">
-            <div class="text-center">
-                2014 - Alvarez.is
-                <a href="index.html#" class="go-top">
+        <footer class="site-footer" style="background-color:black">
+            <div class="text-center" style="background-color:black">
+                2018 - Đại học Văn Lang
+                <a href="~/Areas/Staff/Giaovu" class="go-top">
                     <i class="fa fa-angle-up"></i>
                 </a>
             </div>

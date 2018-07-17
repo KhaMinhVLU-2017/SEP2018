@@ -27,6 +27,5 @@ namespace Sep2018_MVC
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
         }
-
     }
 }

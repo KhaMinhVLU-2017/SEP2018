@@ -1,0 +1,28 @@
+﻿@model List<Course>
+@using Sep2018_MVC.Models;
+@{ 
+    ViewBag.Title = "List Course";
+    Layout = "~/Areas/Staff/Views/Shared/LayoutGiaovu.cshtml";
+}
+<div class="container">
+
+  <h2>Danh sách các môn học năm 2018</h2>
+        @foreach (var item in Model){
+        
+            <form action="~/Staff/Giaovu/ListClass" method="get">
+                <div class="">
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+
+                                <div class="caption">
+                                   <input class="btn btn-default" value="@item.CourseName" name="course" type="text" hidden="hidden"/>
+                                    <input class="btn btn-success" value="Xem danh sách lớp" type="submit" />
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        
+         }
+   
+</div>
