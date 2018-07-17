@@ -8,8 +8,21 @@
     var ClassName = TempData["Class"];
     var SubjectName = TempData["Subject"];
     var ListStudent = TempData["ListStudent"] as List<User>;
+    var id_ScheDetail = TempData["id_Schedetail"];
+    var id_course = TempData["id_Course"];
+    var id_class = TempData["id_Class"];
+    var id_subject = TempData["id_Subject"];
 }
-
+<style>
+    .head-meo {
+        margin-bottom: 50px;
+    }
+        .head-meo > div:nth-child(2) {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+</style>
 
 @if (Model == null)
 {
@@ -21,69 +34,84 @@ else
     <div class="container">
         <div class="row">
             <div class="table-responsive">
-                <div class="col-md-6">
-                    <h2>Attendance's History</h2>
-                </div>
-                <div class="col-md-6">
-                    @using (Html.BeginForm("", "", FormMethod.Post, new { enctype = "multipart/form-data" }))
-                    {
-                        <input class="btn" type="file" name="excelfile" accept=".xls,.xlsx" />
-                        <button class="btn btn-success" type="submit" value="Import">ImportExcel</button>
-                    }
-                </div>       
-                    <div class="col-md-12">
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>No.</th>
-                                    <th>MSSV</th>
-                                    <th>Student</th>
-                                    @foreach (var item in Model)
-                                    {
-                                        <th>@item.Date</th>
-                                    }
-                                    @*<th>Begin Time</th>
-                                        <th>End Time</th>*@
-                                    @*<th>Lesson</th>
-                                        <th>Unit Lession</th>*@
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @{
-                                    int count = 1;
-                                    @*foreach (var item in Model)
-                                        {
-                                            var idLearn = db.ScheduleDetails.Find(item.FK_ScheduleDetail).FK_Learning;
-                                            var idSubject = db.Learnings.Find(idLearn).FK_Subject;
-                                            count++;
-                                            <tr>
-                                                <th>@count</th>
-                                                <th>@item.Date</th>
-                                                <th>@item.BeginTime</th>
-                                                <th>@item.EndTime</th>
-                                                <th>@item.Lesson</th>
-                                                <th>@item.Unit_Lession</th>
-                                                <th><a href="/Staff/Teacher/ViewsAttendance/@item.id">View</a></th>
-                                            </tr>
-                                        }*@
-                                    foreach (var stu in ListStudent)
-                                    {
-                                        <tr>
-                                            <td>@count</td>
-                                            <td>@stu.username</td>
-                                            <td>@db.People.FirstOrDefault(s => s.MS == stu.username).Name</td>
-                                            @foreach (var ite in Model)
-                                            {
-                                                <td>@db.AttendanceDetails.FirstOrDefault(s => s.FK_Attendance == ite.id && s.FK_User == stu.username).AttendanceType.TypeName</td>
-                                            }
-                                          </tr>
-                                          count++;
-                                     }
-                                }
-                            </tbody>
-                        </table>
+                <div class="col-md-12 head-meo">
+                    <div class="col-md-6">
+                        <h2>Attendance's History</h2>
                     </div>
-         
+                    <div class="col-md-6">
+                        @using (Html.BeginForm("ImportExcel", "Teacher", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            @Html.Raw(ViewBag.Error)
+                            <input name="id_ScheDe" value="@id_ScheDetail" type="hidden" />
+                            <input name="id_Course" value="@id_course" type="hidden" />
+                            <input name="id_Class" value="@id_class" type="hidden" />
+                            <input name="id_Subject" value="@id_subject" type="hidden" />
+                            <div class="col-md-6">
+                                <input class="col-md-10 btn" type="file" name="excelfile" accept=".xls,.xlsx" />
+                            </div>
+                            <div class="ol-md-6">
+                                <button class="btn btn-success" type="submit" value="Import">ImportExcel</button>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>MSSV</th>
+                                <th>Student</th>
+                                @foreach (var item in Model)
+                                {
+                                    <th>@item.Date</th>
+                                }
+                                @*<th>Begin Time</th>
+                                    <th>End Time</th>*@
+                                @*<th>Lesson</th>
+                                    <th>Unit Lession</th>*@
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                int count = 1;
+                                string color = "";
+
+                                foreach (var stu in ListStudent)
+                                {
+                                    <tr>
+                                        <td>@count</td>
+                                        <td>@stu.username</td>
+                                        <td>@db.People.FirstOrDefault(s => s.MS == stu.username).Name</td>
+                                        @foreach (var ite in Model)
+                                        {
+
+                                            switch (db.AttendanceDetails.FirstOrDefault(s => s.FK_Attendance == ite.id && s.FK_User == stu.username).FK_AttendanceDetail_Type)
+                                            {
+                                                case 1:
+                                                    color = "success";
+                                                    break;
+                                                case 2:
+                                                    color = "warning";
+                                                    break;
+                                                case 3:
+                                                    color = "danger";
+                                                    break;
+                                                case 4:
+                                                    color = "secondary";
+                                                    break;
+                                            }
+                                            <td class="@color">@db.AttendanceDetails.FirstOrDefault(s => s.FK_Attendance == ite.id && s.FK_User == stu.username).AttendanceType.TypeName</td>
+
+                                        }
+                                    </tr>
+                                    count++;
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
             </div>
         </div>
     </div>

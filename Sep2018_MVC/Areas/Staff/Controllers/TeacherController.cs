@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using System.Data.Entity;
 using Sep2018_MVC;
 using Sep2018_MVC.Models;
+using System.IO;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace Sep2018_MVC.Areas.Staff.Controllers
 {
@@ -231,7 +233,7 @@ namespace Sep2018_MVC.Areas.Staff.Controllers
             TempData["listSchDetail"] = listScheduleDetail;
             return View(mon);
         }
-        public ActionResult RevOffline(int id_ScheDetail, int id_Class, int id_subject, int id_course)
+        public ActionResult RevOffline(int id_ScheDetail, int id_Class, int id_subject, int id_course)//Attendance follow with students
         {
             List<Attendance> meo = new List<Attendance>();
             meo = db.Attendances.Where(s => s.FK_ScheduleDetail == id_ScheDetail).ToList();
@@ -245,26 +247,91 @@ namespace Sep2018_MVC.Areas.Staff.Controllers
             TempData["Class"] = Class_Name;
             TempData["Subject"] = Subject_Name;
             TempData["id_Schedetail"] = id_ScheDetail;
+            TempData["id_Course"] = id_course;
+            TempData["id_Class"] = id_Class;
+            TempData["id_Subject"] = id_subject;
             return View(meo);
         }
         [HttpPost]
-        public ActionResult ImportExcel(HttpPostedFileBase excelfile)
+        public ActionResult ImportExcel(HttpPostedFileBase excelfile,int id_ScheDe,int id_Course,int id_Class,int id_Subject)
         {
             if(excelfile.ContentLength == 0)
             {
                 ViewBag.Error = "Please select a excel file";
-                return View();
+                return Redirect("~/Staff/Teacher/RevOffline/?id_ScheDetail=" + id_ScheDe + "&&id_Class=" + id_Class + "&&id_subject=" + id_Subject + "&&id_course=" + id_Course);
             }
             else
             {
                 if (excelfile.FileName.EndsWith("xls") || excelfile.FileName.EndsWith("xlsx"))
                 {
-                    return View();
+                    string path = Server.MapPath("~/Files/" + excelfile.FileName);
+                    if (System.IO.File.Exists(path))
+                    {
+                        System.IO.File.Delete(path);
+                    }
+                    excelfile.SaveAs(path);
+                    //getFiles Excel
+                    Excel.Application application = new Excel.Application();
+                    Excel.Workbook workbook = application.Workbooks.Open(path);
+                    Excel.Worksheet worksheet = workbook.ActiveSheet;
+                    Excel.Range range = worksheet.UsedRange;
+                    string date = range.Cells[6, 3].Text; //o Call Excel -1
+                    string BeginTime = range.Cells[7, 6].Text;
+                    string EndTime = range.Cells[7, 7].Text;
+                    string Lession = range.Cells[7, 8].Text;
+                    string Unit_Lession = range.Cells[7, 9].Text;
+                    //Add Enties Attendance
+                    Attendance atd_current = new Attendance();
+                    atd_current.Date = Convert.ToDateTime(date);
+                    atd_current.BeginTime = TimeSpan.Parse(BeginTime);
+                    atd_current.EndTime = TimeSpan.Parse(EndTime);
+                    atd_current.Lesson = int.Parse(Lession);
+                    atd_current.Unit_Lession = Unit_Lession;
+                    atd_current.FK_ScheduleDetail = id_ScheDe;
+                    db.Attendances.Add(atd_current);
+                    db.SaveChanges();
+                    //get ID Attendance nearly save
+                    int id_AttenNear = db.Attendances.FirstOrDefault(s => s.Date == atd_current.Date && s.BeginTime == atd_current.BeginTime &&
+                    s.EndTime == atd_current.EndTime && s.Lesson == atd_current.Lesson && s.Unit_Lession == atd_current.Unit_Lession && s.FK_ScheduleDetail == atd_current.FK_ScheduleDetail
+                    ).id;
+     
+                    //Add Entities AttendanceDetail
+                    for (int row=8;row<=range.Rows.Count; row++)
+                    {
+                        if (range.Cells[row, 1].Text != null)
+                        {
+                            string mssv = range.Cells[row, 1].Text;
+                            //string student = range.Cells[row, 2].Text;
+                            int Attendance = int.Parse(range.Cells[row, 3].Text.Trim());
+                            string Note = range.Cells[row, 4].Text;
+                            AttendanceDetail meo = new AttendanceDetail(); //Save SinhVien
+                            meo.FK_User = mssv;
+                            meo.FK_Attendance = id_AttenNear;
+                            meo.FK_AttendanceDetail_Type = Attendance;
+                            if (Note != null)
+                            {
+                                meo.Note = Note;
+                            }
+                            else
+                            {
+                                meo.Note = " ";
+                            }
+                                         
+                            db.AttendanceDetails.Add(meo);
+                            db.SaveChanges();
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    
+                    }
+                    return Redirect("~/Staff/Teacher/RevOffline/?id_ScheDetail=" + id_ScheDe + "&&id_Class=" + id_Class + "&&id_subject=" + id_Subject + "&&id_course=" + id_Course);
                 }
                 else
                 {
                     ViewBag.Error = "Please select a excel file";
-                    return View();
+                    return Redirect("~/Staff/Teacher/RevOffline/?id_ScheDetail=" + id_ScheDe + "&&id_Class=" + id_Class + "&&id_subject=" + id_Subject + "&&id_course=" + id_Course);
                 }
           
             }
