@@ -1,6 +1,7 @@
 ﻿@using Sep2018_MVC.Models
 @{
     SEP_2018_T6Entities1 db = new SEP_2018_T6Entities1();
+    IEnumerable<Sep2018_MVC.Models.Course> listyear = db.Courses.ToList();
 }
 <style>
 ul li.IA:hover{
@@ -36,8 +37,10 @@ ul li.IA:hover{
             <span>SCHEDULE</span>
         </a>
         <ul>
-            <li>@Html.ActionLink("2018", "")</li>
-            <li>@Html.ActionLink("2019", "")</li>
+            @foreach (var item in listyear)
+            {
+                <li>@Html.ActionLink(item.CourseName, "listClass", new { course = item.CourseName })</li>
+            }
         </ul>
     </li>
     <li class="tkb">
@@ -46,8 +49,10 @@ ul li.IA:hover{
             <span>STATISTICAL</span>
         </a>
         <ul>
-            <li>@Html.ActionLink("YEAR", "")</li>
-            <li>@Html.ActionLink("TIME", "")</li>
+            @foreach (var item in listyear)
+            {
+                <li>@Html.ActionLink(item.ShoolYearBegin.Value.Year.ToString(), "StatisticalYear", new {year = item.ShoolYearBegin.Value.Year })</li>
+            }
         </ul>
     </li>
 

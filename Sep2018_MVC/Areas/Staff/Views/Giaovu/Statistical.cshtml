@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Sep2018_MVC.Models.Course>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Staff/Views/Shared/LayoutGiaovu.cshtml";
+
+}
+<style>
+</style>
+<br />
+<br>
+<div class="container" style="padding:1em">
+    @foreach (var item in Model)
+    {
+            <form action="~/Staff/Giaovu/StatisticalYear" method="get">
+                <div class="">
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+
+                            <div class="caption">
+                                <input class="btn btn-default" value="@item.ShoolYearBegin.Value.Year" name="year" type="text" hidden="hidden" />
+                                <input class="btn btn-success" value="Xem thống kê" type="submit" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+    }
+</div>

@@ -414,6 +414,8 @@
     <Content Include="Areas\Staff\Views\Giaovu\Schedule.cshtml" />
     <Content Include="Areas\Staff\Views\Giaovu\ListCourse.cshtml" />
     <Content Include="Areas\Staff\Views\Giaovu\ListClass.cshtml" />
+    <Content Include="Areas\Staff\Views\Giaovu\Statistical.cshtml" />
+    <Content Include="Areas\Staff\Views\Giaovu\StatisticalYear.cshtml" />
     <None Include="Areas\Staff\Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Content\admin.css" />
     <Content Include="Content\bootstrap-theme.css" />

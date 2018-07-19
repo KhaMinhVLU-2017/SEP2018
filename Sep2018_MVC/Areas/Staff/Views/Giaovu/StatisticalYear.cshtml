@@ -1,0 +1,134 @@
+﻿@model IEnumerable<Sep2018_MVC.Models.Course>
+@using Sep2018_MVC.Models;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Staff/Views/Shared/LayoutGiaovu.cshtml";
+    SEP_2018_T6Entities1 db = new SEP_2018_T6Entities1();
+    int vang = 0;
+    int tre = 0;
+    int phep = 0;
+    int co = 0;
+}
+<style>
+    #customers {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+        #customers td, #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #customers tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #customers tr:hover {
+            background-color: #ddd;
+        }
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #4CAF50;
+            color: white;
+        }
+</style><style>
+    #customers {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+        #customers td, #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #customers tr:nth-child(even) {
+            background-color: #b7efb1;
+        }
+
+        #customers tr:hover {
+            background-color: #ddd;
+        }
+
+        #customers th {
+            padding-top: 6px;
+            padding-bottom: 6px;
+            text-align: left;
+            background-color: #b7efb1;
+            color: black;
+        }
+</style>
+<br />
+<br>
+<div class="container" style="padding:1em">
+    <div class="">
+        @foreach (var ite in Model)
+        {
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <h3 style="color:darkblue"><b>@ite.CourseName</b></h3>
+                    <div class="caption">
+                        @{IEnumerable<Sep2018_MVC.Models.Class> listclass = db.Classes.Where(x => x.Course.id == ite.id);
+                            vang = 0;
+                            tre = 0;
+                            co = 0;
+                            phep = 0;
+                            foreach (var clas in listclass)
+                            {
+
+                                <div class="col-sm-6 col-md-4">
+                                    <div class="thumbnail">
+                                        <h4>@clas.ClassName</h4>
+                                        @{
+                                            int listvang = db.AttendanceDetails.Where(x => x.User.Class.ClassName == clas.ClassName && x.FK_AttendanceDetail_Type == 1).Count();
+                                            int listre = db.AttendanceDetails.Where(x => x.User.Class.ClassName == clas.ClassName && x.FK_AttendanceDetail_Type == 4).Count();
+                                            int lisphep = db.AttendanceDetails.Where(x => x.User.Class.ClassName == clas.ClassName && x.FK_AttendanceDetail_Type == 2).Count();
+                                            int lisco = db.AttendanceDetails.Where(x => x.User.Class.ClassName == clas.ClassName && x.FK_AttendanceDetail_Type == 3).Count();
+
+                                            <table id="customers">
+                                                <tr>
+                                                    <th>Vắng</th>
+                                                    <th>@listvang</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>Trễ</th>
+                                                    <th>@listre</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>Phép</th>
+                                                    <th>@lisphep</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>Có</th>
+                                                    <th>@lisco</th>
+                                                </tr>
+                                            </table>
+                                            vang += listvang;
+                                            tre += listre;
+                                            phep += lisphep;
+                                            co += lisco;
+                                        }
+                                    </div>
+                                </div>
+                            }
+                        }
+                        <span style="color:black"><i>Vắng     : @vang</i></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span style="color:orangered"><i>Trễ      :@phep</i></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span style="color:darkred"><i>Phép     :@tre</i></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span style="color:green"><i>Có :@co</i></span>
+
+                    </div>
+                    
+                </div>
+            </div>
+
+        }
+    </div>
+</div>
+
