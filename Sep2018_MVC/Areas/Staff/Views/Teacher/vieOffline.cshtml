@@ -53,6 +53,12 @@
         transition: 0.5s;
         transform: translateY(0);
     }
+    .color_a {
+        color: red;
+    }
+    .sub_rev_time > ul{
+        color:red;
+    }
 </style>
 <h2>Attendance Offline</h2>
 
@@ -82,7 +88,7 @@
                             @foreach (var subim in ScheDetail.Where(s => s.Schedule.FK_Course == item.id).ToList())
                             {
                                 <li>
-                                    <a href="~/Staff/Teacher/RevOffline/?id_ScheDetail=@subim.id&&id_Class=@db.Learnings.FirstOrDefault(s => s.id == subim.FK_Learning).Class.id&&id_subject=@db.Learnings.FirstOrDefault(s => s.id == subim.FK_Learning).Subject.id&&id_course=@item.id">
+                                    <a class="color_a " href="~/Staff/Teacher/RevOffline/?id_ScheDetail=@subim.id&&id_Class=@db.Learnings.FirstOrDefault(s => s.id == subim.FK_Learning).Class.id&&id_subject=@db.Learnings.FirstOrDefault(s => s.id == subim.FK_Learning).Subject.id&&id_course=@item.id">
                                         @item.CourseName@db.Learnings.FirstOrDefault(s => s.id == subim.FK_Learning).Class.ClassName
                                         @db.Learnings.FirstOrDefault(s => s.id == subim.FK_Learning).Subject.SubjectName
                                     </a>
