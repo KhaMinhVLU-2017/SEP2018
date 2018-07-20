@@ -213,3 +213,5 @@ D:\Learning School\THe Thrid\HKII\SEP\SEP2018\Sep2018_MVC\bin\Microsoft.Owin.xml
 D:\Learning School\THe Thrid\HKII\SEP\SEP2018\Sep2018_MVC\bin\Microsoft.Owin.Security.xml
 D:\Learning School\THe Thrid\HKII\SEP\SEP2018\Sep2018_MVC\bin\Microsoft.Owin.Security.Cookies.xml
 D:\Learning School\THe Thrid\HKII\SEP\SEP2018\Sep2018_MVC\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Learning School\THe Thrid\HKII\SEP\SEP2018\Sep2018_MVC\bin\EPPlus.dll
+D:\Learning School\THe Thrid\HKII\SEP\SEP2018\Sep2018_MVC\bin\EPPlus.xml

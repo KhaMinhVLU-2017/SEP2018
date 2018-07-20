@@ -39,20 +39,25 @@ else
                         <h2>Attendance's History</h2>
                     </div>
                     <div class="col-md-6">
-                        @using (Html.BeginForm("ImportExcel", "Teacher", FormMethod.Post, new { enctype = "multipart/form-data" }))
-                        {
-                            @Html.Raw(ViewBag.Error)
-                            <input name="id_ScheDe" value="@id_ScheDetail" type="hidden" />
-                            <input name="id_Course" value="@id_course" type="hidden" />
-                            <input name="id_Class" value="@id_class" type="hidden" />
-                            <input name="id_Subject" value="@id_subject" type="hidden" />
-                            <div class="col-md-6">
-                                <input class="col-md-10 btn" type="file" name="excelfile" accept=".xls,.xlsx" />
-                            </div>
-                            <div class="ol-md-6">
-                                <button class="btn btn-success" type="submit" value="Import">ImportExcel</button>
-                            </div>
-                        }
+                        <div class="col-md-4">
+                            <a class="btn btn-primary" href="~/staff/export/excel/?id_course=@id_course&&id_Class=@id_class&&id_subject=@id_subject">DownloadFileExcel</a>
+                        </div>
+                        <div class="col-md-8">
+                            @using (Html.BeginForm("ImportExcel", "Teacher", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            {
+                                @Html.Raw(ViewBag.Error)
+                                <input name="id_ScheDe" value="@id_ScheDetail" type="hidden" />
+                                <input name="id_Course" value="@id_course" type="hidden" />
+                                <input name="id_Class" value="@id_class" type="hidden" />
+                                <input name="id_Subject" value="@id_subject" type="hidden" />
+                                <div class="col-md-6">
+                                    <input class="col-md-10 btn" type="file" name="excelfile" accept=".xls,.xlsx" />
+                                </div>
+                                <div class="ol-md-6">
+                                    <button class="btn btn-success" type="submit" value="Import">ImportExcel</button>
+                                </div>
+                            }
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-12">

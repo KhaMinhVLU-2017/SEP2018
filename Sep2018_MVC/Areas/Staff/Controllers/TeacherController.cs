@@ -326,6 +326,9 @@ namespace Sep2018_MVC.Areas.Staff.Controllers
                         }
                     
                     }
+                    workbook.Close(false);
+                    application.Quit();
+                    System.IO.File.Delete(path);
                     return Redirect("~/Staff/Teacher/RevOffline/?id_ScheDetail=" + id_ScheDe + "&&id_Class=" + id_Class + "&&id_subject=" + id_Subject + "&&id_course=" + id_Course);
                 }
                 else

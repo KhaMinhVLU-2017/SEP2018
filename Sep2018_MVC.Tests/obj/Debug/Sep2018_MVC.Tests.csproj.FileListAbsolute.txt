@@ -112,3 +112,5 @@ D:\Learning School\THe Thrid\HKII\SEP\SEP2018\Sep2018_MVC.Tests\bin\Debug\System
 D:\Learning School\THe Thrid\HKII\SEP\SEP2018\Sep2018_MVC.Tests\bin\Debug\System.Web.WebPages.Razor.xml
 D:\Learning School\THe Thrid\HKII\SEP\SEP2018\Sep2018_MVC.Tests\bin\Debug\System.Web.Optimization.xml
 D:\Learning School\THe Thrid\HKII\SEP\SEP2018\Sep2018_MVC.Tests\obj\Debug\Sep2018_MVC.Tests.csproj.CopyComplete
+D:\Learning School\THe Thrid\HKII\SEP\SEP2018\Sep2018_MVC.Tests\bin\Debug\EPPlus.dll
+D:\Learning School\THe Thrid\HKII\SEP\SEP2018\Sep2018_MVC.Tests\bin\Debug\EPPlus.xml
