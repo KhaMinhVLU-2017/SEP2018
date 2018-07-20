@@ -33,7 +33,7 @@ namespace Sep2018_MVC.ExcelHander
                 #region Report Header
                 sheet.Cells[2, 3, 3, 9].Merge = true;
                 cell = sheet.Cells[2, 3];
-                cell.Value = "ListAttendance for Student:"+ db.Subjects.Find(id_subject).SubjectName +" - "+ db.Courses.Find(id_course).CourseName;
+                cell.Value = "ListAttendance for Student:"+ db.Subjects.Find(id_subject).SubjectName +" - "+ db.Courses.Find(id_course).CourseName+db.Classes.Find(id_Class).ClassName;
                 cell.Style.Font.Bold = true;
                 cell.Style.Font.Size = 18;
                 cell.Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center;
