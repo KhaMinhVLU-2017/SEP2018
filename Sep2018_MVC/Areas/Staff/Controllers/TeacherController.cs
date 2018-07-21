@@ -14,7 +14,7 @@ namespace Sep2018_MVC.Areas.Staff.Controllers
     [Authorize (Roles ="Giao Vien")]
     public class TeacherController : Controller
     {
-
+   
         //SEP_2018_T6Entities db = new SEP_2018_T6Entities();
 
         // GET: Admin/Staff

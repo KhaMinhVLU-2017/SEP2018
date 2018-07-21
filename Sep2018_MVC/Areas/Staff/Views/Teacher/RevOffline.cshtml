@@ -1,4 +1,5 @@
 ﻿@using Sep2018_MVC.Models
+@using System
 @model List<Attendance>
 @{
     ViewBag.Title = "Offline";
@@ -69,7 +70,7 @@ else
                                 <th>Student</th>
                                 @foreach (var item in Model)
                                 {
-                                    <th>@item.Date</th>
+                                <th>@item.Date.Value.ToShortDateString()</th>
                                 }
                                 @*<th>Begin Time</th>
                                     <th>End Time</th>*@
