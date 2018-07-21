@@ -1,7 +1,10 @@
-﻿
+﻿@using Sep2018_MVC.Models
+@model List<Attendance>
 @{
     ViewBag.Title = "Notifi";
     Layout = "~/Areas/Staff/Views/Shared/_layoutAdmin.cshtml";
+    string session = Session["id_user"].ToString();
+    SEP_2018_T6Entities1 db = new SEP_2018_T6Entities1();
 }
 
 <div class="container-fluid">
@@ -13,123 +16,21 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 noti_first">
-                    <div class="col-md-12 ">
-                        <div class="col-md-1">
-                            <img style="width: 50px;height: 50px;" class="img-circle" src="/images/bannerleft.jpg">
-                        </div>
-                        <div class="col-md-11">
-                            <p><strong>Caculus 1</strong> Hôm nay bạn có tiết lên lớp. Nhớ điểm danh nhé...!</p>
-                            <p><img src="/images/notification.png">&ensp;<span>Khoảng 36 phút trước</span></p>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="col-md-1">
-                            <img style="width: 50px;height: 50px;" class="img-circle" src="/images/bannerleft.jpg">
-                        </div>
-                        <div class="col-md-11">
-                            <p><strong>Caculus 1</strong> Hôm nay bạn có tiết lên lớp. Nhớ điểm danh nhé...!</p>
-                            <p><img src="/images/notification.png">&ensp;<span>Khoảng 36 phút trước</span></p>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="col-md-1">
-                            <img style="width: 50px;height: 50px;" class="img-circle" src="/images/bannerleft.jpg">
-                        </div>
-                        <div class="col-md-11">
-                            <p><strong>Caculus 1</strong> Hôm nay bạn có tiết lên lớp. Nhớ điểm danh nhé...!</p>
-                            <p><img src="/images/notification.png">&ensp;<span>Khoảng 36 phút trước</span></p>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="col-md-1">
-                            <img style="width: 50px;height: 50px;" class="img-circle" src="/images/bannerleft.jpg">
-                        </div>
-                        <div class="col-md-11">
-                            <p><strong>Caculus 1</strong> Hôm nay bạn có tiết lên lớp. Nhớ điểm danh nhé...!</p>
-                            <p><img src="/images/notification.png">&ensp;<span>Khoảng 36 phút trước</span></p>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="col-md-1">
-                            <img style="width: 50px;height: 50px;" class="img-circle" src="/images/bannerleft.jpg">
-                        </div>
-                        <div class="col-md-11">
-                            <p><strong>Caculus 1</strong> Hôm nay bạn có tiết lên lớp. Nhớ điểm danh nhé...!</p>
-                            <p><img src="/images/notification.png">&ensp;<span>Khoảng 36 phút trước</span></p>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="col-md-1">
-                            <img style="width: 50px;height: 50px;" class="img-circle" src="/images/bannerleft.jpg">
-                        </div>
-                        <div class="col-md-11">
-                            <p><strong>Caculus 1</strong> Hôm nay bạn có tiết lên lớp. Nhớ điểm danh nhé...!</p>
-                            <p><img src="/images/notification.png">&ensp;<span>Khoảng 36 phút trước</span></p>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="col-md-1">
-                            <img style="width: 50px;height: 50px;" class="img-circle" src="/images/bannerleft.jpg">
-                        </div>
-                        <div class="col-md-11">
-                            <p><strong>Caculus 1</strong> Hôm nay bạn có tiết lên lớp. Nhớ điểm danh nhé...!</p>
-                            <p><img src="/images/notification.png">&ensp;<span>Khoảng 36 phút trước</span></p>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="col-md-1">
-                            <img style="width: 50px;height: 50px;" class="img-circle" src="/images/bannerleft.jpg">
-                        </div>
-                        <div class="col-md-11">
-                            <p><strong>Caculus 1</strong> Hôm nay bạn có tiết lên lớp. Nhớ điểm danh nhé...!</p>
-                            <p><img src="/images/notification.png">&ensp;<span>Khoảng 36 phút trước</span></p>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="col-md-1">
-                            <img style="width: 50px;height: 50px;" class="img-circle" src="/images/bannerleft.jpg">
-                        </div>
-                        <div class="col-md-11">
-                            <p><strong>Caculus 1</strong> Hôm nay bạn có tiết lên lớp. Nhớ điểm danh nhé...!</p>
-                            <p><img src="/images/notification.png">&ensp;<span>Khoảng 36 phút trước</span></p>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="col-md-1">
-                            <img style="width: 50px;height: 50px;" class="img-circle" src="/images/bannerleft.jpg">
-                        </div>
-                        <div class="col-md-11">
-                            <p><strong>Caculus 1</strong> Hôm nay bạn có tiết lên lớp. Nhớ điểm danh nhé...!</p>
-                            <p><img src="/images/notification.png">&ensp;<span>Khoảng 36 phút trước</span></p>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="col-md-1">
-                            <img style="width: 50px;height: 50px;" class="img-circle" src="/images/bannerleft.jpg">
-                        </div>
-                        <div class="col-md-11">
-                            <p><strong>Caculus 1</strong> Hôm nay bạn có tiết lên lớp. Nhớ điểm danh nhé...!</p>
-                            <p><img src="/images/notification.png">&ensp;<span>Khoảng 36 phút trước</span></p>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="col-md-1">
-                            <img style="width: 50px;height: 50px;" class="img-circle" src="/images/bannerleft.jpg">
-                        </div>
-                        <div class="col-md-11">
-                            <p><strong>Caculus 1</strong> Hôm nay bạn có tiết lên lớp. Nhớ điểm danh nhé...!</p>
-                            <p><img src="/images/notification.png">&ensp;<span>Khoảng 36 phút trước</span></p>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="col-md-1">
-                            <img style="width: 50px;height: 50px;" class="img-circle" src="/images/bannerleft.jpg">
-                        </div>
-                        <div class="col-md-11">
-                            <p><strong>Caculus 1</strong> Hôm nay bạn có tiết lên lớp. Nhớ điểm danh nhé...!</p>
-                            <p><img src="/images/notification.png">&ensp;<span>Khoảng 36 phút trước</span></p>
-                        </div>
-                    </div>
+                    @foreach (var item in Model)
+                    {
+                        if (item.ScheduleDetail.FK_User_GV == session)
+                        {
+                            <div class="col-md-12 ">
+                                <div class="col-md-1">
+                                    <img style="width: 50px;height: 50px;" class="img-circle" src="/images/bannerleft.jpg">
+                                </div>
+                                <div class="col-md-11">
+                                    <p><strong>@db.Learnings.FirstOrDefault(s => s.id == item.ScheduleDetail.FK_Learning).Subject.SubjectName @db.Classes.Find(@db.Learnings.FirstOrDefault(s => s.id == item.ScheduleDetail.FK_Learning).FK_Class).Course.CourseName@db.Learnings.FirstOrDefault(s => s.id == item.ScheduleDetail.FK_Learning).Class.ClassName</strong> Đã được điểm nhanh rồi nhé...!</p>
+                                    <p><img src="/images/notification.png">&ensp;<span>Điểm danh cách đây @DateTime.Now.Subtract(Convert.ToDateTime(@item.Date)).Days Ngày</span></p>
+                                </div>
+                            </div>
+                        }
+                    }
                 </div>
             </div>
         </div>

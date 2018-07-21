@@ -164,7 +164,9 @@ namespace Sep2018_MVC.Areas.Staff.Controllers
         }
         public ActionResult Notifi()
         {
-            return View();
+            List<Attendance> meo = new List<Attendance>();
+            meo = db.Attendances.ToList();
+            return View(meo);
         }
 
         public ActionResult ViewsAttendance(int id)
