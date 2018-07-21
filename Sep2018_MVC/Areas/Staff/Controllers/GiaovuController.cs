@@ -42,13 +42,12 @@ namespace Sep2018_MVC.Areas.Staff.Controllers
         //Trang index của tính năng statistical
         public ActionResult Statistical()
         {
-            IEnumerable<Sep2018_MVC.Models.Course> listyear = db.Courses.ToList();
+            IEnumerable<Sep2018_MVC.Models.Course> listyear = db.Courses.ToList().Where(x => x.ShoolYearEnd.Value.Year <= DateTime.Now.Year);
             return View(listyear);
         }
         [HttpGet]
         public ActionResult StatisticalYear(string year)
         {
-            ViewBag.info = false;
             Session["year"] = year;
             ViewBag.year = year;
             int n = int.Parse(year);
@@ -56,6 +55,13 @@ namespace Sep2018_MVC.Areas.Staff.Controllers
             
             return View(listcourse);
             ViewBag.info = false;
+        }
+        [HttpGet]
+        public ActionResult StatisticalCourse(string course)
+        {
+            ViewBag.course = course;
+            IEnumerable<Sep2018_MVC.Models.AttendanceDetail> listattendance = db.AttendanceDetails.Where(x => x.Attendance.ScheduleDetail.Learning.Subject.SubjectName == course);
+            return View(listattendance);
         }
     }
 }

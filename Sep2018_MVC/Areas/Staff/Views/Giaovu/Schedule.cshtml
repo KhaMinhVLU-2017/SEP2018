@@ -59,7 +59,7 @@
             <tr>
                 <td><strong>1</strong></td>
                 <td rowspan="3">
-                    <span class="monhoc">SEP</span><br />
+                    <span class="monhoc">@Html.ActionLink("SEP","StatisticalCourse",new { course = "SEP" })</span><br />
                     <span class="giaovien">Ts.Tran Cong Thanh</span><br />
                     <span class="phong">703B</span>
                 </td>
@@ -74,14 +74,14 @@
                         <span class="phong">703B</span>*@
                 </td>
                 <td rowspan="3">
-                    <span class="monhoc">C#</span><br />
-                    <span class="giaovien">Ts.Tran Cong Thanh</span><br />
+                    <span class="monhoc">@Html.ActionLink("Quản Trị Doanh Nghiệp", "StatisticalCourse", new { course = "Quản Trị Doanh Nghiệp" })</span><br />
+                    <span class="giaovien">Ts.Ngoc Duy</span><br />
                     <span class="phong">703B</span>
                 </td>
                 <td rowspan="3">
-                    <span class="monhoc">Measurement-Software</span><br />
-                    <span class="giaovien">Ts.Tran Cong Thanh</span><br />
-                    <span class="phong">703B</span>
+                    <span class="monhoc">@Html.ActionLink("Software Mesurement", "StatisticalCourse", new { course = "Software Mesurement" })</span><br />
+                    <span class="giaovien">Ts.Tran Tien</span><br />
+                    <span class="phong">803B</span>
                 </td>
                 <td>
                     @*<span class="monhoc">SEP</span><br />
@@ -161,39 +161,39 @@
                 <td><strong>4</strong></td>
 
                 <td rowspan="3">
-                    <span class="monhoc">C#</span><br />
-                    <span class="giaovien">Ts.Tran Cong Thanh</span><br />
+                    <span class="monhoc">@Html.ActionLink("Quản Trị Doanh Nghiệp", "StatisticalCourse", new { course = "Quản Trị Doanh Nghiệp" })</span><br />
+                    <span class="giaovien">Ts.Ngoc Duy</span><br />
+                    <span class="phong">702B</span>
+                </td>
+
+                <td rowspan="3">
+                    <span class="monhoc">@Html.ActionLink("Software Mesurement", "StatisticalCourse", new { course = "Software Mesurement" })</span><br />
+                    <span class="giaovien">Ts.Nguyen The Quang</span><br />
                     <span class="phong">703B</span>
                 </td>
 
                 <td rowspan="3">
-                    <span class="monhoc">Achitectural Sofware</span><br />
-                    <span class="giaovien">Ts.Tran Cong Thanh</span><br />
-                    <span class="phong">703B</span>
+                    <span class="monhoc">@Html.ActionLink("Tư Tưởng Hồ Chí Minh", "StatisticalCourse", new { course = "Tư Tưởng Hồ Chí Minh" })</span><br />
+                    <span class="giaovien">Ts.Nguyen Thi Phuong Thuy</span><br />
+                    <span class="phong">901A</span>
                 </td>
 
                 <td rowspan="3">
-                    <span class="monhoc">Đường lối đảng cộng sản</span><br />
+                    <span class="monhoc">@Html.ActionLink("Software Mannagerment", "StatisticalCourse", new { course = "Software Mannagerment" })</span><br />
                     <span class="giaovien">Ts.Tran Cong Thanh</span><br />
-                    <span class="phong">703B</span>
+                    <span class="phong">701A</span>
                 </td>
 
                 <td rowspan="3">
-                    <span class="monhoc">SEP</span><br />
-                    <span class="giaovien">Ts.Tran Cong Thanh</span><br />
-                    <span class="phong">703B</span>
+                    <span class="monhoc">@Html.ActionLink("Software Engineering", "StatisticalCourse", new { course = "Software Engineering" })</span><br />
+                    <span class="giaovien">Ts.Nguyen The Quang</span><br />
+                    <span class="phong">702B</span>
                 </td>
 
                 <td rowspan="3">
-                    <span class="monhoc">Achitectural Sofware</span><br />
-                    <span class="giaovien">Ts.Tran Cong Thanh</span><br />
-                    <span class="phong">703B</span>
-                </td>
-
-                <td rowspan="3">
-                    <span class="monhoc">Chủ nghĩa Mác-Lenin</span><br />
-                    <span class="giaovien">Ts.Tran Cong Thanh</span><br />
-                    <span class="phong">703B</span>
+                    <span class="monhoc">@Html.ActionLink("Chủ Nghĩa Mac Lênin", "StatisticalCourse", new { course = "Chủ Nghĩa Mac Lênin" })</span><br />
+                    <span class="giaovien">Ts.Dang Tuan Minh</span><br />
+                    <span class="phong">901A</span>
                 </td>
             </tr>
             <tr>
@@ -399,8 +399,8 @@
                 </td>
 
                 <td rowspan="3">
-                    <span class="monhoc">Measurement-Software</span><br />
-                    <span class="giaovien">Ts.Tran Cong Thanh</span><br />
+                    <span class="monhoc">@Html.ActionLink("Software Mannagerment", "StatisticalCourse", new { course = "Software Mannagerment" })</span><br />
+                    <span class="giaovien">Ts.Tran Tien</span><br />
                     <span class="phong">703B</span>
                 </td>
 
@@ -423,9 +423,9 @@
                 </td>
 
                 <td rowspan="3">
-                    <span class="monhoc">Calculus 1</span><br />
-                    <span class="giaovien">Ts.Tran Cong Thanh</span><br />
-                    <span class="phong">703B</span>
+                    <span class="monhoc">@Html.ActionLink("Software Testing", "StatisticalCourse", new { course = "Software Testing" })</span><br />
+                    <span class="giaovien">Ts.Phan Thi Hong</span><br />
+                    <span class="phong">701A</span>
                 </td>
             </tr>
             <tr>
